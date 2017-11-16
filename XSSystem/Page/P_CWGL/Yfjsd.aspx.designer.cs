@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace XSSystem.Page.P_Order {
+namespace XSSystem.Page.P_CWGL {
     
     
-    public partial class cghydlr {
+    public partial class Yfjsd {
         
         /// <summary>
         /// form1 控件。
@@ -22,67 +22,67 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// hydbh 控件。
+        /// jsrq 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hydbh;
+        protected global::System.Web.UI.WebControls.TextBox jsrq;
         
         /// <summary>
-        /// hyrq 控件。
+        /// dh 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hyrq;
+        protected global::System.Web.UI.WebControls.TextBox dh;
         
         /// <summary>
-        /// gys 控件。
+        /// gys0 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gys;
+        protected global::System.Web.UI.WebControls.TextBox gys0;
         
         /// <summary>
-        /// mkmc 控件。
+        /// sp 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mkmc;
+        protected global::System.Web.UI.WebControls.TextBox sp;
         
         /// <summary>
-        /// wlmc 控件。
+        /// fh 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wlmc;
+        protected global::System.Web.UI.WebControls.TextBox fh;
         
         /// <summary>
-        /// cyr 控件。
+        /// skr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cyr;
+        protected global::System.Web.UI.WebControls.TextBox skr;
         
         /// <summary>
-        /// hyr 控件。
+        /// skqmr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hyr;
+        protected global::System.Web.UI.WebControls.TextBox skqmr;
         
         /// <summary>
         /// submit 控件。

@@ -12,7 +12,7 @@ namespace XSSystem.Page.P_Order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            InitGridView1();
         }
 
         public void InitGridView1()

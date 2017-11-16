@@ -21,9 +21,9 @@ namespace XSSystem.Page.P_Order
             dt.Columns.Add("xh");
             dt.Columns.Add("gsmc");
             dt.Columns.Add("dfhth");
+            dt.Columns.Add("kplx");
             dt.Columns.Add("zbxsf");
             dt.Columns.Add("dlf");
-            dt.Columns.Add("gdt");
             dt.Columns.Add("zxf");
             dt.Columns.Add("sfzdd");
             dt.Columns.Add("tlyf");

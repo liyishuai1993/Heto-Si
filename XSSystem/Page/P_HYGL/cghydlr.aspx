@@ -37,7 +37,7 @@
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*化验单编号<asp:TextBox ID="hydbh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">*化验日期<asp:TextBox id="hyrq" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">*化验日期<asp:TextBox ID="hyrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td>                                    
                 </tr>
                 <tr>
                     <td class="auto-style3">供应商<asp:TextBox id="gys" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>

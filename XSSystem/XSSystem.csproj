@@ -964,6 +964,7 @@
     <Content Include="Page\P_CWGL\Jxfpqsd.aspx" />
     <Content Include="Page\P_CWGL\Txcxzz.aspx" />
     <Content Include="Page\P_CWGL\Xxfpyjd.aspx" />
+    <Content Include="Page\P_CWGL\Yfjsd.aspx" />
     <Content Include="Page\P_Hire\Hire.aspx" />
     <Content Include="Page\P_Hire\HireTemplate.aspx" />
     <Content Include="Page\P_Hire\Hire_Add.aspx" />
@@ -1088,6 +1089,13 @@
     </Compile>
     <Compile Include="Page\P_CWGL\Xxfpyjd.aspx.designer.cs">
       <DependentUpon>Xxfpyjd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Yfjsd.aspx.cs">
+      <DependentUpon>Yfjsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Yfjsd.aspx.designer.cs">
+      <DependentUpon>Yfjsd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_Hire\Hire.aspx.cs">
       <DependentUpon>Hire.aspx</DependentUpon>
