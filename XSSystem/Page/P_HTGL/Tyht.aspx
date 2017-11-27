@@ -111,7 +111,7 @@
                         <asp:BoundField HeaderText="代理费(元/组)" DataField="dlf" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="装箱费(吨)" DataField="zxf" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="装箱费(元/吨)" DataField="zxf" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField HeaderText="始发站倒短(元/吨)" DataField="sfzdd" HeaderStyle-Width="10%" >

@@ -76,8 +76,9 @@
                     <td class="auto-style3">已付油卡<asp:TextBox id="yfyk" runat="server" Height="16px" Width ="500px"></asp:TextBox></td>
                 </tr>
                 <tr>
+                    <td class="auto-style3">运价<asp:TextBox id="yj" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
                     <td class="auto-style3">付卡账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3"></td>
+                    
                 </tr>
 
             </table>     

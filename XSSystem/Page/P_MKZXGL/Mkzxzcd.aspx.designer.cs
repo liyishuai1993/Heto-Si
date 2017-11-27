@@ -40,13 +40,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox zcsj;
         
         /// <summary>
-        /// ghfkplx 控件。
+        /// cghth 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ghfkplx;
+        protected global::System.Web.UI.WebControls.TextBox cghth;
         
         /// <summary>
         /// ghf 控件。
@@ -67,13 +67,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox shf;
         
         /// <summary>
-        /// shfkplx 控件。
+        /// mkmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox shfkplx;
+        protected global::System.Web.UI.WebControls.TextBox mkmc;
         
         /// <summary>
         /// wlmc 控件。

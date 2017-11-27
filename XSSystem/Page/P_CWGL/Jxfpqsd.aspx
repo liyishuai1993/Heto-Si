@@ -20,7 +20,7 @@
         .Wdate {}
         .auto-style4 {
             height:20px;
-            width:1200px;
+            width:400px;
             text-align:left;
         }
         .auto-style5 {
@@ -67,7 +67,10 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">含印花税合计<asp:TextBox id="hyhshj" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3" colspan="2">备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="287px"></asp:TextBox></td>
+                    <td class="auto-style3">备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="287px"></asp:TextBox></td>
+                    <td class="auto-style4">
+                        <asp:CheckBox ID="是否收取" runat="server" TextAlign="Left" />
+                    </td>
                 </tr>
 
             </table>            

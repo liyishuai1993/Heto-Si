@@ -41,14 +41,14 @@
                     <td class="auto-style3">*装车时间
                         <asp:TextBox ID="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">供货方开票类型<asp:TextBox id="ghfkplx" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
+                    <td class="auto-style3">采购合同号<asp:TextBox id="cghth" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
                     
 
                 </tr>
                 <tr>
                     <td class="auto-style3">*供货方<asp:TextBox id="ghf" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">*收货方<asp:TextBox id="shf" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3">收货方开票类型<asp:TextBox id="shfkplx" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
+                    <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
