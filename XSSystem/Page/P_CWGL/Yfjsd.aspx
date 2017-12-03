@@ -26,6 +26,10 @@
             width:auto;
             text-align:center;
         }
+        .auto-style6 {
+            height: 20px;
+            text-align: center;
+        }
         </style>
 </head>
 <body>
@@ -36,45 +40,29 @@
                 单号：<asp:TextBox ID="dh" runat="server" Height="16px" Width="284px"></asp:TextBox></p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="border-style: solid; width: 1200px" >
                 <tr>
-                    <td class="auto-style4" colspan="15">承运单位：<asp:TextBox id="gys0" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
+                    <td class="auto-style4" colspan="17">承运单位：<asp:TextBox id="gys0" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3" rowspan="2">序号</td>
-                    <td class="auto-style3" rowspan="2">硫单号</td>
-                    <td class="auto-style3" rowspan="2">供应商</td>
-                    <td class="auto-style3" rowspan="2">发货地</td>
-                    <td class="auto-style3" rowspan="2">装车时间</td>
-                    <td class="auto-style3" rowspan="2">收货单位</td>
-                    <td class="auto-style3" rowspan="2">货物名称</td>
+                    <td class="auto-style6" rowspan="2" colspan="2">磅单号</td>
+                    <td class="auto-style3" rowspan="2">装车日期</td>
+                    <td class="auto-style3" rowspan="2">入库日期</td>
                     <td class="auto-style3" rowspan="2">车号</td>
-                    <td class="auto-style3" rowspan="2">发货数量</td>
-                    <td class="auto-style3" rowspan="2">收货数量</td>
-                    <td class="auto-style3" rowspan="2">超操数量</td>
+                    <td class="auto-style3" rowspan="2">装车地</td>
+                    <td class="auto-style3" rowspan="2">收货地</td>
+                    <td class="auto-style3" rowspan="2">货物名称</td>
+                    <td class="auto-style3" rowspan="2">装车净重</td>
+                    <td class="auto-style3" rowspan="2">入库净重</td>
+                    <td class="auto-style3" rowspan="2">删</td>
                     <td class="auto-style3">运费单价</td>
                     <td class="auto-style3" rowspan="2">应付运费</td>
+                    <td class="auto-style3" rowspan="2">已付油卡</td>
                     <td class="auto-style3">扣减款项</td>
                     <td class="auto-style3" rowspan="2">实付运费</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">(元/吨)</td>
                     <td class="auto-style3">超标扣款</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3" colspan="3">合计：</td>
@@ -85,47 +73,37 @@
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3" colspan="2">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3" colspan="2">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style3" colspan="2">抵扣金额：</td>
+                    <td class="auto-style3" colspan="2">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">其他扣款：</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">实付运费：</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style3">大写：</td>
-                    <td class="auto-style3" colspan="3">&nbsp;</td>
-                    <td class="auto-style3" colspan="2">付款方式</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3" colspan="4">&nbsp;</td>
+                    <td class="auto-style3" colspan="3">付款方式</td>
                     <td class="auto-style3" colspan="2">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style3" colspan="2">付款开户行：</td>
                     <td class="auto-style3" colspan="2">&nbsp;</td>
-                    <td class="auto-style3">付款账户：</td>
+                    <td class="auto-style3" colspan="2">&nbsp;</td>
+                    <td class="auto-style3">收款账户编号：</td>
                     <td class="auto-style3" colspan="3">&nbsp;</td>
-                    <td class="auto-style3">付款账号：</td>
-                    <td class="auto-style3" colspan="2">&nbsp;</td>
-                    <td class="auto-style3" colspan="2">附件张数：</td>
-                    <td class="auto-style3" colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3" colspan="2">收款银行：</td>
-                    <td class="auto-style3" colspan="2">&nbsp;</td>
-                    <td class="auto-style3">收款账户：</td>
+                    <td class="auto-style3">付款账户名称：</td>
                     <td class="auto-style3" colspan="3">&nbsp;</td>
-                    <td class="auto-style3">卡号：</td>
-                    <td class="auto-style3" colspan="2">&nbsp;</td>
-                    <td class="auto-style3" colspan="2">电话：</td>
+                    <td class="auto-style3" colspan="3">附件张数：</td>
                     <td class="auto-style3" colspan="2">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3" colspan="2">备注：</td>
-                    <td class="auto-style3" colspan="13">&nbsp;</td>
+                    <td class="auto-style3" colspan="15">&nbsp;</td>
                 </tr>
                              
             </table>     
