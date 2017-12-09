@@ -167,7 +167,7 @@
                 <tr>
                     <td class="auto-style3" colspan="2">&nbsp;</td>
                     <td class="auto-style3" colspan="2">&nbsp;</td>
-                    <td class="auto-style3">收款账户编号：</td>
+                    <td class="auto-style3">付款账户编号：</td>
                     <td class="auto-style3" colspan="3">&nbsp;</td>
                     <td class="auto-style3">付款账户名称：</td>
                     <td class="auto-style3" colspan="2">&nbsp;</td>

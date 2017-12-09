@@ -86,7 +86,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">收款单位<asp:TextBox id="zjjs_fymc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3">收购账户<asp:TextBox id="zjjs_je" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
+                    <td class="auto-style3">收款账户<asp:TextBox id="zjjs_je" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                     <td class="auto-style3">实收金额<asp:TextBox id="zjjs_zh" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                 </tr>
             </table>     

@@ -70,7 +70,7 @@
         <div>
             <p>入场信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px" >
-                <tr class="auto-style3"><td class="auto-style3">装车日期<asp:TextBox ID="TextBox1" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td></tr>
+                <tr class="auto-style3"><td class="auto-style3">入库日期<asp:TextBox ID="TextBox1" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td></tr>
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">入库煤场<asp:TextBox ID="rkmc" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
