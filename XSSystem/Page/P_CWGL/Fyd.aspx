@@ -93,6 +93,9 @@
         </div>
 
         <p class="auto-style7">
+
+            <asp:CheckBox ID="CheckBox1" runat="server" Text="付款状态" TextAlign="Left" />
+
             合计金额<asp:TextBox id="hjje" runat="server" Height="16px" Width ="80px"></asp:TextBox>
             付款账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="80px"></asp:TextBox>
             实付金额<asp:TextBox id="sfje" runat="server" Height="16px" Width ="80px"></asp:TextBox>

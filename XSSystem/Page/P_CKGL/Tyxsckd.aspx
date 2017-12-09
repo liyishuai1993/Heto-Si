@@ -80,6 +80,9 @@
                         <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
+                        <asp:BoundField HeaderText="箱号" DataField="xhao" HeaderStyle-Width="10%" >
+<HeaderStyle Width="10%"></HeaderStyle>
+                        </asp:BoundField>
                         <asp:BoundField HeaderText="上箱吨数" DataField="sxds" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
@@ -118,7 +121,7 @@
                         </asp:BoundField>
                         <asp:BoundField HeaderText="到站-煤场倒短费(元/组)" DataField="dzmcddf" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>
-                        <asp:BoundField HeaderText="到站代理费" DataField="dzdlf" HeaderStyle-Width="5%" >
+                        <asp:BoundField HeaderText="到站代理费(元/吨)" DataField="dzdlf" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>
                         <asp:BoundField HeaderText="铁路运费小计" DataField="tlyfxj" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>

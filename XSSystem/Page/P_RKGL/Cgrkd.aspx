@@ -18,11 +18,6 @@
             text-align:right;
             }
         .Wdate {}
-        .auto-style4 {
-            height:20px;
-            width:1200px;
-            text-align:left;
-        }
         .auto-style5 {
             height:auto;
             width:auto;
@@ -75,6 +70,7 @@
         <div>
             <p>入场信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px" >
+                <tr class="auto-style3"><td class="auto-style3">装车日期<asp:TextBox ID="TextBox1" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td></tr>
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">入库煤场<asp:TextBox ID="rkmc" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
@@ -85,10 +81,10 @@
                     <td class="auto-style3">入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">亏损吨数<asp:TextBox id="ksds" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">盈余吨数<asp:TextBox id="yyds" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
-                    <td class="auto-style3">运输路耗标准<asp:TextBox id="yslhbz" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
+                    <td class="auto-style3">运输路耗标准(吨)<asp:TextBox id="yslhbz" runat="server" Height="16px" Width ="253px"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">扣款标准<asp:TextBox id="kkbz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">扣款标准（元/吨）<asp:TextBox id="kkbz" runat="server" Height="16px" Width ="248px"></asp:TextBox> </td>
                     <td class="auto-style3">扣亏吨数<asp:TextBox id="kkdz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">扣亏金额<asp:TextBox id="kkje" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                     <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>

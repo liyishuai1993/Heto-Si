@@ -66,16 +66,18 @@
                     <td class="auto-style3">应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
                 </tr>
                 <tr>
+                    <td class="auto-style3">费用扣款(手续费、卸车费)<asp:TextBox id="fykk" runat="server" Height="16px" Width ="370px"></asp:TextBox></td> 
                     <td class="auto-style3">结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">调入金额<asp:TextBox id="drje" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
+                    
                 </tr>
                 <tr>
+                    <td class="auto-style3">调入金额<asp:TextBox id="drje" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
                     <td class="auto-style3">调入煤价<asp:TextBox id="drmj" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">运费结算状态<asp:TextBox id="yfjszt" runat="server" Height="16px" Width ="487px" CssClass="auto-style4"></asp:TextBox></td>
+                    
                 </tr>
                 <tr>
                     <td class="auto-style3">审核状态<asp:TextBox id="shzt" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style3">运费结算状态<asp:TextBox id="yfjszt" runat="server" Height="16px" Width ="487px" CssClass="auto-style4"></asp:TextBox></td>
                 </tr>
 
             </table>     

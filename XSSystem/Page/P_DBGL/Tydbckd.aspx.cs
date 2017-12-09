@@ -27,7 +27,7 @@ namespace XSSystem.Page.P_Order
             dt.Columns.Add("dcmj");
             dt.Columns.Add("xhds");
             dt.Columns.Add("dzrq");
-            dt.Columns.Add("jshk");
+            dt.Columns.Add("xhck");
             dt.Columns.Add("zbxsf");
             dt.Columns.Add("fzdlf");
             dt.Columns.Add("fzzxf");

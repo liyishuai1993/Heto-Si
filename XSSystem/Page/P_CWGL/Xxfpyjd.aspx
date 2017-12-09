@@ -70,7 +70,7 @@
                     <td class="auto-style3">快递单号<asp:TextBox id="kddh" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                     <td class="auto-style4">
-                        <asp:CheckBox ID="是否收取" runat="server" TextAlign="Left" />
+                        <asp:CheckBox ID="sqzt" runat="server" TextAlign="Left" Text="是否收取" />
                     </td>
                 </tr>
 

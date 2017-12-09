@@ -20,6 +20,7 @@ namespace XSSystem.Page.P_Order
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("xh");
+            dt.Columns.Add("xhao");
             dt.Columns.Add("sxds");
             dt.Columns.Add("zxrq");
             dt.Columns.Add("fcrq");

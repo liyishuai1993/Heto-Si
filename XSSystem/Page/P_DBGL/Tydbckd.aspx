@@ -88,7 +88,7 @@
                         <asp:BoundField HeaderText="到站日期" DataField="dzrq" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="结算货款" DataField="jshk" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="卸货仓库" DataField="xhck" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField HeaderText="自备箱使费(元/组)" DataField="zbxsf" HeaderStyle-Width="5%" >
@@ -111,7 +111,7 @@
                         </asp:BoundField>
                         <asp:BoundField HeaderText="到站-煤场倒短费(元/组)" DataField="dzmcddf" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>
-                        <asp:BoundField HeaderText="到站代理费" DataField="dzdlf" HeaderStyle-Width="5%" >
+                        <asp:BoundField HeaderText="到站代理费(元/组)" DataField="dzdlf" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>
                         <asp:BoundField HeaderText="调入煤价" DataField="drmj" HeaderStyle-Width="5%" >
 <HeaderStyle Width="5%"></HeaderStyle></asp:BoundField>
