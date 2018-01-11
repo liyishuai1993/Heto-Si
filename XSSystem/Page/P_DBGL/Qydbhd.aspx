@@ -47,7 +47,7 @@
                     <td class="auto-style3">*入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">亏损吨数<asp:TextBox id="ksdw" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">亏损吨数<asp:TextBox id="ksds" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                     <td class="auto-style3">盈余吨数<asp:TextBox id="yyds" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">运费扣亏吨数<asp:TextBox id="yfkkdw" runat="server" Height="16px" Width ="485px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">运费扣亏吨数<asp:TextBox id="yfkkds" runat="server" Height="16px" Width ="485px" CssClass="auto-style4"></asp:TextBox> </td>
                     <td class="auto-style3">运费扣款金额<asp:TextBox id="yfkkje" runat="server" Height="16px" Width ="485px"></asp:TextBox> 
                     </td>
                 </tr>

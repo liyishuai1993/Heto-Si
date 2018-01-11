@@ -83,7 +83,7 @@
                     <td class="auto-style3">交货时间 <asp:TextBox ID="jhsjQ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
                         <asp:TextBox ID="jhsjZ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">货款结算方式<asp:DropDownList id="hkfkfs" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3">货款结算方式<asp:DropDownList id="hkjsfs" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>现金</asp:ListItem>
                         <asp:ListItem>电汇</asp:ListItem>
                         <asp:ListItem>承兑汇票</asp:ListItem>
@@ -249,7 +249,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

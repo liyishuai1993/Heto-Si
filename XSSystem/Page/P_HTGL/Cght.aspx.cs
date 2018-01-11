@@ -1,75 +1,141 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using xs_System.Logic;
+using xsFramework.Function.Thumbnail;
+using xsFramework.Web.WebPage;
+using System.Data;
+using xsFramework.Web.Login;
+using System.Globalization;
 
 namespace XSSystem.Page.P_Order
 {
-    public partial class Cght : System.Web.UI.Page
+    public partial class Cght : AuthWebPage
     {
+        HTGLLogic _htglLogic = new HTGLLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitGridView();
-            InitGridView2();
+            if (!IsPostBack)
+            {
+                InitGridView();
+                InitGridView2();
+            }
+
+            
         }
 
-
+        static DataTable dtzlbz = new DataTable();
         public void InitGridView() 
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("xh");
-            dt.Columns.Add("mz");
-            dt.Columns.Add("ld");
-            dt.Columns.Add("hf");
-            dt.Columns.Add("hff");
-            dt.Columns.Add("gdt");
-            dt.Columns.Add("njzs");
-            dt.Columns.Add("sf");
-            dt.Columns.Add("tie");
-            dt.Columns.Add("lv");
-            dt.Columns.Add("gai");
-            dt.Columns.Add("lin");
-            dt.Columns.Add("tai");
-            dt.Columns.Add("liu");
+            
+            dtzlbz.Columns.Add("xh");
+            dtzlbz.Columns.Add("mz");
+            dtzlbz.Columns.Add("ld");
+            dtzlbz.Columns.Add("hf");
+            dtzlbz.Columns.Add("hff");
+            dtzlbz.Columns.Add("gdt");
+            dtzlbz.Columns.Add("njzs");
+            dtzlbz.Columns.Add("sf");
+            dtzlbz.Columns.Add("tie");
+            dtzlbz.Columns.Add("lv");
+            dtzlbz.Columns.Add("gai");
+            dtzlbz.Columns.Add("lin");
+            dtzlbz.Columns.Add("tai");
+            dtzlbz.Columns.Add("liu");
 
 
 
-            dt.Rows.Add(dt.NewRow());
-            this.GridView1.DataSource = dt;
-            this.GridView1.DataBind();
+            dtzlbz.Rows.Add(dtzlbz.NewRow());
+            this.GridView_ZLBZ.DataSource = dtzlbz;
+            this.GridView_ZLBZ.DataBind();
 
 
 
         }
 
-
+        static DataTable dtjgxx = new DataTable();
         public void InitGridView2()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("xh");
-            dt.Columns.Add("mkmc");
-            dt.Columns.Add("mzmc");
-            dt.Columns.Add("frl");
-            dt.Columns.Add("lf");
-            dt.Columns.Add("kpmj");
-            dt.Columns.Add("htmj");
-            dt.Columns.Add("ksl");
-            dt.Columns.Add("qdds");
-            dt.Columns.Add("qdje");
-            dt.Columns.Add("zt");
-            dt.Columns.Add("cz");
+            
+            dtjgxx.Columns.Add("xh");
+            dtjgxx.Columns.Add("mkmc");
+            dtjgxx.Columns.Add("mzmc");
+            dtjgxx.Columns.Add("frl");
+            dtjgxx.Columns.Add("lf");
+            dtjgxx.Columns.Add("kpmj");
+            dtjgxx.Columns.Add("htmj");
+            dtjgxx.Columns.Add("ksl");
+            dtjgxx.Columns.Add("qdds");
+            dtjgxx.Columns.Add("qdje");
+            dtjgxx.Columns.Add("zt");
+            dtjgxx.Columns.Add("cz");
 
 
 
-            dt.Rows.Add(dt.NewRow());
-            this.GridView2.DataSource = dt;
-            this.GridView2.DataBind();
+            dtjgxx.Rows.Add(dtjgxx.NewRow());
+            this.GridView_JGXX.DataSource = dtjgxx;
+            this.GridView_JGXX.DataBind();
 
 
 
+        }
+
+        Random ran = new Random();
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@htbh", ran.Next(0, 100000).ToString());// ??????
+            dml.Add("@userid", model.LoginUser);
+            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+            dml.Add("@dfhth", dfhth.Text.Trim());
+            dml.Add("@gfmc",gfmc.Text.Trim());
+            dml.Add("@xfmc", xfmc.Text.Trim());
+            dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
+            dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
+            dml.Add("@hklhbz", hklhbz.Text.Trim());
+            dml.Add("@kpxx", kpxx.SelectedItem.Text.Trim());
+            dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
+            dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
+            dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
+            dml.Add("@jhdd", jhdd.Text.Trim());
+            dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
+            dml.Add("@mkmc", mkmc.Text.Trim());
+            dml.Add("@bz", bz.Text.Trim());
+
+
+            if (_htglLogic.InsertCght(dml))
+            {
+                AlertMessageAndGoTo("新增成功", "Cght.aspx");
+            }
+            //dml.Add("@dzdje", StrToFloat(dzdje.Text.Trim()));
+            //dml.Add("@skje", StrToFloat(skje.Text.Trim()));
+            //dml.Add("@kpje", StrToFloat(kpje.Text.Trim()));
+            //dml.Add("@gsjy", StrToFloat(gsjy.Text.Trim()));
+            //dml.Add("@kphsksj", Convert.ToDateTime(kphsksj.Text));
+        }
+
+        int rownum = 0;
+        DataRow r;
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            r = dtjgxx.NewRow();
+            for (int i = 0; i < 12; i++)
+                r[i] = "text";
+            dtjgxx.Rows.Add(r);
+            //r = dtjgxx.NewRow();
+            //for (int i = 0; i < 12; i++)
+            //    r[i] = "text2";
+            //dtjgxx.Rows.Add(r);
+            // rownum++;
+            GridView_JGXX.DataSource = dtjgxx;
+            GridView_JGXX.DataBind();
         }
     }
 }

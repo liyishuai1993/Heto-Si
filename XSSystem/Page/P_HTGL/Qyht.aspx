@@ -60,7 +60,7 @@
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">开票类型<asp:DropDownList id="kpxx" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3">开票类型<asp:DropDownList id="kplx" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>无票</asp:ListItem>
                         <asp:ListItem>一票</asp:ListItem>
                         <asp:ListItem>两票</asp:ListItem>
@@ -125,7 +125,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">供应商<asp:TextBox id="gys" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
-                    <td class="auto-style3">煤场名称<asp:TextBox id="mkmc" runat="server" Height="16px" Width ="500px"></asp:TextBox></td>
+                    <td class="auto-style3">煤场名称<asp:TextBox id="mcmc" runat="server" Height="16px" Width ="500px"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>

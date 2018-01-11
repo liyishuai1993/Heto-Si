@@ -83,7 +83,7 @@
                 <tr>
                     <td class="auto-style3">业务员<asp:TextBox id="ywy" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                     <td class="auto-style3">运费结算状态<asp:TextBox id="yfjszt" runat="server" Height="16px" Width ="284px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">审核状态<asp:TextBox id="TextBox32" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
+                    <td class="auto-style3">审核状态<asp:TextBox id="shzt" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                     
                 </tr>
 

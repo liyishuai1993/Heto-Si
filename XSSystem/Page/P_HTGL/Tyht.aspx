@@ -61,7 +61,7 @@
                 <tr>
                     <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">物料名称<asp:TextBox id="TextBox2" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">执行期限
                <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
                         <asp:TextBox ID="zxqxZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
@@ -79,7 +79,7 @@
                         <asp:ListItem>自备箱</asp:ListItem>
                        </asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">数量(组)<asp:TextBox id="TextBox3" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3"> </td>
                 </tr>
        
@@ -126,7 +126,7 @@
                         <asp:BoundField HeaderText="到站-煤场倒短费(元/组)" DataField="dzmcddf" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="到站代理费(元/组)" DataField="dddlf" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="到站代理费(元/组)" DataField="dzdlf" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
@@ -148,7 +148,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

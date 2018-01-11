@@ -969,6 +969,12 @@
     <Content Include="Page\P_Hire\HireTemplate.aspx" />
     <Content Include="Page\P_Hire\Hire_Add.aspx" />
     <Content Include="Page\P_Hire\Hire_Update.aspx" />
+    <Content Include="Page\P_HTGL\CghtGl.aspx" />
+    <Content Include="Page\P_HTGL\QyhtGl.aspx" />
+    <Content Include="Page\P_HTGL\TyhtGl.aspx" />
+    <Content Include="Page\P_HTGL\WtjghtGl.aspx" />
+    <Content Include="Page\P_HTGL\XshtGl.aspx" />
+    <Content Include="Page\P_HTGL\ZlhtGl.aspx" />
     <Content Include="Page\P_Leave\Leave.aspx" />
     <Content Include="Page\P_Message\Message.aspx" />
     <Content Include="Page\P_News\New.aspx" />
@@ -1059,7 +1065,7 @@
     <Compile Include="Logic\MenuLogic.cs" />
     <Compile Include="Logic\MessageLogic.cs" />
     <Compile Include="Logic\newsLogic.cs" />
-    <Compile Include="Logic\OrderLogic.cs" />
+    <Compile Include="Logic\HTGLLogic.cs" />
     <Compile Include="Logic\ProductLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Login.aspx.cs">
@@ -1124,6 +1130,48 @@
     </Compile>
     <Compile Include="Page\P_Hire\Hire_Update.aspx.designer.cs">
       <DependentUpon>Hire_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\CghtGl.aspx.cs">
+      <DependentUpon>CghtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\CghtGl.aspx.designer.cs">
+      <DependentUpon>CghtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\QyhtGl.aspx.cs">
+      <DependentUpon>QyhtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\QyhtGl.aspx.designer.cs">
+      <DependentUpon>QyhtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\TyhtGl.aspx.cs">
+      <DependentUpon>TyhtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\TyhtGl.aspx.designer.cs">
+      <DependentUpon>TyhtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\WtjghtGl.aspx.cs">
+      <DependentUpon>WtjghtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\WtjghtGl.aspx.designer.cs">
+      <DependentUpon>WtjghtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\XshtGl.aspx.cs">
+      <DependentUpon>XshtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\XshtGl.aspx.designer.cs">
+      <DependentUpon>XshtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\ZlhtGl.aspx.cs">
+      <DependentUpon>ZlhtGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\ZlhtGl.aspx.designer.cs">
+      <DependentUpon>ZlhtGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_Leave\Leave.aspx.cs">
       <DependentUpon>Leave.aspx</DependentUpon>

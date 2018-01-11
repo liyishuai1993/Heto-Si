@@ -5,11 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using xs_System.Logic;
+using xsFramework.Web.Login;
+using xsFramework.Web.WebPage;
 
 namespace XSSystem.Page.P_Order
 {
-    public partial class Xsht : System.Web.UI.Page
+    public partial class Xsht : AuthWebPage
     {
+        HTGLLogic _htglLogic = new HTGLLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             InitGridView();
@@ -65,6 +70,38 @@ namespace XSSystem.Page.P_Order
 
 
 
+        }
+        Random ran = new Random();
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@htbh", ran.Next(0, 100000).ToString());// ??????
+            dml.Add("@userid", model.LoginUser);
+            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+            dml.Add("@dfhth", dfhth.Text.Trim());
+            dml.Add("@gfmc", gfmc.Text.Trim());
+            dml.Add("@xfmc", xfmc.Text.Trim());
+            dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
+            dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
+            dml.Add("@hklhbz", hklhbz.Text.Trim());
+            dml.Add("@kpxx", kpxx.SelectedItem.Text.Trim());
+            dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
+            dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
+            dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
+            dml.Add("@fhdd", fhdd.Text.Trim());
+            dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
+            dml.Add("@mkmc", mkmc.Text.Trim());
+            dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
+            dml.Add("@lxdh", lxdh.Text.Trim());
+            dml.Add("@bz", bz.Text.Trim());
+
+
+            if (_htglLogic.InsertXsht(dml))
+            {
+                AlertMessageAndGoTo("新增成功", "Cght.aspx");
+            }
         }
     }
 }

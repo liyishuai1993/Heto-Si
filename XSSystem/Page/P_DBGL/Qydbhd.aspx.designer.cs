@@ -76,13 +76,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox rkjz;
         
         /// <summary>
-        /// ksdw 控件。
+        /// ksds 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ksdw;
+        protected global::System.Web.UI.WebControls.TextBox ksds;
         
         /// <summary>
         /// yyds 控件。
@@ -112,13 +112,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox yfkkbz;
         
         /// <summary>
-        /// yfkkdw 控件。
+        /// yfkkds 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox yfkkdw;
+        protected global::System.Web.UI.WebControls.TextBox yfkkds;
         
         /// <summary>
         /// yfkkje 控件。

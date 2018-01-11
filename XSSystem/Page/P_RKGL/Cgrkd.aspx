@@ -85,7 +85,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">扣款标准（元/吨）<asp:TextBox id="kkbz" runat="server" Height="16px" Width ="248px"></asp:TextBox> </td>
-                    <td class="auto-style3">扣亏吨数<asp:TextBox id="kkdz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">扣亏吨数<asp:TextBox id="kkds" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">扣亏金额<asp:TextBox id="kkje" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                     <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                 </tr>

@@ -112,8 +112,8 @@
         <div>
             <p>价格信息</p>
             <p>
-                <asp:Button ID="Button2" runat="server" Text="新增记录" />
-                <asp:GridView ID="GridView2" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="Button2_Click" />
+                <asp:GridView ID="GridView_JGXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
@@ -176,7 +176,7 @@
             <p>质量标准</p>
             <p>
                 <asp:Button ID="Button1" runat="server" Text="新增记录" />
-                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                <asp:GridView ID="GridView_ZLBZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
@@ -240,7 +240,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

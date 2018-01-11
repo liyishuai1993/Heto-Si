@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using xsFramework.Web.WebPage;
 
 namespace XSSystem.Page.P_Order
 {
@@ -11,7 +12,7 @@ namespace XSSystem.Page.P_Order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

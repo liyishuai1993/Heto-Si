@@ -5,11 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using xs_System.Logic;
+using xsFramework.Web.Login;
+using xsFramework.Web.WebPage;
 
 namespace XSSystem.Page.P_Order
 {
-    public partial class Tyht : System.Web.UI.Page
+    public partial class Tyht : AuthWebPage
     {
+
+        HTGLLogic _htglLogic = new HTGLLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             InitGridView();
@@ -29,13 +34,39 @@ namespace XSSystem.Page.P_Order
             dt.Columns.Add("tlyf");
             dt.Columns.Add("dzzxf");
             dt.Columns.Add("dzmcddf");
-            dt.Columns.Add("dddlf");
+            dt.Columns.Add("dzdlf");
 
 
 
             dt.Rows.Add(dt.NewRow());
             this.GridView1.DataSource = dt;
             this.GridView1.DataBind();
+        }
+        Random ran = new Random();
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@htbh", ran.Next(0, 100000).ToString());// ??????
+            dml.Add("@userid", model.LoginUser);
+            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+            dml.Add("@wtf", wtf.Text.Trim());
+            dml.Add("@stf", stf.Text.Trim());
+            dml.Add("@fmmc", fmmc.Text.Trim());
+            dml.Add("@wlmc", wlmc.Text.Trim());
+            dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
+            dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+            dml.Add("@zcz", zcz.Text.Trim());
+            dml.Add("@zdz", zdz.Text.Trim());
+            dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
+            dml.Add("@sl", int.Parse(sl.Text.Trim()));
+
+
+            if (_htglLogic.InsertTyht(dml))
+            {
+                AlertMessageAndGoTo("新增成功", "Cght.aspx");
+            }
         }
     }
 }

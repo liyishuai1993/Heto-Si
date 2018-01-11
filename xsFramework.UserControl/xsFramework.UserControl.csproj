@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pager\DirModel.cs" />
     <Compile Include="Pager\PagerParameter.cs" />
     <Compile Include="Pager\xsPageControl.cs" />
     <Compile Include="Pager\xsPageHelper.cs" />
@@ -50,6 +51,10 @@
     <ProjectReference Include="..\xsFrameWork.SqlServer\xsFramework.SqlServer.csproj">
       <Project>{DE5CE865-C558-40F8-A72B-C9080C2F06BC}</Project>
       <Name>xsFramework.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xsFramework.Web\xsFramework.Web.csproj">
+      <Project>{C0B6DA1F-DCB9-4F34-B8ED-0CC3102036C4}</Project>
+      <Name>xsFramework.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

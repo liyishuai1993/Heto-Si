@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace XSSystem.Page.P_Order {
+namespace XSSystem.Page.P_HTGL {
     
     
-    public partial class cghydlr {
+    public partial class CghtGl {
         
         /// <summary>
         /// form1 控件。
@@ -22,85 +22,58 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// hydbh 控件。
+        /// ddhtlx 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hydbh;
+        protected global::System.Web.UI.WebControls.DropDownList ddhtlx;
         
         /// <summary>
-        /// hyrq 控件。
+        /// txtNewName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hyrq;
+        protected global::System.Web.UI.WebControls.TextBox txtNewName;
         
         /// <summary>
-        /// gys 控件。
+        /// ddshzt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gys;
+        protected global::System.Web.UI.WebControls.DropDownList ddshzt;
         
         /// <summary>
-        /// mcmc 控件。
+        /// qdfwQ 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mcmc;
+        protected global::System.Web.UI.WebControls.TextBox qdfwQ;
         
         /// <summary>
-        /// wlmc 控件。
+        /// qdfwZ 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wlmc;
+        protected global::System.Web.UI.WebControls.TextBox qdfwZ;
         
         /// <summary>
-        /// cyr 控件。
+        /// btnQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cyr;
-        
-        /// <summary>
-        /// hyr 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hyr;
-        
-        /// <summary>
-        /// Button2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
-        
-        /// <summary>
-        /// Button3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnQuery;
         
         /// <summary>
         /// Button1 控件。
@@ -112,30 +85,39 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// submit 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// close 控件。
+        /// GridOrder 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button close;
+        protected global::System.Web.UI.WebControls.GridView GridOrder;
+        
+        /// <summary>
+        /// xsPage 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::xsFramework.UserControl.Pager.xsPageControl xsPage;
     }
 }
