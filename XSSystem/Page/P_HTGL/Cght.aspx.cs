@@ -32,22 +32,24 @@ namespace XSSystem.Page.P_Order
         static DataTable dtzlbz = new DataTable();
         public void InitGridView() 
         {
-            
-            dtzlbz.Columns.Add("xh");
-            dtzlbz.Columns.Add("mz");
-            dtzlbz.Columns.Add("ld");
-            dtzlbz.Columns.Add("hf");
-            dtzlbz.Columns.Add("hff");
-            dtzlbz.Columns.Add("gdt");
-            dtzlbz.Columns.Add("njzs");
-            dtzlbz.Columns.Add("sf");
-            dtzlbz.Columns.Add("tie");
-            dtzlbz.Columns.Add("lv");
-            dtzlbz.Columns.Add("gai");
-            dtzlbz.Columns.Add("lin");
-            dtzlbz.Columns.Add("tai");
-            dtzlbz.Columns.Add("liu");
 
+            if (dtzlbz.Columns.Count == 0)
+            {
+                dtzlbz.Columns.Add("xh");
+                dtzlbz.Columns.Add("mz");
+                dtzlbz.Columns.Add("ld");
+                dtzlbz.Columns.Add("hf");
+                dtzlbz.Columns.Add("hff");
+                dtzlbz.Columns.Add("gdt");
+                dtzlbz.Columns.Add("njzs");
+                dtzlbz.Columns.Add("sf");
+                dtzlbz.Columns.Add("tie");
+                dtzlbz.Columns.Add("lv");
+                dtzlbz.Columns.Add("gai");
+                dtzlbz.Columns.Add("lin");
+                dtzlbz.Columns.Add("tai");
+                dtzlbz.Columns.Add("liu");
+            }
 
 
             dtzlbz.Rows.Add(dtzlbz.NewRow());
@@ -61,20 +63,22 @@ namespace XSSystem.Page.P_Order
         static DataTable dtjgxx = new DataTable();
         public void InitGridView2()
         {
-            
-            dtjgxx.Columns.Add("xh");
-            dtjgxx.Columns.Add("mkmc");
-            dtjgxx.Columns.Add("mzmc");
-            dtjgxx.Columns.Add("frl");
-            dtjgxx.Columns.Add("lf");
-            dtjgxx.Columns.Add("kpmj");
-            dtjgxx.Columns.Add("htmj");
-            dtjgxx.Columns.Add("ksl");
-            dtjgxx.Columns.Add("qdds");
-            dtjgxx.Columns.Add("qdje");
-            dtjgxx.Columns.Add("zt");
-            dtjgxx.Columns.Add("cz");
+            if (dtjgxx.Columns.Count == 0)
+            {
 
+                dtjgxx.Columns.Add("xh");
+                dtjgxx.Columns.Add("mkmc");
+                dtjgxx.Columns.Add("mzmc");
+                dtjgxx.Columns.Add("frl");
+                dtjgxx.Columns.Add("lf");
+                dtjgxx.Columns.Add("kpmj");
+                dtjgxx.Columns.Add("htmj");
+                dtjgxx.Columns.Add("ksl");
+                dtjgxx.Columns.Add("qdds");
+                dtjgxx.Columns.Add("qdje");
+                dtjgxx.Columns.Add("zt");
+                dtjgxx.Columns.Add("cz");
+            }
 
 
             dtjgxx.Rows.Add(dtjgxx.NewRow());
@@ -112,7 +116,9 @@ namespace XSSystem.Page.P_Order
 
             if (_htglLogic.InsertCght(dml))
             {
-                AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                  AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("新增成功");
+              //  xsPage.RefreshPage();
             }
             //dml.Add("@dzdje", StrToFloat(dzdje.Text.Trim()));
             //dml.Add("@skje", StrToFloat(skje.Text.Trim()));

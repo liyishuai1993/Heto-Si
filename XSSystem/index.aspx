@@ -12,7 +12,7 @@
         /*解决抖动问题*/
         html
         {
-            overflow-y: scroll;c
+            overflow-y: scroll;
         }
     </style>
 </head>

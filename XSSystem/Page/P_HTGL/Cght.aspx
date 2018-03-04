@@ -6,7 +6,9 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>采购合同</title>
-    <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <script  src="../../My97DatePicker/WdatePicker.js" type="text/javascript" ></script>
+    <script src="../../My97DatePicker/calendar.js" type="text/javascript"></script>
+    <script src="../../My97DatePicker/config.js" type="text/javascript"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style1 {
@@ -31,7 +33,9 @@
             width:auto;
             text-align:center;
         }
+
         </style>
+    <link href="../../My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

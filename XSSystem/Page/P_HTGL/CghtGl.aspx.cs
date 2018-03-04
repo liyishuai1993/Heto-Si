@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.WebPage;
+using XSSystem.Class;
 
 namespace XSSystem.Page.P_HTGL
 {
@@ -27,9 +28,10 @@ namespace XSSystem.Page.P_HTGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             PagerParameter pagepara = new PagerParameter();
+            QueryClass qc = new QueryClass("xs_CghtTable", ddhtlx.SelectedValue, ddshzt.SelectedValue, qdfwQ.Text.Trim(), qdfwZ.Text.Trim());
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryOrder(ddhtlx.SelectedValue, txtNewName.Text.Trim(),"xs_CghtTable");
+            pagepara.Sql = _htglLogic.QueryOrder(qc);
             pagepara.OrderBy = "htbh";
 
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
@@ -37,6 +39,7 @@ namespace XSSystem.Page.P_HTGL
             //    gvUser.Columns[2].Visible = false;
             //}
             GridOrder.DataSource = xsPageHelper.BindPager(pagepara, e);
+
             GridOrder.DataBind();
 
         }
@@ -56,6 +59,30 @@ namespace XSSystem.Page.P_HTGL
             }
             xsPage.RefreshPage();
         }
+
+        protected void btnShengHe_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            dml.Add("@htbh", (sender as Button).CommandArgument);
+            if (_htglLogic.ShengHeOrder(dml, "xs_CghtTable")) 
+            {
+                AlertMessage("审核订单成功");
+            }
+            else 
+            {
+                AlertMessage("审核订单失败");
+            }
+            xsPage.RefreshPage();
+
+
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+             JavaScript("window.location.href='Cght.aspx'");
+           // Response.Redirect("'Cght.aspx");
+        }
+
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {

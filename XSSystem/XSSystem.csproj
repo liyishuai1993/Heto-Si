@@ -1050,6 +1050,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\QueryClass.cs" />
     <Compile Include="GloablClass\GlabalString.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

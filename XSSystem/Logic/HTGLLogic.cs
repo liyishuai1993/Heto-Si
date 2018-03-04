@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using xsFramework.Web.WebPage;
 using xsFramework.SqlServer;
-
+using XSSystem.Class;
 namespace xs_System.Logic
 {
     public class HTGLLogic
@@ -99,7 +99,19 @@ namespace xs_System.Logic
         public string QueryOrder(string strType,string strName,string tablename)
         {
             string sql = @"select * from "+ tablename +" where 1=1";
-            if(!string.IsNullOrEmpty(strName))sql+= " and htbh='"+strName +"'";
+            if (!string.IsNullOrEmpty(strType)) sql += " and htlx='" + strType + "'";
+            if (!string.IsNullOrEmpty(strName))sql+= " and htbh='"+strName +"'";
+            if (!string.IsNullOrEmpty(strName)) sql += " and htbh='" + strName + "'";
+            return sql;
+        }
+
+        public string QueryOrder(QueryClass qc)
+        {
+            string sql = @"select * from " + qc.tableName + " where 1=1";
+            if (!string.IsNullOrEmpty(qc.htlx)) sql += " and htlx='" + qc.htlx + "'";
+            if (!string.IsNullOrEmpty(qc.shzt)) sql += " and shzt='" + qc.shzt + "'";
+            if (!string.IsNullOrEmpty(qc.cxrqQ)) sql += " and qdrq>='" + Convert.ToDateTime(qc.cxrqQ) + "'";
+            if (!string.IsNullOrEmpty(qc.cxrqZ)) sql += " and qdrq<='" + Convert.ToDateTime(qc.cxrqZ) + "'";
             return sql;
         }
 
@@ -115,6 +127,16 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = @"delete from ["+tablename +"]where [htbh]=@htbh";
             SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool ShengHeOrder(DirModel dml, string tablename)
+        {
+            xsSqlParameter sql = new xsSqlParameter();
+            sql.AddSqlParameter(dml);
+            sql.SqlConnectString = GlabalString.DBString;
+            sql.SQL = "update " + tablename + " set shzt='已审核' where htbh=@htbh";
+            SqlHelper.Execute(sql);
             return true;
         }
 
