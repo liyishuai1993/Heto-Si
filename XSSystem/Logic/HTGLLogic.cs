@@ -25,6 +25,28 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertCghtJgxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_CghtTable_Jgxx (user_no,htbh,mkmc,mzmc,frl,lf,kpmj,htmj,ksl,qdds,qdje)" +
+                "values(@user_no,@htbh,@mkmc,@mzmc,@frl,@lf,@kpmj,@htmj,@ksl,@qdds,@qdje)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertCghtZlbz(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_CghtTable_Zlbz (user_no,htbh,mz,ld,hf,hff,gdt,njzs,sf,tie,lv,gai,lin,tai,liu)" +
+                "values(@user_no,@htbh,@mz,@ld,@hf,@hff,@gdt,@njzs,@sf,@tie,@lv,@gai,@lin,@tai,@liu)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
         public bool InsertXsht(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -47,6 +69,17 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertQyhtJgxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_QyhtTable_Jgxx (user_no,htbh,wlmc,qyd,mdd,yj,yhlhbz,bz)" +
+                "values(@user_no,@htbh,@wlmc,@qyd,@mdd,@yj,@yhlhbz,@bz)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
         public bool InsertTyht(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -54,6 +87,17 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_TyhtTable (user_no,htbh,htlx,qdrq,wtf,stf,fmmc,wlmc,zxqxQ,zxqxZ,zcz,zdz,xlx,sl)" +
                 "values(@userid,@htbh,@htlx,@qdrq,@wtf,@stf,@fmmc,@wlmc,@zxqxQ,@zxqxZ,@zcz,@zdz,@xlx,@sl)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertTyhtJgxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_TyhtTable_Jgxx (user_no,htbh,gsmc,dfhth,kplx,zbxsf,dlf,zxf,sfzdd,tlyf,dzzxf,dzmcddf,dzdlf)" +
+                "values(@user_no,@htbh,@gsmc,@dfhth,@kplx,@zbxsf,@dlf,@zxf,@sfzdd,@tlyf,@dzzxf,@dzmcddf,@dzdlf)";
             SqlHelper.Execute(sqlpara);
             return true;
         }
@@ -92,6 +136,86 @@ namespace xs_System.Logic
             SqlHelper.Execute(sqlpara);
             return true;
         }
+
+
+        #region  Update
+        public bool UpdateCght(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_CghtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,gfmc=@gfmc,xfmc=@xfmc,hkjsyj=@hkjsyj,hklhlx=@hklhlx,hklhbz=@hklhbz,kpxx=@kpxx,jhsjQ=@jhsjQ,jhsjZ=@jhsjZ,hkjsfs=@hkjsfs,"+
+                "jhdd=@jhdd,yffkfs=@yffkfs,mkmc=@mkmc,bz=@bz where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool UpdateQyht(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_QyhtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool UpdateTyht(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_TyhtTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,fmmc=@fmmc,wlmc=@wlmc,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ,zcz=@zcz,zdz=@zdz,xlx=@xlx,sl=@sl where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool UpdateWtjghtht(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_WtjgTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool UpdateXsht(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_XshtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,gfmc=@gfmc,xfmc=@xfmc,hkjsyj=@hkjsyj,hklhlx=@hklhlx,hklhbz=@hklhbz,kpxx=@kpxx,jhsjQ=@jhsjQ,jhsjZ=@jhsjZ,"+
+                "hkjsfs=@hkjsfs,fhdd=@fhdd,yffkfs=@yffkfs,mkmc=@mkmc,kzbz=@kzbz,lxdh=@lxdh,bz=@bz where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool UpdateZlht(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_ZlhtTable set htlx=@htlx,qdrq=@qdrq,czf=@czf,czf2=@czf2,czdd=@czdd,zlqxQ=@zlqxQ,zlqxZ=@zlqxZ,yj=@yj where htbh=@htbh and user_no=@userid";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+
+        #endregion
+
+
+        public string QueryDropList(string tableName, string[] arrList)
+        {
+            string sql = @"select ";
+            for (int i = 0; i < arrList.Length-1; i++)
+            {
+                sql += arrList[i] + " , ";
+            }
+            sql+= arrList[arrList.Length-1] + " from " + tableName;
+            return sql;
+        }
+
         /// <summary>
         /// 查询订单
         /// </summary>

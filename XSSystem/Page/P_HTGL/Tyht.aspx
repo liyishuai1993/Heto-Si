@@ -39,7 +39,7 @@
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px">
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="False"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
@@ -51,26 +51,26 @@
                 </tr>
                 <tr>
                     
-                    <td class="auto-style3">*委托方<asp:TextBox id="wtf" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">
-                        *受托方<asp:TextBox id="stf" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
+                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3">*发煤煤场<asp:DropDownList id="fmmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">物料名称<asp:DropDownList id="wlmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">执行期限
                <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
                         <asp:TextBox ID="zxqxZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
                    </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*装车站<asp:TextBox id="zcz" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3">*装车站<asp:DropDownList id="zcz" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">*终到站<asp:TextBox id="zdz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">*终到站<asp:DropDownList id="zdz" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3"></td> 
                 </tr>
                 <tr>
@@ -149,6 +149,7 @@
 
         <p class="auto-style5">
                 <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

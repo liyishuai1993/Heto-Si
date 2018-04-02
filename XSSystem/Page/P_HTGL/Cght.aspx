@@ -44,7 +44,7 @@
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" ReadOnly="true" Enabled="False"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
@@ -57,10 +57,12 @@
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<asp:TextBox id="gfmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3">
-                        *需方名称<asp:TextBox id="xfmc" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
-                   </td> 
+                    <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="25px" Width ="284px">
+                     </asp:DropDownList>
+                    </td>
+                    <td class="auto-style3">*需方名称<asp:DropDownList id="xfmc" runat="server" height="25px" Width ="284px">
+                     </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">货款结算依据<asp:DropDownList id="hkjsyj" runat="server" Height="25px" Width ="284px" CssClass="auto-style4">
@@ -97,7 +99,7 @@
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">交货地点<asp:TextBox id="jhdd" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">交货地点<asp:DropDownList id="jhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px"  Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>
                         <asp:ListItem>对方付款</asp:ListItem>
@@ -116,7 +118,7 @@
         <div>
             <p>价格信息</p>
             <p>
-                <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="Button2_Click" />
+                <asp:Button ID="Button2"  runat="server" Text="新增记录" OnClick="AddJgxx" />
                 <asp:GridView ID="GridView_JGXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -168,10 +170,7 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-            </p>
-            
-
-                   
+            </p>                   
         </div>
 
 
@@ -179,7 +178,7 @@
         <div>
             <p>质量标准</p>
             <p>
-                <asp:Button ID="Button1" runat="server" Text="新增记录" />
+                <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZlbz" />
                 <asp:GridView ID="GridView_ZLBZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -244,8 +243,9 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
-                <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp    
+                <asp:Button ID="shenhe" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 
         </div>

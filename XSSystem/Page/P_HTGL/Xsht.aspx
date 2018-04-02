@@ -38,7 +38,7 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
@@ -51,9 +51,9 @@
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<asp:TextBox id="gfmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">
-                        *需方名称<asp:TextBox id="xfmc" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
+                        *需方名称<asp:DropDownList id="xfmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
                    </td> 
                 </tr>
                 <tr>
@@ -92,7 +92,7 @@
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">发货地点<asp:TextBox id="fhdd" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">发货地点<asp:DropDownList id="fhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px" Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>
                         <asp:ListItem>对方付款</asp:ListItem>
@@ -250,6 +250,7 @@
 
         <p class="auto-style5">
                 <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

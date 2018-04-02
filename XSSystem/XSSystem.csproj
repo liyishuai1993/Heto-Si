@@ -970,7 +970,11 @@
     <Content Include="Page\P_Hire\Hire_Add.aspx" />
     <Content Include="Page\P_Hire\Hire_Update.aspx" />
     <Content Include="Page\P_HTGL\CghtGl.aspx" />
+    <Content Include="Page\P_HTGL\CghtJgxx.aspx" />
+    <Content Include="Page\P_HTGL\CghtZlbz.aspx" />
     <Content Include="Page\P_HTGL\QyhtGl.aspx" />
+    <Content Include="Page\P_HTGL\TyhtJgxx.aspx" />
+    <Content Include="Page\P_HTGL\QyhtJgxx.aspx" />
     <Content Include="Page\P_HTGL\TyhtGl.aspx" />
     <Content Include="Page\P_HTGL\WtjghtGl.aspx" />
     <Content Include="Page\P_HTGL\XshtGl.aspx" />
@@ -1050,6 +1054,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\BaseClass.cs" />
+    <Compile Include="Class\ZlghtClass.cs" />
+    <Compile Include="Class\WtjghtClass.cs" />
+    <Compile Include="Class\TyhtClass.cs" />
+    <Compile Include="Class\QyhtClass.cs" />
+    <Compile Include="Class\XshtClass.cs" />
+    <Compile Include="Class\CghtClass.cs" />
     <Compile Include="Class\QueryClass.cs" />
     <Compile Include="GloablClass\GlabalString.cs" />
     <Compile Include="index.aspx.cs">
@@ -1139,12 +1150,40 @@
     <Compile Include="Page\P_HTGL\CghtGl.aspx.designer.cs">
       <DependentUpon>CghtGl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Page\P_HTGL\CghtJgxx.aspx.cs">
+      <DependentUpon>CghtJgxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\CghtJgxx.aspx.designer.cs">
+      <DependentUpon>CghtJgxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\CghtZlbz.aspx.cs">
+      <DependentUpon>CghtZlbz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\CghtZlbz.aspx.designer.cs">
+      <DependentUpon>CghtZlbz.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Page\P_HTGL\QyhtGl.aspx.cs">
       <DependentUpon>QyhtGl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Page\P_HTGL\QyhtGl.aspx.designer.cs">
       <DependentUpon>QyhtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\TyhtJgxx.aspx.cs">
+      <DependentUpon>TyhtJgxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\TyhtJgxx.aspx.designer.cs">
+      <DependentUpon>TyhtJgxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\QyhtJgxx.aspx.cs">
+      <DependentUpon>QyhtJgxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\QyhtJgxx.aspx.designer.cs">
+      <DependentUpon>QyhtJgxx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_HTGL\TyhtGl.aspx.cs">
       <DependentUpon>TyhtGl.aspx</DependentUpon>

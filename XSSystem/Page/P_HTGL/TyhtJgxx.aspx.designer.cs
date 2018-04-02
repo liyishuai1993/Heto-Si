@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace XSSystem.Page.P_Order {
+namespace XSSystem.Page.P_HTGL {
     
     
-    public partial class Wtjght {
+    public partial class TyhtJgxx {
         
         /// <summary>
         /// form1 控件。
@@ -31,85 +31,103 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox htbh;
         
         /// <summary>
-        /// htlx 控件。
+        /// gsmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList htlx;
+        protected global::System.Web.UI.WebControls.TextBox gsmc;
         
         /// <summary>
-        /// qdrq 控件。
+        /// dfhth 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox qdrq;
+        protected global::System.Web.UI.WebControls.TextBox dfhth;
         
         /// <summary>
-        /// wtf 控件。
+        /// kplx 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList wtf;
+        protected global::System.Web.UI.WebControls.TextBox kplx;
         
         /// <summary>
-        /// stf 控件。
+        /// zbxsf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList stf;
+        protected global::System.Web.UI.WebControls.TextBox zbxsf;
         
         /// <summary>
-        /// kpxx 控件。
+        /// dlf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList kpxx;
+        protected global::System.Web.UI.WebControls.TextBox dlf;
         
         /// <summary>
-        /// zxqxQ 控件。
+        /// zxf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zxqxQ;
+        protected global::System.Web.UI.WebControls.TextBox zxf;
         
         /// <summary>
-        /// zxqxZ 控件。
+        /// sfzdd 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zxqxZ;
+        protected global::System.Web.UI.WebControls.TextBox sfzdd;
         
         /// <summary>
-        /// Button1 控件。
+        /// tlyf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox tlyf;
         
         /// <summary>
-        /// GridView1 控件。
+        /// dzzxf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox dzzxf;
+        
+        /// <summary>
+        /// dzmcddf 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dzmcddf;
+        
+        /// <summary>
+        /// dzdlf 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dzdlf;
         
         /// <summary>
         /// submit 控件。
@@ -119,32 +137,5 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submit;
-        
-        /// <summary>
-        /// update 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button update;
-        
-        /// <summary>
-        /// refresh 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button refresh;
-        
-        /// <summary>
-        /// close 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button close;
     }
 }

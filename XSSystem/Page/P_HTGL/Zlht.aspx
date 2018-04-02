@@ -40,7 +40,7 @@
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
@@ -51,18 +51,18 @@
                     </td>
                 </tr>
                 <tr>                 
-                    <td class="auto-style3">*出租方<asp:TextBox id="czf" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">*出租方<asp:DropDownList id="czf" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
                     <td class="auto-style3">
-                        *承租方<asp:TextBox id="czf2" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
+                        *承租方<asp:DropDownList id="czf2" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">出租地段<asp:TextBox id="czdd" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" runat="server" Height="25px" Width ="284px">
 
-                        </asp:TextBox> </td>
+                        </asp:DropDownList> </td>
                     <td class="auto-style3">租赁期限
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
@@ -121,6 +121,7 @@
 
         <p class="auto-style5">
                 <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="充填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace XSSystem.Class
 {
-    public class QueryClass
+    public class QueryClass:BaseClass
     {
         public string tableName;
         public string htlx;
@@ -21,5 +21,7 @@ namespace XSSystem.Class
             this.cxrqQ = cxrqQ;
             this.cxrqZ = cxrqZ;
         }
+
+        public QueryClass() { }
     }
 }

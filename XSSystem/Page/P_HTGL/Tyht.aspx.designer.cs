@@ -55,7 +55,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wtf;
+        protected global::System.Web.UI.WebControls.DropDownList wtf;
         
         /// <summary>
         /// stf 控件。
@@ -64,7 +64,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stf;
+        protected global::System.Web.UI.WebControls.DropDownList stf;
         
         /// <summary>
         /// fmmc 控件。
@@ -73,7 +73,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fmmc;
+        protected global::System.Web.UI.WebControls.DropDownList fmmc;
         
         /// <summary>
         /// wlmc 控件。
@@ -82,7 +82,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wlmc;
+        protected global::System.Web.UI.WebControls.DropDownList wlmc;
         
         /// <summary>
         /// zxqxQ 控件。
@@ -109,7 +109,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zcz;
+        protected global::System.Web.UI.WebControls.DropDownList zcz;
         
         /// <summary>
         /// zdz 控件。
@@ -118,7 +118,7 @@ namespace XSSystem.Page.P_Order {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zdz;
+        protected global::System.Web.UI.WebControls.DropDownList zdz;
         
         /// <summary>
         /// xlx 控件。
@@ -164,6 +164,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submit;
+        
+        /// <summary>
+        /// update 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button update;
         
         /// <summary>
         /// refresh 控件。

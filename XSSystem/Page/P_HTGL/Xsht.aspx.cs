@@ -6,8 +6,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using xs_System.Logic;
+using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
+using XSSystem.Class;
 
 namespace XSSystem.Page.P_Order
 {
@@ -17,8 +19,13 @@ namespace XSSystem.Page.P_Order
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitGridView();
-            InitGridView2();
+            if (!IsPostBack)
+            {
+                InitGridView();
+                InitGridView2();
+                DropListInit();
+            }
+            
         }
         public void InitGridView()
         {
@@ -71,18 +78,17 @@ namespace XSSystem.Page.P_Order
 
 
         }
-        Random ran = new Random();
         protected void submit_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", ran.Next(0, 100000).ToString());// ??????
+            dml.Add("@htbh", htbh.Text.Trim());// ??????
             dml.Add("@userid", model.LoginUser);
             dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
             dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
             dml.Add("@dfhth", dfhth.Text.Trim());
-            dml.Add("@gfmc", gfmc.Text.Trim());
-            dml.Add("@xfmc", xfmc.Text.Trim());
+            dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
+            dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
             dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
             dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
             dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -90,7 +96,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
             dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
             dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-            dml.Add("@fhdd", fhdd.Text.Trim());
+            dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
             dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
             dml.Add("@mkmc", mkmc.Text.Trim());
             dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
@@ -100,8 +106,71 @@ namespace XSSystem.Page.P_Order
 
             if (_htglLogic.InsertXsht(dml))
             {
-                AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessageAndGoTo("新增成功", "Xsht.aspx");
             }
         }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@htbh", htbh.Text.Trim());// ??????
+            dml.Add("@userid", model.LoginUser);
+            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+            dml.Add("@dfhth", dfhth.Text.Trim());
+            dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
+            dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+            dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
+            dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
+            dml.Add("@hklhbz", hklhbz.Text.Trim());
+            dml.Add("@kpxx", kpxx.SelectedItem.Text.Trim());
+            dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
+            dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
+            dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
+            dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
+            dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
+            dml.Add("@mkmc", mkmc.Text.Trim());
+            dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
+            dml.Add("@lxdh", lxdh.Text.Trim());
+            dml.Add("@bz", bz.Text.Trim());
+
+            if (_htglLogic.UpdateXsht(dml))
+            {
+                AlertMessageAndGoTo("修改成功", "XshtGl.aspx");
+            }
+
+        }
+
+
+
+        protected void DropListInit()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            QueryClass qc = new QueryClass();
+            pagepara.DbConn = GlabalString.DBString;
+            //pagepara.XsPager=
+            HTGLLogic ht = new HTGLLogic();
+            string[] arrList = new string[3];
+            arrList[0] = "gfmc";
+            arrList[1] = "xfmc";
+            arrList[2] = "fhdd";
+            pagepara.Sql = ht.QueryDropList("xs_XshtTable", arrList);
+            pagepara.OrderBy = "gfmc";
+            PageChangedEventArgs e = new PageChangedEventArgs(1);
+            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            gfmc.DataSource = dt.DefaultView;
+            gfmc.DataTextField = dt.Columns[0].ToString();
+            gfmc.DataBind();
+            xfmc.DataSource = dt.DefaultView;
+            xfmc.DataTextField = dt.Columns[1].ToString();
+            xfmc.DataBind();
+            fhdd.DataSource = dt.DefaultView;
+            fhdd.DataTextField = dt.Columns[2].ToString();
+            fhdd.DataBind();
+
+            htbh.Text = "HTXS" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
+        }
+
     }
 }
