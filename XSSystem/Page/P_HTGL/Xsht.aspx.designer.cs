@@ -67,6 +67,15 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.DropDownList gfmc;
         
         /// <summary>
+        /// gfmc_xz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox gfmc_xz;
+        
+        /// <summary>
         /// xfmc 控件。
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList xfmc;
+        
+        /// <summary>
+        /// xfmc_xz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox xfmc_xz;
         
         /// <summary>
         /// hkjsyj 控件。
@@ -103,13 +121,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox hklhbz;
         
         /// <summary>
-        /// kpxx 控件。
+        /// kplx 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList kpxx;
+        protected global::System.Web.UI.WebControls.DropDownList kplx;
         
         /// <summary>
         /// jhsjQ 控件。
@@ -146,6 +164,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList fhdd;
+        
+        /// <summary>
+        /// fhdd_xz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fhdd_xz;
         
         /// <summary>
         /// yffkfs 控件。
@@ -254,6 +281,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button refresh;
+        
+        /// <summary>
+        /// done 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button done;
         
         /// <summary>
         /// close 控件。

@@ -11,14 +11,8 @@
     <script src="../../My97DatePicker/config.js" type="text/javascript"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
-        .auto-style1 {
-            background-color: #EEEEEE;
-    text-align: center;
-    border-style: dotted;
-    border-color:#00ffff;
-        }
         .auto-style3 {
-            height: 30px;
+            height: auto;
             width:400px;
             text-align:right;
             }
@@ -42,7 +36,8 @@
     <div> <p class="auto-style5">采购合同</p>
         <div>
             <p>基本信息</p>
-            <table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
+            <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <tr>
                     <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" ReadOnly="true" Enabled="False"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
@@ -57,11 +52,11 @@
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="25px" Width ="284px">
-                     </asp:DropDownList>
+                    <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="16px" Width ="284px">
+                     </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="gfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">*需方名称<asp:DropDownList id="xfmc" runat="server" height="25px" Width ="284px">
-                     </asp:DropDownList>
+                    <td class="auto-style3">*需方名称<asp:DropDownList id="xfmc" runat="server" height="16px" Width ="284px">
+                     </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="xfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +83,7 @@
                         <asp:ListItem>两票</asp:ListItem>
                         <asp:ListItem>原票原转</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">交货时间<asp:TextBox ID="jhsjQ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
+                    <td class="auto-style3">执行时间<asp:TextBox ID="jhsjQ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
                         <asp:TextBox ID="jhsjZ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox> </td>
                     <td class="auto-style3">货款结算方式<asp:DropDownList id="hkjsfs" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>现金</asp:ListItem>
@@ -99,7 +94,9 @@
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">交货地点<asp:DropDownList id="jhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> </td>
+                    <td class="auto-style3">交货地点<asp:DropDownList id="jhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 新增<asp:TextBox id="jhdd_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px"  Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>
                         <asp:ListItem>对方付款</asp:ListItem>
@@ -122,42 +119,58 @@
                 <asp:GridView ID="GridView_JGXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="序号" DataField="bh" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="煤矿名称" DataField="mkmc" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="煤矿名称" DataField="mkmc"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="煤种名称" DataField="mzmc" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="煤种名称" DataField="mzmc"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="发热量" DataField="frl" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="发热量" DataField="frl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="硫份" DataField="lf" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="硫份" DataField="lf"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="开票煤价" DataField="kpmj" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="开票煤价" DataField="kpmj"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="合同煤价" DataField="htmj" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="合同煤价" DataField="htmj"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="扣损率" DataField="ksl" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="扣损率" DataField="ksl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="签订吨数" DataField="qdds" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="签订吨数" DataField="qdds" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="签订金额" DataField="qdje" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="签订金额" DataField="qdje"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="状态" DataField="zt" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="状态" DataField="zt"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="操作" DataField="cz" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
-                        </asp:BoundField>
+                        <asp:TemplateField  HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -182,48 +195,70 @@
                 <asp:GridView ID="GridView_ZLBZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="序号" DataField="bh" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="煤种" DataField="mz" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="煤种" DataField="mz"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="粒度≥%" DataField="ld" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="粒度≥%" DataField="ld"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="灰分≤%" DataField="hf" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="灰分≤%" DataField="hf"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="挥发份%-%" DataField="hff" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="挥发份%-%" DataField="hff"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="固定碳≥%" DataField="gdt" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="固定碳≥%" DataField="gdt"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="粘结指数≥%" DataField="njzs" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="粘结指数≥%" DataField="njzs"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="水分≤%" DataField="sf" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="水分≤%" DataField="sf"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="铁≤%" DataField="tie" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="铁≤%" DataField="tie"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="铝≤%" DataField="lv" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="铝≤%" DataField="lv"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="钙≤%" DataField="gai" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="钙≤%" DataField="gai"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="磷≤%" DataField="lin" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="磷≤%" DataField="lin"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="钛≤%" DataField="tai" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="钛≤%" DataField="tai" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="硫≤%" DataField="liu" HeaderStyle-Width="5%" >
-<HeaderStyle Width="5%"></HeaderStyle>
+                        <asp:BoundField HeaderText="硫≤%" DataField="liu"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
+                        <asp:TemplateField HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClick="DelZlbz" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -246,6 +281,7 @@
                 <asp:Button ID="submit" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp    
                 <asp:Button ID="shenhe" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp
+                <asp:Button ID="done" text="执行" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnZhiXing_Click"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"   BorderStyle="Groove" BackColor="Aqua"></asp:Button>
             </p> 
         </div>

@@ -5,7 +5,7 @@
 <head runat="server">
     <script src="js/jquery-1.8.0.js" type="text/javascript"></script>
     <link href="/style/Login.css" rel="stylesheet" />
-    <title>后台系统登录</title>
+    <title>和拓后台管理</title>
     <script type="text/javascript">
         function Checked() {
             if ($("#txtAdmin").val().length == 0) {
@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="nav">
-        后台管理系统登录</div>
+        和拓后台管理系统</div>
     <div id="nav1">
     </div>
     <div id="main">

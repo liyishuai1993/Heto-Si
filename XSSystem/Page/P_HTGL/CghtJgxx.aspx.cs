@@ -46,8 +46,10 @@ namespace XSSystem.Page.P_HTGL
 
             if (_htglLogic.InsertCghtJgxx(dml))
             {
-          //      Response.Write("<script>alert('新增成功')</script>");
-                 AlertMessage("新增成功");
+                Response.Write("<script>alert('新增成功')</script>");
+              //  JavaScript("window.location.href='CghtGl.aspx'");
+              //  AlertMessageAndGoTo("新增成功", "CghtGl.aspx");
+                // AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
 

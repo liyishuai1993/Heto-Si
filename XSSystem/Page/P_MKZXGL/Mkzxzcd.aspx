@@ -66,45 +66,53 @@
         <div>
             <p>车辆信息</p>
             <p>
-                <asp:Button ID="Button1" runat="server" Text="新增记录" />
+                <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddClxx" />
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
-                        </asp:BoundField>
                         <asp:BoundField HeaderText="*磅单号" DataField="bdh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                        <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="提货单号" DataField="thdh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                        <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="*车号" DataField="ch" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                        <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="装车毛重" DataField="zcmz" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="装车皮重" DataField="zcpz" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="*装车净重" DataField="zcjz" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="应付运费" DataField="yfyf" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="采购结算金额" DataField="cgjsje" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="备注" DataField="bz" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="状态" DataField="zt" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
@@ -122,7 +130,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="重填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 </p> 
         </div>

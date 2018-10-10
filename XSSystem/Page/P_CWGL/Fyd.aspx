@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6" colspan="2">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="682px"></asp:TextBox> </td>
-                    <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox> </td>
+                    <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
             </table>            
         </div>
@@ -105,8 +105,8 @@
 
         <p class="auto-style7">
                 <asp:Button ID="submit" text="配置" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
-                <asp:Button ID="Button1" text="打印" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
-                <asp:Button ID="refresh" text="保存|退出" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
+                <asp:Button ID="print" text="打印" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
+                <asp:Button ID="save" text="保存|退出" runat ="server" width="90px"   BackColor="#cccccc" OnClick="save_Click"></asp:Button>&nbsp
                 </p> 
         </div>
     </form>

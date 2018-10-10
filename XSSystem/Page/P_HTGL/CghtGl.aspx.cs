@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +21,8 @@ namespace XSSystem.Page.P_HTGL
             if (!IsPostBack)
             {
                 xsPage.StartShowPage();
+                qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                qdfwZ.Text = DateTime.Now.ToShortDateString();
             }
 
 
@@ -27,23 +30,78 @@ namespace XSSystem.Page.P_HTGL
 
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
-            PagerParameter pagepara = new PagerParameter();
-            QueryClass qc = new QueryClass("xs_CghtTable", ddhtlx.SelectedValue, ddshzt.SelectedValue, qdfwQ.Text.Trim(), qdfwZ.Text.Trim());
-            pagepara.DbConn = GlabalString.DBString;
-            pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryOrder(qc);
-            pagepara.OrderBy = "htbh";
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_CghtTable";
+            qc.htbh = tbhtbh.Text.Trim();
+            if(qdfwQ.Text!="")
+                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+            if(qdfwZ.Text!="")
+                qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+            qc.gfmc = tbgfmc.Text.Trim();
+            if(tbkpmj.Text.Trim()!="")
+                qc.kpmj = float.Parse(tbkpmj.Text.Trim());
+            qc.zt = tbzt.Text.Trim();
+
+
 
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
             //{
             //    gvUser.Columns[2].Visible = false;
             //}
-            GridOrder.DataSource = xsPageHelper.BindPager(pagepara, e);
+            GridOrder.DataSource = SelectSQL(qc, e);
 
             GridOrder.DataBind();
             
 
         }
+
+        DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e)
+        {
+            PagerParameter pagepara = new PagerParameter();
+
+
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+            pagepara.Sql = _htglLogic.QueryCghtOrder(qc);
+            pagepara.OrderBy = "htbh";
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
+        protected void btnDel_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            DirModel dml = new DirModel();
+            string[] ckb = null;
+
+            str = Request.Form.Get("checkboxname");
+            if (str==null)
+            {
+                AlertMessage("当前未选中订单");
+                return;
+            }
+            ckb = str.Split(new char[] { ',' });
+
+            
+
+            dml.Add("@htbhArr", ckb);
+            if (_htglLogic.DeleteData(dml, "xs_CghtTable","htbh"))
+            {
+                AlertMessage("订单删除成功");
+            }
+            else
+            {
+                AlertMessage("订单删除失败");
+            }
+            xsPage.RefreshPage();
+            //    Response.Write("直接在页面中得到的值为：" + str + "<br>");
+
+            // Response.Write("处理后存放在数组中，如下：<br>");
+            //for (int i = 0; i < ckb.Length; i++)
+            //{
+            //    sql += ckb[i];
+            //}
+        }
+
 
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -74,8 +132,6 @@ namespace XSSystem.Page.P_HTGL
                 AlertMessage("审核订单失败");
             }
             xsPage.RefreshPage();
-
-
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -83,20 +139,15 @@ namespace XSSystem.Page.P_HTGL
              JavaScript("window.location.href='Cght.aspx'");
            // Response.Redirect("'Cght.aspx");
         }
-        CghtClass cghtClass;
+       // CghtClass cghtClass;
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            string htbh = (sender as Button).CommandArgument;
-            for (int i = 0; i < GridOrder.Rows.Count; i++)
-            {
-                if (GridOrder.Rows[i].Cells[0].Text.Equals(htbh))
-                {
-                    cghtClass = new CghtClass(GridOrder.Rows[i].Cells[0].Text, GridOrder.Rows[i].Cells[1].Text, GridOrder.Rows[i].Cells[2].Text, GridOrder.Rows[i].Cells[3].Text, GridOrder.Rows[i].Cells[4].Text, GridOrder.Rows[i].Cells[5].Text,
-                        GridOrder.Rows[i].Cells[6].Text, GridOrder.Rows[i].Cells[7].Text, GridOrder.Rows[i].Cells[8].Text, GridOrder.Rows[i].Cells[9].Text, GridOrder.Rows[i].Cells[10].Text, GridOrder.Rows[i].Cells[11].Text,
-                        GridOrder.Rows[i].Cells[12].Text, GridOrder.Rows[i].Cells[13].Text, GridOrder.Rows[i].Cells[14].Text, GridOrder.Rows[i].Cells[15].Text, GridOrder.Rows[i].Cells[16].Text, GridOrder.Rows[i].Cells[17].Text);
-                }
-            }
-            Session["cght"] = cghtClass;
+            QueryClass qc = new QueryClass();
+            qc.htbh = (sender as Button).CommandArgument;
+
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            DataTable dt = SelectSQL(qc, ex);
+            Session["cght"] = dt;
             JavaScript("window.location.href='Cght.aspx'");
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,6 +8,7 @@ using System.Web.UI.WebControls;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.WebPage;
+using XSSystem.Class;
 
 namespace XSSystem.Page.P_HTGL
 {
@@ -19,6 +21,8 @@ namespace XSSystem.Page.P_HTGL
             if (!IsPostBack)
             {
                 xsPage.StartShowPage();
+                qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                qdfwZ.Text = DateTime.Now.ToShortDateString();
             }
 
 
@@ -26,19 +30,72 @@ namespace XSSystem.Page.P_HTGL
 
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
-            PagerParameter pagepara = new PagerParameter();
-            pagepara.DbConn = GlabalString.DBString;
-            pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryOrder(ddlnewtype.SelectedValue, txtNewName.Text.Trim(), "xs_ZlhtTable");
-            pagepara.OrderBy = "htbh";
+
+            QueryClass qc = new QueryClass();
+            qc.htbh = tbhtbh.Text.Trim();
+            if (qdfwQ.Text != "")
+                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+            if (qdfwZ.Text != "")
+                qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+            qc.czf = tbczf.Text.Trim();
+            qc.czdd = tbczdd.Text.Trim();
+            if (tbzj.Text.Trim() != "")
+                qc.zj = float.Parse(tbzj.Text.Trim());
+            qc.zt = tbshzt.Text.Trim();
+
 
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
             //{
             //    gvUser.Columns[2].Visible = false;
             //}
-            GridOrder.DataSource = xsPageHelper.BindPager(pagepara, e);
+            GridOrder.DataSource = SelectSQL(qc, e);
             GridOrder.DataBind();
 
+        }
+
+        DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e)
+        {
+            PagerParameter pagepara = new PagerParameter();
+
+
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+            pagepara.Sql = _htglLogic.QueryZlhtOrder(qc);
+            pagepara.OrderBy = "htbh";
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
+        protected void btnDel_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            DirModel dml = new DirModel();
+            string[] ckb = null;
+
+            str = Request.Form.Get("checkboxname");
+            if (str == null)
+            {
+                AlertMessage("当前未选中订单");
+                return;
+            }
+            ckb = str.Split(new char[] { ',' });
+
+            dml.Add("@htbhArr", ckb);
+            if (_htglLogic.DeleteData(dml, "xs_ZlhtTable","htbh"))
+            {
+                AlertMessage("订单删除成功");
+            }
+            else
+            {
+                AlertMessage("订单删除失败");
+            }
+            xsPage.RefreshPage();
+            //    Response.Write("直接在页面中得到的值为：" + str + "<br>");
+
+            // Response.Write("处理后存放在数组中，如下：<br>");
+            //for (int i = 0; i < ckb.Length; i++)
+            //{
+            //    sql += ckb[i];
+            //}
         }
 
 
@@ -55,6 +112,24 @@ namespace XSSystem.Page.P_HTGL
                 AlertMessage("订单删除失败");
             }
             xsPage.RefreshPage();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='Zlht.aspx'");
+            // Response.Redirect("'Cght.aspx");
+        }
+
+       // ZlhtClass zlhtClass;
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            QueryClass qc = new QueryClass();
+            qc.htbh = (sender as Button).CommandArgument;
+
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            DataTable dt = SelectSQL(qc, ex);
+            Session["zlht"] = dt;
+            JavaScript("window.location.href='Zlht.aspx'");
         }
 
         protected void btnQuery_Click(object sender, EventArgs e)

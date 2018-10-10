@@ -10,7 +10,7 @@ using xsFramework.Web.WebPage;
 
 namespace XSSystem.Page.P_HTGL
 {
-    public partial class TyhtJgxx : System.Web.UI.Page
+    public partial class TyhtJgxx : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
 
@@ -43,7 +43,8 @@ namespace XSSystem.Page.P_HTGL
 
             if (_htglLogic.InsertTyhtJgxx(dml))
             {
-                //      Response.Write("<script>alert('新增成功')</script>");
+                     Response.Write("<script>alert('新增成功')</script>");
+               // AlertMessageAndGoTo("新增成功", "TyhtGl.aspx");
                 //AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }

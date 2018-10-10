@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -944,6 +945,7 @@
     <Content Include="images\proudct\2.gif" />
     <Content Include="images\proudct\3.gif" />
     <Content Include="index.aspx" />
+    <Content Include="js\FormStyle.js" />
     <Content Include="js\jquery-1.8.0.js" />
     <Content Include="js\main.js" />
     <Content Include="js\showlist.js" />
@@ -961,10 +963,21 @@
     <Content Include="My97DatePicker\skin\whyGreen\datepicker.css" />
     <Content Include="My97DatePicker\skin\whyGreen\img.gif" />
     <Content Include="My97DatePicker\WdatePicker.js" />
+    <Content Include="Page\P_CKGL\TyxsckdJzxxx.aspx" />
+    <Content Include="Page\P_CKGL\TyxsckdGl.aspx" />
+    <Content Include="Page\P_CKGL\QyxsckdGl.aspx" />
+    <Content Include="Page\P_CKGL\QykhhdlrGl.aspx" />
+    <Content Include="Page\P_CWGL\JxfpqsdGl.aspx" />
+    <Content Include="Page\P_CWGL\XxfpyjdGl.aspx" />
+    <Content Include="Page\P_CWGL\FydGl.aspx" />
     <Content Include="Page\P_CWGL\Jxfpqsd.aspx" />
     <Content Include="Page\P_CWGL\Txcxzz.aspx" />
     <Content Include="Page\P_CWGL\Xxfpyjd.aspx" />
     <Content Include="Page\P_CWGL\Yfjsd.aspx" />
+    <Content Include="Page\P_DBGL\QydbckdGl.aspx" />
+    <Content Include="Page\P_DBGL\QydbhdGl.aspx" />
+    <Content Include="Page\P_DBGL\TydbckdGl.aspx" />
+    <Content Include="Page\P_DBGL\TydbckdJzxxx.aspx" />
     <Content Include="Page\P_Hire\Hire.aspx" />
     <Content Include="Page\P_Hire\HireTemplate.aspx" />
     <Content Include="Page\P_Hire\Hire_Add.aspx" />
@@ -977,10 +990,18 @@
     <Content Include="Page\P_HTGL\QyhtJgxx.aspx" />
     <Content Include="Page\P_HTGL\TyhtGl.aspx" />
     <Content Include="Page\P_HTGL\WtjghtGl.aspx" />
+    <Content Include="Page\P_HTGL\WtjghtJgxx.aspx" />
     <Content Include="Page\P_HTGL\XshtGl.aspx" />
+    <Content Include="Page\P_HTGL\XshtJgxx.aspx" />
+    <Content Include="Page\P_HTGL\XshtZlbz.aspx" />
     <Content Include="Page\P_HTGL\ZlhtGl.aspx" />
+    <Content Include="Page\P_HTGL\ZlhtZjxx.aspx" />
+    <Content Include="Page\P_HYGL\XshydlrGl.aspx" />
+    <Content Include="Page\P_HYGL\cghydlrGl.aspx" />
     <Content Include="Page\P_Leave\Leave.aspx" />
     <Content Include="Page\P_Message\Message.aspx" />
+    <Content Include="Page\P_MKZXGL\MkzxzcdGl.aspx" />
+    <Content Include="Page\P_MKZXGL\MkzxzcdClxx.aspx" />
     <Content Include="Page\P_News\New.aspx" />
     <Content Include="Page\P_News\NewsType.aspx" />
     <Content Include="Page\P_News\News_Edit.aspx" />
@@ -991,18 +1012,18 @@
     <Content Include="Page\P_Order\Cdyffkd.aspx" />
     <Content Include="Page\P_Order\CdyffkdSearch.aspx" />
     <Content Include="Page\P_HTGL\Cght.aspx" />
-    <Content Include="Page\P_HTGL\CghtSearch.aspx" />
     <Content Include="Page\P_HYGL\cghydlr.aspx" />
     <Content Include="Page\P_RKGL\Cgrkd.aspx" />
     <Content Include="Page\P_CWGL\Dzdj.aspx" />
     <Content Include="Page\P_CWGL\Fkd.aspx" />
-    <Content Include="Page\P_CWGL\FkdSearch.aspx" />
+    <Content Include="Page\P_CWGL\FkdGl.aspx" />
     <Content Include="Page\P_CWGL\Fyd.aspx" />
     <Content Include="Page\P_CWGL\Gdzc.aspx" />
     <Content Include="Page\P_Order\GysInfo.aspx" />
     <Content Include="Page\P_Order\GysSearch.aspx" />
     <Content Include="Page\P_Order\KhInfo.aspx" />
     <Content Include="Page\P_Order\KhSearch.aspx" />
+    <Content Include="Page\P_RKGL\CgrkdGl.aspx" />
     <Content Include="Page\P_SCGL\Pmdlr.aspx" />
     <Content Include="Page\P_DBGL\Qydbckd.aspx" />
     <Content Include="Page\P_DBGL\Qydbhd.aspx" />
@@ -1012,9 +1033,11 @@
     <Content Include="Page\P_MKZXGL\Mkzxzcd.aspx" />
     <Content Include="Page\P_Order\Qyzxhdlr.aspx" />
     <Content Include="Page\P_Order\QyzxhdSearch.aspx" />
+    <Content Include="Page\P_SCGL\RsclrGl.aspx" />
+    <Content Include="Page\P_SCGL\PmdlrGl.aspx" />
     <Content Include="Page\P_SCGL\Rsclr.aspx" />
     <Content Include="Page\P_CWGL\Skd.aspx" />
-    <Content Include="Page\P_CWGL\SkdSearch.aspx" />
+    <Content Include="Page\P_CWGL\SkdGl.aspx" />
     <Content Include="Page\P_DBGL\Tydbckd.aspx" />
     <Content Include="Page\P_HTGL\Tyht.aspx" />
     <Content Include="Page\P_CKGL\Tyxsckd.aspx" />
@@ -1038,6 +1061,7 @@
     <Content Include="Page\P_System\Group_Add.aspx" />
     <Content Include="Page\P_System\Group_Function.aspx" />
     <Content Include="Page\P_System\Group_Update.aspx" />
+    <Content Include="Page\P_System\InfomationInput.aspx" />
     <Content Include="Page\P_System\User.aspx" />
     <Content Include="Page\P_System\User_Add.aspx" />
     <Content Include="style\DataCss.css" />
@@ -1055,6 +1079,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BaseClass.cs" />
+    <Compile Include="Class\MkzxzcdClass.cs" />
+    <Compile Include="Class\CgrkdClass.cs" />
+    <Compile Include="Class\QueryClass2.cs" />
+    <Compile Include="Class\TydbckdClass.cs" />
+    <Compile Include="Class\QydbhdClass.cs" />
+    <Compile Include="Class\QydbckdClass.cs" />
+    <Compile Include="Class\QyxsckdClass.cs" />
+    <Compile Include="Class\QykhhdlrClass.cs" />
+    <Compile Include="Class\TyxsckdClass.cs" />
     <Compile Include="Class\ZlghtClass.cs" />
     <Compile Include="Class\WtjghtClass.cs" />
     <Compile Include="Class\TyhtClass.cs" />
@@ -1070,6 +1103,7 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\CWGLLogic.cs" />
     <Compile Include="Logic\groupLogic.cs" />
     <Compile Include="Logic\HireLogic.cs" />
     <Compile Include="Logic\LeaveLogic.cs" />
@@ -1086,6 +1120,55 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CKGL\TyxsckdJzxxx.aspx.cs">
+      <DependentUpon>TyxsckdJzxxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CKGL\TyxsckdJzxxx.aspx.designer.cs">
+      <DependentUpon>TyxsckdJzxxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CKGL\TyxsckdGl.aspx.cs">
+      <DependentUpon>TyxsckdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CKGL\TyxsckdGl.aspx.designer.cs">
+      <DependentUpon>TyxsckdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CKGL\QyxsckdGl.aspx.cs">
+      <DependentUpon>QyxsckdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CKGL\QyxsckdGl.aspx.designer.cs">
+      <DependentUpon>QyxsckdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CKGL\QykhhdlrGl.aspx.cs">
+      <DependentUpon>QykhhdlrGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CKGL\QykhhdlrGl.aspx.designer.cs">
+      <DependentUpon>QykhhdlrGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\JxfpqsdGl.aspx.cs">
+      <DependentUpon>JxfpqsdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\JxfpqsdGl.aspx.designer.cs">
+      <DependentUpon>JxfpqsdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\XxfpyjdGl.aspx.cs">
+      <DependentUpon>XxfpyjdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\XxfpyjdGl.aspx.designer.cs">
+      <DependentUpon>XxfpyjdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\FydGl.aspx.cs">
+      <DependentUpon>FydGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\FydGl.aspx.designer.cs">
+      <DependentUpon>FydGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_CWGL\Jxfpqsd.aspx.cs">
       <DependentUpon>Jxfpqsd.aspx</DependentUpon>
@@ -1114,6 +1197,34 @@
     </Compile>
     <Compile Include="Page\P_CWGL\Yfjsd.aspx.designer.cs">
       <DependentUpon>Yfjsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_DBGL\QydbckdGl.aspx.cs">
+      <DependentUpon>QydbckdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_DBGL\QydbckdGl.aspx.designer.cs">
+      <DependentUpon>QydbckdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_DBGL\QydbhdGl.aspx.cs">
+      <DependentUpon>QydbhdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_DBGL\QydbhdGl.aspx.designer.cs">
+      <DependentUpon>QydbhdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_DBGL\TydbckdGl.aspx.cs">
+      <DependentUpon>TydbckdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_DBGL\TydbckdGl.aspx.designer.cs">
+      <DependentUpon>TydbckdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_DBGL\TydbckdJzxxx.aspx.cs">
+      <DependentUpon>TydbckdJzxxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_DBGL\TydbckdJzxxx.aspx.designer.cs">
+      <DependentUpon>TydbckdJzxxx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_Hire\Hire.aspx.cs">
       <DependentUpon>Hire.aspx</DependentUpon>
@@ -1199,6 +1310,13 @@
     <Compile Include="Page\P_HTGL\WtjghtGl.aspx.designer.cs">
       <DependentUpon>WtjghtGl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Page\P_HTGL\WtjghtJgxx.aspx.cs">
+      <DependentUpon>WtjghtJgxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\WtjghtJgxx.aspx.designer.cs">
+      <DependentUpon>WtjghtJgxx.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Page\P_HTGL\XshtGl.aspx.cs">
       <DependentUpon>XshtGl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1206,12 +1324,47 @@
     <Compile Include="Page\P_HTGL\XshtGl.aspx.designer.cs">
       <DependentUpon>XshtGl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Page\P_HTGL\XshtJgxx.aspx.cs">
+      <DependentUpon>XshtJgxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\XshtJgxx.aspx.designer.cs">
+      <DependentUpon>XshtJgxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\XshtZlbz.aspx.cs">
+      <DependentUpon>XshtZlbz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\XshtZlbz.aspx.designer.cs">
+      <DependentUpon>XshtZlbz.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Page\P_HTGL\ZlhtGl.aspx.cs">
       <DependentUpon>ZlhtGl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Page\P_HTGL\ZlhtGl.aspx.designer.cs">
       <DependentUpon>ZlhtGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HTGL\ZlhtZjxx.aspx.cs">
+      <DependentUpon>ZlhtZjxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HTGL\ZlhtZjxx.aspx.designer.cs">
+      <DependentUpon>ZlhtZjxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HYGL\XshydlrGl.aspx.cs">
+      <DependentUpon>XshydlrGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HYGL\XshydlrGl.aspx.designer.cs">
+      <DependentUpon>XshydlrGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_HYGL\cghydlrGl.aspx.cs">
+      <DependentUpon>cghydlrGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_HYGL\cghydlrGl.aspx.designer.cs">
+      <DependentUpon>cghydlrGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_Leave\Leave.aspx.cs">
       <DependentUpon>Leave.aspx</DependentUpon>
@@ -1226,6 +1379,20 @@
     </Compile>
     <Compile Include="Page\P_Message\Message.aspx.designer.cs">
       <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_MKZXGL\MkzxzcdGl.aspx.cs">
+      <DependentUpon>MkzxzcdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_MKZXGL\MkzxzcdGl.aspx.designer.cs">
+      <DependentUpon>MkzxzcdGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_MKZXGL\MkzxzcdClxx.aspx.cs">
+      <DependentUpon>MkzxzcdClxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_MKZXGL\MkzxzcdClxx.aspx.designer.cs">
+      <DependentUpon>MkzxzcdClxx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_News\New.aspx.cs">
       <DependentUpon>New.aspx</DependentUpon>
@@ -1297,13 +1464,6 @@
     <Compile Include="Page\P_HTGL\Cght.aspx.designer.cs">
       <DependentUpon>Cght.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Page\P_HTGL\CghtSearch.aspx.cs">
-      <DependentUpon>CghtSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Page\P_HTGL\CghtSearch.aspx.designer.cs">
-      <DependentUpon>CghtSearch.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Page\P_HYGL\cghydlr.aspx.cs">
       <DependentUpon>cghydlr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1332,12 +1492,12 @@
     <Compile Include="Page\P_CWGL\Fkd.aspx.designer.cs">
       <DependentUpon>Fkd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Page\P_CWGL\FkdSearch.aspx.cs">
-      <DependentUpon>FkdSearch.aspx</DependentUpon>
+    <Compile Include="Page\P_CWGL\FkdGl.aspx.cs">
+      <DependentUpon>FkdGl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Page\P_CWGL\FkdSearch.aspx.designer.cs">
-      <DependentUpon>FkdSearch.aspx</DependentUpon>
+    <Compile Include="Page\P_CWGL\FkdGl.aspx.designer.cs">
+      <DependentUpon>FkdGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_CWGL\Fyd.aspx.cs">
       <DependentUpon>Fyd.aspx</DependentUpon>
@@ -1380,6 +1540,13 @@
     </Compile>
     <Compile Include="Page\P_Order\KhSearch.aspx.designer.cs">
       <DependentUpon>KhSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_RKGL\CgrkdGl.aspx.cs">
+      <DependentUpon>CgrkdGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_RKGL\CgrkdGl.aspx.designer.cs">
+      <DependentUpon>CgrkdGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_SCGL\Pmdlr.aspx.cs">
       <DependentUpon>Pmdlr.aspx</DependentUpon>
@@ -1444,6 +1611,20 @@
     <Compile Include="Page\P_Order\QyzxhdSearch.aspx.designer.cs">
       <DependentUpon>QyzxhdSearch.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Page\P_SCGL\RsclrGl.aspx.cs">
+      <DependentUpon>RsclrGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_SCGL\RsclrGl.aspx.designer.cs">
+      <DependentUpon>RsclrGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_SCGL\PmdlrGl.aspx.cs">
+      <DependentUpon>PmdlrGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_SCGL\PmdlrGl.aspx.designer.cs">
+      <DependentUpon>PmdlrGl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Page\P_SCGL\Rsclr.aspx.cs">
       <DependentUpon>Rsclr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1458,12 +1639,12 @@
     <Compile Include="Page\P_CWGL\Skd.aspx.designer.cs">
       <DependentUpon>Skd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Page\P_CWGL\SkdSearch.aspx.cs">
-      <DependentUpon>SkdSearch.aspx</DependentUpon>
+    <Compile Include="Page\P_CWGL\SkdGl.aspx.cs">
+      <DependentUpon>SkdGl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Page\P_CWGL\SkdSearch.aspx.designer.cs">
-      <DependentUpon>SkdSearch.aspx</DependentUpon>
+    <Compile Include="Page\P_CWGL\SkdGl.aspx.designer.cs">
+      <DependentUpon>SkdGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_DBGL\Tydbckd.aspx.cs">
       <DependentUpon>Tydbckd.aspx</DependentUpon>
@@ -1632,6 +1813,13 @@
     </Compile>
     <Compile Include="Page\P_System\Group_Update.aspx.designer.cs">
       <DependentUpon>Group_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_System\InfomationInput.aspx.cs">
+      <DependentUpon>InfomationInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_System\InfomationInput.aspx.designer.cs">
+      <DependentUpon>InfomationInput.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_System\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

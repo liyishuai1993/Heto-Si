@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <base target="_parent"/>
     <script type="text/css">
         .auto-style3 {
             height: 30px;

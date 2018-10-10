@@ -5,6 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/FormStyle.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
@@ -13,81 +15,83 @@
     <form id="form1" runat="server">
         <div>
             <p>
-        <span>类别</span>
-        <asp:Dropdownlist id="ddlnewtype" runat="server" autopostback="true" onselectedindexchanged="ddlnewtype_selectedindexchanged"></asp:Dropdownlist>
-        <span>名称：</span><asp:TextBox ID="txtNewName" runat="server" CssClass="inputText"></asp:TextBox><asp:Button
-            ID="btnQuery" runat="server" Text="查询" CssClass="button"
-            OnClick="btnQuery_Click" />
+        <span>合同编号</span>
+        <asp:TextBox id="tbhtbh" runat="server" Width="140px"></asp:TextBox>
+<%--        <span>名称：</span>
+                <asp:TextBox ID="txtNewName" runat="server" CssClass="inputText" Visible="false"></asp:TextBox>
+                <asp:Dropdownlist id="ddshzt" runat="server" autopostback="true" onselectedindexchanged="ddlnewtype_selectedindexchanged">
+            <asp:ListItem>已审核</asp:ListItem>
+            <asp:ListItem>未审核</asp:ListItem>--%>
+        <%--</asp:Dropdownlist>--%>
+                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+                <asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+               <%-- 供方名称<asp:TextBox id="tbgfmc" runat="server" Width="140px"></asp:TextBox>--%>
+                需方名称<asp:TextBox id="tbxfmc" runat="server" Width="140px"></asp:TextBox>
+                <%--煤矿名称<asp:TextBox id="tbmkmc" runat="server" Width="140px"></asp:TextBox>--%>
+                合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="140px"></asp:TextBox>
+                审核状态<asp:TextBox id="tbzt" runat="server" Width="140px"></asp:TextBox>
+                <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
+                <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
+                <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
+                <%--<asp:Button ID="BtnUpdate" runat="server" Text="审核" CssClass="button" OnClick="btnQuery_Click" />--%>
     </p>
         </div>
     <div>
-    <asp:Panel ID="Panel1" runat="server" Height="185px" ScrollBars="Auto" Width="1500px">
+    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
-            ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="120%" CellPadding="4" ForeColor="#333333" GridLines="None">
+            ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" >
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:BoundField DataField="htbh" HeaderStyle-Width="10%" HeaderText="合同编号">
-                <HeaderStyle Width="10%" />
+                <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
+                <ItemTemplate>
+                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "htbh")%>' onclick='SingleCheckJs();' />
+                </ItemTemplate>
+                    <HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                </asp:TemplateField>
+                <asp:BoundField DataField="htbh"  HeaderText="合同编号">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="htlx" HeaderStyle-Width="5%" HeaderText="合同类型">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="qdrq"  HeaderText="签订日期">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="qdrq" HeaderStyle-Width="5%" HeaderText="签订日期">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="gfmc"  HeaderText="供方名称">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="dfhth" HeaderStyle-Width="5%" HeaderText="对方合同号">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="xfmc"  HeaderText="需方名称">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="gfmc" HeaderStyle-Width="5%" HeaderText="供方名称">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="kpxx"  HeaderText="开票类型">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="xfmc" HeaderStyle-Width="5%" HeaderText="需方名称">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="hkjsfs"  HeaderText="货款结算方式">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="hkjsyj" HeaderStyle-Width="5%" HeaderText="货款结算依据">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="yffkfs"  HeaderText="运费付款方式">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="hklhlx" HeaderStyle-Width="5%" HeaderText="货款路耗类型">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="shzt"  HeaderText="审核状态">              
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="hklhbz" HeaderStyle-Width="5%" HeaderText="货款路耗标准">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="zxzt"  HeaderText="执行状态">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="kpxx" HeaderStyle-Width="8%" HeaderText="开票类型">
-                <HeaderStyle Width="8%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="jhsjQ" HeaderStyle-Width="5%" HeaderText="交货时间起">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="jhsjZ" HeaderStyle-Width="5%" HeaderText="交货时间止">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="hkjsfs" HeaderStyle-Width="5%" HeaderText="货款结算方式">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="fhdd" HeaderStyle-Width="5%" HeaderText="交货地点">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="yffkfs" HeaderStyle-Width="5%" HeaderText="运费付款方式">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="mkmc" HeaderStyle-Width="5%" HeaderText="煤矿名称">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="kzbz" HeaderStyle-Width="5%" HeaderText="煤矿名称">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="lxdh" HeaderStyle-Width="5%" HeaderText="煤矿名称">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="bz" HeaderStyle-Width="5%" HeaderText="备注">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:TemplateField HeaderStyle-Width="5%" HeaderText="操作">
+                <asp:TemplateField  HeaderText="操作">
                     <ItemTemplate>
-                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnDelete_Click" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                       <%-- <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnDelete_Click" OnClientClick="return confirm('是否删除？')" Text="删除" />--%>
+                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnUpdate_Click" OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                     </ItemTemplate>
-                    <HeaderStyle Width="5%" />
+                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
@@ -102,9 +106,10 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         
         </asp:GridView>
-        </asp:Panel>
-    <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
+        <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
         </cc1:xsPageControl>
+        </asp:Panel>
+    
     </div>
     </form>
 </body>

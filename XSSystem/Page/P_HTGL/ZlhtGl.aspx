@@ -6,58 +6,91 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="../../style/sysCss.css" rel="stylesheet" />
+    <script src="../../js/FormStyle.js"></script>
+    <script src="../../My97DatePicker/WdatePicker.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <p>
-        <span>类别</span>
-        <asp:Dropdownlist id="ddlnewtype" runat="server" autopostback="true" onselectedindexchanged="ddlnewtype_selectedindexchanged"></asp:Dropdownlist>
-        <span>名称：</span><asp:TextBox ID="txtNewName" runat="server" CssClass="inputText"></asp:TextBox><asp:Button
-            ID="btnQuery" runat="server" Text="查询" CssClass="button"
-            OnClick="btnQuery_Click" />
+            <p>    
+                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="140px"></asp:TextBox>
+                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+                出租方<asp:TextBox id="tbczf" runat="server" Width="140px"></asp:TextBox>
+                出租地段<asp:TextBox id="tbczdd" runat="server" Width="140px"></asp:TextBox>
+                租金<asp:TextBox id="tbzj" runat="server" Width="60px"></asp:TextBox>
+                <%--终止日期<asp:TextBox id="tbzzrq" runat="server" Width="140px"></asp:TextBox>--%>
+                审核状态<asp:TextBox id="tbshzt" runat="server" Width="60px"></asp:TextBox>
+                <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
+                <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
+                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
+                <%--<asp:Button ID="BtnUpdate" runat="server" Text="审核" CssClass="button" OnClick="btnQuery_Click" />--%>
     </p>
         </div>
     <div>
-    <asp:Panel ID="Panel1" runat="server" Height="185px" ScrollBars="Auto" Width="1500px">
+    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
-            ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="120%" CellPadding="4" ForeColor="#333333" GridLines="None">
+            ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
-                <asp:BoundField DataField="htbh" HeaderStyle-Width="10%" HeaderText="合同编号">
-                <HeaderStyle Width="10%" />
+                <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
+                <ItemTemplate>
+                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "htbh")%>' onclick='SingleCheckJs();' />
+                </ItemTemplate>
+                    <HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                </asp:TemplateField>
+                <asp:BoundField DataField="htbh"  HeaderText="合同编号">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="htlx" HeaderStyle-Width="5%" HeaderText="合同类型">
+                <%--<asp:BoundField DataField="htlx" HeaderStyle-Width="5%" HeaderText="合同类型">
                 <HeaderStyle Width="5%" />
+                </asp:BoundField>--%>
+                <asp:BoundField DataField="qdrq"  HeaderText="签订日期">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="qdrq" HeaderStyle-Width="5%" HeaderText="签订日期">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="czf"  HeaderText="出租方">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="czf" HeaderStyle-Width="5%" HeaderText="出租房">
-                <HeaderStyle Width="5%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="czf2" HeaderStyle-Width="5%" HeaderText="承租方">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="czf2"  HeaderText="承租方">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>           
-                <asp:BoundField DataField="czdd" HeaderStyle-Width="5%" HeaderText="出租地段">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="czdd"  HeaderText="出租地段">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="zlqxQ" HeaderStyle-Width="5%" HeaderText="租赁期限起">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="zlqxQ"  HeaderText="租赁期限起">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="zlqxZ" HeaderStyle-Width="5%" HeaderText="租赁期限止">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="zlqxZ"  HeaderText="租赁期限止">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="yj" HeaderStyle-Width="5%" HeaderText="押金">
-                <HeaderStyle Width="5%" />
+                <asp:BoundField DataField="yj"  HeaderText="押金">
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:TemplateField HeaderStyle-Width="5%" HeaderText="操作">
+                <asp:BoundField DataField="shzt"  HeaderText="审核状态">              
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:BoundField>
+                <asp:BoundField DataField="zxzt"  HeaderText="执行状态">              
+                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:BoundField>
+                <asp:TemplateField  HeaderText="操作">
                     <ItemTemplate>
-                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnDelete_Click" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnDelete_Click" OnClientClick="return confirm('是否删除？')" Text="删除" />--%>
+                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnUpdate_Click" OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                     </ItemTemplate>
-                    <HeaderStyle Width="5%" />
+                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />

@@ -70,11 +70,11 @@
         <div>
             <p>入场信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px" >
-                <tr class="auto-style3"><td class="auto-style3">入库日期<asp:TextBox ID="TextBox1" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td></tr>
+                <tr class="auto-style3"><td class="auto-style3">入库日期<asp:TextBox ID="rkrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td></tr>
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">入库煤场<asp:TextBox ID="rkmc" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                    <td class="auto-style3">入库毛重<asp:TextBox ID="rkmz" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">入库毛重<asp:TextBox ID="rkmz" runat="server" Text=""  Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>                   
                 </tr>
                 <tr>
@@ -106,7 +106,7 @@
 
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存并关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存并关闭" runat ="server" width="90px"  BorderStyle="Groove" OnClick="submit_Click" BackColor="Aqua"></asp:Button>&nbsp
                 &nbsp
             <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>
                 </p> 

@@ -10,7 +10,7 @@ using xsFramework.Web.WebPage;
 
 namespace XSSystem.Page.P_HTGL
 {
-    public partial class CghtZlbz : System.Web.UI.Page
+    public partial class CghtZlbz : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
 
@@ -45,7 +45,9 @@ namespace XSSystem.Page.P_HTGL
             if (_htglLogic.InsertCghtZlbz(dml))
             {
                 //      Response.Write("<script>alert('新增成功')</script>");
-              //  AlertMessage("新增成功");
+                Response.Write("<script>alert('新增成功')</script>");
+              //  AlertMessageAndGoTo("新增成功", "CghtGl.aspx");
+                //  AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
 

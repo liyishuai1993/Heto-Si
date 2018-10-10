@@ -9,6 +9,111 @@ namespace xs_System.Logic
 {
     public class HTGLLogic
     {
+        public bool InsertMkzxzcd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_MkzxzcdTable (user_no,djbh,zcsj,cghth,ghf,shf,mkmc,wlmc,cydw,yj,cgmj,xsmj)" +
+                "values(@user_no,@djbh,@zcsj,@cghth,@ghf,@shf,@mkmc,@wlmc,@cydw,@yj,@cgmj,@xsmj)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertTydbckd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_TydbckdTable (user_no,bh,htbh,gsmc,fmmc,wlmc,zcz,zdz,xlx)" +
+                "values(@user_no,@bh,@htbh,@gsmc,@fmmc,@wlmc,@zcz,@zdz,@xlx)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertQydbhd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_QydbhdTable (user_no,rkbdh,rksj,smmc,rkmz,rkpz,rkjz,ksds,yyds,yslhbz,yfkkbz,yfkkds,yfkkje,yfjsdw,yfyf,fykk,jsyf,drje,drmj,shzt,yfjszt)" +
+                "values(@user_no,@rkbdh,@rksj,@smmc,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@yslhbz,@yfkkbz,@yfkkds,@yfkkje,@yfjsdw,@yfyf,@fykk,@jsyf,@drje,@drmj,@shzt,@yfjszt)";
+            SqlHelper.Execute(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_QydbckdTable set rkbdh =@rkbdh where ckbdh=@ckbdh";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertQydbckd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_QydbckdTable (user_no,bh,ckbdh,zcsj,gsmc,fmmc,ch,jsy,lxdh,wlmc,ckmz,ckpz,ckjz,dcmj,dbje,yj,yfyk,fkzh)" +
+                "values(@user_no,@bh,@ckbdh,@zcsj,@gsmc,@fmmc,@ch,@jsy,@lxdh,@wlmc,@ckmz,@ckpz,@ckjz,@dcmj,@dbje,@yj,@yfyk,@fkzh)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertTyxsckd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_TyxsckdTable (user_no,bh,htbh,wtf,stf,fmmc,wlmc,mj,zcz,zdz,xlx,tcbz,tcje,ywy)" +
+                "values(@user_no,@bh,@htbh,@wtf,@stf,@fmmc,@wlmc,@mj,@zcz,@zdz,@xlx,@tcbz,@tcje,@ywy)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertQykhhdlr(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_QykhhdlrTable (user_no,rkbdh,rksj,rkmz,rkpz,rkjz,ksds,yyds,kd,yfhllh,yflhbz,yfkkds,yfkkje,yfjsdw,yfyf,fykk,jsyf,hkjsdw,jshk,tcbz,tcje,ywy,yfjszt,shzt)" +
+                "values(@user_no,@rkbdh,@rksj,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@kd,@yfhllh,@yflhbz,@yfkkds,@yfkkje,@yfjsdw,@yfyf,@fykk,@jsyf,@hkjsdw,@jshk,@tcbz,@tcje,@ywy,@yfjszt,@shzt)";
+            SqlHelper.Execute(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_QyxsckdTable set rkbdh =@rkbdh where ckbdh=@ckbdh";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertQyxsckd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_QyxsckdTable (user_no,ckbdh,htbh,zcsj,fmmc,gf,xf,ch,jsy,lxdh,wlmc,ckmz,ckpz,jbds,ckjz1,ckjz2,mj,hkgsje,yfyk,yj,fkzh)" +
+                "values(@user_no,@ckbdh,@htbh,@zcsj,@fmmc,@gf,@xf,@ch,@jsy,@lxdh,@wlmc,@ckmz,@ckpz,@jbds,@ckjz1,@ckjz2,@mj,@hkgsje,@yfyk,@yj,@fkzh)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertCgrkd(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_CgrkdTable (user_no,hth,mkmc,gf,xf,wlmc,mj,yshtbh,cycd,zcbdh,tmdh,zcrq,ch,zcmz,zcpz,zcjz,jsmk,rkrq,rkbdh,rkmc,rkmz,rkpz,rkjz,ksds,yyds,yslhbz,kkbz,kkds,kkje,yfjsdw,yj,yfyf,yfyk,fkzh,jsyf,zfzh,shzt,yfjszt)" +
+                "values(@user_no,@hth,@mkmc,@gf,@xf,@wlmc,@mj,@yshtbh,@cycd,@zcbdh,@tmdh,@zcrq,@ch,@zcmz,@zcpz,@zcjz,@jsmk,@rkrq,@rkbdh,@rkmc,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@yslhbz,@kkbz,@kkds,@kkje,@yfjsdw,@yj,@yfyf,@yfyk,@fkzh,@jsyf,@zfzh,@shzt,@yfjszt)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        
+
+
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -36,6 +141,40 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertTyxsJzxxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj)" +
+                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertTydbckdJzxxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_Tydbckd_Jzxxx (user_no,bh,xh,sxds,zxrq,fcrq,dcmj,xhds,dzrq,xhck,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,drmj)" +
+                "values(@user_no,@bh,@xh,@sxds,@zxrq,@fcrq,@dcmj,@xhds,@dzrq,@xhck,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@drmj)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertMkzxzcdClxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_MkzxzcdTable_Clxx (user_no,djbh,bdh,thdh,ch,zcmz,zcpz,zcjz,yfyf,cgjsje,xsjsje,bz,zt)" +
+                "values(@user_no,@djbh,@bdh,@thdh,@ch,@zcmz,@zcpz,@zcjz,@yfyf,@cgjsje,@xsjsje,@bz,@zt)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+
         public bool InsertCghtZlbz(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -58,6 +197,28 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertXshtJgxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_XshtTable_Jgxx (user_no,htbh,mkmc,mzmc,frl,lf,kpmj,htmj,ksl,qdds,qdje)" +
+                "values(@user_no,@htbh,@mkmc,@mzmc,@frl,@lf,@kpmj,@htmj,@ksl,@qdds,@qdje)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertXshtZlbz(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_XshtTable_Zlbz (user_no,htbh,mz,ld,hf,hff,gdt,njzs,sf,tie,lv,gai,lin,tai,liu)" +
+                "values(@user_no,@htbh,@mz,@ld,@hf,@hff,@gdt,@njzs,@sf,@tie,@lv,@gai,@lin,@tai,@liu)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
         public bool InsertQyht(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -74,8 +235,8 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_QyhtTable_Jgxx (user_no,htbh,wlmc,qyd,mdd,yj,yhlhbz,bz)" +
-                "values(@user_no,@htbh,@wlmc,@qyd,@mdd,@yj,@yhlhbz,@bz)";
+            sqlpara.SQL = "insert into xs_QyhtTable_Jgxx (user_no,htbh,wlmc,qyd,mdd,yj,yflhbz,bz)" +
+                "values(@user_no,@htbh,@wlmc,@qyd,@mdd,@yj,@yflhbz,@bz)";
             SqlHelper.Execute(sqlpara);
             return true;
         }
@@ -113,6 +274,17 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertWtjghtJgxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_WtjghtTable_Jgxx (user_no,htbh,wlmc,jgf,cmzb,bz)" +
+                "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
         public bool InsertZlht(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -120,6 +292,17 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_ZlhtTable (user_no,htbh,htlx,qdrq,czf,czf2,czdd,zlqxQ,zlqxZ,yj)" +
                 "values(@userid,@htbh,@htlx,@qdrq,@czf,@czf2,@czdd,@zlqxQ,@zlqxZ,@yj)";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
+        public bool InsertZlhtZjxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_ZlhtTable_Zjxx (user_no,htbh,qsrq,zzrq,zj,fktk,zxzt,bz)" +
+                "values(@user_no,@htbh,@qsrq,@zzrq,@zj,@fktk,@zxzt,@bz)";
             SqlHelper.Execute(sqlpara);
             return true;
         }
@@ -229,15 +412,165 @@ namespace xs_System.Logic
             return sql;
         }
 
-        public string QueryOrder(QueryClass qc)
+        public string QueryCghtOrder(QueryClass qc)
         {
-            string sql = @"select * from " + qc.tableName + " where 1=1";
-            if (!string.IsNullOrEmpty(qc.htlx)) sql += " and htlx='" + qc.htlx + "'";
-            if (!string.IsNullOrEmpty(qc.shzt)) sql += " and shzt='" + qc.shzt + "'";
-            if (!string.IsNullOrEmpty(qc.cxrqQ)) sql += " and qdrq>='" + Convert.ToDateTime(qc.cxrqQ) + "'";
-            if (!string.IsNullOrEmpty(qc.cxrqZ)) sql += " and qdrq<='" + Convert.ToDateTime(qc.cxrqZ) + "'";
+            string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
+                "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
+                 "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
             return sql;
         }
+
+        public string QueryCghtChildTable(QueryClass qc)
+        {
+            string sql=@"select * from  "+qc.tableName+ " where user_no='"+qc.user_no+"' and htbh='"+qc.htbh+"'";
+            return sql;
+        }
+
+        public string QueryThdbckdChildTable(QueryClass qc)
+        {
+            string sql = @"select * from  " + qc.tableName + " where user_no='" + qc.user_no + "' and bh='" + qc.bh + "'";
+            return sql;
+        }
+
+        public string QueryMkzxzcdChildTable(QueryClass qc)
+        {
+            string sql = @"select * from  " + qc.tableName + " where user_no='" + qc.user_no + "' and djbh='" + qc.djbh + "'";
+            return sql;
+        }
+
+        public string QueryQyhtOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_QyhtTable where htbh='" + qc.htbh + "' or ( qdrq>='" + qc.qdrqQ +
+                "' and qdrq<='" + qc.qdrqZ + "' )  or stf='" +
+                qc.stf + "' or htbh in(select htbh from xs_QyhtTable_Jgxx where qyd='" + qc.qyd +
+                "' or mdd='" + qc.mdd + "' or yj>="+qc.yj+  " or zxzt='" + qc.zt + "')";
+            return sql;
+        }
+
+        public string QueryTyhtOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_TyhtTable where htbh='" + qc.htbh + "' or ( qdrq>='" + qc.qdrqQ +
+                "' and qdrq<='" + qc.qdrqZ + "' ) or shzt='" + qc.zt + "' or stf='" +
+                qc.stf +  "' or zcz='"+qc.zcz+"' or zdz='"+qc.zdz+"'";
+            return sql;
+        }
+
+        public string QueryWtjgOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_WtjgTable where htbh='" + qc.htbh + "' or ( qdrq>='" + qc.qdrqQ +
+                "' and qdrq<='" + qc.qdrqZ + "' ) or shzt='" + qc.zt + "' or stf='" +
+                qc.stf  + "' or htbh in(select htbh from xs_WtjghtTable_Jgxx where jgf>=" + qc.jgf + ")";
+            return sql;
+        }
+
+        public string QueryXshtOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_XshtTable where htbh='" + qc.htbh + "' or ( qdrq>='" + qc.qdrqQ +
+                "' and qdrq<='" + qc.qdrqZ + "' ) or xfmc='" + qc.xfmc + "' or htbh in(select htbh from xs_XshtTable_Jgxx where kpmj>=" + qc.kpmj + " or zt='" + qc.zt + "')";
+            return sql;
+        }
+
+        public string QueryZlhtOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_ZlhtTable where htbh='" + qc.htbh + "' or ( qdrq>='" + qc.qdrqQ +
+                "' and qdrq<='" + qc.qdrqZ + "' ) or czf='" + qc.czf + "' or czdd='" +
+                qc.czdd + "' or shzt='"+qc.zt+"' or htbh in(select htbh from xs_ZlhtTable_Zjxx where zj='" + qc.zj + "')";
+            return sql;
+        }
+
+        public string QueryMkzxzcd(QueryClass qc)
+        {
+            string sql = @"select * from xs_MkzxzcdTable where cghth='" + qc.cghth + "' or ( zcsj>='" + qc.qdrqQ +
+                "' and zcsj<='" + qc.qdrqZ + "' ) or ghf='" + qc.ghf + "' or shf='" +
+                qc.shf + "'";
+            return sql;
+        }
+
+        public string QueryCgrkd(QueryClass qc)
+        {
+            string sql = @"select * from xs_CgrkdTable where rkbdh='" + qc.rkbdh + "' or  hth>='" + qc.hth +"' or ( zcrq>='" + qc.qdrqQ +
+                "' and zcrq<='" + qc.qdrqZ + "' ) or gf='" + qc.gfmc + "' or mj=" +
+                qc.mj + " or zcjz=" + qc.zcjz + " or rkjz=" + qc.rkjz + " or wlmc='" + qc.wlmc+"' or rkmc='"+qc.rkmc+"'";
+            return sql;
+        }
+
+        public string QueryQyxsckdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_QyxsckdTable where ckbdh='" + qc.ckbdh + "' or ( zcsj>='" + qc.qdrqQ +
+                "' and zcsj<='" + qc.qdrqZ + "' ) or fmmc='" + qc.fmmc + "' or xf='" +
+                qc.xfmc + "' or ch='" + qc.ch + "' or ckjz2="+qc.ckjz2+" or mj="+qc.mj; 
+            return sql;
+        }
+
+        public string QueryQykhhdlrOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_QykhhdlrTable where rkbdh= '" + qc.rkbdh + "' or ( rksj>='" + qc.qdrqQ +
+                "' and rksj<='" + qc.qdrqZ + "') or rkjz=" + qc.rkjz;
+            return sql;
+        }
+
+        public string QueryTyxsckdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_TyxsckdTable where stf= '" + qc.stf + "'or htbh='"+qc.htbh+ "' or zcz='" + qc.zcz+"' or zdz='"+qc.zdz+
+                "' or htbh in(select htbh from xs_Tyxsckd_Jzxxx where xh='" + qc.xh + "' or ( fcrq>='" + qc.qdrqQ +"' and fcrq<='" + qc.qdrqZ +"'))";
+            return sql;
+        }
+
+        public string QueryQydbckdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_QydbckdTable where ckbdh='" + qc.ckbdh + "' or ( zcsj>='" + qc.qdrqQ +
+                "' and zcsj<='" + qc.qdrqZ + "' ) or fmmc='" + qc.fmmc + "' or ch='" +
+                qc.ch + "' or wlmc='" + qc.wlmc + "' or ckjz=" + qc.ckjz;
+            return sql;
+        }
+
+        public string QueryQydbhdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_QydbhdTable where rkbdh='" + qc.rkbdh + "' or ( rksj>='" + qc.qdrqQ +
+                "' and rksj<='" + qc.qdrqZ + "' ) or smmc='" + qc.smmc  + "' or rkjz=" + qc.rkjz;
+            return sql;
+        }
+
+        public string QueryTydbckdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_TydbckdTable where fmmc='" + qc.fmmc + "' or wlmc='" + qc.wlmc + "' or bh='" + qc.bh + "' or zcz='" +
+                qc.zcz + "' or zdz='" + qc.zdz + "' or xlx='" + qc.xlx+
+                "' or bh in(select bh from xs_Tydbckd_Jzxxx where xh='" + qc.xh + "' or xhck='"+qc.xhck+"' or fcrq='"+qc.qdrqQ+"')";
+            return sql;
+        }
+
+        public string QueryMkzxzcdOrder(QueryClass qc)
+        {
+            string sql = @"select * from xs_MkzxzcdTable where ghf='" + qc.ghf + "' or shf='" + qc.shf + "' or wlmc='" +
+                qc.wlmc + "' or ( zcsj>='" + qc.qdrqQ + "' and zcsj<='" + qc.qdrqZ +
+                "') or djbh in(select djbh from xs_MkzxzcdTable_Clxx where ch='" + qc.ch + "' or zcjz=" + qc.zcjz+")";
+            return sql;
+        }
+        
+
+
+        public bool DeleteData(DirModel dml, string tablename,string key)
+        {
+            string[] ckb = dml.GetValue<string[]>("@htbhArr");
+            string sql = "";
+            xsSqlParameter sqlpara = new xsSqlParameter();
+          //  sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sql = @"delete from [" + tablename + "]where "+key+"='";
+            for (int i = 0; i < ckb.Length; i++)
+            {
+                sql += ckb[i];
+                if (i == ckb.Length - 1)
+                    sql += "'";
+                else
+                    sql += "' or "+key+"='";
+            }
+            sqlpara.SQL = sql;
+            SqlHelper.Execute(sqlpara);
+            
+            return true;
+        }
+
 
         /// <summary>
         /// 删除订单
@@ -254,12 +587,32 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool DeleteChildTable(DirModel dml, string tablename)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = @"delete from [" + tablename + "]where [htbh]=@htbh and bh=@bh";
+            SqlHelper.Execute(sqlpara);
+            return true;
+        }
+
         public bool ShengHeOrder(DirModel dml, string tablename)
         {
             xsSqlParameter sql = new xsSqlParameter();
             sql.AddSqlParameter(dml);
             sql.SqlConnectString = GlabalString.DBString;
             sql.SQL = "update " + tablename + " set shzt='已审核' where htbh=@htbh";
+            SqlHelper.Execute(sql);
+            return true;
+        }
+
+        public bool ZhiXingOrder(DirModel dml, string tablename)
+        {
+            xsSqlParameter sql = new xsSqlParameter();
+            sql.AddSqlParameter(dml);
+            sql.SqlConnectString = GlabalString.DBString;
+            sql.SQL = "update " + tablename + " set zxzt='已执行' where htbh=@htbh";
             SqlHelper.Execute(sql);
             return true;
         }

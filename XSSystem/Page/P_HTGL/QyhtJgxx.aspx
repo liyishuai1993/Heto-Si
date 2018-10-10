@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <base target="_parent"/>
     <style type="text/css">
         .auto-style1 {
             background-color: #EEEEEE;

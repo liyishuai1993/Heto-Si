@@ -22,31 +22,13 @@ namespace XSSystem.Page.P_HTGL {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddhtlx 控件。
+        /// tbhtbh 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddhtlx;
-        
-        /// <summary>
-        /// txtNewName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewName;
-        
-        /// <summary>
-        /// ddshzt 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddshzt;
+        protected global::System.Web.UI.WebControls.TextBox tbhtbh;
         
         /// <summary>
         /// qdfwQ 控件。
@@ -67,6 +49,33 @@ namespace XSSystem.Page.P_HTGL {
         protected global::System.Web.UI.WebControls.TextBox qdfwZ;
         
         /// <summary>
+        /// tbgfmc 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbgfmc;
+        
+        /// <summary>
+        /// tbkpmj 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbkpmj;
+        
+        /// <summary>
+        /// tbzt 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbzt;
+        
+        /// <summary>
         /// btnQuery 控件。
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace XSSystem.Page.P_HTGL {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnAdd;
+        
+        /// <summary>
+        /// BtnDel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnDel;
         
         /// <summary>
         /// Panel1 控件。

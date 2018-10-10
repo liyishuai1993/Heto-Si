@@ -67,6 +67,15 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.DropDownList wtf;
         
         /// <summary>
+        /// wtf_xz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox wtf_xz;
+        
+        /// <summary>
         /// stf 控件。
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList stf;
+        
+        /// <summary>
+        /// stf_xz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox stf_xz;
         
         /// <summary>
         /// kplx 控件。
@@ -139,13 +157,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button update;
         
         /// <summary>
-        /// refresh 控件。
+        /// shenhe 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button refresh;
+        protected global::System.Web.UI.WebControls.Button shenhe;
+        
+        /// <summary>
+        /// done 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button done;
         
         /// <summary>
         /// close 控件。

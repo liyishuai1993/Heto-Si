@@ -10,7 +10,6 @@ namespace XSSystem.Class
         public string htbh;
         public string htlx;
         public string qdrq;
-        public string dfhth;
         public string wtf;
         public string stf;
         public string fmmc;
@@ -22,13 +21,12 @@ namespace XSSystem.Class
         public string xlx;
         public int sl;
 
-        public TyhtClass(string htbh, string htlx, string qdrq, string dfhth,string wtf,string stf,
+        public TyhtClass(string htbh, string htlx, string qdrq,string wtf,string stf,
             string fmmc,string wlmc,string zxqxQ,string zxqxZ,string zcz,string zdz,string xlx,int sl)
         {
             this.htbh = htbh;
             this.htlx = htlx;
             this.qdrq = qdrq;
-            this.dfhth = dfhth;
             this.wtf = wtf;
             this.stf = stf;
             this.fmmc = fmmc;

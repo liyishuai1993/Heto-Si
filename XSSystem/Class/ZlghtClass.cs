@@ -15,10 +15,10 @@ namespace XSSystem.Class
         public string czdd;
         public string zlqxQ;
         public string zlqxZ;
-        public double yj;
+        public string yj;
 
         public ZlhtClass(string htbh, string htlx, string qdrq,string czf,string czf2,
-            string czdd,string zlqxQ,string zlqxZ,double yj)
+            string czdd,string zlqxQ,string zlqxZ,string yj)
         {
             this.htbh = htbh;
             this.htlx = htlx;

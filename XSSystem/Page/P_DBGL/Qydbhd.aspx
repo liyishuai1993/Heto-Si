@@ -36,7 +36,7 @@
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
                     <td class="auto-style3">*收煤煤场<asp:TextBox id="smmc" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
@@ -86,8 +86,7 @@
 
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
-                <asp:Button ID="refresh" text="保存并关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
+                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
             <asp:Button ID="Button1" text="重填" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>&nbsp
                 <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>
                 </p> 
