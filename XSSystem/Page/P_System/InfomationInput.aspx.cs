@@ -10,7 +10,7 @@ using xsFramework.Web.Login;
 
 namespace XSSystem.Page.P_System
 {
-    public partial class InfomationInput : System.Web.UI.Page
+    public partial class InfomationInput : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
         protected void Page_Load(object sender, EventArgs e)
@@ -23,17 +23,32 @@ namespace XSSystem.Page.P_System
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
-            dml.Add("@MeiZhong", MZ.Text.Trim());
-            _htglLogic.InsertInfomation(dml);
+            dml.Add("@mzmc", MZ.Text.Trim());
+            if (_htglLogic.InsertMeZhong(dml))
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("已存在，添加失败！");
+            }
         }
+
 
         protected void submit2_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
-            dml.Add("@YL", YL.Text.Trim());
-            _htglLogic.InsertInfomation(dml);
+            dml.Add("@yl", YL.Text.Trim());
+            if (_htglLogic.InsertYuanLiao(dml))
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("已存在，添加失败！");
+            }
         }
 
         protected void submit3_Click(object sender, EventArgs e)
@@ -41,8 +56,15 @@ namespace XSSystem.Page.P_System
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
-            dml.Add("@CP", CP.Text.Trim());
-            _htglLogic.InsertInfomation(dml);
+            dml.Add("@cp", CP.Text.Trim());
+            if (_htglLogic.InsertChanPing(dml))
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("已存在，添加失败！");
+            }
         }
     }
 }

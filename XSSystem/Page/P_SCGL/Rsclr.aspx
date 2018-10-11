@@ -84,7 +84,7 @@
                 中煤产率%<asp:TextBox id="zmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                 煤泥产率%<asp:TextBox id="nmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                 矸石产率%<asp:TextBox id="gscl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                损耗率%<asp:TextBox id="zsl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                损耗率%<asp:TextBox id="shl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
             </p>            
             
             <asp:GridView ID="GridView_SCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
@@ -132,7 +132,7 @@
                         </asp:BoundField>
                         <asp:TemplateField  HeaderText="操作">
                     <ItemTemplate>
-                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("mz") %>' CssClass="buttonCancle"   OnClientClick="return confirm('是否删除？')" Text="删除" />
                         <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
                     </ItemTemplate>
                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
@@ -163,7 +163,44 @@
                 数量(t):<asp:TextBox id="ccxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
                 <asp:Button ID="ccxx_jeBtn" runat="server" Text="金额(元)"/><asp:TextBox id="ccxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
                  产率%<asp:TextBox id="ccxx_cl" runat="server" Height="16px" Width ="80px" CssClass="auto-style4"></asp:TextBox>
-            </p>                
+            </p>     
+            
+            <asp:GridView ID="GridView_CCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField HeaderText="煤种" DataField="mz"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="数量" DataField="sl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                     <asp:BoundField HeaderText="产率" DataField="cl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:TemplateField  HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("mz") %>' CssClass="buttonCancle"   OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+                       
         </div>       
 
         <p class="auto-style5">

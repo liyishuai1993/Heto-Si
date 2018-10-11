@@ -16,12 +16,18 @@ namespace XSSystem.Page.P_Order
 {
     public partial class Rsclr : AuthWebPage
     {
-        DataTable dataTable = new DataTable();
+        static DataTable Scxx_dataTable;
+
+        static DataTable Ccxx_dataTable;
 
         CWGLLogic _cwglLogic = new CWGLLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                InitDataTable();
+                DropListInit();
+            }
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -45,22 +51,44 @@ namespace XSSystem.Page.P_Order
             }
         }
 
+        private void InitDataTable()
+        {
+            Scxx_dataTable = new DataTable();
+            Scxx_dataTable.Columns.Add("mz", System.Type.GetType("System.String"));
+            Scxx_dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("klcl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("hhmcl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("mmcl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("zmcl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("nmcl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("gscl", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("shl", System.Type.GetType("System.Double"));
+
+            Ccxx_dataTable = new DataTable();
+            Ccxx_dataTable.Columns.Add("mz", System.Type.GetType("System.String"));
+            Ccxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
+            Ccxx_dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
+            Ccxx_dataTable.Columns.Add("cl", System.Type.GetType("System.Double"));
+
+        }
+
         protected void scxx_tjmz_Click(object sender, EventArgs e)
         {
-            dataTable.NewRow();
-            DataRow dr = dataTable.NewRow();
+            
+            DataRow dr = Scxx_dataTable.NewRow();
             dr[0] = MZDropDownList.SelectedValue;
-            dr[1] = scxx_je.Text;
-            dr[2] = scxx_sl.Text;
-            dr[3] = klcl.Text;
-            dr[4] = hhmcl.Text;
-            dr[5] = mmcl.Text;
-            dr[6] = zmcl.Text;
-            dr[7] = nmcl.Text;
-            dr[8] = gscl.Text;
-            dr[9] = zsl.Text;
-            dataTable.Rows.Add(dr);
-            GridView_SCXX.DataSource = dataTable;
+            dr[1] = double.Parse(scxx_je.Text.Trim());
+            dr[2] = double.Parse(scxx_sl.Text.Trim());
+            dr[3] = double.Parse(klcl.Text.Trim());
+            dr[4] = double.Parse(hhmcl.Text.Trim());
+            dr[5] = double.Parse(mmcl.Text.Trim());
+            dr[6] = double.Parse(zmcl.Text.Trim());
+            dr[7] = double.Parse(nmcl.Text.Trim());
+            dr[8] = double.Parse(gscl.Text.Trim());
+            dr[9] = double.Parse(shl.Text.Trim());
+            Scxx_dataTable.Rows.Add(dr);
+            GridView_SCXX.DataSource = Scxx_dataTable;
             GridView_SCXX.DataBind();
         }
 
@@ -72,9 +100,9 @@ namespace XSSystem.Page.P_Order
             //pagepara.XsPager=
             HTGLLogic ht = new HTGLLogic();
             string[] arrList = new string[1];
-            arrList[0] = "MeiZhong";
-            pagepara.Sql = ht.QueryDropList("xs_CghtTable", arrList);
-           // pagepara.OrderBy = "gfmc";
+            arrList[0] = "mzmc";
+            pagepara.Sql = ht.QueryDropList("xs_MeiZhongTable", arrList);
+            pagepara.OrderBy = "mzmc";
             PageChangedEventArgs e = new PageChangedEventArgs(1);
             DataTable dt = xsPageHelper.BindPager(pagepara, e);
             if (dt.Rows.Count != 0)
@@ -84,13 +112,20 @@ namespace XSSystem.Page.P_Order
                 MZDropDownList.DataBind();
                 MZDropDownList2.DataSource = dt.DefaultView;
                 MZDropDownList2.DataTextField = dt.Columns[0].ToString();
-                MZDropDownList.DataBind();
+                MZDropDownList2.DataBind();
             }
         }
 
         protected void ccxx_tjmz_Click(object sender, EventArgs e)
         {
-
+            DataRow dr = Ccxx_dataTable.NewRow();
+            dr[0] = MZDropDownList2.SelectedValue;
+            dr[1] = double.Parse(ccxx_je.Text.Trim());
+            dr[2] = double.Parse(ccxx_sl.Text.Trim());
+            dr[3] = double.Parse(ccxx_cl.Text.Trim());
+            Ccxx_dataTable.Rows.Add(dr);
+            GridView_CCXX.DataSource = Ccxx_dataTable;
+            GridView_CCXX.DataBind();
         }
     }
 }

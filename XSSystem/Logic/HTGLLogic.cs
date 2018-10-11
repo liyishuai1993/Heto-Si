@@ -31,6 +31,42 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertYuanLiao(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_YuanLiaoTable (yl) values (@yl)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool InsertChanPing(DirModel dml)
+        {
+            
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_ChanPingTable (cp) values (@cp)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+            
+            return true;
+        }
+
         public bool InsertQydbhd(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -320,12 +356,21 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertInfomation(DirModel dml)
+        public bool InsertMeZhong(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL="insert into ";
+            sqlpara.SQL = "insert into xs_MeiZhongTable (mzmc) values (@mzmc)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+            
             return true;
         }
 
