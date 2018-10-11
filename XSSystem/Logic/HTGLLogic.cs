@@ -320,6 +320,15 @@ namespace xs_System.Logic
             return true;
         }
 
+        public bool InsertInfomation(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL="insert into ";
+            return true;
+        }
+
 
         #region  Update
         public bool UpdateCght(DirModel dml)

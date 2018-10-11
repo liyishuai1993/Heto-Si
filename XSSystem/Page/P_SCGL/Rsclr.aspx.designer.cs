@@ -139,13 +139,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button scxx_tjmz;
         
         /// <summary>
-        /// DropDownList1 控件。
+        /// MZDropDownList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList MZDropDownList;
         
         /// <summary>
         /// scxx_sl 控件。
@@ -175,13 +175,31 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox scxx_je;
         
         /// <summary>
-        /// jmcl 控件。
+        /// klcl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jmcl;
+        protected global::System.Web.UI.WebControls.TextBox klcl;
+        
+        /// <summary>
+        /// hhmcl 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox hhmcl;
+        
+        /// <summary>
+        /// mmcl 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mmcl;
         
         /// <summary>
         /// zmcl 控件。
@@ -193,49 +211,40 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox zmcl;
         
         /// <summary>
-        /// kscl 控件。
+        /// nmcl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox kscl;
+        protected global::System.Web.UI.WebControls.TextBox nmcl;
         
         /// <summary>
-        /// TextBox1 控件。
+        /// gscl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox gscl;
         
         /// <summary>
-        /// TextBox2 控件。
+        /// zsl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox zsl;
         
         /// <summary>
-        /// TextBox3 控件。
+        /// GridView_SCXX 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-        
-        /// <summary>
-        /// TextBox4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.GridView GridView_SCXX;
         
         /// <summary>
         /// ccxx_tjmz 控件。
@@ -247,13 +256,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button ccxx_tjmz;
         
         /// <summary>
-        /// DropDownList2 控件。
+        /// MZDropDownList2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList MZDropDownList2;
         
         /// <summary>
         /// ccxx_sl 控件。

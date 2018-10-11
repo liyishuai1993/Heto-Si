@@ -72,27 +72,92 @@
         <div>
             <p class="auto-style5">生产信息</p>
             <p>
-                <asp:Button ID="scxx_tjmz" runat="server" Text="添加煤种"/>&nbsp&nbsp
-                <asp:DropDownList id="DropDownList1" runat="server" Height="16px" Width ="80px">
+                <asp:Button ID="scxx_tjmz" runat="server" Text="添加煤种" OnClick="scxx_tjmz_Click" />&nbsp&nbsp
+                <asp:DropDownList id="MZDropDownList" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 数量(t):<asp:TextBox id="scxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
                 <asp:Button ID="scxx_jeBtn" runat="server" Text="金额(元)"/><asp:TextBox id="scxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
-                 颗粒产率%<asp:TextBox id="jmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                混合煤产率%<asp:TextBox id="zmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                沫煤产率%<asp:TextBox id="kscl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                中煤产率%<asp:TextBox id="TextBox1" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                煤泥产率%<asp:TextBox id="TextBox2" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                矸石产率%<asp:TextBox id="TextBox3" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                损耗率%<asp:TextBox id="TextBox4" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-            </p>                
+                 颗粒产率%<asp:TextBox id="klcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                混合煤产率%<asp:TextBox id="hhmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                沫煤产率%<asp:TextBox id="mmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                中煤产率%<asp:TextBox id="zmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                煤泥产率%<asp:TextBox id="nmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                矸石产率%<asp:TextBox id="gscl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                损耗率%<asp:TextBox id="zsl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+            </p>            
+            
+            <asp:GridView ID="GridView_SCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField HeaderText="煤种" DataField="mz"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="金额" DataField="je"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="数量" DataField="sl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="颗粒产率%" DataField="klcl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="混合煤产率%" DataField="hhmcl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="沫煤产率%" DataField="mmcl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="中煤产率%" DataField="zmcl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="煤泥产率%" DataField="nmcl" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="矸石产率%" DataField="gscl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="损耗率%" DataField="shl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:TemplateField  HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+
         </div>
 
         <div>
             <p class="auto-style5">产出信息</p>
             <p>
-                <asp:Button ID="ccxx_tjmz" runat="server" Text="添加煤种"/>&nbsp&nbsp
-                <asp:DropDownList id="DropDownList2" runat="server" Height="16px" Width ="80px">
+                <asp:Button ID="ccxx_tjmz" runat="server" Text="添加煤种" OnClick="ccxx_tjmz_Click" />&nbsp&nbsp
+                <asp:DropDownList id="MZDropDownList2" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 数量(t):<asp:TextBox id="ccxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
