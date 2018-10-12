@@ -51,30 +51,116 @@
         <div>
             <p class="auto-style5">原料煤种</p>
             <p>
-                <asp:Button ID="ylmz_tjje" runat="server" Text="添加原料"/>&nbsp&nbsp 
+                <asp:Button ID="ylmz_tjje" runat="server" Text="添加原料" OnClick="ylmz_tjje_Click"/>&nbsp&nbsp 
                 原料
-                <asp:DropDownList id="DropDownList1" runat="server" Height="16px" Width ="80px">
+                <asp:DropDownList id="YLDropDownList" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>      
                  原料吨数<asp:TextBox id="ylds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>  
                 成本单价<asp:TextBox id="cbdj" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>   
                  配煤费(元/吨)<asp:TextBox id="pmf" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox> 
                  金额(元)<asp:TextBox id="je" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-            </p>                
+            </p>       
+            
+            <asp:GridView ID="GridView_YLMZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField HeaderText="原料" DataField="yl"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="原料吨数" DataField="ylds" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                     <asp:BoundField HeaderText="成本单价" DataField="cbdj"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="配煤费(元/吨)" DataField="pmf"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="金额(元)" DataField="je"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:TemplateField  HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("yl") %>' CssClass="buttonCancle"   OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+
         </div>
 
         <div>
             <p class="auto-style5">产出煤种</p>
             <p>
-                <asp:Button ID="ccmz_tjje" runat="server" Text="添加产品"/>&nbsp&nbsp 
+                <asp:Button ID="ccmz_tjje" runat="server" Text="添加产品" OnClick="ccmz_tjje_Click" />&nbsp&nbsp 
                 产品
-                <asp:DropDownList id="DropDownList2" runat="server" Height="16px" Width ="80px">
+                <asp:DropDownList id="CPDropDownList" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 产出吨数<asp:TextBox id="ccds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                  金额(元)<asp:TextBox id="je2" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                  成本单价(元/吨)<asp:TextBox id="cbdj2" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-            </p>                
+            </p>
+            
+            <asp:GridView ID="CPGridView" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField HeaderText="产品" DataField="cp"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="产出吨数" DataField="cpds" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                     <asp:BoundField HeaderText="金额(元)" DataField="je"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="成本单价(元/吨)" DataField="cbdj"  >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:TemplateField  HeaderText="操作">
+                    <ItemTemplate>
+                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("cp") %>' CssClass="buttonCancle"   OnClientClick="return confirm('是否删除？')" Text="删除" />
+                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                    </ItemTemplate>
+                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+
         </div>
         
         <p class="auto-style5">
