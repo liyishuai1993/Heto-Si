@@ -60,9 +60,10 @@
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>            
-                    <td class="auto-style4" colspan="2"><asp:Button id="tjfy" Text="添加费用" runat="server" Width="60px" BorderStyle="Groove"/>&nbsp
-                        加工费金额 <asp:TextBox id="jgfje" runat="server" Height="16px" Width ="150px"></asp:TextBox>&nbsp
-                        每吨费用(元/吨)<asp:TextBox id="mdfy" runat="server" Height="16px" Width ="150px"></asp:TextBox>               
+                    <td class="uto-style3">
+                        加工费金额 <asp:TextBox id="jgfje" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
+                    <td class="uto-style3">
+                        每吨费用(元/吨)<asp:TextBox id="mdfy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox>               
                     </td>
                 </tr>                       
             </table>     

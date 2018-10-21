@@ -51,7 +51,7 @@
                     <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                 </asp:TemplateField>
-                <asp:BoundField DataField="pmbh"  HeaderText="配煤编号">
+                <asp:BoundField DataField="scmc"  HeaderText="生产煤场">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>

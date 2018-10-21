@@ -52,6 +52,11 @@
                     <td class="auto-style3">箱类型<asp:TextBox id="xlx" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>
+                <tr>
+                    <td class="auto-style3">卸货吨位<asp:TextBox id="xhdw" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">
+                    </td>
+                </tr>
                 
             </table>     
         </div>

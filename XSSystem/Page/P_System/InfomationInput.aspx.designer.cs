@@ -40,13 +40,22 @@ namespace XSSystem.Page.P_System {
         protected global::System.Web.UI.WebControls.Button submit1;
         
         /// <summary>
-        /// YL 控件。
+        /// WLDW 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox YL;
+        protected global::System.Web.UI.WebControls.TextBox WLDW;
+        
+        /// <summary>
+        /// DWType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DWType;
         
         /// <summary>
         /// submit2 控件。
@@ -58,13 +67,13 @@ namespace XSSystem.Page.P_System {
         protected global::System.Web.UI.WebControls.Button submit2;
         
         /// <summary>
-        /// CP 控件。
+        /// YL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CP;
+        protected global::System.Web.UI.WebControls.TextBox YL;
         
         /// <summary>
         /// submit3 控件。
@@ -74,5 +83,23 @@ namespace XSSystem.Page.P_System {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submit3;
+        
+        /// <summary>
+        /// CP 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CP;
+        
+        /// <summary>
+        /// submit4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit4;
     }
 }
