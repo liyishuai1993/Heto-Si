@@ -1851,6 +1851,8 @@
     <Content Include="Page\P_Public\Main.Master" />
     <Content Include="My97DatePicker\skin\Thumbs.db" />
     <Content Include="My97DatePicker\skin\whyGreen\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\XSWeb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
