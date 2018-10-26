@@ -25,8 +25,8 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_TydbckdTable (user_no,bh,htbh,gsmc,fmmc,wlmc,zcz,zdz,xlx)" +
-                "values(@user_no,@bh,@htbh,@gsmc,@fmmc,@wlmc,@zcz,@zdz,@xlx)";
+            sqlpara.SQL = "insert into xs_TydbckdTable (user_no,bh,htbh,gsmc,fmmc,wlmc,zcz,zdz,xlx,xhdw)" +
+                "values(@user_no,@bh,@htbh,@gsmc,@fmmc,@wlmc,@zcz,@zdz,@xlx,@xhdw)";
             SqlHelper.Execute(sqlpara);
             return true;
         }
@@ -66,6 +66,26 @@ namespace xs_System.Logic
             
             return true;
         }
+        
+
+        public bool InsertWangLaiDanWei(DirModel dml)
+        {
+
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_WangLaiDanWei (wldw,type) values (@wldw,@type)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         public bool InsertQydbhd(DirModel dml)
         {
@@ -100,8 +120,8 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_TyxsckdTable (user_no,bh,htbh,wtf,stf,fmmc,wlmc,mj,zcz,zdz,xlx,tcbz,tcje,ywy)" +
-                "values(@user_no,@bh,@htbh,@wtf,@stf,@fmmc,@wlmc,@mj,@zcz,@zdz,@xlx,@tcbz,@tcje,@ywy)";
+            sqlpara.SQL = "insert into xs_TyxsckdTable (user_no,bh,htbh,wtf,stf,fmmc,wlmc,mj,zcz,zdz,xlx,tcbz,tcje,ywy,xhdw)" +
+                "values(@user_no,@bh,@htbh,@wtf,@stf,@fmmc,@wlmc,@mj,@zcz,@zdz,@xlx,@tcbz,@tcje,@ywy,@xhdw)";
             SqlHelper.Execute(sqlpara);
             return true;
         }

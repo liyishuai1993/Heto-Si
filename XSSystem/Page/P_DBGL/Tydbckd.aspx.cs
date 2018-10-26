@@ -43,6 +43,7 @@ namespace XSSystem.Page.P_Order
             zcz.Text = dt.Rows[0][7].ToString();
             zdz.Text = dt.Rows[0][8].ToString();
             xlx.Text = dt.Rows[0][9].ToString();
+            xhdw.Text = dt.Rows[0][10].ToString();
             Session.Remove("tydbckd");
         }
 
@@ -60,6 +61,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@zcz", zcz.Text.Trim());
             dml.Add("@zdz", zdz.Text.Trim());
             dml.Add("@xlx", xlx.Text.Trim());
+            dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
             if (_htglLogic.InsertTydbckd(dml))
             {
                 AlertMessage("新增成功");

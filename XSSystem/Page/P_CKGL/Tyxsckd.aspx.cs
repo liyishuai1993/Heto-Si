@@ -49,6 +49,7 @@ namespace XSSystem.Page.P_Order
             tcbz.Text = dt.Rows[0][11].ToString();
             tcje.Text = dt.Rows[0][12].ToString();
             ywy.Text = dt.Rows[0][13].ToString();
+            xhdw.Text = dt.Rows[0][14].ToString();
             Session.Remove("tyxsckd");
         }
 
@@ -88,6 +89,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@tcbz", tcbz.Text.Trim());
             dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
             dml.Add("@ywy", ywy.Text.Trim());
+            dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
             if (_htglLogic.InsertTyxsckd(dml))
             {
                 AlertMessage("新增成功");
