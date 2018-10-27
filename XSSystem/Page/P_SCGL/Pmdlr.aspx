@@ -43,7 +43,10 @@
                 <tr>
                     <td class="auto-style3">生产煤场<asp:TextBox id="scmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                     <td class="auto-style3">公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
-                </tr>                      
+                </tr>     
+                <tr>
+                    <td><asp:TextBox runat="server" ID="bh" Visible="false"></asp:TextBox></td>
+                </tr>
             </table>     
         </div>
 

@@ -87,9 +87,33 @@ namespace XSSystem.Page.P_Order
             dr[7] = double.Parse(nmcl.Text.Trim());
             dr[8] = double.Parse(gscl.Text.Trim());
             dr[9] = double.Parse(shl.Text.Trim());
+
             Scxx_dataTable.Rows.Add(dr);
             GridView_SCXX.DataSource = Scxx_dataTable;
             GridView_SCXX.DataBind();
+
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@bh", bh.Text);
+            dml.Add("@mz", MZDropDownList.SelectedValue);
+            dml.Add("@sl", float.Parse(scxx_sl.Text.Trim()));
+            dml.Add("@je", float.Parse(scxx_je.Text.Trim()));
+            dml.Add("@klcl", float.Parse(klcl.Text.Trim()));
+            dml.Add("@hhmcl", float.Parse(hhmcl.Text.Trim()));
+            dml.Add("@mmcl", float.Parse(mmcl.Text.Trim()));
+            dml.Add("@zmcl", float.Parse(zmcl.Text.Trim()));
+            dml.Add("@nmcl", float.Parse(nmcl.Text.Trim()));
+            dml.Add("@gscl", float.Parse(shl.Text.Trim()));
+            if (_cwglLogic.InsertRsclr_Scxx(dml))
+            {
+                AlertMessage("新增成功！");
+            }
+            else
+            {
+                AlertMessage("数据有误，新增失败！");
+            }
+
         }
 
         protected void DropListInit()
@@ -126,6 +150,23 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Rows.Add(dr);
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();
+
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@bh", bh.Text);
+            dml.Add("@mz", MZDropDownList2.SelectedValue);
+            dml.Add("@sl", float.Parse(ccxx_sl.Text.Trim()));
+            dml.Add("@je", float.Parse(ccxx_je.Text.Trim()));
+            dml.Add("@cl", float.Parse(ccxx_cl.Text.Trim()));
+            if (_cwglLogic.InsertRsclr_Ccxx(dml))
+            {
+                AlertMessage("新增成功！");
+            }
+            else
+            {
+                AlertMessage("数据有误，新增失败！");
+            }
         }
     }
 }

@@ -67,6 +67,44 @@ namespace XSSystem.Logic
             return true;
         }
 
+        internal bool InsertRsclr_Scxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
+                "values(@user_no,@bh,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        internal bool InsertRsclr_Ccxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_RsclrTable_Ccxx (user_no,bh,sl,je,cl)" +
+                "values(@user_no,@bh,@sl,@je,@cl)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         internal string QueryJxfpqsdOrder(QueryClass2 qc)
         {
             string sql = @"select * from JxfpqsdTbale";
@@ -137,6 +175,44 @@ namespace XSSystem.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_PmdlrTable (user_no,pmbh,pmrq,scmc,gsmc)" +
                 "values(@user_no,@pmbh,@pmrq,@scmc,@gsmc)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        internal bool InsertPmdlr_Ylmz(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_PmdlrTable_Ylmz (user_no,bh,ylds,cbdj,pmf,je)" +
+                "values(@user_no,@bh,@ylds,@cbdj,@pmf,@je)";
+            try
+            {
+                SqlHelper.Execute(sqlpara);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        internal bool InsertPmdlr_Ccmz(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_PmdlrTable_Ccmz (user_no,bh,cp,ccds,je,cbdj2)" +
+                "values(@user_no,@bh,@cp,@ccds,@je,@cbdj2)";
             try
             {
                 SqlHelper.Execute(sqlpara);

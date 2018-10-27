@@ -36,6 +36,9 @@
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
                 <tr>
+                    <td><asp:TextBox ID="bh" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
                     <td class="auto-style3">所属煤场<asp:TextBox ID="ssmc" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
                     <td class="auto-style3">日期<asp:TextBox ID="rq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
                 </tr>

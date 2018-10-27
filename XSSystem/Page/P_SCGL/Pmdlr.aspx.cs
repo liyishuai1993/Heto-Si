@@ -96,6 +96,24 @@ namespace XSSystem.Page.P_Order
 
         protected void ylmz_tjje_Click(object sender, EventArgs e)
         {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@bh", bh.Text);
+            dml.Add("@ylds",float.Parse(ylds.Text.Trim()));
+            dml.Add("@cbdj", float.Parse(cbdj.Text.Trim()));
+            dml.Add("@pmf", float.Parse(pmf.Text.Trim()));
+            dml.Add("@je", float.Parse(je.Text.Trim()));
+            if (_cwglLogic.InsertPmdlr_Ylmz(dml))
+            {
+                AlertMessage("新增成功！");
+            }
+            else
+            {
+                AlertMessage("数据有误，新增失败！");
+            }
+
+
             DataRow dr = YLdataTable.NewRow();
             dr[0] = YLDropDownList.SelectedValue;
             dr[1] = double.Parse(ylds.Text.Trim());
@@ -109,6 +127,23 @@ namespace XSSystem.Page.P_Order
 
         protected void ccmz_tjje_Click(object sender, EventArgs e)
         {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@bh", bh.Text);
+            dml.Add("@cp", CPDropDownList.SelectedValue.Trim());
+            dml.Add("@ccds", float.Parse(ccds.Text.Trim()));
+            dml.Add("@je", float.Parse(je2.Text.Trim()));
+            dml.Add("@cbdj2", float.Parse(cbdj2.Text.Trim()));
+            if (_cwglLogic.InsertPmdlr_Ccmz(dml))
+            {
+                AlertMessage("新增成功！");
+            }
+            else
+            {
+                AlertMessage("数据有误，新增失败！");
+            }
+
             DataRow dr = CPdataTable.NewRow();
             dr[0] = CPDropDownList.SelectedValue;
             dr[1] = double.Parse(ccds.Text.Trim());
