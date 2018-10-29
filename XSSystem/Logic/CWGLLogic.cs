@@ -53,8 +53,8 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_RsclrTable (user_no,ssmc,rq,kjsj,gjsj,bc,ydzs,yddh,ymzs,gsmc)" +
-                "values(@user_no,@ssmc,@rq,@kjsj,@gjsj,@bc,@ydzs,@yddh,@ymzs,@gsmc)";
+            sqlpara.SQL = "insert into xs_RsclrTable (user_no,bh,ssmc,rq,kjsj,gjsj,bc,ydzs,yddh,ymzs,gsmc)" +
+                "values(@user_no,@bh,@ssmc,@rq,@kjsj,@gjsj,@bc,@ydzs,@yddh,@ymzs,@gsmc)";
             try
             {
                 SqlHelper.Execute(sqlpara);

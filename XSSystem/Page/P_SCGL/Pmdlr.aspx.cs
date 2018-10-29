@@ -25,6 +25,7 @@ namespace XSSystem.Page.P_Order
 
             if (!IsPostBack)
             {
+                bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                 InitDataTable();
                 DropListInit();
             }
