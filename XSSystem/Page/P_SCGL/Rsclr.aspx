@@ -35,8 +35,8 @@
         <div>
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
-                <tr>
-                    <td><asp:TextBox ID="bh" runat="server"></asp:TextBox></td>
+                <tr hidden="hidden">
+                    <td><asp:TextBox ID="bh" runat="server" Visible="false"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">所属煤场<asp:TextBox ID="ssmc" runat="server" Height="16px" Width="500px"></asp:TextBox></td>

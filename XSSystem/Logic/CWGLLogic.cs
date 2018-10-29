@@ -72,13 +72,13 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
-                "values(@user_no,@bh,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
+            sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,mz,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
+                "values(@user_no,@bh,@mz,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
             try
             {
                 SqlHelper.Execute(sqlpara);
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }
@@ -91,13 +91,13 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_RsclrTable_Ccxx (user_no,bh,sl,je,cl)" +
-                "values(@user_no,@bh,@sl,@je,@cl)";
+            sqlpara.SQL = "insert into xs_RsclrTable_Ccxx (user_no,bh,mz,sl,je,cl)" +
+                "values(@user_no,@bh,@mz,@sl,@je,@cl)";
             try
             {
                 SqlHelper.Execute(sqlpara);
             }
-            catch
+            catch (Exception e)
             {
                 return false;
             }
@@ -173,8 +173,8 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_PmdlrTable (user_no,pmbh,pmrq,scmc,gsmc)" +
-                "values(@user_no,@pmbh,@pmrq,@scmc,@gsmc)";
+            sqlpara.SQL = "insert into xs_PmdlrTable (user_no,bh,pmrq,scmc,gsmc)" +
+                "values(@user_no,@bh,@pmrq,@scmc,@gsmc)";
             try
             {
                 SqlHelper.Execute(sqlpara);

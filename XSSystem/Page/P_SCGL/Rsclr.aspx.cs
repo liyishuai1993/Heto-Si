@@ -51,6 +51,16 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage("新增成功");
             }
+
+            foreach(DataRow val in Scxx_dataTable.Rows)
+            {
+                InsertScxx(val);
+            }
+
+            foreach(DataRow val in Ccxx_dataTable.Rows)
+            {
+                InsertCcxx(val);
+            }
         }
 
         private void InitDataTable()
@@ -75,29 +85,29 @@ namespace XSSystem.Page.P_Order
 
         }
 
-        protected void scxx_tjmz_Click(object sender, EventArgs e)
+        private bool InsertScxx(DataRow dr)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@bh", bh.Text);
-            dml.Add("@mz", MZDropDownList.SelectedValue);
-            dml.Add("@sl", float.Parse(scxx_sl.Text.Trim()));
-            dml.Add("@je", float.Parse(scxx_je.Text.Trim()));
-            dml.Add("@klcl", float.Parse(klcl.Text.Trim()));
-            dml.Add("@hhmcl", float.Parse(hhmcl.Text.Trim()));
-            dml.Add("@mmcl", float.Parse(mmcl.Text.Trim()));
-            dml.Add("@zmcl", float.Parse(zmcl.Text.Trim()));
-            dml.Add("@nmcl", float.Parse(nmcl.Text.Trim()));
-            dml.Add("@gscl", float.Parse(shl.Text.Trim()));
-            if (_cwglLogic.InsertRsclr_Scxx(dml))
-            {
-                AlertMessage("新增成功！");
-            }
-            else
-            {
-                AlertMessage("数据有误，新增失败！");
-            }
+            dml.Add("@mz", dr[0]);
+            dml.Add("@sl", dr[1]);
+            dml.Add("@je", dr[2]);
+            dml.Add("@klcl", dr[3]);
+            dml.Add("@hhmcl", dr[4]);
+            dml.Add("@mmcl", dr[5]);
+            dml.Add("@zmcl", dr[6]);
+            dml.Add("@nmcl", dr[7]);
+            dml.Add("@gscl", dr[8]);
+            dml.Add("@shl", dr[9]);
+            return _cwglLogic.InsertRsclr_Scxx(dml);
+
+        }
+
+        protected void scxx_tjmz_Click(object sender, EventArgs e)
+        {
+            
 
 
             DataRow dr = Scxx_dataTable.NewRow();
@@ -144,24 +154,22 @@ namespace XSSystem.Page.P_Order
             }
         }
 
-        protected void ccxx_tjmz_Click(object sender, EventArgs e)
+        private bool InsertCcxx(DataRow dr)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@bh", bh.Text);
-            dml.Add("@mz", MZDropDownList2.SelectedValue);
-            dml.Add("@sl", float.Parse(ccxx_sl.Text.Trim()));
-            dml.Add("@je", float.Parse(ccxx_je.Text.Trim()));
-            dml.Add("@cl", float.Parse(ccxx_cl.Text.Trim()));
-            if (_cwglLogic.InsertRsclr_Ccxx(dml))
-            {
-                AlertMessage("新增成功！");
-            }
-            else
-            {
-                AlertMessage("数据有误，新增失败！");
-            }
+            dml.Add("@mz", dr[0]);
+            dml.Add("@sl", dr[1]);
+            dml.Add("@je", dr[2]);
+            dml.Add("@cl", dr[3]);
+            return _cwglLogic.InsertRsclr_Ccxx(dml);
+        }
+
+        protected void ccxx_tjmz_Click(object sender, EventArgs e)
+        {
+            
 
             DataRow dr = Ccxx_dataTable.NewRow();
             dr[0] = MZDropDownList2.SelectedValue;

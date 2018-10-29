@@ -25,7 +25,7 @@ namespace XSSystem.Page.P_Order
 
             if (!IsPostBack)
             {
-                bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+         //       bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                 InitDataTable();
                 DropListInit();
             }
@@ -53,13 +53,36 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
 
             dml.Add("@user_no", model.LoginUser);
-            dml.Add("@pmbh", pmbh.Text.Trim());
+            dml.Add("@bh", bh.Text.Trim());
             dml.Add("@pmrq", Convert.ToDateTime(pmrq.Text.ToString()));
             dml.Add("@scmc", scmc.Text.Trim());
             dml.Add("@gsmc", gsmc.Text.Trim());
             if (_cwglLogic.InsertPmdlr(dml))
             {
                 AlertMessage("新增成功");
+            }
+            foreach(DataRow val in YLdataTable.Rows)
+            {
+                if (InsertTjje(val))
+                {
+                    AlertMessage("新增成功");
+                }
+                else
+                {
+                    AlertMessage("新增失败");
+                }
+            }
+
+            foreach(DataRow val in CPdataTable.Rows)
+            {
+                if (InsertCcmz(val))
+                {
+                    AlertMessage("新增成功");
+                }
+                else
+                {
+                    AlertMessage("新增失败");
+                }
             }
         }
 
@@ -95,26 +118,23 @@ namespace XSSystem.Page.P_Order
             }
         }
 
-        protected void ylmz_tjje_Click(object sender, EventArgs e)
+        private bool InsertTjje(DataRow dr)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@bh", bh.Text);
-            dml.Add("@ylds",float.Parse(ylds.Text.Trim()));
-            dml.Add("@cbdj", float.Parse(cbdj.Text.Trim()));
-            dml.Add("@pmf", float.Parse(pmf.Text.Trim()));
-            dml.Add("@je", float.Parse(je.Text.Trim()));
-            if (_cwglLogic.InsertPmdlr_Ylmz(dml))
-            {
-                AlertMessage("新增成功！");
-            }
-            else
-            {
-                AlertMessage("数据有误，新增失败！");
-            }
+            dml.Add("@yl", dr[0]);
+            dml.Add("@ylds", dr[1]);
+            dml.Add("@cbdj", dr[2]);
+            dml.Add("@pmf", dr[3]);
+            dml.Add("@je", dr[4]);
+            return _cwglLogic.InsertPmdlr_Ylmz(dml);
 
+        }
 
+        protected void ylmz_tjje_Click(object sender, EventArgs e)
+        {
             DataRow dr = YLdataTable.NewRow();
             dr[0] = YLDropDownList.SelectedValue;
             dr[1] = double.Parse(ylds.Text.Trim());
@@ -126,25 +146,21 @@ namespace XSSystem.Page.P_Order
             GridView_YLMZ.DataBind();
         }
 
-        protected void ccmz_tjje_Click(object sender, EventArgs e)
+        private bool InsertCcmz(DataRow dr)
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@bh", bh.Text);
-            dml.Add("@cp", CPDropDownList.SelectedValue.Trim());
-            dml.Add("@ccds", float.Parse(ccds.Text.Trim()));
-            dml.Add("@je", float.Parse(je2.Text.Trim()));
-            dml.Add("@cbdj2", float.Parse(cbdj2.Text.Trim()));
-            if (_cwglLogic.InsertPmdlr_Ccmz(dml))
-            {
-                AlertMessage("新增成功！");
-            }
-            else
-            {
-                AlertMessage("数据有误，新增失败！");
-            }
+            dml.Add("@cp", dr[0]);
+            dml.Add("@ccds", dr[1]);
+            dml.Add("@je", dr[2]);
+            dml.Add("@cbdj2", dr[3]);
+            return _cwglLogic.InsertPmdlr_Ccmz(dml);
+        }
 
+        protected void ccmz_tjje_Click(object sender, EventArgs e)
+        {          
             DataRow dr = CPdataTable.NewRow();
             dr[0] = CPDropDownList.SelectedValue;
             dr[1] = double.Parse(ccds.Text.Trim());

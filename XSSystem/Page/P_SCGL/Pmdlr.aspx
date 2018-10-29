@@ -36,7 +36,7 @@
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
                 <tr>
-                    <td class="auto-style3">配煤编号<asp:TextBox ID="pmbh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
+                    <td class="auto-style3">配煤编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
                     <td class="auto-style3">配煤日期<asp:TextBox ID="pmrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
                 </tr>
                 
@@ -44,9 +44,6 @@
                     <td class="auto-style3">生产煤场<asp:TextBox id="scmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                     <td class="auto-style3">公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
                 </tr>     
-                <tr>
-                    <td><asp:TextBox runat="server" ID="bh" Visible="false"></asp:TextBox></td>
-                </tr>
             </table>     
         </div>
 
