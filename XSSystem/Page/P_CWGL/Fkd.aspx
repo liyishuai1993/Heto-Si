@@ -34,7 +34,7 @@
         }
         .auto-style7 {
             height:auto;
-            width:1200px;
+            width:auto;
             text-align:right;
         }
         </style>
@@ -66,6 +66,12 @@
         </div>
 
         <div>
+            <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
+                付款账户编号<asp:TextBox runat="server" id="fkzhbh"/>
+                付款账户名称<asp:TextBox runat="server" id="fkzhmc"/>
+                金额<asp:TextBox runat="server" ID="je"/>
+                备注<asp:TextBox runat="server" ID="bz"/>
+            </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

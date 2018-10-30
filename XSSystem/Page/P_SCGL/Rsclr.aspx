@@ -81,7 +81,7 @@
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 数量(t):<asp:TextBox id="scxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
-                <asp:Button ID="scxx_jeBtn" runat="server" Text="金额(元)"/><asp:TextBox id="scxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
+                金额<asp:TextBox id="scxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
                  颗粒产率%<asp:TextBox id="klcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                 混合煤产率%<asp:TextBox id="hhmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
                 沫煤产率%<asp:TextBox id="mmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
@@ -165,7 +165,7 @@
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 数量(t):<asp:TextBox id="ccxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
-                <asp:Button ID="ccxx_jeBtn" runat="server" Text="金额(元)"/><asp:TextBox id="ccxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
+                金额<asp:TextBox id="ccxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
                  产率%<asp:TextBox id="ccxx_cl" runat="server" Height="16px" Width ="80px" CssClass="auto-style4"></asp:TextBox>
             </p>     
             

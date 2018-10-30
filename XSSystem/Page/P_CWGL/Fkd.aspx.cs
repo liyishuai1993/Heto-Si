@@ -14,29 +14,17 @@ namespace XSSystem.Page.P_Order
     public partial class Fkd : AuthWebPage
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitGridView1();
+            if (!IsPostBack)
+            {
+                //InitGridView1();
+                InitDataTable();
+            }
+            
         }
 
-        public void InitGridView1()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("xh");
-            dt.Columns.Add("fkzhbh");
-            dt.Columns.Add("fkzhmc");
-            dt.Columns.Add("je");
-            dt.Columns.Add("bz");
-
-
-
-            dt.Rows.Add(dt.NewRow());
-            this.GridView1.DataSource = dt;
-            this.GridView1.DataBind();
-
-
-
-        }
 
         protected void save_Click(object sender, EventArgs e)
         {
@@ -57,6 +45,31 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage("新增成功");
             }
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("xh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("fkzhbh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("fkzhmc", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
+
+        }
+
+        protected void InsertBtn_Click(object sender, EventArgs e)
+        {
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count;
+            dr[1] = fkzhbh.Text;
+            dr[2] = fkzhmc.Text;
+            dr[3] = double.Parse(je.Text.Trim());
+            dr[4] = bz.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
+
         }
     }
 }

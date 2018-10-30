@@ -34,7 +34,7 @@
         }
         .auto-style7 {
             height:auto;
-            width:1200px;
+            width:auto;
             text-align:right;
         }
         </style>
@@ -45,7 +45,7 @@
         <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
             编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></p>
         <div>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="1" aria-haspopup="False" class="auto-style1" style="width:1200px" >
                 <tr>
                     <td class="auto-style3">付款单位<asp:TextBox ID="fkdw" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">经手人<asp:TextBox id="jsr" runat="server" Height="16px" Width ="284px"></asp:TextBox>
@@ -66,6 +66,12 @@
         </div>
 
         <div>
+            <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
+                收款账户编号<asp:TextBox runat="server" id="skzhbh"/>
+                收款账户名称<asp:TextBox runat="server" id="skzhmc"/>
+                金额<asp:TextBox runat="server" ID="je"/>
+                备注<asp:TextBox runat="server" ID="bz"/>
+            </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

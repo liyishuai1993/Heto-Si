@@ -15,27 +15,38 @@ namespace XSSystem.Page.P_Order
     {
 
         CWGLLogic _cwglLogic = new CWGLLogic();
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitGridView1();
+            if (!IsPostBack)
+            {
+                InitDataTable();
+            }
+            
         }
 
-        public void InitGridView1()
+        private void InitDataTable()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("xh");
-            dt.Columns.Add("fyxmbh");
-            dt.Columns.Add("fyxmmc");
-            dt.Columns.Add("je");
-            dt.Columns.Add("bz");
+            dataTable = new DataTable();
+            dataTable.Columns.Add("xh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("fyxmbh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("fyxmmc", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
 
+        }
 
-
-            dt.Rows.Add(dt.NewRow());
-            this.GridView1.DataSource = dt;
-            this.GridView1.DataBind();
-
-
+        protected void InsertBtn_Click(object sender, EventArgs e)
+        {
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count;
+            dr[1] = fyxmbh.Text;
+            dr[2] = fyxmmc.Text;
+            dr[3] = double.Parse(je.Text.Trim());
+            dr[4] = bz.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
 
         }
 
