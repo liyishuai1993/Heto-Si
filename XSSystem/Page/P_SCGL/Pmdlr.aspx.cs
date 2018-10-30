@@ -65,11 +65,11 @@ namespace XSSystem.Page.P_Order
             {
                 if (InsertTjje(val))
                 {
-                    AlertMessage("新增成功");
+
                 }
                 else
                 {
-                    AlertMessage("新增失败");
+
                 }
             }
 
@@ -77,11 +77,11 @@ namespace XSSystem.Page.P_Order
             {
                 if (InsertCcmz(val))
                 {
-                    AlertMessage("新增成功");
+
                 }
                 else
                 {
-                    AlertMessage("新增失败");
+
                 }
             }
         }

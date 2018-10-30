@@ -51,7 +51,7 @@ namespace XSSystem.Page.P_SCGL
             pagepara.XsPager = xsPage;
 
             pagepara.Sql = _cwglLogic.QueryPmdlrOrder(qc);
-            pagepara.OrderBy = "pmbh";
+            pagepara.OrderBy = "bh";
             return xsPageHelper.BindPager(pagepara, e);
         }
     }

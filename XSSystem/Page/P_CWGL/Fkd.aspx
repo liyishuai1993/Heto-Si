@@ -76,19 +76,24 @@
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="付款账户编号" DataField="fkzhbh" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="付款账户名称" DataField="fkzhmc" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="金额" DataField="je" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="备注" DataField="bz" HeaderStyle-Width="20%" >
-<HeaderStyle Width="20%"></HeaderStyle>
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />

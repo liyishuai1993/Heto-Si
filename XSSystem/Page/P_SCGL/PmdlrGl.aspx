@@ -46,7 +46,7 @@
             <Columns>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
-                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "pmbh")%>' onclick='SingleCheckJs();' />
+                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "bh")%>' onclick='SingleCheckJs();' />
                 </ItemTemplate>
                     <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
@@ -71,7 +71,7 @@
                     <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                     <ItemTemplate>                                 
-                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("pmbh") %>' CssClass="buttonCancle"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
+                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                         <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
                     </ItemTemplate>
                     <HeaderStyle Width="5%" />
