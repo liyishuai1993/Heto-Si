@@ -17,6 +17,7 @@ namespace XSSystem.Page.P_Order
     {
 
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,7 +28,7 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["tyht"]);
                 }
-                InitGridView();
+                InitDataTable();
             }
             
         }
@@ -49,6 +50,26 @@ namespace XSSystem.Page.P_Order
             xlx.SelectedItem.Text = dt.Rows[0][12].ToString();
             sl.Text = dt.Rows[0][13].ToString();
             Session.Remove("tyht");
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("gsmc", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("dfhth", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("kplx", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zbxsf", System.Type.GetType("System.Double"));
+
+            dataTable.Columns.Add("dlf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("zxf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("sfzdd", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("tlyf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("dzzxf", System.Type.GetType("System.Double"));
+
+            dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
+
         }
 
         public void InitGridView()
@@ -168,8 +189,24 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('TyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            //string shtbh = htbh.Text;
+            //Response.Write("<script>window.showModelessDialog('TyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count + 1;
+            dr[1] = gsmc.Text;
+            dr[2] = dfhth.Text;
+            dr[3] = kplx.Text;
+            dr[4] = double.Parse(zbxsf.Text.Trim());
+            dr[5] = double.Parse(dlf.Text.Trim());
+            dr[6] = double.Parse(zxf.Text.Trim());
+            dr[7] = double.Parse(sfzdd.Text.Trim());
+            dr[8] = double.Parse(tlyf.Text.Trim());
+            dr[9] = double.Parse(dzzxf.Text.Trim());
+            dr[10] = double.Parse(dzmcddf.Text.Trim());
+            dr[11] = double.Parse(dzdlf.Text.Trim());
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void DelJgxx(object sender, EventArgs e)

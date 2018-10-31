@@ -16,6 +16,7 @@ namespace XSSystem.Page.P_Order
     public partial class Qyht : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,9 +27,23 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["qyht"]);
                 }
-                InitGridView();
+                // InitGridView();
+                InitDataTable();
             }
             
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("wlmc", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("qyd", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("mdd", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("yj", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("yflhbz", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("zxzt", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
         }
 
         public void InitData(object mk)
@@ -47,6 +62,8 @@ namespace XSSystem.Page.P_Order
 
             Session.Remove("qyht");
         }
+
+
 
         public void InitGridView()
         {
@@ -116,8 +133,20 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('QyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            //string shtbh = htbh.Text;
+            //Response.Write("<script>window.showModelessDialog('QyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count+1;
+            dr[1] = wlmc.Text;
+            dr[2] = qyd.Text;
+            dr[3] = mdd.Text;
+            dr[4] = double.Parse(yj.Text.Trim());
+            dr[5] = double.Parse(yflhbz.Text.Trim());
+            dr[6] = zxzt.Text;
+            dr[7] = bz.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void DelJgxx(object sender, EventArgs e)

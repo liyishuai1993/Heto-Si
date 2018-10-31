@@ -16,6 +16,7 @@ namespace XSSystem.Page.P_Order
     public partial class Zlht : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,8 +27,21 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["zlht"]);
                 }
-                InitGridView();
+                InitDataTable();
             }
+
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("qsrq", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zzrq", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zj", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("fktk", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zxzt", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
 
         }
 
@@ -150,8 +164,19 @@ namespace XSSystem.Page.P_Order
 
         protected void AddZjxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('ZlhtZjxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            //string shtbh = htbh.Text;
+            //Response.Write("<script>window.showModelessDialog('ZlhtZjxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count;
+            dr[1] = qsrq.Text;
+            dr[2] = zzrq.Text;
+            dr[3] = double.Parse(zj.Text.Trim());
+            dr[4] = fktk.Text;
+            dr[5] = zxzt.Text;
+            dr[6] = bz.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void DelJgxx(object sender, EventArgs e)

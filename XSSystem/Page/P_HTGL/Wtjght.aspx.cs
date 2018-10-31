@@ -16,7 +16,7 @@ namespace XSSystem.Page.P_Order
     public partial class Wtjght : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,8 +26,20 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["wtjght"]);
                 }
-                InitGridView();
+                InitDataTable();
             }
+            
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("wlmc", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("jgf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("cmzb", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
+
             
         }
 
@@ -143,8 +155,15 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('WtjghtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count+1;
+            dr[1] = wlmc.Text;
+            dr[2] = double.Parse(jgf.Text.Trim());
+            dr[3] = cmzb.Text;
+            dr[4] = bz.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void DelJgxx(object sender, EventArgs e)

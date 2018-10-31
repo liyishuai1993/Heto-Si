@@ -72,6 +72,16 @@
             <p>价格信息</p>
             <p>
                 <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" />
+                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                起运地<asp:TextBox id="qyd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                目的地<asp:TextBox id="mdd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                运费路耗标准(吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                执行状态<asp:TextBox id="zxzt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+            </p>
+            <p>
+                
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

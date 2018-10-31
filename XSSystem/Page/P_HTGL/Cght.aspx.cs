@@ -19,6 +19,8 @@ namespace XSSystem.Page.P_Order
     public partial class Cght : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable Jgxx_dataTable;
+        static DataTable Zlbz_dataTable;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,8 +31,9 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["cght"]);
                 }
-                InitGridView();
-                InitGridView2();
+               // InitGridView();
+               // InitGridView2();
+                InitDataTable();
             }
 
             
@@ -60,9 +63,43 @@ namespace XSSystem.Page.P_Order
         }
 
 
+        private void InitDataTable()
+        {
+            Jgxx_dataTable = new DataTable();
+            Zlbz_dataTable = new DataTable();
+            Jgxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
+            Jgxx_dataTable.Columns.Add("mkmc", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("mzmc", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("frl", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("lf", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("kpmj", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("htmj", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("ksl", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("qdds", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("qdje", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
+
+            Zlbz_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
+            Zlbz_dataTable.Columns.Add("mz", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("hf", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("hff", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("gdt", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("njzs", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("sf", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("tie", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("lv", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("gai", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("lin", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
+
+
+        }
+
+
         public void InitGridView() 
         {
-
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
             QueryClass qc = new QueryClass();
@@ -75,9 +112,6 @@ namespace XSSystem.Page.P_Order
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             this.GridView_ZLBZ.DataSource = xsPageHelper.BindPager(pagepara, e);
             this.GridView_ZLBZ.DataBind();
-
-
-
         }
 
 
@@ -211,9 +245,27 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('CghtJgxx.aspx?transmissionInfo="+ shtbh+"')</script>");
-           // Response.Write("<script>window.location.reload();</script>");
+            //string shtbh = htbh.Text;
+            //Response.Write("<script>window.showModelessDialog('CghtJgxx.aspx?transmissionInfo="+ shtbh+"')</script>");
+            // Response.Write("<script>window.location.reload();</script>");
+
+            DataRow dr = Jgxx_dataTable.NewRow();
+            dr[0] = Jgxx_dataTable.Rows.Count + 1;
+            dr[1] = mkmcgv.Text;
+            dr[2] = mzmc.Text;
+            dr[3] = double.Parse(frl.Text.Trim());
+            dr[4] = double.Parse(lf.Text.Trim());
+            dr[5] = double.Parse(kpmj.Text.Trim());
+            dr[6] = double.Parse(htmj.Text.Trim());
+            dr[7] = double.Parse(ksl.Text.Trim());
+            dr[8] = double.Parse(qdds.Text.Trim());
+            dr[9] = double.Parse(qdje.Text.Trim());
+            dr[10] = zt.Text;
+            Jgxx_dataTable.Rows.Add(dr);
+            GridView_JGXX.DataSource = Jgxx_dataTable;
+            GridView_JGXX.DataBind();
+
+
         }
 
         protected void DelJgxx(object sender, EventArgs e)
@@ -243,15 +295,32 @@ namespace XSSystem.Page.P_Order
             if (_htglLogic.DeleteChildTable(dml, "xs_CghtTable_Zlbz"))
             {
                 AlertMessage("订单删除成功");
-
             }
             else AlertMessage("订单删除失败");
         }
 
         protected void AddZlbz(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('CghtZlbz.aspx?transmissionInfo=" + shtbh + "')</script>");
+            //string shtbh = htbh.Text;
+            //Response.Write("<script>window.showModelessDialog('CghtZlbz.aspx?transmissionInfo=" + shtbh + "')</script>");
+            DataRow dr = Zlbz_dataTable.NewRow();
+            dr[0] = Zlbz_dataTable.Rows.Count + 1;
+            dr[1] = mz.Text;
+            dr[2] = double.Parse(ld.Text.Trim());
+            dr[3] = double.Parse(hf.Text.Trim());
+            dr[4] = double.Parse(hff.Text.Trim());
+            dr[5] = double.Parse(gdt.Text.Trim());
+            dr[6] = double.Parse(njzs.Text.Trim());
+            dr[7] = double.Parse(sf.Text.Trim());
+            dr[8] = double.Parse(tie.Text.Trim());
+            dr[9] = double.Parse(lv.Text.Trim());
+            dr[10] = double.Parse(gai.Text.Trim());
+            dr[11] = double.Parse(lin.Text.Trim());
+            dr[12] = double.Parse(tai.Text.Trim());
+            dr[13] = double.Parse(liu.Text.Trim());
+            Zlbz_dataTable.Rows.Add(dr);
+            GridView_ZLBZ.DataSource = Zlbz_dataTable;
+            GridView_ZLBZ.DataBind();
         }
 
         protected void DropListInit()

@@ -91,6 +91,21 @@
             <p>价格信息(元/吨)</p>
             <p>
                 <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" />
+                公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                开票类型<asp:TextBox id="kplx" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                代理费(元/组)<asp:TextBox id="dlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                装箱费(元/吨)<asp:TextBox id="zxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                始发站倒短(元/吨)<asp:TextBox id="sfzdd" runat="server" Height="16px" Width ="150px"></asp:TextBox>     
+                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                到站代理费(元/组)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>         
+            
+            </p>
+            <p>
+                
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

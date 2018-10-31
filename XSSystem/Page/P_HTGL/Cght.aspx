@@ -116,6 +116,19 @@
             <p>价格信息</p>
             <p>
                 <asp:Button ID="Button2"  runat="server" Text="新增记录" OnClick="AddJgxx" />
+                煤矿名称<asp:TextBox id="mkmcgv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+            </p>
+            <p>
+                
                 <asp:GridView ID="GridView_JGXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -192,6 +205,22 @@
             <p>质量标准</p>
             <p>
                 <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZlbz" />
+                
+                煤种<asp:TextBox id="mz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+            </p>
+            <p>
                 <asp:GridView ID="GridView_ZLBZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
