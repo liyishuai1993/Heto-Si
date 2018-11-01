@@ -16,7 +16,7 @@ namespace XSSystem.Page.P_Order
     public partial class Tydbckd : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -26,8 +26,34 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["tydbckd"]);
                 }
-                InitGridView();
+                InitDataTable();
             }
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("xh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("sxds", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("zxrq", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("fcrq", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("dcmj", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("xhds", System.Type.GetType("System.Double"));
+
+            dataTable.Columns.Add("dzrq", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("xhck", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zbxsf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("fzdlf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("fzzxf", System.Type.GetType("System.Double"));
+
+            dataTable.Columns.Add("fzddf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("tlyf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("dzzxf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("drmj", System.Type.GetType("System.Double"));
+
         }
 
         void InitData(object mk)
@@ -87,9 +113,28 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            Response.Write("<script>window.showModelessDialog('TydbckdJzxxx.aspx?transmissionInfo=" + bh.Text + "')</script>");
-            // Response.Write("<script>window.location.reload();</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = dataTable.Rows.Count + 1;
+            dr[1] = xh.Text;
+            dr[2] = double.Parse(sxds.Text);
+            dr[3] = zxrq.Text;
+            dr[4] = fcrq.Text;
+            dr[5] = double.Parse(dcmj.Text.Trim());
+            dr[6] = double.Parse(xhds.Text.Trim());
+            dr[7] = dzrq.Text;
+            dr[8] = xhck.Text;
+            dr[9] = double.Parse(zbxsf.Text.Trim());
+            dr[10] = double.Parse(fzdlf.Text.Trim());
+            dr[11] = double.Parse(fzzxf.Text.Trim());
+            dr[12] = double.Parse(fzddf.Text.Trim());
+            dr[13] = double.Parse(tlyf.Text.Trim());
+            dr[14] = double.Parse(dzzxf.Text.Trim());
+            dr[15] = double.Parse(dzmcddf.Text.Trim());
+            dr[16] = double.Parse(dzdlf.Text.Trim());
+            dr[17] = double.Parse(drmj.Text.Trim());
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
     }
 }

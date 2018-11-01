@@ -16,7 +16,7 @@ namespace XSSystem.Page.P_Order
     public partial class Mkzxzcd : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-
+        static DataTable dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {         
             if (!IsPostBack)
@@ -25,8 +25,27 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["mkzxzcd"]);
                 }
-                InitGridView();
+                InitDataTable();
             }
+        }
+
+        private void InitDataTable()
+        {
+            dataTable = new DataTable();
+            dataTable.Columns.Add("bdh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("thdh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("ch", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zcmz", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("zcpz", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("zcjz", System.Type.GetType("System.Double"));
+
+            dataTable.Columns.Add("yfyf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("cgjsje", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("xsjsje", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("zt", System.Type.GetType("System.String"));
+
+            
         }
 
         void InitData(object mk)
@@ -74,8 +93,21 @@ namespace XSSystem.Page.P_Order
 
         protected void AddClxx(object sender,EventArgs e)
         {
-            string sdjbh = djbh.Text;
-            Response.Write("<script>window.showModelessDialog('MkzxzcdClxx.aspx?transmissionInfo=" + sdjbh +"')</script>");
+            DataRow dr = dataTable.NewRow();
+            dr[0] = bdh.Text;
+            dr[1] = thdh.Text;
+            dr[2] = ch.Text;
+            dr[3] = double.Parse(zcmz.Text);
+            dr[4] = double.Parse(zcpz.Text);
+            dr[5] = double.Parse(zcjz.Text);
+            dr[6] = double.Parse(yfyf.Text);
+            dr[7] = double.Parse(cgjsje.Text);
+            dr[8] = double.Parse(xsjsje.Text);
+            dr[9] = bz.Text;
+            dr[10] = zt.Text;
+            dataTable.Rows.Add(dr);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         public void InitGridView()

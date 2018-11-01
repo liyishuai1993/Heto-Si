@@ -65,8 +65,23 @@
 
         <div>
             <p>车辆信息</p>
-            <p>
+            <p class="auto-style5">
                 <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddClxx" />
+                磅单号<asp:TextBox id="bdh"  runat="server" Height="16px" Width ="150px" ToolTip="磅单号"></asp:TextBox>
+                提货单号<asp:TextBox id="thdh" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                车号<asp:TextBox id="ch"  runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                装车毛重<asp:TextBox id="zcmz"  runat="server" Height="16px" Width ="150px" TextMode="Number"></asp:TextBox>
+                装车皮重<asp:TextBox id="zcpz" runat="server" Height="16px" Width ="150px" TextMode="DateTime"></asp:TextBox>
+                装车净重<asp:TextBox id="zcjz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                应付运费<asp:TextBox id="yfyf"  runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                采购结算金额<asp:TextBox id="cgjsje" runat="server" Height="16px" Width ="150px"></asp:TextBox>     
+                销售结算金额<asp:TextBox id="xsjsje" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                
+            </p>
+            <p>
+                
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
