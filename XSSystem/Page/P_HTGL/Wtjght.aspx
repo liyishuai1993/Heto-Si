@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>委托加工合同</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
@@ -67,16 +68,17 @@
         </div>
 
         <div>
-            <p>价格信息</p>
+            <div class="divcss5">
+            <p>价格信息<asp:Button ID="Button1" runat="server" Text="新增记录"  OnClick="AddJgxx"/> </p>
             <p>
-                <asp:Button ID="Button1" runat="server" Text="新增记录"  OnClick="AddJgxx"/>
-                
+                               
                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 加工费(元/吨)<asp:TextBox id="jgf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 出煤指标<asp:TextBox id="cmzb" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 
             </p>
+                </div>
             <p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

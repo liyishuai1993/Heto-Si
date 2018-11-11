@@ -78,6 +78,7 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("qdds", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("qdje", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
 
             Zlbz_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Zlbz_dataTable.Columns.Add("mz", Type.GetType("System.String"));
@@ -93,6 +94,7 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable.Columns.Add("lin", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
 
 
         }
@@ -167,18 +169,62 @@ namespace XSSystem.Page.P_Order
             dml.Add("@mkmc", mkmc.Text.Trim());
             dml.Add("@bz", bz.Text.Trim());
 
+            //封装子表数据
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in Jgxx_dataTable.Rows)
+            {
+                if ((bool)val[11] == true)
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@mkmc", val[1]);
+                    temp.Add("@mzmc", val[2]);
+                    temp.Add("@frl", val[3]);
+                    temp.Add("@lf", val[4]);
+                    temp.Add("@kpmj", val[5]);
+                    temp.Add("@htmj", val[6]);
+                    temp.Add("@ksl", val[7]);
+                    temp.Add("@qdds", val[8]);
+                    temp.Add("@qdje", val[9]);
+                    temp.Add("@zt", val[10]);
+                    Child1.Add(temp);
+                }
+                
+            }
 
-            if (_htglLogic.InsertCght(dml))
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow val in Zlbz_dataTable.Rows)
+            {
+                if ((bool)val[14] == true)
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@mz", val[1]);
+                    temp.Add("@ld", val[2]);
+                    temp.Add("@hf", val[3]);
+                    temp.Add("@hff", val[4]);
+                    temp.Add("@gdt", val[5]);
+                    temp.Add("@njzs", val[6]);
+                    temp.Add("@sf", val[7]);
+                    temp.Add("@tie", val[8]);
+                    temp.Add("@lv", val[9]);
+                    temp.Add("@gai", val[10]);
+                    temp.Add("@lin", val[11]);
+                    temp.Add("@tai", val[12]);
+                    temp.Add("@liu", val[13]);
+                    Child2.Add(temp);
+                }
+                
+            }
+            if (_htglLogic.InsertCght(dml,Child1,Child2))
             {
              //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
                 AlertMessage("新增成功");
               //  xsPage.RefreshPage();
             }
-            //dml.Add("@dzdje", StrToFloat(dzdje.Text.Trim()));
-            //dml.Add("@skje", StrToFloat(skje.Text.Trim()));
-            //dml.Add("@kpje", StrToFloat(kpje.Text.Trim()));
-            //dml.Add("@gsjy", StrToFloat(gsjy.Text.Trim()));
-            //dml.Add("@kphsksj", Convert.ToDateTime(kphsksj.Text));
         }
 
         protected void update_Click(object sender, EventArgs e)
@@ -261,6 +307,7 @@ namespace XSSystem.Page.P_Order
             dr[8] = double.Parse(qdds.Text.Trim());
             dr[9] = double.Parse(qdje.Text.Trim());
             dr[10] = zt.Text;
+            dr[11] = true;
             Jgxx_dataTable.Rows.Add(dr);
             GridView_JGXX.DataSource = Jgxx_dataTable;
             GridView_JGXX.DataBind();
@@ -318,7 +365,9 @@ namespace XSSystem.Page.P_Order
             dr[11] = double.Parse(lin.Text.Trim());
             dr[12] = double.Parse(tai.Text.Trim());
             dr[13] = double.Parse(liu.Text.Trim());
+            dr[14] = true;
             Zlbz_dataTable.Rows.Add(dr);
+           
             GridView_ZLBZ.DataSource = Zlbz_dataTable;
             GridView_ZLBZ.DataBind();
         }

@@ -1065,6 +1065,7 @@
     <Content Include="Page\P_System\User.aspx" />
     <Content Include="Page\P_System\User_Add.aspx" />
     <Content Include="style\DataCss.css" />
+    <Content Include="style\FormStyle.css" />
     <Content Include="style\Hire.css" />
     <Content Include="style\Login.css" />
     <Content Include="style\main.css" />

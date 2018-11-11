@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>铁运调拨出库单</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <style type="text/css">
         .auto-style1 {
@@ -64,21 +65,28 @@
 
 
         <div>
-            <p>集装箱信息</p>
+            <div class="divcss5">
+            <p>集装箱信息 <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p>
-                <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx" />
+               
                 箱号<asp:TextBox id="xh" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 上箱吨数<asp:TextBox id="sxds" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 装箱日期<asp:TextBox id="zxrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                </p>
+            <p>
                 调出煤价<asp:TextBox id="dcmj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 卸货仓库<asp:TextBox id="xhck" runat="server" Height="16px" Width ="150px"></asp:TextBox>     
+                </p>
+            <p>
                 自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
+                </p>
+            <p>
                 铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
                 到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
                 到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
@@ -86,6 +94,7 @@
                 调入煤价<asp:TextBox id="drmj" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
             
         </p>
+            </div>
             <p>
                 
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >

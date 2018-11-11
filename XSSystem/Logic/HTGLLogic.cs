@@ -165,25 +165,41 @@ namespace xs_System.Logic
             return true;
         }
 
-        
-
-
-
+       
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dml"></param>
         /// <returns></returns>
-        public bool InsertCght(DirModel dml)
+        public bool InsertCght(DirModel dml,List<DirModel>child1, List<DirModel> child2)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_CghtTable (user_no,htbh,htlx,qdrq,dfhth,gfmc,xfmc,hkjsyj,hklhlx,hklhbz,kpxx,jhsjQ,jhsjZ,hkjsfs,jhdd,yffkfs,mkmc,bz)"+
                 "values(@userid,@htbh,@htlx,@qdrq,@dfhth,@gfmc,@xfmc,@hkjsyj,@hklhlx,@hklhbz,@kpxx,@jhsjQ,@jhsjZ,@hkjsfs,@jhdd,@yffkfs,@mkmc,@bz)";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            xsSqls.Add(sqlpara);
+            foreach(var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_CghtTable_Jgxx (user_no,htbh,mkmc,mzmc,frl,lf,kpmj,htmj,ksl,qdds,qdje,zt)" +
+                    "values(@user_no,@htbh,@mkmc,@mzmc,@frl,@lf,@kpmj,@htmj,@ksl,@qdds,@qdje,@zt)";
+                xsSqls.Add(sqlpara);
+            }
+            foreach (var val in child2)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_CghtTable_Zlbz (user_no,htbh,mz,ld,hf,hff,gdt,njzs,sf,tie,lv,gai,lin,tai,liu)" +
+                "values(@user_no,@htbh,@mz,@ld,@hf,@hff,@gdt,@njzs,@sf,@tie,@lv,@gai,@lin,@tai,@liu)";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertCghtJgxx(DirModel dml)

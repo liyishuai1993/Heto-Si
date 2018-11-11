@@ -68,20 +68,65 @@ namespace xsFramework.SqlServer
         /// </summary>
         /// <param name="sqlparm"></param>
         /// <returns></returns>
-        public static void Execute(xsSqlParameter sqlparm)
+        public static bool Execute(xsSqlParameter sqlparm)
         {
-            DbInParameter dbInPara = new DbInParameter();
-            dbInPara.SQL = sqlparm.SQL;
+            DbInParameter dbInPara = new DbInParameter
+            {
+                SQL = sqlparm.SQL
+            };
 
             //add sql parameter
             dbInPara.AddParameter(sqlparm.SqlPara);
 
             DbAccess Dao = new DbAccess();
-            Dao.Open(sqlparm.SqlConnectString);
-            Dao.BeginTrans();
-            Dao.ExecuteNoQuery(dbInPara);
-            Dao.Commit();
-            Dao.Close();
+            try
+            {
+                Dao.Open(sqlparm.SqlConnectString);
+                Dao.BeginTrans();
+                Dao.ExecuteNoQuery(dbInPara);
+                Dao.Commit();
+                Dao.Close();
+                return true;
+            }
+            catch
+            {
+                Dao.RollBack();
+                return false;
+            }            
+        }
+
+        /// <summary>
+        /// execute sql 
+        /// </summary>
+        /// <param name="sqlparm"></param>
+        /// <returns></returns>
+        public static bool Execute(List<xsSqlParameter> sqlparmList)
+        {
+            DbInParameter dbInPara;
+            DbAccess Dao = new DbAccess();
+            try
+            {
+                Dao.Open(sqlparmList[0].SqlConnectString);
+                Dao.BeginTrans();
+                foreach(var val in sqlparmList)
+                {
+                    dbInPara = new DbInParameter
+                    {
+                        SQL = val.SQL
+                    };
+                    dbInPara.AddParameter(val.SqlPara);
+                    Dao.ExecuteNoQuery(dbInPara);
+                }
+                
+                Dao.Commit();
+                Dao.Close();
+                return true;
+            }
+            catch
+            {
+                Dao.RollBack();
+                return false;
+            }
         }
     }
 }

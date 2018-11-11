@@ -5,12 +5,17 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>铁运合同</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
+        .autosize{
+            height:auto;
+            width:auto;
+        }
         .auto-style3 {
             height: auto;
-            width:320px;
+            width:auto;
             text-align:right;
             word-wrap:break-word;
 
@@ -26,39 +31,39 @@
 <body>
     <form id="form1" runat="server">
     <div> <p class="auto-style5">铁运合同</p>
-        <div>
+        <div class="autosize">
             <p>基本信息</p>
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px;table-layout:fixed;" >--%>
-                <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
+                <table border="0" aria-haspopup="False" class="auto-style1" style="width: inherit; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
                 <tr>
-                    <td class="auto-style3" style="table-layout: fixed">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="False"></asp:TextBox></td>
-                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
+                    <td class="auto-style3" style="table-layout: fixed">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px"  Enabled="False"></asp:TextBox></td>
+                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" >
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" ></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     
-                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="wtf_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px"></asp:DropDownList>
+                        新增<asp:TextBox id="wtf_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">
-                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="stf_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" ></asp:DropDownList>  
+                        新增<asp:TextBox id="stf_xz" runat="server" Height="16px" ></asp:TextBox>
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3" style="table-layout: fixed">*发煤煤场<asp:DropDownList id="fmmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="fmmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3" style="table-layout: fixed">*发煤煤场<asp:DropDownList id="fmmc" runat="server" Height="16px"></asp:DropDownList> 
+                        新增<asp:TextBox id="fmmc_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
-                    <td class="auto-style3">物料名称<asp:DropDownList id="wlmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="wlmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">物料名称<asp:DropDownList id="wlmc" runat="server" Height="16px" ></asp:DropDownList>
+                        新增<asp:TextBox id="wlmc_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">执行期限
                <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
@@ -66,21 +71,21 @@
                    </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*装车站<asp:DropDownList id="zcz" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;新增<asp:TextBox id="zcz_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">*装车站<asp:DropDownList id="zcz" runat="server" Height="16px" ></asp:DropDownList> 
+                        新增<asp:TextBox id="zcz_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
-                    <td class="auto-style3">*终到站<asp:DropDownList id="zdz" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;新增<asp:TextBox id="zdz_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">*终到站<asp:DropDownList id="zdz" runat="server" Height="16px" ></asp:DropDownList>
+                        新增<asp:TextBox id="zdz_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3"></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*箱类型<asp:DropDownList id="xlx" runat="server" Height="16px" Width ="284px">
+                    <td class="auto-style3">*箱类型<asp:DropDownList id="xlx" runat="server" Height="16px" >
                         <asp:ListItem>铁路箱</asp:ListItem>
                         <asp:ListItem>自备箱</asp:ListItem>
                        </asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" ></asp:TextBox> </td>
                     <td class="auto-style3"> </td>
                 </tr>
        
@@ -88,22 +93,30 @@
         </div>
 
         <div>
-            <p>价格信息(元/吨)</p>
+            <div class="divcss5">
+            <p>价格信息(元/吨)<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p>
-                <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" />
+                
                 公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 开票类型<asp:TextBox id="kplx" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                
+                </p>
+            <p>
                 自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 代理费(元/组)<asp:TextBox id="dlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 装箱费(元/吨)<asp:TextBox id="zxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 始发站倒短(元/吨)<asp:TextBox id="sfzdd" runat="server" Height="16px" Width ="150px"></asp:TextBox>     
+                
+                </p>
+            <p>
                 铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 到站代理费(元/组)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>         
             
             </p>
+                </div>
             <p>
                 
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">

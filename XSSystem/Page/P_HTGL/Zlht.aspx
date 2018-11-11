@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>租赁合同</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
@@ -67,18 +68,22 @@
         </div>
 
         <div>
-            <p>租金信息</p>
-            <p>
+            <div class="divcss5">
+            <p>租金信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZjxx"/></p>
+            <p>               
                 起始日期<asp:TextBox id="qsrq" runat="server" Height="16px"  Text="" onClick="WdatePicker()" Width ="150px"></asp:TextBox>
                 终止日期<asp:TextBox id="zzrq" runat="server" Height="16px" Width ="150px"  Text="" onClick="WdatePicker()"></asp:TextBox>
                 租金<asp:TextBox id="zj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                </p>
+            <p>
                 付款条款<asp:TextBox id="fktk" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 执行状态<asp:TextBox id="zxzt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 
             </p>
+                </div>
             <p>
-                <asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZjxx"/>
+                
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
