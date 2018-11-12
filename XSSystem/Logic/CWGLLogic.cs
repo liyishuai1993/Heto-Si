@@ -48,23 +48,36 @@ namespace XSSystem.Logic
             return true;
         }
 
-        internal bool InsertRsclr(DirModel dml)
+        internal bool InsertRsclr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_RsclrTable (user_no,bh,ssmc,rq,kjsj,gjsj,bc,ydzs,yddh,ymzs,gsmc)" +
                 "values(@user_no,@bh,@ssmc,@rq,@kjsj,@gjsj,@bc,@ydzs,@yddh,@ymzs,@gsmc)";
-            try
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
             {
-                SqlHelper.Execute(sqlpara);
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,mz,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
+                "values(@user_no,@bh,@mz,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
+                xsSqls.Add(sqlpara);
             }
-            catch
+            foreach (var val in child2)
             {
-                return false;
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_RsclrTable_Ccxx (user_no,bh,mz,sl,je,cl)" +
+                "values(@user_no,@bh,@mz,@sl,@je,@cl)";
+                xsSqls.Add(sqlpara);
             }
 
-            return true;
+
+            return SqlHelper.Execute(xsSqls);
         }
 
         internal bool InsertRsclr_Scxx(DirModel dml)
@@ -168,23 +181,34 @@ namespace XSSystem.Logic
             return sql;
         }
 
-        internal bool InsertPmdlr(DirModel dml)
+        internal bool InsertPmdlr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_PmdlrTable (user_no,bh,pmrq,scmc,gsmc)" +
                 "values(@user_no,@bh,@pmrq,@scmc,@gsmc)";
-            try
+            xsSqls.Add(sqlpara);
+            foreach(var val in child1)
             {
-                SqlHelper.Execute(sqlpara);
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_PmdlrTable_Ylmz (user_no,bh,ylds,cbdj,pmf,je)" +
+                "values(@user_no,@bh,@ylds,@cbdj,@pmf,@je)";
+                xsSqls.Add(sqlpara);
             }
-            catch
+            foreach(var val in child2)
             {
-                return false;
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_PmdlrTable_Ccmz (user_no,bh,cp,ccds,je,cbdj2)" +
+                "values(@user_no,@bh,@cp,@ccds,@je,@cbdj2)";
+                xsSqls.Add(sqlpara);
             }
-
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         internal bool InsertPmdlr_Ylmz(DirModel dml)

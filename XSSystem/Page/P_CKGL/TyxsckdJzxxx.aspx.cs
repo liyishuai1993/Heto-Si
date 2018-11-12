@@ -60,10 +60,6 @@ namespace XSSystem.Page.P_CKGL
             if (_htglLogic.InsertTyxsJzxxx(dml))
             {
                 Response.Write("<script>alert('新增成功')</script>");
-              //  JavaScript("window.location.href='CghtGl.aspx'");
-              //  AlertMessageAndGoTo("新增成功", "CghtGl.aspx");
-                // AlertMessage("新增成功");
-                //  xsPage.RefreshPage();
             }
 
         }

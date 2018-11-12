@@ -31,9 +31,11 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["cght"]);
                 }
-               // InitGridView();
+               // 
                // InitGridView2();
                 InitDataTable();
+                InitGridView2();
+                InitGridView();
             }
 
             
@@ -112,7 +114,8 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            this.GridView_ZLBZ.DataSource = xsPageHelper.BindPager(pagepara, e);
+            Zlbz_dataTable= xsPageHelper.BindPager(pagepara, e);
+            this.GridView_ZLBZ.DataSource = Zlbz_dataTable;
             this.GridView_ZLBZ.DataBind();
         }
 
@@ -130,7 +133,8 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            this.GridView_JGXX.DataSource = xsPageHelper.BindPager(pagepara,e);
+            Jgxx_dataTable= xsPageHelper.BindPager(pagepara, e);
+            this.GridView_JGXX.DataSource = Jgxx_dataTable;
             this.GridView_JGXX.DataBind();
 
 

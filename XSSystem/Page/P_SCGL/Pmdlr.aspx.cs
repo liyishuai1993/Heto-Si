@@ -57,33 +57,38 @@ namespace XSSystem.Page.P_Order
             dml.Add("@pmrq", Convert.ToDateTime(pmrq.Text.ToString()));
             dml.Add("@scmc", scmc.Text.Trim());
             dml.Add("@gsmc", gsmc.Text.Trim());
-            if (_cwglLogic.InsertPmdlr(dml))
+            
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow dr in YLdataTable.Rows)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text);
+                temp.Add("@yl", dr[0]);
+                temp.Add("@ylds", dr[1]);
+                temp.Add("@cbdj", dr[2]);
+                temp.Add("@pmf", dr[3]);
+                temp.Add("@je", dr[4]);
+                Child1.Add(temp);
+            }
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow dr in CPdataTable.Rows)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text);
+                temp.Add("@cp", dr[0]);
+                temp.Add("@ccds", dr[1]);
+                temp.Add("@je", dr[2]);
+                temp.Add("@cbdj2", dr[3]);
+                Child2.Add(temp);
+            }
+            if (_cwglLogic.InsertPmdlr(dml,Child1,Child2))
             {
                 AlertMessage("新增成功");
             }
-            foreach(DataRow val in YLdataTable.Rows)
-            {
-                if (InsertTjje(val))
-                {
 
-                }
-                else
-                {
-
-                }
-            }
-
-            foreach(DataRow val in CPdataTable.Rows)
-            {
-                if (InsertCcmz(val))
-                {
-
-                }
-                else
-                {
-
-                }
-            }
         }
 
         protected void DropListInit()

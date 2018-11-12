@@ -39,8 +39,9 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("jgf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("cmzb", System.Type.GetType("System.String"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
-            
+
         }
 
 
@@ -71,7 +72,8 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            this.GridView1.DataSource = xsPageHelper.BindPager(pagepara, e);
+            dataTable= xsPageHelper.BindPager(pagepara, e);
+            this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
 
@@ -95,8 +97,24 @@ namespace XSSystem.Page.P_Order
             dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
             dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
 
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach(DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@wlmc", val[1]);
+                    temp.Add("@jgf", val[2]);
+                    temp.Add("@cmzb", val[3]);
+                    temp.Add("@bz", val[4]);
+                    Child1.Add(temp);
+                }
+            }
 
-            if (_htglLogic.InsertWtjght(dml))
+            if (_htglLogic.InsertWtjght(dml,Child1))
             {
                 AlertMessageAndGoTo("新增成功", "Wtjght.aspx");
             }
@@ -161,6 +179,7 @@ namespace XSSystem.Page.P_Order
             dr[2] = double.Parse(jgf.Text.Trim());
             dr[3] = cmzb.Text;
             dr[4] = bz.Text;
+            dr[5] = true;
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

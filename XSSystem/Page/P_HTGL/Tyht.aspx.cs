@@ -29,6 +29,7 @@ namespace XSSystem.Page.P_Order
                     InitData(Session["tyht"]);
                 }
                 InitDataTable();
+                InitGridView();
             }
             
         }
@@ -69,6 +70,7 @@ namespace XSSystem.Page.P_Order
 
             dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -85,7 +87,8 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            this.GridView1.DataSource = xsPageHelper.BindPager(pagepara, e);
+            dataTable= xsPageHelper.BindPager(pagepara, e);
+            this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
 
@@ -126,8 +129,32 @@ namespace XSSystem.Page.P_Order
             dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
             dml.Add("@sl", int.Parse(sl.Text.Trim()));
 
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach(DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[12])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@gsmc", val[1]);
+                    temp.Add("@dfhth", val[2]);
+                    temp.Add("@kplx", val[3]);
+                    temp.Add("@zbxsf", val[4]);
+                    temp.Add("@dlf", val[5]);
+                    temp.Add("@zxf", val[6]);
+                    temp.Add("@sfzdd", val[7]);
+                    temp.Add("@tlyf", val[8]);
+                    temp.Add("@dzzxf", val[9]);
+                    temp.Add("@dzmcddf", val[10]);
+                    temp.Add("@dzdlf", val[11]);
+                    Child1.Add(temp);
+                }
+                
+            }
 
-            if (_htglLogic.InsertTyht(dml))
+            if (_htglLogic.InsertTyht(dml, Child1))
             {
                 AlertMessageAndGoTo("新增成功", "Tyht.aspx");
             }
@@ -204,6 +231,7 @@ namespace XSSystem.Page.P_Order
             dr[9] = double.Parse(dzzxf.Text.Trim());
             dr[10] = double.Parse(dzmcddf.Text.Trim());
             dr[11] = double.Parse(dzdlf.Text.Trim());
+            dr[12] = true;
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

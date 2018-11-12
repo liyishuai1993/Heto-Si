@@ -44,8 +44,9 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("xsjsje", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
             dataTable.Columns.Add("zt", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
-            
+
         }
 
         void InitData(object mk)
@@ -85,7 +86,30 @@ namespace XSSystem.Page.P_Order
             dml.Add("@yj", float.Parse(yj.Text.Trim()));
             dml.Add("@cgmj", float.Parse(cgmj.Text.Trim()));
             dml.Add("@xsmj", float.Parse(xsmj.Text.Trim()));
-            if (_htglLogic.InsertMkzxzcd(dml))
+
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach(DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[11])
+                {
+                    temp = new DirModel();
+                    temp.Add("@djbh", djbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bdh", val[0]);                   
+                    temp.Add("@thdh", val[1]);
+                    temp.Add("@ch", val[2]);
+                    temp.Add("@zcmz", val[3]);
+                    temp.Add("@zcpz", val[4]);
+                    temp.Add("@zcjz", val[5]);
+                    temp.Add("@yfyf", val[6]);
+                    temp.Add("@cgjsje", val[7]);
+                    temp.Add("@xsjsje", val[8]);
+                    temp.Add("@bz", val[9]);
+                    temp.Add("@zt", val[10]);
+                }
+            }
+            if (_htglLogic.InsertMkzxzcd(dml,Child1))
             {
                 AlertMessage("新增成功");
             }
@@ -105,6 +129,7 @@ namespace XSSystem.Page.P_Order
             dr[8] = double.Parse(xsjsje.Text);
             dr[9] = bz.Text;
             dr[10] = zt.Text;
+            dr[11] = true;
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

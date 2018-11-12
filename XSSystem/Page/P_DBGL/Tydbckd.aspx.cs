@@ -53,6 +53,7 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("drmj", System.Type.GetType("System.Double"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -88,7 +89,37 @@ namespace XSSystem.Page.P_Order
             dml.Add("@zdz", zdz.Text.Trim());
             dml.Add("@xlx", xlx.Text.Trim());
             dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
-            if (_htglLogic.InsertTydbckd(dml))
+
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach(DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[18])
+                {
+                    temp = new DirModel();
+                    temp.Add("@bh", bh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@xh", val[1]);
+                    temp.Add("@sxds", val[2]);
+                    temp.Add("@zxrq", val[3]);
+                    temp.Add("@fcrq", val[4]);
+                    temp.Add("@dcmj", val[5]);
+                    temp.Add("@xhds", val[6]);
+                    temp.Add("@dzrq", val[7]);
+                    temp.Add("@xhck", val[8]);
+                    temp.Add("@zbxsf", val[9]);
+                    temp.Add("@fzdlf", val[10]);
+                    temp.Add("@fzzxf", val[11]);
+                    temp.Add("@fzddf", val[12]);
+                    temp.Add("@tlyf", val[13]);
+                    temp.Add("@dzzxf", val[14]);
+                    temp.Add("@dzmcddf", val[15]);
+                    temp.Add("@dzdlf", val[16]);
+                    temp.Add("@drmj", val[17]);
+                    Child1.Add(temp);
+                }
+            }
+            if (_htglLogic.InsertTydbckd(dml,Child1))
             {
                 AlertMessage("新增成功");
             }
@@ -132,6 +163,7 @@ namespace XSSystem.Page.P_Order
             dr[15] = double.Parse(dzmcddf.Text.Trim());
             dr[16] = double.Parse(dzdlf.Text.Trim());
             dr[17] = double.Parse(drmj.Text.Trim());
+            dr[18] = true;
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

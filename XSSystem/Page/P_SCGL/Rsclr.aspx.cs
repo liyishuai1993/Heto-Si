@@ -47,19 +47,44 @@ namespace XSSystem.Page.P_Order
             dml.Add("@yddh",float.Parse(yddh.Text.Trim()));
             dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
             dml.Add("@gsmc", gsmc.Text.Trim());
-            if (_cwglLogic.InsertRsclr(dml))
+            
+
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow dr in Scxx_dataTable.Rows)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text);
+                temp.Add("@mz", dr[0]);
+                temp.Add("@sl", dr[1]);
+                temp.Add("@je", dr[2]);
+                temp.Add("@klcl", dr[3]);
+                temp.Add("@hhmcl", dr[4]);
+                temp.Add("@mmcl", dr[5]);
+                temp.Add("@zmcl", dr[6]);
+                temp.Add("@nmcl", dr[7]);
+                temp.Add("@gscl", dr[8]);
+                temp.Add("@shl", dr[9]);
+                Child1.Add(temp);
+            }
+
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow dr in Ccxx_dataTable.Rows)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text);
+                temp.Add("@mz", dr[0]);
+                temp.Add("@sl", dr[1]);
+                temp.Add("@je", dr[2]);
+                temp.Add("@cl", dr[3]);
+                Child2.Add(temp);
+            }
+
+            if (_cwglLogic.InsertRsclr(dml,Child1,Child2))
             {
                 AlertMessage("新增成功");
-            }
-
-            foreach(DataRow val in Scxx_dataTable.Rows)
-            {
-                InsertScxx(val);
-            }
-
-            foreach(DataRow val in Ccxx_dataTable.Rows)
-            {
-                InsertCcxx(val);
             }
         }
 
