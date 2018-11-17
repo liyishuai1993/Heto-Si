@@ -89,22 +89,31 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-            dml.Add("@dfhth", dfhth.Text.Trim());
-            if (wtf_xz.Text.Equals(""))
-                dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
-            else
-                dml.Add("@wtf", wtf_xz.Text.Trim());
-            if (stf_xz.Text.Equals(""))
-                dml.Add("@stf", stf.SelectedItem.Text.Trim());
-            else
-                dml.Add("@stf", stf_xz.Text.Trim());
-            dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
-            dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
-            dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+            try
+            {
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+                dml.Add("@dfhth", dfhth.Text.Trim());
+                if (wtf_xz.Text.Equals(""))
+                    dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
+                else
+                    dml.Add("@wtf", wtf_xz.Text.Trim());
+                if (stf_xz.Text.Equals(""))
+                    dml.Add("@stf", stf.SelectedItem.Text.Trim());
+                else
+                    dml.Add("@stf", stf_xz.Text.Trim());
+                dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
+                dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
+                dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            
 
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
@@ -157,15 +166,24 @@ namespace XSSystem.Page.P_Order
             //string shtbh = htbh.Text;
             //Response.Write("<script>window.showModelessDialog('QyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
             DataRow dr = dataTable.NewRow();
-            dr[0] = dataTable.Rows.Count+1;
-            dr[1] = wlmc.Text;
-            dr[2] = qyd.Text;
-            dr[3] = mdd.Text;
-            dr[4] = double.Parse(yj.Text.Trim());
-            dr[5] = double.Parse(yflhbz.Text.Trim());
-            dr[6] = zxzt.Text;
-            dr[7] = bz.Text;
-            dr[8] = true;
+            try
+            {
+                dr[0] = dataTable.Rows.Count + 1;
+                dr[1] = wlmc.Text;
+                dr[2] = qyd.Text;
+                dr[3] = mdd.Text;
+                dr[4] = double.Parse(yj.Text.Trim());
+                dr[5] = double.Parse(yflhbz.Text.Trim());
+                dr[6] = zxzt.Text;
+                dr[7] = bz.Text;
+                dr[8] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

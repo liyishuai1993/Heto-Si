@@ -9,6 +9,7 @@
     <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
+        <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style3 {
             height: auto;
@@ -73,8 +74,8 @@
             <p>
                                
                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                加工费(元/吨)<asp:TextBox id="jgf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                出煤指标<asp:TextBox id="cmzb" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                加工费(元/吨)<asp:TextBox id="jgf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                出煤指标<asp:TextBox id="cmzb" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 
             </p>

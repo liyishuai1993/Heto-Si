@@ -208,7 +208,7 @@ namespace xs_System.Logic
         /// </summary>
         /// <param name="dml"></param>
         /// <returns></returns>
-        public bool InsertCght(DirModel dml,List<DirModel>child1, List<DirModel> child2)
+        public string InsertCght(DirModel dml,List<DirModel>child1, List<DirModel> child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();

@@ -9,6 +9,7 @@
     <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
+    <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style3 {
             height: auto;
@@ -77,10 +78,10 @@
                  物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 起运地<asp:TextBox id="qyd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 目的地<asp:TextBox id="mdd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 </p>
             <p>
-                运费路耗标准(吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                运费路耗标准(吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 执行状态<asp:TextBox id="zxzt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>

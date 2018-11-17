@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace XSSystem.Page.P_SCGL
     public partial class RsclrGl : AuthWebPage
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -41,6 +43,31 @@ namespace XSSystem.Page.P_SCGL
             GridOrder.DataSource = SelectSQL(qc, e);
             GridOrder.DataBind();
         }
+
+        protected DataTable ddlbind(object bh)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+
+            pagepara.Sql = _cwglLogic.QueryRsclrScxxOrder(bh.ToString());
+            pagepara.OrderBy = "mzsl";
+            PageChangedEventArgs e = new PageChangedEventArgs(1);
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
+        protected DataTable ddl2bind(object bh)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+
+            pagepara.Sql = _cwglLogic.QueryRsclrCcxxOrder(bh.ToString());
+            pagepara.OrderBy = "ccsl";
+            PageChangedEventArgs e = new PageChangedEventArgs(1);
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
 
         DataTable SelectSQL(QueryClass2 qc, PageChangedEventArgs e)
         {

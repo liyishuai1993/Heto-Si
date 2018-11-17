@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>配煤单录入</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
             background-color: #EEEEEE;
@@ -56,10 +57,10 @@
                 <asp:DropDownList id="YLDropDownList" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>      
-                 原料吨数<asp:TextBox id="ylds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>  
-                成本单价<asp:TextBox id="cbdj" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>   
-                 配煤费(元/吨)<asp:TextBox id="pmf" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox> 
-                 金额(元)<asp:TextBox id="je" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                 原料吨数<asp:TextBox id="ylds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>  
+                成本单价<asp:TextBox id="cbdj" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>   
+                 配煤费(元/吨)<asp:TextBox id="pmf" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox> 
+                 金额(元)<asp:TextBox id="je" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
             </p>       
             
             <asp:GridView ID="GridView_YLMZ" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >

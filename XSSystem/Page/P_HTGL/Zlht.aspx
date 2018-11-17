@@ -8,6 +8,7 @@
     <title>租赁合同</title>
     <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/FormStyle.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style3 {
@@ -61,7 +62,7 @@
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px"></asp:TextBox></td> 
+                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td> 
                 </tr>
        
             </table>            

@@ -100,7 +100,7 @@ namespace xsFramework.SqlServer
         /// </summary>
         /// <param name="sqlparm"></param>
         /// <returns></returns>
-        public static bool Execute(List<xsSqlParameter> sqlparmList)
+        public static string Execute(List<xsSqlParameter> sqlparmList)
         {
             DbInParameter dbInPara;
             DbAccess Dao = new DbAccess();
@@ -120,12 +120,12 @@ namespace xsFramework.SqlServer
                 
                 Dao.Commit();
                 Dao.Close();
-                return true;
+                return "";
             }
-            catch
+            catch(Exception e)
             {
                 Dao.RollBack();
-                return false;
+                return e.Message;
             }
         }
     }

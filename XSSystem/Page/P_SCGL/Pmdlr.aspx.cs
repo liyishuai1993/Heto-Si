@@ -51,13 +51,19 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@bh", bh.Text.Trim());
-            dml.Add("@pmrq", Convert.ToDateTime(pmrq.Text.ToString()));
-            dml.Add("@scmc", scmc.Text.Trim());
-            dml.Add("@gsmc", gsmc.Text.Trim());
-            
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@pmrq", Convert.ToDateTime(pmrq.Text.ToString()));
+                dml.Add("@scmc", scmc.Text.Trim());
+                dml.Add("@gsmc", gsmc.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
             foreach (DataRow dr in YLdataTable.Rows)
@@ -84,9 +90,14 @@ namespace XSSystem.Page.P_Order
                 temp.Add("@cbdj2", dr[3]);
                 Child2.Add(temp);
             }
-            if (_cwglLogic.InsertPmdlr(dml,Child1,Child2))
+            string reply = _cwglLogic.InsertPmdlr(dml, Child1, Child2);
+            if (reply=="")
             {
                 AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(reply);
             }
 
         }
@@ -127,6 +138,7 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
+
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@bh", bh.Text);
             dml.Add("@yl", dr[0]);
@@ -141,11 +153,19 @@ namespace XSSystem.Page.P_Order
         protected void ylmz_tjje_Click(object sender, EventArgs e)
         {
             DataRow dr = YLdataTable.NewRow();
-            dr[0] = YLDropDownList.SelectedValue;
-            dr[1] = double.Parse(ylds.Text.Trim());
-            dr[2] = double.Parse(cbdj.Text.Trim());
-            dr[3] = double.Parse(pmf.Text.Trim());
-            dr[4] = double.Parse(je.Text.Trim());
+            try
+            {
+                dr[0] = YLDropDownList.SelectedValue;
+                dr[1] = double.Parse(ylds.Text.Trim());
+                dr[2] = double.Parse(cbdj.Text.Trim());
+                dr[3] = double.Parse(pmf.Text.Trim());
+                dr[4] = double.Parse(je.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             YLdataTable.Rows.Add(dr);
             GridView_YLMZ.DataSource = YLdataTable;
             GridView_YLMZ.DataBind();
@@ -167,10 +187,18 @@ namespace XSSystem.Page.P_Order
         protected void ccmz_tjje_Click(object sender, EventArgs e)
         {          
             DataRow dr = CPdataTable.NewRow();
-            dr[0] = CPDropDownList.SelectedValue;
-            dr[1] = double.Parse(ccds.Text.Trim());
-            dr[2] = double.Parse(je2.Text.Trim());
-            dr[3] = double.Parse(cbdj2.Text.Trim());
+            try
+            {
+                dr[0] = CPDropDownList.SelectedValue;
+                dr[1] = double.Parse(ccds.Text.Trim());
+                dr[2] = double.Parse(je2.Text.Trim());
+                dr[3] = double.Parse(cbdj2.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             CPdataTable.Rows.Add(dr);
             CPGridView.DataSource = CPdataTable;
             CPGridView.DataBind();

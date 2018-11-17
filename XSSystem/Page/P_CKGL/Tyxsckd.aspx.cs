@@ -100,23 +100,29 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@bh", bh.Text.Trim());
-            dml.Add("@htbh", htbh.Text.Trim());
-            dml.Add("@wtf", wtf.Text.Trim());
-            dml.Add("@stf", stf.Text.Trim());
-            dml.Add("@fmmc", fmmc.Text.Trim());
-            dml.Add("@wlmc", wlmc.Text.Trim());
-            dml.Add("@mj", float.Parse(mj.Text.Trim()));
-            dml.Add("@zcz", zcz.Text.Trim());
-            dml.Add("@zdz", zdz.Text.Trim());
-            dml.Add("@xlx", xlx.Text.Trim());
-            dml.Add("@tcbz", tcbz.Text.Trim());
-            dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
-            dml.Add("@ywy", ywy.Text.Trim());
-            dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
-
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@wtf", wtf.Text.Trim());
+                dml.Add("@stf", stf.Text.Trim());
+                dml.Add("@fmmc", fmmc.Text.Trim());
+                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@mj", float.Parse(mj.Text.Trim()));
+                dml.Add("@zcz", zcz.Text.Trim());
+                dml.Add("@zdz", zdz.Text.Trim());
+                dml.Add("@xlx", xlx.Text.Trim());
+                dml.Add("@tcbz", tcbz.Text.Trim());
+                dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
+                dml.Add("@ywy", ywy.Text.Trim());
+                dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
@@ -157,24 +163,32 @@ namespace XSSystem.Page.P_Order
             //Response.Write("<script>window.showModelessDialog('TyxsckdJzxxx.aspx?transmissionInfo=" + htbh.Text + "+&bh="+bh.Text+"')</script>");
             // Response.Write("<script>window.location.reload();</script>");
             DataRow dr = dataTable.NewRow();
-            dr[0] = dataTable.Rows.Count + 1;
-            dr[1] = xh.Text;
-            dr[2] = double.Parse(sxds.Text);
-            dr[3] = zxrq.Text;
-            dr[4] = fcrq.Text;
-            dr[5] = double.Parse(xhds.Text.Trim());
-            dr[6] = dzrq.Text;
-            dr[7] = double.Parse(jshk.Text.Trim());
-            dr[8] = double.Parse(zbxsf.Text.Trim());
-            dr[9] = double.Parse(fzdlf.Text.Trim());
-            dr[10] = double.Parse(fzzxf.Text.Trim());
-            dr[11] = double.Parse(fzddf.Text.Trim());
-            dr[12] = double.Parse(tlyf.Text.Trim());
-            dr[13] = double.Parse(dzzxf.Text.Trim());
-            dr[14] = double.Parse(dzmcddf.Text.Trim());
-            dr[15] = double.Parse(dzdlf.Text.Trim());
-            dr[16] = double.Parse(tlyfxj.Text.Trim());
-            dr[17] = true;
+            try
+            {
+                dr[0] = dataTable.Rows.Count + 1;
+                dr[1] = xh.Text;
+                dr[2] = double.Parse(sxds.Text);
+                dr[3] = zxrq.Text;
+                dr[4] = fcrq.Text;
+                dr[5] = double.Parse(xhds.Text.Trim());
+                dr[6] = dzrq.Text;
+                dr[7] = double.Parse(jshk.Text.Trim());
+                dr[8] = double.Parse(zbxsf.Text.Trim());
+                dr[9] = double.Parse(fzdlf.Text.Trim());
+                dr[10] = double.Parse(fzzxf.Text.Trim());
+                dr[11] = double.Parse(fzddf.Text.Trim());
+                dr[12] = double.Parse(tlyf.Text.Trim());
+                dr[13] = double.Parse(dzzxf.Text.Trim());
+                dr[14] = double.Parse(dzmcddf.Text.Trim());
+                dr[15] = double.Parse(dzdlf.Text.Trim());
+                dr[16] = double.Parse(tlyfxj.Text.Trim());
+                dr[17] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

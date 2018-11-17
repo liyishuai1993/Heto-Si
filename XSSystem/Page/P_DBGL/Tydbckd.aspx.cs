@@ -78,18 +78,24 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@bh", bh.Text.Trim());
-            dml.Add("@htbh", htbh.Text.Trim());
-            dml.Add("@gsmc", gsmc.Text.Trim());
-            dml.Add("@fmmc", fmmc.Text.Trim());
-            dml.Add("@wlmc", wlmc.Text.Trim());
-            dml.Add("@zcz", zcz.Text.Trim());
-            dml.Add("@zdz", zdz.Text.Trim());
-            dml.Add("@xlx", xlx.Text.Trim());
-            dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
-
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@gsmc", gsmc.Text.Trim());
+                dml.Add("@fmmc", fmmc.Text.Trim());
+                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@zcz", zcz.Text.Trim());
+                dml.Add("@zdz", zdz.Text.Trim());
+                dml.Add("@xlx", xlx.Text.Trim());
+                dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
@@ -145,25 +151,33 @@ namespace XSSystem.Page.P_Order
         protected void AddJgxx(object sender, EventArgs e)
         {
             DataRow dr = dataTable.NewRow();
-            dr[0] = dataTable.Rows.Count + 1;
-            dr[1] = xh.Text;
-            dr[2] = double.Parse(sxds.Text);
-            dr[3] = zxrq.Text;
-            dr[4] = fcrq.Text;
-            dr[5] = double.Parse(dcmj.Text.Trim());
-            dr[6] = double.Parse(xhds.Text.Trim());
-            dr[7] = dzrq.Text;
-            dr[8] = xhck.Text;
-            dr[9] = double.Parse(zbxsf.Text.Trim());
-            dr[10] = double.Parse(fzdlf.Text.Trim());
-            dr[11] = double.Parse(fzzxf.Text.Trim());
-            dr[12] = double.Parse(fzddf.Text.Trim());
-            dr[13] = double.Parse(tlyf.Text.Trim());
-            dr[14] = double.Parse(dzzxf.Text.Trim());
-            dr[15] = double.Parse(dzmcddf.Text.Trim());
-            dr[16] = double.Parse(dzdlf.Text.Trim());
-            dr[17] = double.Parse(drmj.Text.Trim());
-            dr[18] = true;
+            try
+            {
+                dr[0] = dataTable.Rows.Count + 1;
+                dr[1] = xh.Text;
+                dr[2] = double.Parse(sxds.Text);
+                dr[3] = zxrq.Text;
+                dr[4] = fcrq.Text;
+                dr[5] = double.Parse(dcmj.Text.Trim());
+                dr[6] = double.Parse(xhds.Text.Trim());
+                dr[7] = dzrq.Text;
+                dr[8] = xhck.Text;
+                dr[9] = double.Parse(zbxsf.Text.Trim());
+                dr[10] = double.Parse(fzdlf.Text.Trim());
+                dr[11] = double.Parse(fzzxf.Text.Trim());
+                dr[12] = double.Parse(fzddf.Text.Trim());
+                dr[13] = double.Parse(tlyf.Text.Trim());
+                dr[14] = double.Parse(dzzxf.Text.Trim());
+                dr[15] = double.Parse(dzmcddf.Text.Trim());
+                dr[16] = double.Parse(dzdlf.Text.Trim());
+                dr[17] = double.Parse(drmj.Text.Trim());
+                dr[18] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

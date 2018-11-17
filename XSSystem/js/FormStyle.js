@@ -35,3 +35,12 @@ function SingleCheckJs() {
     else
         document.getElementById("chk").checked = false;
 }
+
+function isnum() {
+    if (((event.keyCode >= 48) && (event.keyCode <= 57)) || (event.keyCode == 46)) {
+        event.returnValue = true;
+    }
+    else {
+        event.returnValue = false;
+    }
+}

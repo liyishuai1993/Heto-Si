@@ -62,31 +62,38 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@rkbdh", rkbdh.Text.Trim());
-            dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
-            dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
-            dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
-            dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));
-            dml.Add("@ksds", float.Parse(ksds.Text.Trim()));
-            dml.Add("@yyds", float.Parse(yyds.Text.Trim()));
-            dml.Add("@kd", float.Parse(kd.Text.Trim()));
-            dml.Add("@yfhllh", float.Parse(yfhllh.Text.Trim()));
-            dml.Add("@yflhbz", float.Parse(yflhbz.Text.Trim()));
-            dml.Add("@yfkkds", float.Parse(yfkkds.Text.Trim()));
-            dml.Add("@yfkkje", float.Parse(yfkkje.Text.Trim()));
-            dml.Add("@yfjsdw", float.Parse(yfjsdw.Text.Trim()));
-            dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
-            dml.Add("@fykk", float.Parse(fykk.Text.Trim()));
-            dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
-            dml.Add("@hkjsdw", float.Parse(hkjsdw.Text.Trim()));
-            dml.Add("@jshk", float.Parse(jshk.Text.Trim()));
-            dml.Add("@tcbz", tcbz.Text.Trim());
-            dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
-            dml.Add("@ywy", ywy.Text.Trim());
-            dml.Add("@yfjszt", yfyf.Text.Trim());
-            dml.Add("@shzt", shzt.Text.Trim());
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@rkbdh", rkbdh.Text.Trim());
+                dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
+                dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
+                dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
+                dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));
+                dml.Add("@ksds", float.Parse(ksds.Text.Trim()));
+                dml.Add("@yyds", float.Parse(yyds.Text.Trim()));
+                dml.Add("@kd", float.Parse(kd.Text.Trim()));
+                dml.Add("@yfhllh", float.Parse(yfhllh.Text.Trim()));
+                dml.Add("@yflhbz", float.Parse(yflhbz.Text.Trim()));
+                dml.Add("@yfkkds", float.Parse(yfkkds.Text.Trim()));
+                dml.Add("@yfkkje", float.Parse(yfkkje.Text.Trim()));
+                dml.Add("@yfjsdw", float.Parse(yfjsdw.Text.Trim()));
+                dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
+                dml.Add("@fykk", float.Parse(fykk.Text.Trim()));
+                dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
+                dml.Add("@hkjsdw", float.Parse(hkjsdw.Text.Trim()));
+                dml.Add("@jshk", float.Parse(jshk.Text.Trim()));
+                dml.Add("@tcbz", tcbz.Text.Trim());
+                dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
+                dml.Add("@ywy", ywy.Text.Trim());
+                dml.Add("@yfjszt", yfyf.Text.Trim());
+                dml.Add("@shzt", shzt.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             if (_htglLogic.InsertQykhhdlr(dml))
             {
                 AlertMessage("新增成功");

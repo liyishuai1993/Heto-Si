@@ -73,20 +73,26 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@djbh", djbh.Text.Trim());
-            dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-            dml.Add("@cghth", cghth.Text.Trim());
-            dml.Add("@ghf", ghf.Text.Trim());
-            dml.Add("@shf", shf.Text.Trim());
-            dml.Add("@mkmc", mkmc.Text.Trim());
-            dml.Add("@wlmc", wlmc.Text.Trim());
-            dml.Add("@cydw", cydw.Text.Trim());
-            dml.Add("@yj", float.Parse(yj.Text.Trim()));
-            dml.Add("@cgmj", float.Parse(cgmj.Text.Trim()));
-            dml.Add("@xsmj", float.Parse(xsmj.Text.Trim()));
-
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@djbh", djbh.Text.Trim());
+                dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
+                dml.Add("@cghth", cghth.Text.Trim());
+                dml.Add("@ghf", ghf.Text.Trim());
+                dml.Add("@shf", shf.Text.Trim());
+                dml.Add("@mkmc", mkmc.Text.Trim());
+                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@cydw", cydw.Text.Trim());
+                dml.Add("@yj", float.Parse(yj.Text.Trim()));
+                dml.Add("@cgmj", float.Parse(cgmj.Text.Trim()));
+                dml.Add("@xsmj", float.Parse(xsmj.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
@@ -118,18 +124,26 @@ namespace XSSystem.Page.P_Order
         protected void AddClxx(object sender,EventArgs e)
         {
             DataRow dr = dataTable.NewRow();
-            dr[0] = bdh.Text;
-            dr[1] = thdh.Text;
-            dr[2] = ch.Text;
-            dr[3] = double.Parse(zcmz.Text);
-            dr[4] = double.Parse(zcpz.Text);
-            dr[5] = double.Parse(zcjz.Text);
-            dr[6] = double.Parse(yfyf.Text);
-            dr[7] = double.Parse(cgjsje.Text);
-            dr[8] = double.Parse(xsjsje.Text);
-            dr[9] = bz.Text;
-            dr[10] = zt.Text;
-            dr[11] = true;
+            try
+            {
+                dr[0] = bdh.Text;
+                dr[1] = thdh.Text;
+                dr[2] = ch.Text;
+                dr[3] = double.Parse(zcmz.Text);
+                dr[4] = double.Parse(zcpz.Text);
+                dr[5] = double.Parse(zcjz.Text);
+                dr[6] = double.Parse(yfyf.Text);
+                dr[7] = double.Parse(cgjsje.Text);
+                dr[8] = double.Parse(xsjsje.Text);
+                dr[9] = bz.Text;
+                dr[10] = zt.Text;
+                dr[11] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();

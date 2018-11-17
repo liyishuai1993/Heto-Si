@@ -10,45 +10,53 @@ namespace XSSystem.Logic
 {
     public class CWGLLogic
     {
-        internal bool InsertFkd(DirModel dml)
+        internal string InsertFkd(DirModel dml,List<DirModel>child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_FkdTable (user_no,bh,ldrq,skdw,jsr,bm,htbh,zy,fjsm,yfye)" +
                 "values(@user_no,@bh,@ldrq,@skdw,@jsr,@bm,@htbh,@zy,@fjsm,@yfye)";
-            try
+            xsSqls.Add(sqlpara);
+            foreach(var val in child1)
             {
-                SqlHelper.Execute(sqlpara);
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_FkdTable_Fb (user_no,bh,fkzhbh,fkzhmc,je,bz)" +
+                "values(@user_no,@bh,@fkzhbh,@fkzhmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
             }
-            catch
-            {
-                return false;
-            }
-            
-            return true;
+
+             return SqlHelper.Execute(xsSqls);
+
         }
 
-        internal bool InsertFyd(DirModel dml)
+        internal string InsertFyd(DirModel dml,List<DirModel>child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_FydTable (user_no,bh,ldrq,sfdw,jsr,bm,zy,fjsm)" +
                 "values(@user_no,@bh,@ldrq,@sfdw,@jsr,@bm,@zy,@fjsm)";
-            try
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
             {
-                SqlHelper.Execute(sqlpara);
-            }
-            catch
-            {
-                return false;
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_FydTable_Fb (user_no,bh,fyxmbh,fyxmmc,je,bz)" +
+                "values(@user_no,@bh,@fyxmbh,@fyxmmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
             }
 
-            return true;
+            return SqlHelper.Execute(xsSqls);
+
         }
 
-        internal bool InsertRsclr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
+        internal string InsertRsclr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -174,6 +182,20 @@ namespace XSSystem.Logic
             return sql;
         }
 
+        internal string QueryRsclrScxxOrder(string bh)
+        {
+            string sql = @"select(mz + N'  ' + CONVERT(varchar(50), sl)) as mzsl from xs_RsclrTable_Scxx where bh='"+bh+"'"; 
+
+            return sql;
+        }
+
+        internal string QueryRsclrCcxxOrder(string bh)
+        {
+            string sql = @"select(mz + N'  ' + CONVERT(varchar(50), sl)) as ccsl from xs_RsclrTable_Ccxx where bh='" + bh + "'";
+
+            return sql;
+        }
+
         internal string QueryPmdlrOrder(QueryClass2 qc)
         {
             string sql = @"select * from xs_PmdlrTable";
@@ -181,7 +203,21 @@ namespace XSSystem.Logic
             return sql;
         }
 
-        internal bool InsertPmdlr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
+        internal string QueryPmdlrScxxOrder(string bh)
+        {
+            string sql = @"select(yl + N'  ' + CONVERT(varchar(50), ylds)) as mzsl from xs_PmdlrTable_Ylmz where bh='" + bh + "'";
+
+            return sql;
+        }
+
+        internal string QueryPmdlrCcxxOrder(string bh)
+        {
+            string sql = @"select(cp + N'  ' + CONVERT(varchar(50), ccds)) as ccsl from xs_PmdlrTable_Ccmz where bh='" + bh + "'";
+
+            return sql;
+        }
+
+        internal string InsertPmdlr(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -195,8 +231,8 @@ namespace XSSystem.Logic
                 sqlpara = new xsSqlParameter();
                 sqlpara.AddSqlParameter(val);
                 sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_PmdlrTable_Ylmz (user_no,bh,ylds,cbdj,pmf,je)" +
-                "values(@user_no,@bh,@ylds,@cbdj,@pmf,@je)";
+                sqlpara.SQL = "insert into xs_PmdlrTable_Ylmz (user_no,bh,ylds,cbdj,pmf,je,yl)" +
+                "values(@user_no,@bh,@ylds,@cbdj,@pmf,@je,@yl)";
                 xsSqls.Add(sqlpara);
             }
             foreach(var val in child2)
@@ -287,23 +323,26 @@ namespace XSSystem.Logic
             return true;
         }
 
-        internal bool InsertSkd(DirModel dml)
+        internal string InsertSkd(DirModel dml,List<DirModel>child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_SkdTable (user_no,bh,ldrq,fkdw,jsr,bm,htbh,zy,fjsm,ysye,yfye)" +
                 "values(@user_no,@bh,@ldrq,@fkdw,@jsr,@bm,@htbh,@zy,@fjsm,@ysye,@yfye)";
-            try
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
             {
-                SqlHelper.Execute(sqlpara);
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_SkdTable_Fb (user_no,bh,skzhbh,skzhmc,je,bz)" +
+                "values(@user_no,@bh,@skzhbh,@skzhmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
             }
-            catch
-            {
-                return false;
-            }
+            return SqlHelper.Execute(xsSqls);
 
-            return true;
         }
 
         internal bool InsertJxfpqsd(DirModel dml)

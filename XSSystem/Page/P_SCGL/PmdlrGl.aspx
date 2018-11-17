@@ -59,14 +59,22 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="scmc"  HeaderText="生产煤场">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <asp:TemplateField HeaderText="原料数量" >
+                                <ItemTemplate>
+                                    <asp:DropDownList ID="DropDownList2"  runat="server"   DataSource='<%# ddlbind(Eval("bh"))%>' DataValueField="mzsl" DataTextField="mzsl" >
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
-                </asp:BoundField>
-                <asp:BoundField DataField="gsmc"  HeaderText="公司名称">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="产出数量" >
+                                <ItemTemplate>
+                                    <asp:DropDownList ID="DropDownList1"  runat="server"   DataSource='<%# ddl2bind(Eval("bh"))%>' DataValueField="ccsl" DataTextField="ccsl" >
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
-                </asp:BoundField>
+                </asp:TemplateField>
                 <asp:TemplateField  HeaderText="详情">
                     <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />

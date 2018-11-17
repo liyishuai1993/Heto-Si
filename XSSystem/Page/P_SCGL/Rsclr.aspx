@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>日生产录入</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
             background-color: #EEEEEE;
@@ -52,11 +53,11 @@
                         <asp:ListItem>中班</asp:ListItem>
                         <asp:ListItem>夜班</asp:ListItem>
                       </asp:DropDownList> </td>
-                    <td class="auto-style3">用电总数(度)<asp:TextBox id="ydzs" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">用电总数(度)<asp:TextBox id="ydzs" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">用电吨耗(吨/度)<asp:TextBox id="yddh" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">用煤总数(吨)<asp:TextBox id="ymzs" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
+                    <td class="auto-style3">用电吨耗(吨/度)<asp:TextBox id="yddh" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
+                    <td class="auto-style3">用煤总数(吨)<asp:TextBox id="ymzs" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
@@ -64,9 +65,9 @@
                 </tr>
                 <tr>            
                     <td class="uto-style3">
-                        加工费金额 <asp:TextBox id="jgfje" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
+                        加工费金额 <asp:TextBox id="jgfje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox></td>
                     <td class="uto-style3">
-                        每吨费用(元/吨)<asp:TextBox id="mdfy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox>               
+                        每吨费用(元/吨)<asp:TextBox id="mdfy" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox>               
                     </td>
                 </tr>                       
             </table>     
@@ -80,15 +81,15 @@
                 <asp:DropDownList id="MZDropDownList" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
-                数量(t):<asp:TextBox id="scxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
-                金额<asp:TextBox id="scxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
-                 颗粒产率%<asp:TextBox id="klcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                混合煤产率%<asp:TextBox id="hhmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                沫煤产率%<asp:TextBox id="mmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                中煤产率%<asp:TextBox id="zmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                煤泥产率%<asp:TextBox id="nmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                矸石产率%<asp:TextBox id="gscl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
-                损耗率%<asp:TextBox id="shl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>
+                数量(t):<asp:TextBox id="scxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>&nbsp
+                金额<asp:TextBox id="scxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                 颗粒产率%<asp:TextBox id="klcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                混合煤产率%<asp:TextBox id="hhmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                沫煤产率%<asp:TextBox id="mmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                中煤产率%<asp:TextBox id="zmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                煤泥产率%<asp:TextBox id="nmcl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                矸石产率%<asp:TextBox id="gscl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
+                损耗率%<asp:TextBox id="shl" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()"></asp:TextBox>
             </p>            
             
             <asp:GridView ID="GridView_SCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
@@ -164,9 +165,9 @@
                 <asp:DropDownList id="MZDropDownList2" runat="server" Height="16px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
-                数量(t):<asp:TextBox id="ccxx_sl" runat="server" Height="16px" Width ="150px" CssClass="auto-style4"></asp:TextBox>&nbsp
-                金额<asp:TextBox id="ccxx_je" runat="server" Height="16px" Width ="200px" CssClass="auto-style4"></asp:TextBox>
-                 产率%<asp:TextBox id="ccxx_cl" runat="server" Height="16px" Width ="80px" CssClass="auto-style4"></asp:TextBox>
+                数量(t):<asp:TextBox id="ccxx_sl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>&nbsp
+                金额<asp:TextBox id="ccxx_je" runat="server" Height="16px" Width ="200px" OnKeyPress="isnum()"></asp:TextBox>
+                 产率%<asp:TextBox id="ccxx_cl" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"></asp:TextBox>
             </p>     
             
             <asp:GridView ID="GridView_CCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >

@@ -49,7 +49,7 @@
                     <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
                     <td class="auto-style3">装车站<asp:TextBox id="zcz" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">提成标准<asp:TextBox id="tcbz" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
+                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
@@ -77,27 +77,27 @@
             <p>
                 
                 箱号<asp:TextBox id="xh" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                上箱吨数<asp:TextBox id="sxds" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                上箱吨数<asp:TextBox id="sxds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 装箱日期<asp:TextBox id="zxrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 </p>
             <p>
-                卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                结算货款<asp:TextBox id="jshk" runat="server" Height="16px" Width ="150px"></asp:TextBox>     
-                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                结算货款<asp:TextBox id="jshk" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>     
+                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
                 </p>
             <p>
-                发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
-                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
+                发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
                 </p>
             <p>
-                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
-                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
-                到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
-                铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="150px"></asp:TextBox> 
+                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
             
             </p>
                 </div>

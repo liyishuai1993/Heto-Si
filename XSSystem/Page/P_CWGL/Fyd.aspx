@@ -114,8 +114,7 @@
         </p>
 
 
-        <p class="auto-style7">
-                <asp:Button ID="submit" text="配置" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
+        <p class="auto-style7">               
                 <asp:Button ID="print" text="打印" runat ="server" width="90px"   BackColor="#cccccc"></asp:Button>&nbsp
                 <asp:Button ID="save" text="保存|退出" runat ="server" width="90px"   BackColor="#cccccc" OnClick="save_Click"></asp:Button>&nbsp
                 </p> 

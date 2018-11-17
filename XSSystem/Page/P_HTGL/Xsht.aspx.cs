@@ -138,36 +138,43 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());// ??????
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-            dml.Add("@dfhth", dfhth.Text.Trim());
-            if (gfmc_xz.Text.Equals(""))
-                dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-            else
-                dml.Add("@gfmc", gfmc_xz.Text.Trim());
-            if (xfmc_xz.Text.Equals(""))
-                dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
-            else
-                dml.Add("@xfmc", xfmc_xz.Text.Trim());
-            dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
-            dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
-            dml.Add("@hklhbz", hklhbz.Text.Trim());
-            dml.Add("@kpxx", kplx.SelectedItem.Text.Trim());
-            dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
-            dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
-            dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-            if (fhdd_xz.Text.Equals(""))
-                dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
-            else
-                dml.Add("@fhdd", fhdd_xz.Text.Trim());
-            dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
-            dml.Add("@mkmc", mkmc.Text.Trim());
-            dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
-            dml.Add("@lxdh", lxdh.Text.Trim());
-            dml.Add("@bz", bz.Text.Trim());
-
+            try
+            {
+                dml.Add("@htbh", htbh.Text.Trim());// ??????
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+                dml.Add("@dfhth", dfhth.Text.Trim());
+                if (gfmc_xz.Text.Equals(""))
+                    dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
+                else
+                    dml.Add("@gfmc", gfmc_xz.Text.Trim());
+                if (xfmc_xz.Text.Equals(""))
+                    dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+                else
+                    dml.Add("@xfmc", xfmc_xz.Text.Trim());
+                dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
+                dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
+                dml.Add("@hklhbz", hklhbz.Text.Trim());
+                dml.Add("@kpxx", kplx.SelectedItem.Text.Trim());
+                dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
+                dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
+                dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
+                if (fhdd_xz.Text.Equals(""))
+                    dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
+                else
+                    dml.Add("@fhdd", fhdd_xz.Text.Trim());
+                dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
+                dml.Add("@mkmc", mkmc.Text.Trim());
+                dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
+                dml.Add("@lxdh", lxdh.Text.Trim());
+                dml.Add("@bz", bz.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             //封装子表数据
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
@@ -294,18 +301,26 @@ namespace XSSystem.Page.P_Order
             // Response.Write("<script>window.location.reload();</script>");
 
             DataRow dr = Jgxx_dataTable.NewRow();
-            dr[0] = Jgxx_dataTable.Rows.Count + 1;
-            dr[1] = mkmcgv.Text;
-            dr[2] = mzmc.Text;
-            dr[3] = double.Parse(frl.Text.Trim());
-            dr[4] = double.Parse(lf.Text.Trim());
-            dr[5] = double.Parse(kpmj.Text.Trim());
-            dr[6] = double.Parse(htmj.Text.Trim());
-            dr[7] = double.Parse(ksl.Text.Trim());
-            dr[8] = double.Parse(qdds.Text.Trim());
-            dr[9] = double.Parse(qdje.Text.Trim());
-            dr[10] = zt.Text;
-            dr[11] = true;
+            try
+            {
+                dr[0] = Jgxx_dataTable.Rows.Count + 1;
+                dr[1] = mkmcgv.Text;
+                dr[2] = mzmc.Text;
+                dr[3] = double.Parse(frl.Text.Trim());
+                dr[4] = double.Parse(lf.Text.Trim());
+                dr[5] = double.Parse(kpmj.Text.Trim());
+                dr[6] = double.Parse(htmj.Text.Trim());
+                dr[7] = double.Parse(ksl.Text.Trim());
+                dr[8] = double.Parse(qdds.Text.Trim());
+                dr[9] = double.Parse(qdje.Text.Trim());
+                dr[10] = zt.Text;
+                dr[11] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             Jgxx_dataTable.Rows.Add(dr);
             GridView2.DataSource = Jgxx_dataTable;
             GridView2.DataBind();
@@ -332,21 +347,29 @@ namespace XSSystem.Page.P_Order
             // string shtbh = htbh.Text;
             //Response.Write("<script>window.showModelessDialog('XshtZlbz.aspx?transmissionInfo=" + shtbh + "')</script>");
             DataRow dr = Zlbz_dataTable.NewRow();
-            dr[0] = Zlbz_dataTable.Rows.Count + 1;
-            dr[1] = mz.Text;
-            dr[2] = double.Parse(ld.Text.Trim());
-            dr[3] = double.Parse(hf.Text.Trim());
-            dr[4] = double.Parse(hff.Text.Trim());
-            dr[5] = double.Parse(gdt.Text.Trim());
-            dr[6] = double.Parse(njzs.Text.Trim());
-            dr[7] = double.Parse(sf.Text.Trim());
-            dr[8] = double.Parse(tie.Text.Trim());
-            dr[9] = double.Parse(lv.Text.Trim());
-            dr[10] = double.Parse(gai.Text.Trim());
-            dr[11] = double.Parse(lin.Text.Trim());
-            dr[12] = double.Parse(tai.Text.Trim());
-            dr[13] = double.Parse(liu.Text.Trim());
-            dr[14] = true;
+            try
+            {
+                dr[0] = Zlbz_dataTable.Rows.Count + 1;
+                dr[1] = mz.Text;
+                dr[2] = double.Parse(ld.Text.Trim());
+                dr[3] = double.Parse(hf.Text.Trim());
+                dr[4] = double.Parse(hff.Text.Trim());
+                dr[5] = double.Parse(gdt.Text.Trim());
+                dr[6] = double.Parse(njzs.Text.Trim());
+                dr[7] = double.Parse(sf.Text.Trim());
+                dr[8] = double.Parse(tie.Text.Trim());
+                dr[9] = double.Parse(lv.Text.Trim());
+                dr[10] = double.Parse(gai.Text.Trim());
+                dr[11] = double.Parse(lin.Text.Trim());
+                dr[12] = double.Parse(tai.Text.Trim());
+                dr[13] = double.Parse(liu.Text.Trim());
+                dr[14] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             Zlbz_dataTable.Rows.Add(dr);
             GridView1.DataSource = Zlbz_dataTable;
             GridView1.DataBind();

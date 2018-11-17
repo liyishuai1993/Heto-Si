@@ -35,19 +35,25 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@bh", bh.Text);
-            dml.Add("@ssmc", ssmc.Text.Trim());
-            dml.Add("@rq", Convert.ToDateTime(rq.Text.ToString()));
-            dml.Add("@kjsj", Convert.ToDateTime(kjsj.Text.ToString()));
-            dml.Add("@gjsj", Convert.ToDateTime(gjsj.Text.ToString()));
-            dml.Add("@bc", bc.Text.Trim());
-            dml.Add("@ydzs",float.Parse(ydzs.Text.Trim()));
-            dml.Add("@yddh",float.Parse(yddh.Text.Trim()));
-            dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
-            dml.Add("@gsmc", gsmc.Text.Trim());
-            
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text);
+                dml.Add("@ssmc", ssmc.Text.Trim());
+                dml.Add("@rq", Convert.ToDateTime(rq.Text.ToString()));
+                dml.Add("@kjsj", Convert.ToDateTime(kjsj.Text.ToString()));
+                dml.Add("@gjsj", Convert.ToDateTime(gjsj.Text.ToString()));
+                dml.Add("@bc", bc.Text.Trim());
+                dml.Add("@ydzs", float.Parse(ydzs.Text.Trim()));
+                dml.Add("@yddh", float.Parse(yddh.Text.Trim()));
+                dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
+                dml.Add("@gsmc", gsmc.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
 
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
@@ -81,12 +87,17 @@ namespace XSSystem.Page.P_Order
                 temp.Add("@cl", dr[3]);
                 Child2.Add(temp);
             }
-
-            if (_cwglLogic.InsertRsclr(dml,Child1,Child2))
+            string reply = _cwglLogic.InsertRsclr(dml, Child1, Child2);
+            if (reply == "")
             {
                 AlertMessage("新增成功");
             }
+            else
+            {
+                AlertMessage(reply);
+            }
         }
+        
 
         private void InitDataTable()
         {
@@ -136,17 +147,24 @@ namespace XSSystem.Page.P_Order
 
 
             DataRow dr = Scxx_dataTable.NewRow();
-            dr[0] = MZDropDownList.SelectedValue;
-            dr[1] = double.Parse(scxx_je.Text.Trim());
-            dr[2] = double.Parse(scxx_sl.Text.Trim());
-            dr[3] = double.Parse(klcl.Text.Trim());
-            dr[4] = double.Parse(hhmcl.Text.Trim());
-            dr[5] = double.Parse(mmcl.Text.Trim());
-            dr[6] = double.Parse(zmcl.Text.Trim());
-            dr[7] = double.Parse(nmcl.Text.Trim());
-            dr[8] = double.Parse(gscl.Text.Trim());
-            dr[9] = double.Parse(shl.Text.Trim());
-
+            try
+            {
+                dr[0] = MZDropDownList.SelectedValue;
+                dr[1] = double.Parse(scxx_je.Text.Trim());
+                dr[2] = double.Parse(scxx_sl.Text.Trim());
+                dr[3] = double.Parse(klcl.Text.Trim());
+                dr[4] = double.Parse(hhmcl.Text.Trim());
+                dr[5] = double.Parse(mmcl.Text.Trim());
+                dr[6] = double.Parse(zmcl.Text.Trim());
+                dr[7] = double.Parse(nmcl.Text.Trim());
+                dr[8] = double.Parse(gscl.Text.Trim());
+                dr[9] = double.Parse(shl.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             Scxx_dataTable.Rows.Add(dr);
             GridView_SCXX.DataSource = Scxx_dataTable;
             GridView_SCXX.DataBind();
@@ -183,12 +201,15 @@ namespace XSSystem.Page.P_Order
         {
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@bh", bh.Text);
-            dml.Add("@mz", dr[0]);
-            dml.Add("@sl", dr[1]);
-            dml.Add("@je", dr[2]);
-            dml.Add("@cl", dr[3]);
+
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text);
+                dml.Add("@mz", dr[0]);
+                dml.Add("@sl", dr[1]);
+                dml.Add("@je", dr[2]);
+                dml.Add("@cl", dr[3]);
+
+
             return _cwglLogic.InsertRsclr_Ccxx(dml);
         }
 
@@ -197,10 +218,18 @@ namespace XSSystem.Page.P_Order
             
 
             DataRow dr = Ccxx_dataTable.NewRow();
-            dr[0] = MZDropDownList2.SelectedValue;
-            dr[1] = double.Parse(ccxx_je.Text.Trim());
-            dr[2] = double.Parse(ccxx_sl.Text.Trim());
-            dr[3] = double.Parse(ccxx_cl.Text.Trim());
+            try
+            {
+                dr[0] = MZDropDownList2.SelectedValue;
+                dr[1] = double.Parse(ccxx_je.Text.Trim());
+                dr[2] = double.Parse(ccxx_sl.Text.Trim());
+                dr[3] = double.Parse(ccxx_cl.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
             Ccxx_dataTable.Rows.Add(dr);
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();

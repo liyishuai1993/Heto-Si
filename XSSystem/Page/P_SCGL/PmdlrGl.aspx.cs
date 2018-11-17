@@ -42,6 +42,30 @@ namespace XSSystem.Page.P_SCGL
             GridOrder.DataBind();
         }
 
+        protected DataTable ddlbind(object bh)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+
+            pagepara.Sql = _cwglLogic.QueryPmdlrScxxOrder(bh.ToString());
+            pagepara.OrderBy = "mzsl";
+            PageChangedEventArgs e = new PageChangedEventArgs(1);
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
+        protected DataTable ddl2bind(object bh)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+
+            pagepara.Sql = _cwglLogic.QueryPmdlrCcxxOrder(bh.ToString());
+            pagepara.OrderBy = "ccsl";
+            PageChangedEventArgs e = new PageChangedEventArgs(1);
+            return xsPageHelper.BindPager(pagepara, e);
+        }
+
         DataTable SelectSQL(QueryClass2 qc, PageChangedEventArgs e)
         {
             PagerParameter pagepara = new PagerParameter();
