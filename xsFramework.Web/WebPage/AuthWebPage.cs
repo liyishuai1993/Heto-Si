@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using xsFramework.Web.Login;
 
 namespace xsFramework.Web.WebPage
@@ -119,6 +121,34 @@ namespace xsFramework.Web.WebPage
         }
         #endregion
 
+        public bool DataChecked()
+        {
+            foreach (Control c in this.Controls)
+            {
+                foreach (Control child in c.Controls)
+                {
+                    TextBox textBox = child as TextBox;
+                    if (textBox != null)
+                    {
+                        if (textBox.Attributes["valued"] == "must")
+                        {
+                            if (string.IsNullOrEmpty(textBox.Text))
+                            {
+                                AlertMessage(string.Format("{0}不能为空！", textBox.Attributes["name"]));
+                                textBox.Focus();
+                                return false;
+                            }                          
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+
+            }
+            return false;
+        }
 
     }
 }

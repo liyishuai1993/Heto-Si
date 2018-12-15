@@ -141,8 +141,14 @@ namespace XSSystem.Page.P_Order
 
         }
 
+
+
         protected void submit_Click(object sender, EventArgs e)
         {
+            if (!DataChecked())
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             try

@@ -31,9 +31,18 @@
         }
         </style>
     <link href="../../My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
+    <script type="text/javascript" >
+function FormCheck()
+{
+    var l = document.getElementsByName("ip").length;
+    alert(l);
+    return false;
+    
+}
+    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
     <div> <p class="auto-style5">采购合同</p>
         <div>
             <p>基本信息</p>
@@ -47,11 +56,12 @@
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server"  Text="" valued="must" name="签订日期" onClick="WdatePicker()" Width="284px"></asp:TextBox>                       
                     </td>
+                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="must" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="16px" Width ="284px">
                      </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="gfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
