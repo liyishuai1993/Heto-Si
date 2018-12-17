@@ -64,10 +64,10 @@ function FormCheck()
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="must" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="16px" Width ="284px">
-                     </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="gfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                     </asp:DropDownList>
                     </td>
                     <td class="auto-style3">*需方名称<asp:DropDownList id="xfmc" runat="server" height="16px" Width ="284px">
-                     </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="xfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                     </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +106,6 @@ function FormCheck()
                 </tr>
                 <tr>
                     <td class="auto-style3">交货地点<asp:DropDownList id="jhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 新增<asp:TextBox id="jhdd_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px"  Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>

@@ -96,14 +96,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                if (wtf_xz.Text.Equals(""))
-                    dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@wtf", wtf_xz.Text.Trim());
-                if (stf_xz.Text.Equals(""))
-                    dml.Add("@stf", stf.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@stf", stf_xz.Text.Trim());
+                dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", stf.SelectedItem.Text.Trim());
                 dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));

@@ -102,32 +102,14 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));
-                if (wtf_xz.Text.Equals(""))
-                    dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@wtf", wtf_xz.Text.Trim());
-                if (stf_xz.Text.Equals(""))
-                    dml.Add("@stf", stf.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@stf", stf_xz.Text.Trim());
-                if (fmmc_xz.Text.Equals(""))
-                    dml.Add("@fmmc", fmmc.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@fmmc", fmmc_xz.Text.Trim());
-                if (wlmc_xz.Text.Equals(""))
-                    dml.Add("@wlmc", wlmc.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", stf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wlmc", wlmc.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
-                if (zcz_xz.Text.Equals(""))
-                    dml.Add("@zcz", zcz.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@zcz", zcz_xz.Text.Trim());
-                if (zdz_xz.Text.Equals(""))
-                    dml.Add("@zdz", zdz.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@zdz", zdz_xz.Text.Trim());
+                dml.Add("@zcz", zcz.SelectedItem.Text.Trim());
+                dml.Add("@zdz", zdz.SelectedItem.Text.Trim());
                 dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
                 dml.Add("@sl", int.Parse(sl.Text.Trim()));
             }

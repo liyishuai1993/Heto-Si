@@ -46,11 +46,9 @@
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="wtf_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
                         *受托方<asp:DropDownList id="stf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="stf_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                    </td> 
                 </tr>
 

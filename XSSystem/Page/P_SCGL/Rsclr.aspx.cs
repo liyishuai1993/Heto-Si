@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -119,6 +120,8 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("cl", System.Type.GetType("System.Double"));
 
+
+
         }
 
         private bool InsertScxx(DataRow dr)
@@ -184,8 +187,7 @@ namespace XSSystem.Page.P_Order
             arrList[0] = "mzmc";
             pagepara.Sql = ht.QueryDropList("xs_MeiZhongTable", arrList);
             pagepara.OrderBy = "mzmc";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt = xsPageHelper.BindPager(pagepara);
             if (dt.Rows.Count != 0)
             {
                 MZDropDownList.DataSource = dt.DefaultView;
@@ -194,6 +196,18 @@ namespace XSSystem.Page.P_Order
                 MZDropDownList2.DataSource = dt.DefaultView;
                 MZDropDownList2.DataTextField = dt.Columns[0].ToString();
                 MZDropDownList2.DataBind();
+
+                //DropDownList1.DataSource = dt.DefaultView;
+                //DropDownList1.DataValueField = dt.Columns[0].ToString(); ;
+                //DropDownList1.DataBind();
+                //DropDownList1.Items.FindItemByValue("").Selected = true;
+                RadComboBoxItem radcbItem;
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    DropDownList1.Items.Add(radcbItem);
+                }
+               // DropDownList1.FindItemByText
             }
         }
 
@@ -233,8 +247,9 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Rows.Add(dr);
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();
-
             
+
+
         }
     }
 }

@@ -89,19 +89,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-                if (czf_xz.Text.Equals(""))
-                    dml.Add("@czf", czf.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@czf", czf_xz.Text.Trim());
-                if (czf2_xz.Text.Equals(""))
-                    dml.Add("@czf2", czf2.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@czf2", czf2_xz.Text.Trim());
-                if (czdd_xz.Text.Equals(""))
-                    dml.Add("@czdd", czdd.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@czdd", czdd_xz.Text.Trim());
-
+                dml.Add("@czf", czf.SelectedItem.Text.Trim());
+                dml.Add("@czf2", czf2.SelectedItem.Text.Trim());
+                dml.Add("@czdd", czdd.SelectedItem.Text.Trim());
                 dml.Add("@zlqxQ", Convert.ToDateTime(zlqxQ.Text));
                 dml.Add("@zlqxZ", Convert.ToDateTime(zlqxZ.Text));
                 dml.Add("@yj", int.Parse(yj.Text.Trim()));

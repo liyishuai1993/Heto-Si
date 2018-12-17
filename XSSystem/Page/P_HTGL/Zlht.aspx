@@ -44,11 +44,9 @@
                 </tr>
                 <tr>                 
                     <td class="auto-style3">*出租方<asp:DropDownList id="czf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="czf_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
                         *承租方<asp:DropDownList id="czf2" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="czf2_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                    </td> 
                     <td class="auto-style3">
                     </td>
@@ -56,7 +54,6 @@
 
                 <tr>
                     <td class="auto-style3">出租地段<asp:DropDownList id="czdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="czdd_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">租赁期限
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-

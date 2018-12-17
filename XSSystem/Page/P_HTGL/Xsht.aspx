@@ -54,11 +54,9 @@
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="gfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
                         *需方名称<asp:DropDownList id="xfmc" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="xfmc_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                    </td> 
                 </tr>
                 <tr>
@@ -98,7 +96,6 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">发货地点<asp:DropDownList id="fhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增<asp:TextBox id="fhdd_xz" runat="server" Height="16px" Width ="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px" Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>

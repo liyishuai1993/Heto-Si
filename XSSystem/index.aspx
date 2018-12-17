@@ -34,7 +34,7 @@
             <div id="content">
                 <div id="ContentPlace">
                     <div>
-                        <iframe id="ipage" frameborder="0" scrolling="no" width="100%" src="Page/P_Public/Main.aspx">
+                        <iframe id="ipage" frameborder="0" scrolling="auto" width="100%" src="Page/P_Public/Main.aspx">
                         </iframe>
                     </div>
                 </div>

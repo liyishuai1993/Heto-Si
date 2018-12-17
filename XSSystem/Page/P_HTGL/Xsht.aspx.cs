@@ -145,14 +145,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                if (gfmc_xz.Text.Equals(""))
-                    dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@gfmc", gfmc_xz.Text.Trim());
-                if (xfmc_xz.Text.Equals(""))
-                    dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@xfmc", xfmc_xz.Text.Trim());
+                dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
+                dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
                 dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
                 dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
                 dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -160,10 +154,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
                 dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
                 dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-                if (fhdd_xz.Text.Equals(""))
-                    dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
-                else
-                    dml.Add("@fhdd", fhdd_xz.Text.Trim());
+                dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
                 dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());

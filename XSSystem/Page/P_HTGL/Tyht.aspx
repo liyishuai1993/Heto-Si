@@ -50,21 +50,17 @@
                 <tr>
                     
                     <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px"></asp:DropDownList>
-                        新增<asp:TextBox id="wtf_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">
                         *受托方<asp:DropDownList id="stf" runat="server" Height="16px" ></asp:DropDownList>  
-                        新增<asp:TextBox id="stf_xz" runat="server" Height="16px" ></asp:TextBox>
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style3" style="table-layout: fixed">*发煤煤场<asp:DropDownList id="fmmc" runat="server" Height="16px"></asp:DropDownList> 
-                        新增<asp:TextBox id="fmmc_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">物料名称<asp:DropDownList id="wlmc" runat="server" Height="16px" ></asp:DropDownList>
-                        新增<asp:TextBox id="wlmc_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">执行期限
                <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
@@ -73,10 +69,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">*装车站<asp:DropDownList id="zcz" runat="server" Height="16px" ></asp:DropDownList> 
-                        新增<asp:TextBox id="zcz_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3">*终到站<asp:DropDownList id="zdz" runat="server" Height="16px" ></asp:DropDownList>
-                        新增<asp:TextBox id="zdz_xz" runat="server" Height="16px" ></asp:TextBox>
                     </td>
                     <td class="auto-style3"></td> 
                 </tr>

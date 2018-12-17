@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Rsclr.aspx.cs" Inherits="XSSystem.Page.P_Order.Rsclr" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 
 <!DOCTYPE html>
 
@@ -32,7 +34,9 @@
 </head>
 <body style="height: auto; width: auto">
     <form id="form1" runat="server">
-    <div> <p class="auto-style5">日生产录入</p>
+    <div>
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
+        <p class="auto-style5">日生产录入</p>
         <div>
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
@@ -69,7 +73,14 @@
                     <td class="uto-style3">
                         每吨费用(元/吨)<asp:TextBox id="mdfy" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox>               
                     </td>
-                </tr>                       
+                </tr>      
+                <tr>
+                    <td>
+                        <telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList1" AutoPostBack="True" runat="server" Width="110px" Height="400px"
+  EmptyMessage="请输入小区名称"   MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+   HighlightTemplatedItems="true">
+    </telerik:RadComboBox></td>
+                </tr>
             </table>     
         </div>
 
