@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using xs_System.Logic;
+using xsFramework.UserControl.Pager;
 
 public class GlabalString
 {
@@ -34,5 +37,62 @@ public class GlabalString
         {
             return (float)0.000;
         }
+    }
+
+    public static DataTable GetMZMC()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "mzmc";
+        pagepara.Sql = ht.QueryDropList("xs_MeiZhongTable", arrList);
+        pagepara.OrderBy = "mzmc";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
+
+    public static DataTable GetMeiCang()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "cp";
+        pagepara.Sql = ht.QueryDropList("xs_ChanPingTable", arrList);
+        pagepara.OrderBy = "cp";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
+
+    public static DataTable GetCangKu()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "yl";
+        pagepara.Sql = ht.QueryDropList("xs_YuanLiaoTable", arrList);
+        pagepara.OrderBy = "yl";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
+
+    public static DataTable GetGongSi()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[2];
+        arrList[0] = "wldw";
+        arrList[1] = "type";
+        pagepara.Sql = ht.QueryDropList("xs_WangLaiDanWei", arrList);
+        pagepara.OrderBy = "wldw";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
     }
 }

@@ -145,7 +145,7 @@ namespace XSSystem.Page.P_Order
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            if (!DataChecked())
+            if (!DataChecked(1))
             {
                 return;
             }

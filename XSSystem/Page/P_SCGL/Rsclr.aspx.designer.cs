@@ -112,13 +112,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox ymzs;
         
         /// <summary>
-        /// gsmc 控件。
+        /// DropDownList_gsmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gsmc;
+        protected global::Telerik.Web.UI.RadComboBox DropDownList_gsmc;
         
         /// <summary>
         /// jgfje 控件。
@@ -139,15 +139,6 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox mdfy;
         
         /// <summary>
-        /// DropDownList1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox DropDownList1;
-        
-        /// <summary>
         /// scxx_tjmz 控件。
         /// </summary>
         /// <remarks>
@@ -157,13 +148,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button scxx_tjmz;
         
         /// <summary>
-        /// MZDropDownList 控件。
+        /// DropDownListMZ 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MZDropDownList;
+        protected global::Telerik.Web.UI.RadComboBox DropDownListMZ;
         
         /// <summary>
         /// scxx_sl 控件。
@@ -265,13 +256,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button ccxx_tjmz;
         
         /// <summary>
-        /// MZDropDownList2 控件。
+        /// DropDownListMZ2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MZDropDownList2;
+        protected global::Telerik.Web.UI.RadComboBox DropDownListMZ2;
         
         /// <summary>
         /// ccxx_sl 控件。

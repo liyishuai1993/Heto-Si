@@ -34,6 +34,10 @@ namespace XSSystem.Page.P_Order
 
         protected void submit_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
@@ -48,7 +52,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ydzs", float.Parse(ydzs.Text.Trim()));
                 dml.Add("@yddh", float.Parse(yddh.Text.Trim()));
                 dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
-                dml.Add("@gsmc", gsmc.Text.Trim());
+                dml.Add("@gsmc", DropDownList_gsmc.SelectedItem.Text.Trim());
             }
             catch
             {
@@ -104,7 +108,7 @@ namespace XSSystem.Page.P_Order
         {
             Scxx_dataTable = new DataTable();
             Scxx_dataTable.Columns.Add("mz", System.Type.GetType("System.String"));
-            Scxx_dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
+            Scxx_dataTable.Columns.Add("je", Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("klcl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("hhmcl", System.Type.GetType("System.Double"));
@@ -146,13 +150,14 @@ namespace XSSystem.Page.P_Order
 
         protected void scxx_tjmz_Click(object sender, EventArgs e)
         {
-            
 
+            if (!DataChecked(2))
+                return;
 
             DataRow dr = Scxx_dataTable.NewRow();
             try
             {
-                dr[0] = MZDropDownList.SelectedValue;
+                dr[0] = DropDownListMZ.SelectedItem.Text;
                 dr[1] = double.Parse(scxx_je.Text.Trim());
                 dr[2] = double.Parse(scxx_sl.Text.Trim());
                 dr[3] = double.Parse(klcl.Text.Trim());
@@ -178,38 +183,40 @@ namespace XSSystem.Page.P_Order
 
         protected void DropListInit()
         {
-            PagerParameter pagepara = new PagerParameter();
-            QueryClass qc = new QueryClass();
-            pagepara.DbConn = GlabalString.DBString;
-            //pagepara.XsPager=
-            HTGLLogic ht = new HTGLLogic();
-            string[] arrList = new string[1];
-            arrList[0] = "mzmc";
-            pagepara.Sql = ht.QueryDropList("xs_MeiZhongTable", arrList);
-            pagepara.OrderBy = "mzmc";
-            DataTable dt = xsPageHelper.BindPager(pagepara);
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetMZMC();
             if (dt.Rows.Count != 0)
             {
-                MZDropDownList.DataSource = dt.DefaultView;
-                MZDropDownList.DataTextField = dt.Columns[0].ToString();
-                MZDropDownList.DataBind();
-                MZDropDownList2.DataSource = dt.DefaultView;
-                MZDropDownList2.DataTextField = dt.Columns[0].ToString();
-                MZDropDownList2.DataBind();
-
-                //DropDownList1.DataSource = dt.DefaultView;
-                //DropDownList1.DataValueField = dt.Columns[0].ToString(); ;
-                //DropDownList1.DataBind();
-                //DropDownList1.Items.FindItemByValue("").Selected = true;
-                RadComboBoxItem radcbItem;
+                
                 foreach (DataRow val in dt.Rows)
                 {
                     radcbItem = new RadComboBoxItem(val[0].ToString());
-                    DropDownList1.Items.Add(radcbItem);
+                    radcbItem2=new RadComboBoxItem(val[0].ToString());
+                    DropDownListMZ.Items.Add(radcbItem);
+                    DropDownListMZ2.Items.Add(radcbItem2);
                 }
-               // DropDownList1.FindItemByText
+                DropDownListMZ.SelectedIndex = 1;
+                DropDownListMZ2.SelectedIndex = 1;
             }
+
+            dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    DropDownList_gsmc.Items.Add(radcbItem);
+                }
+                DropDownList_gsmc.SelectedIndex = 1;
+            }
+            
+
+            
+
         }
+
+
 
         private bool InsertCcxx(DataRow dr)
         {
@@ -229,12 +236,13 @@ namespace XSSystem.Page.P_Order
 
         protected void ccxx_tjmz_Click(object sender, EventArgs e)
         {
-            
+            if (!DataChecked(3))
+                return;
 
             DataRow dr = Ccxx_dataTable.NewRow();
             try
             {
-                dr[0] = MZDropDownList2.SelectedValue;
+                dr[0] = DropDownListMZ2.SelectedValue;
                 dr[1] = double.Parse(ccxx_je.Text.Trim());
                 dr[2] = double.Parse(ccxx_sl.Text.Trim());
                 dr[3] = double.Parse(ccxx_cl.Text.Trim());

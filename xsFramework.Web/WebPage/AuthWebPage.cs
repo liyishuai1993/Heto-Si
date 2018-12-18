@@ -6,6 +6,7 @@
 //*****************************************************************************************
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -121,7 +122,7 @@ namespace xsFramework.Web.WebPage
         }
         #endregion
 
-        public bool DataChecked()
+        public bool DataChecked(int type)
         {
             foreach (Control c in this.Controls)
             {
@@ -130,7 +131,7 @@ namespace xsFramework.Web.WebPage
                     TextBox textBox = child as TextBox;
                     if (textBox != null)
                     {
-                        if (textBox.Attributes["valued"] == "must")
+                        if (textBox.Attributes["valued"] == "must"+type.ToString())
                         {
                             if (string.IsNullOrEmpty(textBox.Text))
                             {
@@ -147,8 +148,8 @@ namespace xsFramework.Web.WebPage
                 }
 
             }
-            return false;
-        }
+            return true;
+        }       
 
     }
 }
