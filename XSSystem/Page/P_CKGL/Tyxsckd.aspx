@@ -38,18 +38,18 @@
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">委托方<asp:TextBox id="wtf" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
-                    <td class="auto-style3">受托方<asp:TextBox id="stf" runat="server" Height="16px" Width ="500px"></asp:TextBox></td>
+                    <td class="auto-style3">委托方<asp:TextBox id="wtf" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">受托方<asp:TextBox id="stf" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
+                    <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">装车站<asp:TextBox id="zcz" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>

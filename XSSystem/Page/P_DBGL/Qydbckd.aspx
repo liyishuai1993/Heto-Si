@@ -36,29 +36,29 @@
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">出库磅单号<asp:TextBox id="ckbdh" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">出库磅单号<asp:TextBox id="ckbdh" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">*装车时间<asp:TextBox ID="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">*装车时间<asp:TextBox ID="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="500px"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">*车号<asp:TextBox id="ch" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*车号<asp:TextBox id="ch" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">驾驶员<asp:TextBox id="jsy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3">驾驶员<asp:TextBox id="jsy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" ></asp:TextBox> </td>
                     <td class="auto-style3">联系电话<asp:TextBox id="lxdh" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">出库毛重<asp:TextBox id="ckmz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> 
+                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">出库毛重<asp:TextBox id="ckmz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">出库皮重<asp:TextBox id="ckpz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">*出库净重<asp:TextBox id="ckjz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> 
+                    <td class="auto-style3">出库皮重<asp:TextBox id="ckpz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*出库净重<asp:TextBox id="ckjz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
@@ -66,8 +66,8 @@
                     <td class="auto-style3">调拨金额<asp:TextBox id="dbje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*运价<asp:TextBox id="yj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">已付油卡<asp:TextBox id="yfyk" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">*运价<asp:TextBox id="yj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">已付油卡<asp:TextBox id="yfyk" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">付卡账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
@@ -81,16 +81,16 @@
             <p>回单信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
-                    <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="500px" valued="must1"></asp:TextBox></td>
+                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" Text="" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">*收煤煤场<asp:TextBox id="smmc" runat="server" Height="16px" Width ="500px"></asp:TextBox> </td>
-                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">*收煤煤场<asp:TextBox id="smmc" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">*入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
+                    <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">亏损吨数<asp:TextBox id="ksds" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
@@ -108,12 +108,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="483px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="483px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">费用扣款(手续费、卸车费)<asp:TextBox id="fykk" runat="server" Height="16px" Width ="370px" OnKeyPress="isnum()"></asp:TextBox></td> 
-                    <td class="auto-style3">结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> </td>
+                    <td class="auto-style3">结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
                     
                 </tr>
                 <tr>
