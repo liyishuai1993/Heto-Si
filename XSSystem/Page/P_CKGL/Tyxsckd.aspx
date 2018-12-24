@@ -38,18 +38,18 @@
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" name="合同编号" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">委托方<asp:TextBox id="wtf" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">受托方<asp:TextBox id="stf" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox></td>
+                    <td class="auto-style3">委托方<asp:TextBox id="wtf" name="委托方" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">受托方<asp:TextBox id="stf" name="受托方" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*发煤煤场<asp:TextBox id="fmmc" name="发煤煤场" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" name="物料名称" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">煤价<asp:TextBox id="mj" name="煤价" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">装车站<asp:TextBox id="zcz" runat="server" Height="16px" Width ="500px"></asp:TextBox> 
                     </td>
                 </tr>
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">提成标准<asp:TextBox id="tcbz" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"></asp:TextBox> 
+                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
@@ -76,28 +76,28 @@
             <p>集装箱信息<asp:Button ID="Button2" runat="server" Text="新增记录"  OnClick="AddJgxx"/></p>
             <p>
                 
-                箱号<asp:TextBox id="xh" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                上箱吨数<asp:TextBox id="sxds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                装箱日期<asp:TextBox id="zxrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                箱号<asp:TextBox id="xh" runat="server" name="箱号" Height="16px" Width ="150px" valued="must2"></asp:TextBox>
+                上箱吨数<asp:TextBox id="sxds" runat="server" name="上箱吨数" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>
+                装箱日期<asp:TextBox id="zxrq" Text="" onClick="WdatePicker()" name="装箱日期" runat="server" Height="16px" Width ="150px" valued="must2"></asp:TextBox>
                 发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 </p>
             <p>
-                卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" name="卸货吨数" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>
                 到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                结算货款<asp:TextBox id="jshk" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>     
-                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                结算货款<asp:TextBox id="jshk" runat="server" Height="16px" name="结算货款" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>     
+                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" name="自备箱使费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>
                 </p>
             <p>
-                发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
-                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" name="发站代理费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>
+                发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" name="发站装箱费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox>
+                发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" name="发站倒短" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox> 
+                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" name="铁路运费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox> 
                 </p>
             <p>
-                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
-                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
-                到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
-                铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox> 
+                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" name="到站装卸费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox> 
+                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" name="到站-煤场倒短费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox> 
+                到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" name="到站代理费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')" valued="must2"></asp:TextBox> 
+                铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> 
             
             </p>
                 </div>

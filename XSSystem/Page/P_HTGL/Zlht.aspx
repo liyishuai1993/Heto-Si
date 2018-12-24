@@ -59,7 +59,7 @@
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td> 
+                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
                 </tr>
        
             </table>            

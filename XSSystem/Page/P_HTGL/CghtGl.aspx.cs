@@ -58,8 +58,6 @@ namespace XSSystem.Page.P_HTGL
         DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e)
         {
             PagerParameter pagepara = new PagerParameter();
-
-
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
             pagepara.Sql = _htglLogic.QueryCghtOrder(qc);
@@ -144,7 +142,8 @@ namespace XSSystem.Page.P_HTGL
         {
             QueryClass qc = new QueryClass();
             qc.htbh = (sender as Button).CommandArgument;
-
+            qc.kpmj = 10000000;
+            qc.zt = "0";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["cght"] = dt;

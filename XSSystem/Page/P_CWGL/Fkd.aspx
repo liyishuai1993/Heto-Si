@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>付款单</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+        <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
             background-color: #EEEEEE;
@@ -58,7 +59,7 @@
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">应付余额<asp:TextBox id="yfye" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
+                    <td class="auto-style3">应付余额<asp:TextBox id="yfye" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td>
                     <td class="auto-style3"></td>
                     <td></td>
                 </tr>
@@ -69,7 +70,7 @@
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
                 付款账户编号<asp:TextBox runat="server" id="fkzhbh"/>
                 付款账户名称<asp:TextBox runat="server" id="fkzhmc"/>
-                金额<asp:TextBox runat="server" ID="je"/>
+                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"/>
                 备注<asp:TextBox runat="server" ID="bz"/>
             </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -109,7 +110,9 @@
                 </asp:GridView>                        
         </div>
 
-        <p class="auto-style7">优惠金额<asp:TextBox id="yhje" runat="server" Height="16px" Width ="80px"></asp:TextBox>合计金额<asp:TextBox id="hjje" runat="server" Height="16px" Width ="80px"></asp:TextBox></p>
+        <p class="auto-style7">优惠金额<asp:TextBox id="yhje" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')">
+
+                                   </asp:TextBox>合计金额<asp:TextBox id="hjje" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></p>
 
 
         <p class="auto-style7">

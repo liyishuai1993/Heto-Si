@@ -129,17 +129,17 @@
                 
                 煤矿名称<asp:TextBox id="mkmcgv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>
-                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>
-                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>

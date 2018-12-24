@@ -79,6 +79,10 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             dataTable= xsPageHelper.BindPager(pagepara, e);
+            if (dataTable.Columns.Count == 0)
+            {
+                InitDataTable();
+            }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
@@ -157,6 +161,10 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
+            if (!DataChecked(2))
+            {
+                return;
+            }
             //string shtbh = htbh.Text;
             //Response.Write("<script>window.showModelessDialog('QyhtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
             DataRow dr = dataTable.NewRow();
@@ -172,9 +180,9 @@ namespace XSSystem.Page.P_Order
                 dr[7] = bz.Text;
                 dr[8] = true;
             }
-            catch
+            catch(Exception ex)
             {
-                AlertMessage("数据存在错误，请检查");
+                AlertMessage("数据存在错误，请检查,"+ex.Message);
                 return;
             }
             

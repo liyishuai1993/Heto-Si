@@ -33,7 +33,8 @@ namespace XSSystem.Page.P_Order
                 }
                // 
                // InitGridView2();
-                InitDataTable();
+                InitDataTableJgxx();
+                InitTableZlbz();
                 InitGridView2();
                 InitGridView();
             }
@@ -65,10 +66,9 @@ namespace XSSystem.Page.P_Order
         }
 
 
-        private void InitDataTable()
+        private void InitDataTableJgxx()
         {
             Jgxx_dataTable = new DataTable();
-            Zlbz_dataTable = new DataTable();
             Jgxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Jgxx_dataTable.Columns.Add("mkmc", Type.GetType("System.String"));
             Jgxx_dataTable.Columns.Add("mzmc", Type.GetType("System.String"));
@@ -82,6 +82,14 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
             Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
 
+           
+
+
+        }
+
+        private void InitTableZlbz()
+        {
+            Zlbz_dataTable = new DataTable();
             Zlbz_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Zlbz_dataTable.Columns.Add("mz", Type.GetType("System.String"));
             Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.Double"));
@@ -97,8 +105,6 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
             Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
-
-
         }
 
 
@@ -115,6 +121,10 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             Zlbz_dataTable= xsPageHelper.BindPager(pagepara, e);
+            if (Zlbz_dataTable.Columns.Count == 0)
+            {
+                InitTableZlbz();
+            }
             this.GridView_ZLBZ.DataSource = Zlbz_dataTable;
             this.GridView_ZLBZ.DataBind();
         }
@@ -134,10 +144,12 @@ namespace XSSystem.Page.P_Order
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             Jgxx_dataTable= xsPageHelper.BindPager(pagepara, e);
+            if (Jgxx_dataTable.Columns.Count == 0)
+            {
+                InitDataTableJgxx();
+            }
             this.GridView_JGXX.DataSource = Jgxx_dataTable;
             this.GridView_JGXX.DataBind();
-
-
 
         }
 
@@ -315,7 +327,7 @@ namespace XSSystem.Page.P_Order
             try
             {
                 dr[0] = Jgxx_dataTable.Rows.Count + 1;
-                dr[1] = mkmcgv.Text;
+                dr[1] = mkmcgv.SelectedItem.Text;
                 dr[2] = mzmc.Text;
                 dr[3] = double.Parse(frl.Text.Trim());
                 dr[4] = double.Parse(lf.Text.Trim());

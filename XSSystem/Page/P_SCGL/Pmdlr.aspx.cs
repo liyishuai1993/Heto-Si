@@ -20,18 +20,17 @@ namespace XSSystem.Page.P_Order
         static DataTable YLdataTable;
         static DataTable CPdataTable;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
-
+        {          
             if (!IsPostBack)
             {
          //       bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                InitDataTable();
+                InitDataTableYL();
+                InitDataTableCP();
                 DropListInit();
             }
         }
 
-        private void InitDataTable()
+        private void InitDataTableYL()
         {
             YLdataTable = new DataTable();
             YLdataTable.Columns.Add("yl", System.Type.GetType("System.String"));
@@ -40,6 +39,11 @@ namespace XSSystem.Page.P_Order
             YLdataTable.Columns.Add("pmf", System.Type.GetType("System.Double"));
             YLdataTable.Columns.Add("je", System.Type.GetType("System.Double"));
 
+            
+        }
+
+        private void InitDataTableCP()
+        {
             CPdataTable = new DataTable();
             CPdataTable.Columns.Add("cp", System.Type.GetType("System.String"));
             CPdataTable.Columns.Add("cpds", System.Type.GetType("System.Double"));

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>提现存现转账</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+        <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
             background-color: #EEEEEE;
@@ -69,7 +70,7 @@
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
                 收款账户编号<asp:TextBox runat="server" id="skzhbh"/>
                 收款账户名称<asp:TextBox runat="server" id="skzhmc"/>
-                金额<asp:TextBox runat="server" ID="je"/>
+                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"/>
                 备注<asp:TextBox runat="server" ID="bz"/>
             </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -111,10 +112,10 @@
 
         <p class="auto-style7">合计金额<asp:TextBox id="hjje" runat="server" Height="16px" Width ="80px"></asp:TextBox></p>
         <p class="auto-style8">
-            手续费<asp:TextBox id="sxf" runat="server" Height="16px" Width ="80px"></asp:TextBox>
-            费用金额<asp:TextBox id="yfje" runat="server" Height="16px" Width ="80px"></asp:TextBox>
+            手续费<asp:TextBox id="sxf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+            费用金额<asp:TextBox id="yfje" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
             付款账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="80px"></asp:TextBox>
-            实付金额<asp:TextBox id="sfje" runat="server" Height="16px" Width ="80px"></asp:TextBox>
+            实付金额<asp:TextBox id="sfje" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
         </p>
 
 

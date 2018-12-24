@@ -27,6 +27,7 @@ namespace XSSystem.Page.P_Order
                     InitData(Session["tydbckd"]);
                 }
                 InitDataTable();
+                InitGridView();
             }
         }
 
@@ -144,7 +145,12 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryThdbckdChildTable(qc);
             pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            this.GridView1.DataSource = xsPageHelper.BindPager(pagepara, e);
+            dataTable= xsPageHelper.BindPager(pagepara, e);
+            if (dataTable.Columns.Count == 0)
+            {
+                InitDataTable();
+            }
+            this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
 

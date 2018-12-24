@@ -73,14 +73,14 @@
             <p>价格信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p>
                 
-                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                起运地<asp:TextBox id="qyd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                目的地<asp:TextBox id="mdd" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px" valued="must2" name="物料名称"></asp:TextBox>
+                起运地<asp:TextBox id="qyd" runat="server" Height="16px" Width ="150px" valued="must2" name="起运地"></asp:TextBox>
+                目的地<asp:TextBox id="mdd" runat="server" Height="16px" Width ="150px" valued="must2" name="目的地"></asp:TextBox>
+                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>
-                运费路耗标准(吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                执行状态<asp:TextBox id="zxzt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                运费路耗标准(吨)<asp:TextBox id="yflhbz" valued="must2" name="运费路耗标准" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                执行状态<asp:TextBox id="zxzt" runat="server" name="执行状态" valued="must2" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>

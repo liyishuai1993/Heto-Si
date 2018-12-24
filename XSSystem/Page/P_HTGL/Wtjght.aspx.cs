@@ -73,6 +73,10 @@ namespace XSSystem.Page.P_Order
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             dataTable= xsPageHelper.BindPager(pagepara, e);
+            if (dataTable.Columns.Count == 0)
+            {
+                InitDataTable();
+            }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }

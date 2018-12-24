@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cght.aspx.cs" Inherits="XSSystem.Page.P_Order.Cght" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,6 +44,7 @@ function FormCheck()
 </head>
 <body>
     <form id="form1" runat="server" >
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
     <div> <p class="auto-style5">采购合同</p>
         <div>
             <p>基本信息</p>
@@ -63,11 +65,13 @@ function FormCheck()
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="must" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<asp:DropDownList id="gfmc" runat="server" height="16px" Width ="284px">
-                     </asp:DropDownList>
+                    <td class="auto-style3">*供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="500px" Height="400px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">*需方名称<asp:DropDownList id="xfmc" runat="server" height="16px" Width ="284px">
-                     </asp:DropDownList>
+                    <td class="auto-style3">*需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="500px" Height="400px"
+  EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                 </tr>
                 <tr>
@@ -126,19 +130,23 @@ function FormCheck()
             <div class="divcss5">
             <p>价格信息<asp:Button ID="Button2"  runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p>               
-                煤矿名称<asp:TextBox id="mkmcgv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                结算方式<asp:DropDownList id="mkmcgv" runat="server"  Height="16px" Width ="150px">
+                        <asp:ListItem>电汇</asp:ListItem>
+                        <asp:ListItem>承兑汇票</asp:ListItem>
+                        <asp:ListItem>电汇或承兑</asp:ListItem>
+                        </asp:DropDownList>
                 煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}" ></asp:TextBox>
+                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
                 </p>
             <p>
-                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
-                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
-                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
-                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
+                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>
-                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="if(((event.keyCode>=48)&&(event.keyCode <=57))||(event.keyCode==46)) {event.returnValue=true;} else{event.returnValue=false;}"></asp:TextBox>
+                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>
@@ -221,25 +229,25 @@ function FormCheck()
             <div class="divcss5">
             <p>质量标准<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZlbz" /></p>
             <p>                               
-                煤种<asp:TextBox id="mz" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                煤种<asp:TextBox id="mz" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
 
             </p>
             <p>
-                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
 
             </p>
             <p>
-                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
-                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"></asp:TextBox>
+                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
             </p>
                 </div>
             <p>
