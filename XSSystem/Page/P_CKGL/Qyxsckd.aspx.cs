@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
@@ -23,6 +19,38 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["qyxsckd"]);
                 }
+                DropListInit();
+            }
+        }
+
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_gf.Items.Add(radcbItem);
+                    tk_xf.Items.Add(radcbItem2);
+                }
+                tk_gf.SelectedIndex = 1;
+                tk_xf.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_fmmc.Items.Add(radcbItem);
+                }
+                tk_fmmc.SelectedIndex = 1;
             }
         }
 
@@ -32,10 +60,10 @@ namespace XSSystem.Page.P_Order
             ckbdh.Text = dt.Rows[0][1].ToString();
             htbh.Text = dt.Rows[0][2].ToString();
             zcsj.Text = dt.Rows[0][3].ToString();
-            fmmc.Text = dt.Rows[0][4].ToString();
-            gf.Text = dt.Rows[0][5].ToString();
+            tk_fmmc.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_gf.SelectedItem.Text = dt.Rows[0][5].ToString();
 
-            xf.Text = dt.Rows[0][6].ToString();
+            tk_xf.SelectedItem.Text = dt.Rows[0][6].ToString();
             ch.Text = dt.Rows[0][7].ToString();
             jsy.Text = dt.Rows[0][8].ToString();
             lxdh.Text = dt.Rows[0][9].ToString();
@@ -65,9 +93,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@fmmc", fmmc.Text.Trim());
-                dml.Add("@gf", gf.Text.Trim());
-                dml.Add("@xf", xf.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
+                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());

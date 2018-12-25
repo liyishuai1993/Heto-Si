@@ -22,6 +22,15 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// RadScriptManager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
+        
+        /// <summary>
         /// bh 控件。
         /// </summary>
         /// <remarks>
@@ -40,22 +49,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox htbh;
         
         /// <summary>
-        /// gsmc 控件。
+        /// tk_gsmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gsmc;
+        protected global::Telerik.Web.UI.RadComboBox tk_gsmc;
         
         /// <summary>
-        /// fmmc 控件。
+        /// tk_fmmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fmmc;
+        protected global::Telerik.Web.UI.RadComboBox tk_fmmc;
         
         /// <summary>
         /// wlmc 控件。
@@ -67,22 +76,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox wlmc;
         
         /// <summary>
-        /// zcz 控件。
+        /// tk_zcz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zcz;
+        protected global::Telerik.Web.UI.RadComboBox tk_zcz;
         
         /// <summary>
-        /// zdz 控件。
+        /// tk_zdz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zdz;
+        protected global::Telerik.Web.UI.RadComboBox tk_zdz;
         
         /// <summary>
         /// xlx 控件。

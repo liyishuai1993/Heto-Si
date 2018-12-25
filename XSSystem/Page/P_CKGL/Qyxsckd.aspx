@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Qyxsckd.aspx.cs" Inherits="XSSystem.Page.P_Order.Qyxsckd" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,6 +35,7 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">汽运销售出库单</p>
         <div>
+             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>出库信息(出库单)</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
@@ -42,11 +44,17 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">装车时间<asp:TextBox id="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="500px" valued="must1" name="装车时间"></asp:TextBox> </td>
-                    <td class="auto-style3">发煤煤场<asp:TextBox id="fmmc" runat="server" Height="16px" Width ="500px" valued="must1" name="发煤煤场"></asp:TextBox></td>
+                    <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">供方<asp:TextBox id="gf" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1" name="供方"></asp:TextBox> </td>
-                    <td class="auto-style3">需方<asp:TextBox id="xf" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1" name="需方"></asp:TextBox> </td>
+                    <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
+                    <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">车号<asp:TextBox name="车号"  id="ch" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>

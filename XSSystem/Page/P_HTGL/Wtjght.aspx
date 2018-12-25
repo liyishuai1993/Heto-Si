@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Wtjght.aspx.cs" Inherits="XSSystem.Page.P_Order.Wtjght" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,6 +28,7 @@
 <body>
     <form id="form1" runat="server">
     <div> <p class="auto-style5">委托加工合同</p>
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
         <div>
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
@@ -43,10 +45,14 @@
                     </td>
                 </tr>
                 <tr>                 
-                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
+                    <td class="auto-style3">*委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入委托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
+                        *受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入受托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="受托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
                    </td> 
                     <td class="auto-style3">
                     </td>

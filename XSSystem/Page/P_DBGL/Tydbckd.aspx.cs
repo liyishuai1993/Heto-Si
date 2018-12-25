@@ -10,6 +10,7 @@ using xs_System.Logic;
 using xsFramework.Web.Login;
 using xsFramework.UserControl.Pager;
 using XSSystem.Class;
+using Telerik.Web.UI;
 
 namespace XSSystem.Page.P_Order
 {
@@ -22,12 +23,56 @@ namespace XSSystem.Page.P_Order
             
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["tydbckd"] != null)
                 {
                     InitData(Session["tydbckd"]);
                 }
                 InitDataTable();
                 InitGridView();
+            }
+        }
+
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_gsmc.Items.Add(radcbItem);
+                }
+                tk_gsmc.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_fmmc.Items.Add(radcbItem);
+                }
+                tk_fmmc.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetMeiCang();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_zcz.Items.Add(radcbItem);
+                    tk_zdz.Items.Add(radcbItem2);
+
+                }
+                tk_zcz.SelectedIndex = 1;
+                tk_zdz.SelectedIndex = 1;
             }
         }
 
@@ -63,15 +108,14 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             bh.Text = dt.Rows[0][1].ToString();
             htbh.Text = dt.Rows[0][2].ToString();
-            gsmc.Text = dt.Rows[0][3].ToString();
-            gsmc.Text = dt.Rows[0][4].ToString();
-            fmmc.Text = dt.Rows[0][5].ToString();
+            tk_gsmc.SelectedItem.Text = dt.Rows[0][3].ToString();
+            tk_fmmc.SelectedItem.Text = dt.Rows[0][4].ToString();
 
-            wlmc.Text = dt.Rows[0][6].ToString();
-            zcz.Text = dt.Rows[0][7].ToString();
-            zdz.Text = dt.Rows[0][8].ToString();
-            xlx.Text = dt.Rows[0][9].ToString();
-            xhdw.Text = dt.Rows[0][10].ToString();
+            wlmc.Text = dt.Rows[0][5].ToString();
+            tk_zcz.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_zdz.SelectedItem.Text = dt.Rows[0][7].ToString();
+            xlx.Text = dt.Rows[0][8].ToString();
+            xhdw.Text = dt.Rows[0][9].ToString();
             Session.Remove("tydbckd");
         }
 
@@ -84,11 +128,11 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
-                dml.Add("@gsmc", gsmc.Text.Trim());
-                dml.Add("@fmmc", fmmc.Text.Trim());
+                dml.Add("@gsmc", tk_gsmc.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
-                dml.Add("@zcz", zcz.Text.Trim());
-                dml.Add("@zdz", zdz.Text.Trim());
+                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
+                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
                 dml.Add("@xlx", xlx.Text.Trim());
                 dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
             }

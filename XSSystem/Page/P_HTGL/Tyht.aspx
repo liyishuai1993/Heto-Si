@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tyht.aspx.cs" Inherits="XSSystem.Page.P_Order.Tyht" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,6 +34,7 @@
 <body>
     <form id="form1" runat="server">
     <div> <p class="auto-style5">铁运合同</p>
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
         <div class="autosize">
             <p>基本信息</p>
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px;table-layout:fixed;" >--%>
@@ -49,10 +52,14 @@
                 </tr>
                 <tr>
                     
-                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px"></asp:DropDownList>
+                    <td class="auto-style3">*委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入委托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" ></asp:DropDownList>  
+                        *受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入受托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="受托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
                    </td> 
                     <td class="auto-style3">
                     </td>
@@ -68,9 +75,13 @@
                    </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*装车站<asp:DropDownList id="zcz" runat="server" Height="16px" ></asp:DropDownList> 
+                    <td class="auto-style3">*装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入装车站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="装车站" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">*终到站<asp:DropDownList id="zdz" runat="server" Height="16px" ></asp:DropDownList>
+                    <td class="auto-style3">*终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入终到站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="终到站" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3"></td> 
                 </tr>
@@ -92,7 +103,9 @@
             <p>价格信息(元/吨)<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p>
                 
-                公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入公司名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                 对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 开票类型<asp:TextBox id="kplx" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 

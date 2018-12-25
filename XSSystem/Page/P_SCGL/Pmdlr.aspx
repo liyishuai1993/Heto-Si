@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Pmdlr.aspx.cs" Inherits="XSSystem.Page.P_Order.Pmdlr" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,6 +35,7 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">配煤单录入</p>
         <div>
+            <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
                 <tr>
@@ -42,8 +44,12 @@
                 </tr>
                 
                 <tr>
-                    <td class="auto-style3">生产煤场<asp:TextBox id="scmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">公司名称<asp:TextBox id="gsmc" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox></td>
+                    <td class="auto-style3">生产煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_scmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入生产煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="生产煤场" valued="must1" 
+   HighlightTemplatedItems="true"/> </td>
+                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入公司名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
                 </tr>     
             </table>     
         </div>

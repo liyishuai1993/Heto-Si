@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
@@ -19,6 +20,7 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["cgrkd"] != null)
                 {
                     InitData(Session["cgrkd"]);
@@ -26,13 +28,34 @@ namespace XSSystem.Page.P_Order
             }
         }
 
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_gf.Items.Add(radcbItem);
+                    tk_xf.Items.Add(radcbItem2);
+                }
+                tk_gf.SelectedIndex = 1;
+                tk_xf.SelectedIndex = 1;
+            }
+
+        }
+
         void InitData(object mk)
         {
             DataTable dt = mk as DataTable;
             hth.Text = dt.Rows[0][1].ToString();
             mkmc.Text = dt.Rows[0][2].ToString();
-            gf.Text = dt.Rows[0][3].ToString();
-            xf.Text = dt.Rows[0][4].ToString();
+            tk_gf.SelectedItem.Text = dt.Rows[0][3].ToString();
+            tk_xf.SelectedItem.Text = dt.Rows[0][4].ToString();
             wlmc.Text = dt.Rows[0][5].ToString();
 
             mj.Text = dt.Rows[0][6].ToString();
@@ -88,8 +111,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hth", hth.Text.Trim());
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@mkmc", mkmc.Text.Trim());
-                dml.Add("@gf", gf.Text.Trim());
-                dml.Add("@xf", xf.Text.Trim());
+                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
+                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
                 dml.Add("@yshtbh", yshtbh.Text.Trim());

@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Qyht.aspx.cs" Inherits="XSSystem.Page.P_Order.Qyht" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,6 +29,7 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">汽运合同</p>
         <div>
+             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
             <p>基本信息</p>
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
@@ -45,10 +47,14 @@
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*委托方<asp:DropDownList id="wtf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
+                    <td class="auto-style3">*委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        *受托方<asp:DropDownList id="stf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
+                        *受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                    </td> 
                 </tr>
 
@@ -74,8 +80,12 @@
             <p>
                 
                  物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px" valued="must2" name="物料名称"></asp:TextBox>
-                起运地<asp:TextBox id="qyd" runat="server" Height="16px" Width ="150px" valued="must2" name="起运地"></asp:TextBox>
-                目的地<asp:TextBox id="mdd" runat="server" Height="16px" Width ="150px" valued="must2" name="目的地"></asp:TextBox>
+                起运地<telerik:RadComboBox RenderMode="Lightweight" ID="tk_qyd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" valued="must2" name="起运地"
+   HighlightTemplatedItems="true"/>
+                目的地<telerik:RadComboBox RenderMode="Lightweight" ID="tk_mdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" valued="must2" name="目的地"
+   HighlightTemplatedItems="true"/>
                 运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>

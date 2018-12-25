@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -22,6 +23,7 @@ namespace XSSystem.Page.P_Order
             
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["tyxsckd"] != null)
                 {
                     InitData(Session["tyxsckd"]);
@@ -30,6 +32,52 @@ namespace XSSystem.Page.P_Order
                 InitGridView();
             }
             
+        }
+
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_stf.Items.Add(radcbItem);
+                    tk_wtf.Items.Add(radcbItem2);
+                }
+                tk_stf.SelectedIndex = 1;
+                tk_wtf.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetMeiCang();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_zcz.Items.Add(radcbItem);
+                    tk_zdz.Items.Add(radcbItem2);
+                }
+                tk_zcz.SelectedIndex = 1;
+                tk_zdz.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_fmmc.Items.Add(radcbItem);
+                }
+                tk_fmmc.SelectedIndex = 1;
+            }
         }
 
         private void InitDataTable()
@@ -63,14 +111,14 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             bh.Text = dt.Rows[0][1].ToString();
             htbh.Text = dt.Rows[0][2].ToString();
-            wtf.Text = dt.Rows[0][3].ToString();
-            stf.Text = dt.Rows[0][4].ToString();
-            fmmc.Text = dt.Rows[0][5].ToString();
+            tk_wtf.SelectedItem.Text = dt.Rows[0][3].ToString();
+            tk_stf.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_fmmc.SelectedItem.Text = dt.Rows[0][5].ToString();
 
             wlmc.Text = dt.Rows[0][6].ToString();
             mj.Text = dt.Rows[0][7].ToString();
-            zcz.Text = dt.Rows[0][8].ToString();
-            zdz.Text = dt.Rows[0][9].ToString();
+            tk_zcz.SelectedItem.Text = dt.Rows[0][8].ToString();
+            tk_zdz.SelectedItem.Text = dt.Rows[0][9].ToString();
             xlx.Text = dt.Rows[0][10].ToString();
 
             tcbz.Text = dt.Rows[0][11].ToString();
@@ -111,13 +159,13 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
-                dml.Add("@wtf", wtf.Text.Trim());
-                dml.Add("@stf", stf.Text.Trim());
-                dml.Add("@fmmc", fmmc.Text.Trim());
+                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@zcz", zcz.Text.Trim());
-                dml.Add("@zdz", zdz.Text.Trim());
+                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
+                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
                 dml.Add("@xlx", xlx.Text.Trim());
                 dml.Add("@tcbz", tcbz.Text.Trim());
                 dml.Add("@tcje", float.Parse(tcje.Text.Trim()));

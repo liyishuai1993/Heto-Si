@@ -13,6 +13,7 @@ using xsFramework.Web.Login;
 using System.Globalization;
 using XSSystem.Class;
 using xsFramework.UserControl.Pager;
+using Telerik.Web.UI;
 
 namespace XSSystem.Page.P_Order
 {
@@ -49,8 +50,8 @@ namespace XSSystem.Page.P_Order
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
             dfhth.Text = dt.Rows[0][4].ToString();
-            gfmc.SelectedItem.Text = dt.Rows[0][5].ToString();
-            xfmc.SelectedItem.Text = dt.Rows[0][6].ToString();
+            DropDownList_gfmc.SelectedItem.Text = dt.Rows[0][5].ToString();
+            DropDownList_xfmc.SelectedItem.Text = dt.Rows[0][6].ToString();
             hkjsyj.SelectedItem.Text = dt.Rows[0][7].ToString();
             hklhlx.SelectedItem.Text = dt.Rows[0][8].ToString();
             hklhbz.Text = dt.Rows[0][9].ToString();
@@ -58,7 +59,7 @@ namespace XSSystem.Page.P_Order
             jhsjQ.Text = dt.Rows[0][11].ToString();
             jhsjZ.Text = dt.Rows[0][12].ToString();
             hkjsfs.SelectedItem.Text = dt.Rows[0][13].ToString();
-            jhdd.SelectedItem.Text = dt.Rows[0][14].ToString();
+            tk_jhdd.SelectedItem.Text = dt.Rows[0][14].ToString();
             yffkfs.SelectedItem.Text = dt.Rows[0][15].ToString();
             mkmc.Text = dt.Rows[0][16].ToString();
             bz.Text = dt.Rows[0][17].ToString();
@@ -170,8 +171,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-                dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+                dml.Add("@gfmc", DropDownList_gfmc.SelectedItem.Text.Trim());
+                dml.Add("@xfmc", DropDownList_xfmc.SelectedItem.Text.Trim());
                 dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
                 dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
                 dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -179,7 +180,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
                 dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
                 dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-                dml.Add("@jhdd", jhdd.SelectedItem.Text.Trim());
+                dml.Add("@jhdd", tk_jhdd.SelectedItem.Text.Trim());
                 dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@bz", bz.Text.Trim());
@@ -264,8 +265,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
             dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
             dml.Add("@dfhth", dfhth.Text.Trim());
-            dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-            dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+            dml.Add("@gfmc", DropDownList_gfmc.SelectedItem.Text.Trim());
+            dml.Add("@xfmc", DropDownList_xfmc.SelectedItem.Text.Trim());
             dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
             dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
             dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -273,7 +274,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
             dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
             dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-            dml.Add("@jhdd", jhdd.SelectedItem.Text.Trim());
+            dml.Add("@jhdd", tk_jhdd.SelectedItem.Text.Trim());
             dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
             dml.Add("@mkmc", mkmc.Text.Trim());
             dml.Add("@bz", bz.Text.Trim());
@@ -423,7 +424,6 @@ namespace XSSystem.Page.P_Order
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
             pagepara.DbConn = GlabalString.DBString;
-            //pagepara.XsPager=
             HTGLLogic ht = new HTGLLogic();
             string[] arrList = new string[3];
             arrList[0] = "gfmc";
@@ -432,20 +432,36 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = ht.QueryDropList("xs_CghtTable", arrList);
             pagepara.OrderBy = "gfmc";
             PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            htbh.Text = "HTCG" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
+
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
             if (dt.Rows.Count != 0)
             {
-                gfmc.DataSource = dt.DefaultView;
-                gfmc.DataTextField = dt.Columns[0].ToString();
-                gfmc.DataBind();
-                xfmc.DataSource = dt.DefaultView;
-                xfmc.DataTextField = dt.Columns[1].ToString();
-                xfmc.DataBind();
-                jhdd.DataSource = dt.DefaultView;
-                jhdd.DataTextField = dt.Columns[2].ToString();
-                jhdd.DataBind();
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    DropDownList_gfmc.Items.Add(radcbItem);
+                    DropDownList_xfmc.Items.Add(radcbItem2);
+                }
+                DropDownList_gfmc.SelectedIndex = 1;
+                DropDownList_xfmc.SelectedIndex = 1;
             }
-            htbh.Text = "HTCG" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_jhdd.Items.Add(radcbItem);
+                }
+                tk_jhdd.SelectedIndex = 1;
+            }
+
         }
     }
 }

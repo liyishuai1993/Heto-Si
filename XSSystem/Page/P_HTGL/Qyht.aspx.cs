@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -55,8 +56,8 @@ namespace XSSystem.Page.P_Order
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
             dfhth.Text = dt.Rows[0][4].ToString();
-            wtf.SelectedItem.Text = dt.Rows[0][5].ToString();
-            stf.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_wtf.SelectedItem.Text = dt.Rows[0][5].ToString();
+            tk_stf.SelectedItem.Text = dt.Rows[0][6].ToString();
             kplx.SelectedItem.Text = dt.Rows[0][7].ToString();
             zxqxQ.Text = dt.Rows[0][8].ToString();
             zxqxZ.Text = dt.Rows[0][9].ToString();
@@ -100,8 +101,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", stf.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
                 dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
@@ -148,8 +149,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
             dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
             dml.Add("@dfhth", dfhth.Text.Trim());
-            dml.Add("@wtf", wtf.SelectedItem.Text.Trim());
-            dml.Add("@stf", stf.SelectedItem.Text.Trim());
+            dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+            dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
             dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
             dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
             dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
@@ -172,8 +173,8 @@ namespace XSSystem.Page.P_Order
             {
                 dr[0] = dataTable.Rows.Count + 1;
                 dr[1] = wlmc.Text;
-                dr[2] = qyd.Text;
-                dr[3] = mdd.Text;
+                dr[2] = tk_qyd.SelectedItem.Text;
+                dr[3] = tk_mdd.SelectedItem.Text;
                 dr[4] = double.Parse(yj.Text.Trim());
                 dr[5] = double.Parse(yflhbz.Text.Trim());
                 dr[6] = zxzt.Text;
@@ -252,17 +253,38 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = ht.QueryDropList("xs_QyhtTable", arrList);
             pagepara.OrderBy = "wtf";
             PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            htbh.Text = "HTQY" + DateTime.Now.ToString("yyyyMMdd") + "-"+dt1.Rows.Count;
+
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
             if (dt.Rows.Count != 0)
             {
-                wtf.DataSource = dt.DefaultView;
-                wtf.DataTextField = dt.Columns[0].ToString();
-                wtf.DataBind();
-                stf.DataSource = dt.DefaultView;
-                stf.DataTextField = dt.Columns[1].ToString();
-                stf.DataBind();
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_stf.Items.Add(radcbItem);
+                    tk_wtf.Items.Add(radcbItem2);
+                }
+                tk_stf.SelectedIndex = 1;
+                tk_wtf.SelectedIndex = 1;
             }
-            htbh.Text = "HTQY" + DateTime.Now.ToString("yyyyMMdd") + "-"+dt.Rows.Count;
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_qyd.Items.Add(radcbItem);
+                    tk_mdd.Items.Add(radcbItem2);
+                }
+                tk_qyd.SelectedIndex = 1;
+                tk_mdd.SelectedIndex = 1;
+            }
         }
 
     }

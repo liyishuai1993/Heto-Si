@@ -39,6 +39,10 @@ public class GlabalString
         }
     }
 
+    /// <summary>
+    /// 获取煤种名称
+    /// </summary>
+    /// <returns></returns>
     public static DataTable GetMZMC()
     {
         PagerParameter pagepara = new PagerParameter();
@@ -53,6 +57,10 @@ public class GlabalString
         return dt;
     }
 
+    /// <summary>
+    /// 获取煤场
+    /// </summary>
+    /// <returns></returns>
     public static DataTable GetMeiCang()
     {
         PagerParameter pagepara = new PagerParameter();
@@ -67,6 +75,10 @@ public class GlabalString
         return dt;
     }
 
+    /// <summary>
+    /// 获取仓库
+    /// </summary>
+    /// <returns></returns>
     public static DataTable GetCangKu()
     {
         PagerParameter pagepara = new PagerParameter();
@@ -81,6 +93,10 @@ public class GlabalString
         return dt;
     }
 
+    /// <summary>
+    /// 获取公司
+    /// </summary>
+    /// <returns></returns>
     public static DataTable GetGongSi()
     {
         PagerParameter pagepara = new PagerParameter();

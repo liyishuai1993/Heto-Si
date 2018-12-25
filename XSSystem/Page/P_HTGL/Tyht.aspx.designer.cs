@@ -22,6 +22,15 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// RadScriptManager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
+        
+        /// <summary>
         /// htbh 控件。
         /// </summary>
         /// <remarks>
@@ -49,22 +58,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox qdrq;
         
         /// <summary>
-        /// wtf 控件。
+        /// tk_wtf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList wtf;
+        protected global::Telerik.Web.UI.RadComboBox tk_wtf;
         
         /// <summary>
-        /// stf 控件。
+        /// tk_stf 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList stf;
+        protected global::Telerik.Web.UI.RadComboBox tk_stf;
         
         /// <summary>
         /// fmmc 控件。
@@ -103,22 +112,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox zxqxZ;
         
         /// <summary>
-        /// zcz 控件。
+        /// tk_zcz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList zcz;
+        protected global::Telerik.Web.UI.RadComboBox tk_zcz;
         
         /// <summary>
-        /// zdz 控件。
+        /// tk_zdz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList zdz;
+        protected global::Telerik.Web.UI.RadComboBox tk_zdz;
         
         /// <summary>
         /// xlx 控件。
@@ -148,13 +157,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// gsmc 控件。
+        /// tk_gsmc 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gsmc;
+        protected global::Telerik.Web.UI.RadComboBox tk_gsmc;
         
         /// <summary>
         /// dfhth 控件。

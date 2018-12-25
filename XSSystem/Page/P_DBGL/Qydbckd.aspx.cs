@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
@@ -19,10 +20,42 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["qydbckd"] != null)
                 {
                     InitData(Session["qydbckd"]);
                 }
+            }
+        }
+
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_gsmc.Items.Add(radcbItem);
+                }
+                tk_gsmc.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_fmmc.Items.Add(radcbItem);
+                    tk_smmc.Items.Add(radcbItem2);
+                }
+                tk_fmmc.SelectedIndex = 1;
+                tk_smmc.SelectedIndex = 1;
             }
         }
 
@@ -32,8 +65,8 @@ namespace XSSystem.Page.P_Order
             bh.Text = dt.Rows[0][1].ToString();
             ckbdh.Text = dt.Rows[0][2].ToString();
             zcsj.Text = dt.Rows[0][3].ToString();
-            gsmc.Text = dt.Rows[0][4].ToString();
-            fmmc.Text = dt.Rows[0][5].ToString();
+            tk_gsmc.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_fmmc.SelectedItem.Text = dt.Rows[0][5].ToString();
 
             ch.Text = dt.Rows[0][6].ToString();
             jsy.Text = dt.Rows[0][7].ToString();
@@ -63,8 +96,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@gsmc", gsmc.Text.Trim());
-                dml.Add("@fmmc", fmmc.Text.Trim());
+                dml.Add("@gsmc", tk_gsmc.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
@@ -99,7 +132,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
-                dml.Add("@smmc", smmc.Text.Trim());
+                dml.Add("@smmc", tk_smmc.SelectedItem.Text.Trim());
                 dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
                 dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
                 dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));

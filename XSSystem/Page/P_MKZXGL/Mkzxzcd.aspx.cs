@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -21,6 +22,7 @@ namespace XSSystem.Page.P_Order
         {         
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["mkzxzcd"] != null)
                 {
                     InitData(Session["mkzxzcd"]);
@@ -28,6 +30,27 @@ namespace XSSystem.Page.P_Order
                 InitDataTable();
                 InitGridView();
             }
+        }
+
+        protected void DropListInit()
+        {
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
+            if (dt.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_ghf.Items.Add(radcbItem);
+                    tk_shf.Items.Add(radcbItem2);
+                }
+                tk_ghf.SelectedIndex = 1;
+                tk_shf.SelectedIndex = 1;
+            }
+
         }
 
         private void InitDataTable()
@@ -57,9 +80,9 @@ namespace XSSystem.Page.P_Order
             zcsj.Text = dt.Rows[0][2].ToString();
             zcsj.Text = dt.Rows[0][3].ToString();
             cghth.Text = dt.Rows[0][4].ToString();
-            ghf.Text = dt.Rows[0][5].ToString();
+            tk_ghf.SelectedItem.Text = dt.Rows[0][5].ToString();
 
-            shf.Text = dt.Rows[0][6].ToString();
+            tk_shf.SelectedItem.Text = dt.Rows[0][6].ToString();
             mkmc.Text = dt.Rows[0][7].ToString();
             wlmc.Text = dt.Rows[0][8].ToString();
             cydw.Text = dt.Rows[0][9].ToString();
@@ -80,8 +103,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@djbh", djbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
                 dml.Add("@cghth", cghth.Text.Trim());
-                dml.Add("@ghf", ghf.Text.Trim());
-                dml.Add("@shf", shf.Text.Trim());
+                dml.Add("@ghf", tk_ghf.SelectedItem.Text.Trim());
+                dml.Add("@shf", tk_shf.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@cydw", cydw.Text.Trim());

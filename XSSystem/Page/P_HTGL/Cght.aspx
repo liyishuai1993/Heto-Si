@@ -65,11 +65,11 @@ function FormCheck()
                 <tr>
                     <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="must" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="500px" Height="400px"
+                    <td class="auto-style3">*供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">*需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="500px" Height="400px"
+                    <td class="auto-style3">*需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -109,7 +109,9 @@ function FormCheck()
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">交货地点<asp:DropDownList id="jhdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
+                    <td class="auto-style3">交货地点<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jhdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入交货地点"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">运费付款方式<asp:DropDownList ID="yffkfs" runat="server" height="25px"  Width="284px">
                         <asp:ListItem>我方付款</asp:ListItem>

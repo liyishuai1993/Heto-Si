@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mkzxzcd.aspx.cs" Inherits="XSSystem.Page.P_Order.Mkzxzcd" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,6 +38,7 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">煤矿直销装车单</p>
         <div>
+            <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>基本信息</p>
             <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
@@ -48,8 +51,12 @@
 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*供货方<asp:TextBox id="ghf" runat="server" name="供货方" Height="16px" Width ="284px" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">*收货方<asp:TextBox id="shf" runat="server" name="收货方" Height="16px" Width ="284px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*供货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_ghf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入供货方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供货方" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
+                    <td class="auto-style3">*收货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_shf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入收货方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收货方" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
                 </tr>
                 <tr>

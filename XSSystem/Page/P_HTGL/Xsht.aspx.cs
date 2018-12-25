@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -42,8 +43,8 @@ namespace XSSystem.Page.P_Order
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
             dfhth.Text = dt.Rows[0][4].ToString();
-            gfmc.SelectedItem.Text = dt.Rows[0][5].ToString();
-            xfmc.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_gfmc.SelectedItem.Text = dt.Rows[0][5].ToString();
+            tk_xfmc.SelectedItem.Text = dt.Rows[0][6].ToString();
             hkjsyj.SelectedItem.Text = dt.Rows[0][7].ToString();
             hklhlx.SelectedItem.Text = dt.Rows[0][8].ToString();
             hklhbz.Text = dt.Rows[0][9].ToString();
@@ -51,7 +52,7 @@ namespace XSSystem.Page.P_Order
             jhsjQ.Text = dt.Rows[0][11].ToString();
             jhsjZ.Text = dt.Rows[0][12].ToString();
             hkjsfs.SelectedItem.Text = dt.Rows[0][13].ToString();
-            fhdd.SelectedItem.Text = dt.Rows[0][14].ToString();
+            tk_fhdd.SelectedItem.Text = dt.Rows[0][14].ToString();
             yffkfs.SelectedItem.Text = dt.Rows[0][15].ToString();
             mkmc.Text = dt.Rows[0][16].ToString();
             kzbz.SelectedItem.Text = dt.Rows[0][17].ToString();
@@ -159,8 +160,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-                dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+                dml.Add("@gfmc", tk_gfmc.SelectedItem.Text.Trim());
+                dml.Add("@xfmc", tk_xfmc.SelectedItem.Text.Trim());
                 dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
                 dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
                 dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -168,7 +169,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
                 dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
                 dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-                dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
+                dml.Add("@fhdd", tk_fhdd.SelectedItem.Text.Trim());
                 dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
@@ -246,8 +247,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
             dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
             dml.Add("@dfhth", dfhth.Text.Trim());
-            dml.Add("@gfmc", gfmc.SelectedItem.Text.Trim());
-            dml.Add("@xfmc", xfmc.SelectedItem.Text.Trim());
+            dml.Add("@gfmc", tk_gfmc.SelectedItem.Text.Trim());
+            dml.Add("@xfmc", tk_xfmc.SelectedItem.Text.Trim());
             dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
             dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
             dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -255,7 +256,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
             dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
             dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-            dml.Add("@fhdd", fhdd.SelectedItem.Text.Trim());
+            dml.Add("@fhdd", tk_fhdd.SelectedItem.Text.Trim());
             dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
             dml.Add("@mkmc", mkmc.Text.Trim());
             dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
@@ -410,20 +411,35 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = ht.QueryDropList("xs_XshtTable", arrList);
             pagepara.OrderBy = "gfmc";
             PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            htbh.Text = "HTXS" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
+
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
             if (dt.Rows.Count != 0)
             {
-                gfmc.DataSource = dt.DefaultView;
-                gfmc.DataTextField = dt.Columns[0].ToString();
-                gfmc.DataBind();
-                xfmc.DataSource = dt.DefaultView;
-                xfmc.DataTextField = dt.Columns[1].ToString();
-                xfmc.DataBind();
-                fhdd.DataSource = dt.DefaultView;
-                fhdd.DataTextField = dt.Columns[2].ToString();
-                fhdd.DataBind();
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_gfmc.Items.Add(radcbItem);
+                    tk_xfmc.Items.Add(radcbItem2);
+                }
+                tk_gfmc.SelectedIndex = 1;
+                tk_xfmc.SelectedIndex = 1;
             }
-            htbh.Text = "HTXS" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
+            dt = GlabalString.GetCangKu();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_fhdd.Items.Add(radcbItem);
+                }
+                tk_fhdd.SelectedIndex = 1;
+            }
         }
 
     }
