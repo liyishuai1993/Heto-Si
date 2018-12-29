@@ -39,7 +39,7 @@ namespace XSSystem.Page.P_SCGL
             // qc.gfmc = tbgfmc.Text.Trim();
             //qc.xfmc = tbxfmc.Text.Trim();
             //qc.mkmc = tbmkmc.Text.Trim();
-
+            qc.all = 1;
             GridOrder.DataSource = SelectSQL(qc, e);
             GridOrder.DataBind();
         }
@@ -75,11 +75,21 @@ namespace XSSystem.Page.P_SCGL
 
 
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.XsPager = xsPage;
-
+            pagepara.XsPager = xsPage;         
             pagepara.Sql = _cwglLogic.QueryRsclrOrder(qc);
             pagepara.OrderBy = "bh";
             return xsPageHelper.BindPager(pagepara, e);
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            QueryClass2 qc = new QueryClass2();
+            qc.all = 0;
+            qc.bh = (sender as Button).CommandArgument;
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            DataTable dt = SelectSQL(qc, ex);
+            Session["rsclr"] = dt;
+            JavaScript("window.location.href='Rsclr.aspx'");
         }
     }
 }

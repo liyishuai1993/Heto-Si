@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,34 @@ namespace XSSystem.Page.P_CWGL
         CWGLLogic _cwglLogic = new CWGLLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["jxfp"] != null)
+            {
+                InitData(Session["jxfp"]);
+            }
+        }
 
+        public void InitData(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            dh.Text = dt.Rows[0][1].ToString();
+            ldrq.Text = dt.Rows[0][2].ToString();
+            hth.Text = dt.Rows[0][3].ToString();
+            gfmc.Text = dt.Rows[0][4].ToString();
+            xfmc.Text = dt.Rows[0][5].ToString();
+            kprq.Text = dt.Rows[0][6].ToString();
+            ph.Text = dt.Rows[0][7].ToString();
+            pm.Text = dt.Rows[0][8].ToString();
+            shuliang.Text = dt.Rows[0][9].ToString();
+            dj_hs.Text = dt.Rows[0][10].ToString();
+
+            je.Text = dt.Rows[0][11].ToString();
+            sl.Text = dt.Rows[0][12].ToString();
+            se.Text = dt.Rows[0][13].ToString();
+            sjhj.Text = dt.Rows[0][14].ToString();
+            yhs.Text = dt.Rows[0][15].ToString();
+            hyhshj.Text = dt.Rows[0][16].ToString();
+            bz.Text = dt.Rows[0][17].ToString();
+            Session.Remove("jxfp");
         }
 
         protected void submit_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@ namespace XSSystem.Page.P_Order
                     InitData(Session["wtjght"]);
                 }
                 InitDataTable();
+                InitGridView();
             }
             
         }

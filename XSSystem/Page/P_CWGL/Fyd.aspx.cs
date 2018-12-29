@@ -8,6 +8,8 @@ using System.Data;
 using xsFramework.Web.WebPage;
 using XSSystem.Logic;
 using xsFramework.Web.Login;
+using xsFramework.UserControl.Pager;
+using XSSystem.Class;
 
 namespace XSSystem.Page.P_Order
 {
@@ -20,9 +22,48 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
+                if (Session["fyd"] != null)
+                {
+                    InitData(Session["fyd"]);
+                }
                 InitDataTable();
+                InitGridView();
             }
             
+        }
+
+        public void InitGridView()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.bh = bh.Text;
+            qc.tableName = "xs_FydTable_Fb";
+            pagepara.Sql = _cwglLogic.QueryChildTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            dataTable = xsPageHelper.BindPager(pagepara, e);
+            if (dataTable.Columns.Count == 0)
+            {
+                InitDataTable();
+            }
+            this.GridView1.DataSource = dataTable;
+            this.GridView1.DataBind();
+        }
+
+        public void InitData(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            bh.Text = dt.Rows[0][1].ToString();
+            ldrq.Text = dt.Rows[0][2].ToString();
+            sfdw.Text = dt.Rows[0][3].ToString();
+            jsr.Text = dt.Rows[0][4].ToString();
+            bm.Text = dt.Rows[0][5].ToString();
+            zy.Text = dt.Rows[0][7].ToString();
+            fjsm.Text = dt.Rows[0][8].ToString();
+            Session.Remove("fyd");
         }
 
         private void InitDataTable()
@@ -97,7 +138,7 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("新增成功");
             }
             else
-                AlertMessage(ret);
+                AlertMessage("新增失败");
         }
     }
 }

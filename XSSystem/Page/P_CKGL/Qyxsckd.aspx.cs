@@ -15,11 +15,12 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
+                DropListInit();
                 if (Session["qyxsckd"] != null)
                 {
                     InitData(Session["qyxsckd"]);
                 }
-                DropListInit();
+                
             }
         }
 

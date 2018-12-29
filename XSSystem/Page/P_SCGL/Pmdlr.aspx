@@ -135,7 +135,7 @@
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="产出吨数" DataField="cpds" >
+                        <asp:BoundField HeaderText="产出吨数" DataField="ccds" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
@@ -143,7 +143,7 @@
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="成本单价(元/吨)" DataField="cbdj"  >
+                        <asp:BoundField HeaderText="成本单价(元/吨)" DataField="cbdj2"  >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>

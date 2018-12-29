@@ -142,7 +142,16 @@ namespace XSSystem.Logic
 
         internal string QuerySkdOrder(QueryClass2 qc)
         {
-            string sql = @"select * from xs_SkdTable";
+            string sql;
+            if (qc.all == 1)
+            {
+                sql = @"select * from xs_SkdTable";
+            }
+            else
+            {
+                sql= @"select * from xs_SkdTable where bh='"+qc.bh+"'";
+            }
+            
 
             return sql;
         }
@@ -156,7 +165,16 @@ namespace XSSystem.Logic
 
         internal string QueryFkdOrder(QueryClass2 qc)
         {
-            string sql = @"select * from xs_FkdTable";
+            string sql;
+            if (qc.all==1)
+            {
+                sql = @"select * from xs_FkdTable";
+            }
+            else
+            {
+                sql= @"select * from xs_FkdTable bh='"+qc.bh+"'";
+            }
+           
 
             return sql;
         }
@@ -177,7 +195,16 @@ namespace XSSystem.Logic
 
         internal string QueryRsclrOrder(QueryClass2 qc)
         {
-            string sql = @"select * from xs_RsclrTable";
+            string sql;
+            if (qc.all == 1)
+            {
+                sql = @"select * from xs_RsclrTable";
+            }
+            else
+            {
+                sql = @"select * from xs_RsclrTable where bh='" + qc.bh + "'";
+            }
+             
 
             return sql;
         }
@@ -198,7 +225,16 @@ namespace XSSystem.Logic
 
         internal string QueryPmdlrOrder(QueryClass2 qc)
         {
-            string sql = @"select * from xs_PmdlrTable";
+            string sql;
+            if (qc.all == 1)
+            {
+                sql = @"select * from xs_PmdlrTable";
+            }
+            else
+            {
+                sql = @"select * from xs_PmdlrTable where bh='" + qc.bh +"'" ;
+            }
+            
                 
             return sql;
         }
@@ -214,6 +250,12 @@ namespace XSSystem.Logic
         {
             string sql = @"select(cp + N'  ' + CONVERT(varchar(50), ccds)) as ccsl from xs_PmdlrTable_Ccmz where bh='" + bh + "'";
 
+            return sql;
+        }
+
+        public string QueryChildTable(QueryClass2 qc)
+        {
+            string sql = @"select * from  " + qc.tableName + " where user_no='" + qc.user_no + "' and bh='" + qc.bh + "'";
             return sql;
         }
 

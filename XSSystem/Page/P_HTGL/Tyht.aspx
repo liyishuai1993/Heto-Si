@@ -65,9 +65,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3" style="table-layout: fixed">*发煤煤场<asp:DropDownList id="fmmc" runat="server" Height="16px"></asp:DropDownList> 
+                    <td class="auto-style3" style="table-layout: fixed">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">物料名称<asp:DropDownList id="wlmc" runat="server" Height="16px" ></asp:DropDownList>
+                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输物料名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">执行期限
                <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-

@@ -33,7 +33,6 @@ namespace XSSystem.Page.P_Order
                 InitGridView();
                 InitGridView2();
             }
-
         }
 
         public void InitData(object mk)

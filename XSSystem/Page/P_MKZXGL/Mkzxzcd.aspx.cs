@@ -137,11 +137,20 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@xsjsje", val[8]);
                     temp.Add("@bz", val[9]);
                     temp.Add("@zt", val[10]);
+                    Child1.Add(temp);
                 }
             }
-            if (_htglLogic.InsertMkzxzcd(dml,Child1))
+            string reply = _htglLogic.InsertMkzxzcd(dml, Child1);
+            if (reply == "")
             {
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
                 AlertMessage("新增成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+                AlertMessage(reply);
+                return;
             }
         }
 

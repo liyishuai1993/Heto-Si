@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
 using xsFramework.Web.Login;
@@ -23,12 +24,77 @@ namespace XSSystem.Page.P_Order
         {          
             if (!IsPostBack)
             {
-         //       bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                //       bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                DropListInit();
+                if (Session["pmdlr"] != null)
+                {
+                    InitData(Session["pmdlr"]);
+                }
+                else
+                {
+                    bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                }
                 InitDataTableYL();
                 InitDataTableCP();
-                DropListInit();
+                InitGridView();
+                InitGridView2();
+
+
             }
         }
+
+        public void InitData(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            bh.Text = dt.Rows[0][1].ToString();
+            pmrq.Text = dt.Rows[0][2].ToString();
+            tk_scmc.SelectedItem.Text = dt.Rows[0][3].ToString();
+            tk_gsmc.SelectedItem.Text = dt.Rows[0][4].ToString();
+            Session.Remove("pmdlr");
+        }
+
+        public void InitGridView()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.bh = bh.Text;
+            qc.tableName = "xs_PmdlrTable_Ylmz";
+            pagepara.Sql = _cwglLogic.QueryChildTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            YLdataTable = xsPageHelper.BindPager(pagepara, e);
+            if (YLdataTable.Columns.Count == 0)
+            {
+                InitDataTableYL();
+            }
+            this.GridView_YLMZ.DataSource = YLdataTable;
+            this.GridView_YLMZ.DataBind();
+        }
+
+        public void InitGridView2()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.bh = bh.Text;
+            qc.tableName = "xs_PmdlrTable_Ccmz";
+            pagepara.Sql = _cwglLogic.QueryChildTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            CPdataTable = xsPageHelper.BindPager(pagepara, e);
+            if (CPdataTable.Columns.Count == 0)
+            {
+                InitDataTableCP();
+            }
+            this.CPGridView.DataSource = CPdataTable;
+            this.CPGridView.DataBind();
+        }
+
 
         private void InitDataTableYL()
         {
@@ -46,9 +112,9 @@ namespace XSSystem.Page.P_Order
         {
             CPdataTable = new DataTable();
             CPdataTable.Columns.Add("cp", System.Type.GetType("System.String"));
-            CPdataTable.Columns.Add("cpds", System.Type.GetType("System.Double"));
+            CPdataTable.Columns.Add("ccds", System.Type.GetType("System.Double"));
             CPdataTable.Columns.Add("je", System.Type.GetType("System.Double"));
-            CPdataTable.Columns.Add("cbdj", System.Type.GetType("System.Double"));
+            CPdataTable.Columns.Add("cbdj2", System.Type.GetType("System.Double"));
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -60,8 +126,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@pmrq", Convert.ToDateTime(pmrq.Text.ToString()));
-                dml.Add("@scmc", scmc.Text.Trim());
-                dml.Add("@gsmc", gsmc.Text.Trim());
+                dml.Add("@scmc", tk_scmc.Text.Trim());
+                dml.Add("@gsmc", tk_gsmc.Text.Trim());
             }
             catch
             {
@@ -108,34 +174,32 @@ namespace XSSystem.Page.P_Order
 
         protected void DropListInit()
         {
-            PagerParameter pagepara = new PagerParameter();
-            QueryClass qc = new QueryClass();
-            pagepara.DbConn = GlabalString.DBString;
-            //pagepara.XsPager=
-            HTGLLogic ht = new HTGLLogic();
-            string[] arrList = new string[1];
-            arrList[0] = "yl";
-            pagepara.Sql = ht.QueryDropList("xs_YuanLiaoTable", arrList);
-            pagepara.OrderBy = "yl";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            RadComboBoxItem radcbItem;
+            RadComboBoxItem radcbItem2;
+            DataTable dt = GlabalString.GetGongSi();
             if (dt.Rows.Count != 0)
             {
-                YLDropDownList.DataSource = dt.DefaultView;
-                YLDropDownList.DataTextField = dt.Columns[0].ToString();
-                YLDropDownList.DataBind();
+
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_gsmc.Items.Add(radcbItem);
+                }
+                tk_gsmc.SelectedIndex = 1;
+
             }
 
-            arrList[0] = "cp";
-            pagepara.Sql = ht.QueryDropList("xs_ChanPingTable", arrList);
-            pagepara.OrderBy = "cp";
-            dt = xsPageHelper.BindPager(pagepara, e);
+            dt = GlabalString.GetMeiCang();
             if (dt.Rows.Count != 0)
             {
-                CPDropDownList.DataSource = dt.DefaultView;
-                CPDropDownList.DataTextField = dt.Columns[0].ToString();
-                CPDropDownList.DataBind();
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_scmc.Items.Add(radcbItem);
+                }
+                tk_scmc.SelectedIndex = 1;
             }
+
         }
 
         private bool InsertTjje(DataRow dr)

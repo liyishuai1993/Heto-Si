@@ -206,9 +206,14 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-            if (_htglLogic.InsertTyxsckd(dml,Child1))
+            string reply = _htglLogic.InsertTyxsckd(dml, Child1);
+            if (reply == "")
             {
                 AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("新增失败");
             }
         }
         protected void AddJgxx(object sender, EventArgs e)

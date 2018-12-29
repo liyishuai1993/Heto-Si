@@ -9,7 +9,31 @@ namespace xs_System.Logic
 {
     public class HTGLLogic
     {
-        public bool InsertMkzxzcd(DirModel dml,List<DirModel>child1)
+
+        public bool InsertWtjght(DirModel dml, List<DirModel> child1)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "insert into xs_WtjgTable (user_no,htbh,htlx,qdrq,wtf,stf,kplx,zxqxQ,zxqxZ)" +
+                "values(@userid,@htbh,@htlx,@qdrq,@wtf,@stf,@kplx,@zxqxQ,@zxqxZ)";
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_WtjghtTable_Jgxx (user_no,htbh,wlmc,jgf,cmzb,bz)" +
+                "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+            SqlHelper.Execute(xsSqls);
+            return true;
+        }
+
+        public string  InsertMkzxzcd(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -25,14 +49,12 @@ namespace xs_System.Logic
                 sqlpara.SqlConnectString = GlabalString.DBString;
                 sqlpara.SQL = "insert into xs_MkzxzcdTable_Clxx (user_no,djbh,bdh,thdh,ch,zcmz,zcpz,zcjz,yfyf,cgjsje,xsjsje,bz,zt)" +
                 "values(@user_no,@djbh,@bdh,@thdh,@ch,@zcmz,@zcpz,@zcjz,@yfyf,@cgjsje,@xsjsje,@bz,@zt)";
-                SqlHelper.Execute(sqlpara);
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
-        public bool InsertTydbckd(DirModel dml,List<DirModel>child1)
+        public string InsertTydbckd(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -48,12 +70,10 @@ namespace xs_System.Logic
                 sqlpara.SqlConnectString = GlabalString.DBString;
                 sqlpara.SQL = "insert into xs_Tydbckd_Jzxxx (user_no,bh,xh,sxds,zxrq,fcrq,dcmj,xhds,dzrq,xhck,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,drmj)" +
                 "values(@user_no,@bh,@xh,@sxds,@zxrq,@fcrq,@dcmj,@xhds,@dzrq,@xhck,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@drmj)";
-                SqlHelper.Execute(sqlpara);
                 xsSqls.Add(sqlpara);
             }
 
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertYuanLiao(DirModel dml)
@@ -140,7 +160,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertTyxsckd(DirModel dml,List<DirModel>child1)
+        public string InsertTyxsckd(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -158,8 +178,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertQykhhdlr(DirModel dml)
@@ -418,28 +437,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertWtjght(DirModel dml,List<DirModel> child1)
-        {
-            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
-            xsSqlParameter sqlpara = new xsSqlParameter();
-            sqlpara.AddSqlParameter(dml);
-            sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_WtjgTable (user_no,htbh,htlx,qdrq,wtf,stf,kplx,zxqxQ,zxqxZ)" +
-                "values(@userid,@htbh,@htlx,@qdrq,@wtf,@stf,@kplx,@zxqxQ,@zxqxZ)";
-            xsSqls.Add(sqlpara);
-
-            foreach(var val in child1)
-            {
-                sqlpara = new xsSqlParameter();
-                sqlpara.AddSqlParameter(val);
-                sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_WtjghtTable_Jgxx (user_no,htbh,wlmc,jgf,cmzb,bz)" +
-                "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
-                xsSqls.Add(sqlpara);
-            }
-            SqlHelper.Execute(xsSqls);
-            return true;
-        }
+        
 
         public bool InsertWtjghtJgxx(DirModel dml)
         {
@@ -738,7 +736,7 @@ namespace xs_System.Logic
         public string QueryMkzxzcdOrder(QueryClass qc)
         {
             string sql = @"select * from xs_MkzxzcdTable where ghf='" + qc.ghf + "' or shf='" + qc.shf + "' or wlmc='" +
-                qc.wlmc + "' or ( zcsj>='" + qc.qdrqQ + "' and zcsj<='" + qc.qdrqZ +
+                qc.wlmc + "' or ( zcsj>='" + qc.qdrqQ + "' and zcsj<='" + qc.qdrqZ +"' or djbh='"+qc.djbh+
                 "') or djbh in(select djbh from xs_MkzxzcdTable_Clxx where ch='" + qc.ch + "' or zcjz=" + qc.zcjz+")";
             return sql;
         }

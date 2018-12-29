@@ -43,8 +43,8 @@ namespace XSSystem.Page.P_Order
             qdrq.Text = dt.Rows[0][3].ToString();
             tk_wtf.SelectedItem.Text = dt.Rows[0][4].ToString();
             tk_stf.SelectedItem.Text = dt.Rows[0][5].ToString();
-            fmmc.SelectedItem.Text = dt.Rows[0][6].ToString();
-            wlmc.SelectedItem.Text = dt.Rows[0][7].ToString();
+            tk_fmmc.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_wlmc.SelectedItem.Text = dt.Rows[0][7].ToString();
             zxqxQ.Text = dt.Rows[0][8].ToString();
             zxqxZ.Text = dt.Rows[0][9].ToString();
             tk_zcz.SelectedItem.Text = dt.Rows[0][10].ToString();
@@ -109,8 +109,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));
                 dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
                 dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", fmmc.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", wlmc.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
                 dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
@@ -194,8 +194,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
             dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
             dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-            dml.Add("@fmmc", fmmc.SelectedItem.Text.Trim());
-            dml.Add("@wlmc", wlmc.SelectedItem.Text.Trim());
+            dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+            dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
             dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
             dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
             dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
@@ -307,6 +307,28 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_zcz.SelectedIndex = 1;
                 tk_zdz.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetMeiCang();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_fmmc.Items.Add(radcbItem);
+                }
+                tk_fmmc.SelectedIndex = 1;
+            }
+
+            dt = GlabalString.GetMZMC();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_wlmc.Items.Add(radcbItem);
+                }
+                tk_wlmc.SelectedIndex = 1;
             }
         }
     }

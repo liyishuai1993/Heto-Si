@@ -26,10 +26,79 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
-                bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                InitDataTable();
                 DropListInit();
+                if (Session["rsclr"] != null)
+                {
+                    InitData(Session["rsclr"]);
+                }
+                else
+                {
+                    bh.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                }
+                
+                InitDataTable();
+                InitDataTable2();
+                InitGridView();
+                InitGridView2();
             }
+        }
+
+        public void InitGridView()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.bh = bh.Text;
+            qc.tableName = "xs_RsclrTable_Scxx";
+            pagepara.Sql = _cwglLogic.QueryChildTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            Scxx_dataTable = xsPageHelper.BindPager(pagepara, e);
+            if (Scxx_dataTable.Columns.Count == 0)
+            {
+                InitDataTable();
+            }
+            this.GridView_SCXX.DataSource = Scxx_dataTable;
+            this.GridView_SCXX.DataBind();
+        }
+
+        public void InitGridView2()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.bh = bh.Text;
+            qc.tableName = "xs_RsclrTable_Ccxx";
+            pagepara.Sql = _cwglLogic.QueryChildTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            Ccxx_dataTable = xsPageHelper.BindPager(pagepara, e);
+            if (Ccxx_dataTable.Columns.Count == 0)
+            {
+                InitDataTable2();
+            }
+            this.GridView_CCXX.DataSource = Ccxx_dataTable;
+            this.GridView_CCXX.DataBind();
+        }
+
+        public void InitData(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            bh.Text = dt.Rows[0][1].ToString();
+            ssmc.Text = dt.Rows[0][2].ToString();
+            rq.Text = dt.Rows[0][3].ToString();
+            kjsj.Text = dt.Rows[0][4].ToString();
+            gjsj.Text = dt.Rows[0][5].ToString();
+            bc.SelectedItem.Text = dt.Rows[0][6].ToString();
+            ydzs.Text = dt.Rows[0][7].ToString();
+            yddh.Text = dt.Rows[0][8].ToString();
+            ymzs.Text = dt.Rows[0][9].ToString();
+            DropDownList_gsmc.SelectedItem.Text = dt.Rows[0][10].ToString();
+            Session.Remove("rsclr");
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -118,14 +187,16 @@ namespace XSSystem.Page.P_Order
             Scxx_dataTable.Columns.Add("gscl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("shl", System.Type.GetType("System.Double"));
 
+            
+        }
+
+        private void InitDataTable2()
+        {
             Ccxx_dataTable = new DataTable();
             Ccxx_dataTable.Columns.Add("mz", System.Type.GetType("System.String"));
             Ccxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("cl", System.Type.GetType("System.Double"));
-
-
-
         }
 
         private bool InsertScxx(DataRow dr)

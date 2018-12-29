@@ -80,7 +80,7 @@
                     <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                     <ItemTemplate>                                 
-                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
+                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("bh") %>' CssClass="buttonCancle" OnClick="btnUpdate_Click"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                         <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
                     </ItemTemplate>
                     <HeaderStyle Width="5%" />

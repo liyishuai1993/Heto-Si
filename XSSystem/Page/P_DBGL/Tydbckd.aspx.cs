@@ -170,9 +170,14 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-            if (_htglLogic.InsertTydbckd(dml,Child1))
+            string reply = _htglLogic.InsertTydbckd(dml, Child1);
+            if (reply=="")
             {
                 AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(string.Format("新增失败：{0}",reply));
             }
         }
 
