@@ -27,6 +27,7 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
+                qdje.Attributes.Add("OnFocus", "qdje.text=(double.Parse(htmj.Text)*double.Parse(qdds.Text)).ToString()");
                 DropListInit();
                 if (Session["cght"]!=null)
                 {
@@ -73,7 +74,7 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Jgxx_dataTable.Columns.Add("mkmc", Type.GetType("System.String"));
             Jgxx_dataTable.Columns.Add("mzmc", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("frl", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("frl", Type.GetType("System.String"));
             Jgxx_dataTable.Columns.Add("lf", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("kpmj", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("htmj", Type.GetType("System.Double"));
@@ -330,7 +331,7 @@ namespace XSSystem.Page.P_Order
                 dr[0] = Jgxx_dataTable.Rows.Count + 1;
                 dr[1] = mkmcgv.SelectedItem.Text;
                 dr[2] = mzmc.Text;
-                dr[3] = double.Parse(frl.Text.Trim());
+                dr[3] = frl.Text.Trim();
                 dr[4] = double.Parse(lf.Text.Trim());
                 dr[5] = double.Parse(kpmj.Text.Trim());
                 dr[6] = double.Parse(htmj.Text.Trim());

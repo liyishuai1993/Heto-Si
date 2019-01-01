@@ -135,9 +135,13 @@
             <p>价格信息<asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx"/></p>
             <p>
                 
-                煤矿名称<asp:TextBox id="mkmcgv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                结算方式<asp:DropDownList id="mkmcgv" runat="server"  Height="16px" Width ="150px">
+                        <asp:ListItem>电汇</asp:ListItem>
+                        <asp:ListItem>承兑汇票</asp:ListItem>
+                        <asp:ListItem>电汇或承兑</asp:ListItem>
+                        </asp:DropDownList>
                 煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" ></asp:TextBox>
                 硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
                 </p>
             <p>
