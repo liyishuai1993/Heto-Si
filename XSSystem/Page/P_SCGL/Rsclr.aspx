@@ -58,11 +58,11 @@
                         <asp:ListItem>中班</asp:ListItem>
                         <asp:ListItem>夜班</asp:ListItem>
                       </asp:DropDownList> </td>
-                    <td class="auto-style3">用电总数(度)<asp:TextBox id="ydzs" name="用电总数"  runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">用电总数(度)<asp:TextBox id="ydzs" name="用电总数"  runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">用电吨耗(吨/度)<asp:TextBox id="yddh" name="用电吨耗" runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> </td>
-                    <td class="auto-style3">用煤总数(吨)<asp:TextBox id="ymzs" name="用煤总数" runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">用电吨耗(吨/度)<asp:TextBox id="yddh" name="用电吨耗" runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">用煤总数(吨)<asp:TextBox id="ymzs" name="用煤总数" runat="server" valued="must1" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">公司名称 <telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gsmc" AutoPostBack="True" runat="server" Width="500px" Height="400px"
@@ -73,9 +73,9 @@
                 </tr>
                 <tr>            
                     <td class="auto-style3">
-                        加工费金额 <asp:TextBox id="jgfje" name="加工费金额" runat="server" Height="16px" valued="must1" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td>
+                        加工费金额 <asp:TextBox id="jgfje" name="加工费金额" runat="server" Height="16px" valued="must1" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">
-                        每吨费用(元/吨)<asp:TextBox id="mdfy" name="每吨费用" runat="server" Height="16px" valued="must1" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>               
+                        每吨费用(元/吨)<asp:TextBox id="mdfy" name="每吨费用" runat="server" Height="16px" valued="must1" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>               
                     </td>
                 </tr>      
                 <tr>
@@ -94,15 +94,16 @@
   EmptyMessage="选择"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must2" 
    HighlightTemplatedItems="true">
     </telerik:RadComboBox>
-                数量(t):<asp:TextBox id="scxx_sl" valued="must2" name="数量" runat="server" Height="16px" Width ="150px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>&nbsp
-                金额<asp:TextBox id="scxx_je" runat="server" name="金额" valued="must2" Height="16px" Width ="200px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                 颗粒产率%<asp:TextBox id="klcl" runat="server" name="颗粒产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                混合煤产率%<asp:TextBox id="hhmcl" runat="server" name="混合煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                沫煤产率%<asp:TextBox id="mmcl" runat="server" name="沫煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                中煤产率%<asp:TextBox id="zmcl" runat="server" name="中煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                煤泥产率%<asp:TextBox id="nmcl" runat="server" name="煤泥产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                矸石产率%<asp:TextBox id="gscl" runat="server" name="矸石产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                损耗率%<asp:TextBox id="shl" runat="server" name="损耗率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                数量(t):<asp:TextBox id="scxx_sl" valued="must2" name="数量" runat="server" Height="16px" Width ="150px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
+                金额<asp:TextBox id="scxx_je" runat="server" name="金额" valued="must2" Height="16px" Width ="200px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                 颗粒产率%<asp:TextBox id="klcl" runat="server" name="颗粒产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                混合煤产率%<asp:TextBox id="hhmcl" runat="server" name="混合煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                沫煤产率%<asp:TextBox id="mmcl" runat="server" name="沫煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                中煤产率%<asp:TextBox id="zmcl" runat="server" name="中煤产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                煤泥产率%<asp:TextBox id="nmcl" runat="server" name="煤泥产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                矸石产率%<asp:TextBox id="gscl" runat="server" name="矸石产率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                损耗率%<asp:TextBox id="shl" runat="server" name="损耗率" valued="must2" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                <asp:Button ID="Button2" runat="server" Text="计算" OnClick="Button2_Click" />&nbsp&nbsp
             </p>            
             
             <asp:GridView ID="GridView_SCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
@@ -179,9 +180,9 @@
   EmptyMessage="选择"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must" 
    HighlightTemplatedItems="true">
     </telerik:RadComboBox>
-                数量(t):<asp:TextBox id="ccxx_sl" valued="must3" name="数量" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>&nbsp
-                金额<asp:TextBox id="ccxx_je" runat="server" valued="must3" name="金额"  Height="16px" Width ="200px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                 产率%<asp:TextBox id="ccxx_cl" runat="server" valued="must3" name="产率" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                数量(t):<asp:TextBox id="ccxx_sl" valued="must3" name="数量" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
+                金额<asp:TextBox id="ccxx_je" runat="server" valued="must3" name="金额"  Height="16px" Width ="200px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                 产率%<asp:TextBox id="ccxx_cl" runat="server" valued="must3" name="产率" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             </p>     
             
             <asp:GridView ID="GridView_CCXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >

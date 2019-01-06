@@ -94,9 +94,9 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable = new DataTable();
             Zlbz_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Zlbz_dataTable.Columns.Add("mz", Type.GetType("System.String"));
-            Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.Double"));
-            Zlbz_dataTable.Columns.Add("hf", Type.GetType("System.Double"));
-            Zlbz_dataTable.Columns.Add("hff", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("hf", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("hff", Type.GetType("System.String"));
             Zlbz_dataTable.Columns.Add("gdt", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("njzs", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("sf", Type.GetType("System.Double"));
@@ -356,18 +356,21 @@ namespace XSSystem.Page.P_Order
 
         protected void DelJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            DirModel dml = new DirModel();
-            LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@bh", (sender as Button).CommandArgument);
-            dml.Add("@htbh", shtbh);
-            dml.Add("@user_no", model.LoginUser);
-            if (_htglLogic.DeleteChildTable(dml, "xs_CghtTable_Jgxx"))
+            string itemBh= (sender as Button).CommandArgument;
+            for(int i=0;i<Jgxx_dataTable.Rows.Count;i++)
             {
-                AlertMessage("订单删除成功");
-                
+                if (Jgxx_dataTable.Rows[i][0].Equals(itemBh))
+                {
+                    Jgxx_dataTable.Rows.Remove(Jgxx_dataTable.Rows[i]);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
-            else AlertMessage("订单删除失败");
+            GridView_JGXX.DataSource = Jgxx_dataTable;
+            GridView_JGXX.DataBind();
         }
 
         protected void DelZlbz(object sender, EventArgs e)
@@ -394,9 +397,9 @@ namespace XSSystem.Page.P_Order
             {
                 dr[0] = Zlbz_dataTable.Rows.Count + 1;
                 dr[1] = mz.Text;
-                dr[2] = double.Parse(ld.Text.Trim());
-                dr[3] = double.Parse(hf.Text.Trim());
-                dr[4] = double.Parse(hff.Text.Trim());
+                dr[2] = ld.Text.Trim();
+                dr[3] = hf.Text.Trim();
+                dr[4] = hff.Text.Trim();
                 dr[5] = double.Parse(gdt.Text.Trim());
                 dr[6] = double.Parse(njzs.Text.Trim());
                 dr[7] = double.Parse(sf.Text.Trim());

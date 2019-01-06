@@ -43,11 +43,11 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">收入名称<asp:TextBox id="zjzj_srmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3">金额<asp:TextBox id="zjzj_je" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td>
+                    <td class="auto-style3">金额<asp:TextBox id="zjzj_je" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">账户<asp:TextBox id="zjzj_zh" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">实收金额<asp:TextBox id="zjzj_ssje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">实收金额<asp:TextBox id="zjzj_ssje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">备注<asp:TextBox id="zjzj_bz" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                     <td class="auto-style3"> </td>                  
                 </tr>
@@ -67,11 +67,11 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">费用名称<asp:TextBox id="zjjs_fymc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
-                    <td class="auto-style3">金额<asp:TextBox id="zjjs_je" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td>
+                    <td class="auto-style3">金额<asp:TextBox id="zjjs_je" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">账户<asp:TextBox id="zjjs_zh" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">实付金额<asp:TextBox id="zjjs_sfje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">实付金额<asp:TextBox id="zjjs_sfje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">备注<asp:TextBox id="zjjs_bz" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                     <td class="auto-style3"> </td>                  
                 </tr>
@@ -92,7 +92,7 @@
                 <tr>
                     <td class="auto-style3">往来单位<asp:TextBox id="yskzj_wldw" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">收入名称<asp:TextBox id="yskzj_srmc" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">增加金额<asp:TextBox id="yskzj_zjje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">增加金额<asp:TextBox id="yskzj_zjje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
                 <tr>
                    
@@ -117,7 +117,7 @@
                 <tr>
                     <td class="auto-style3">往来单位<asp:TextBox id="yskjs_wldw" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">费用名称<asp:TextBox id="yskjs_fymc" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">减少金额<asp:TextBox id="yskjs_jsje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">减少金额<asp:TextBox id="yskjs_jsje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
                 <tr>
                    
@@ -142,7 +142,7 @@
                 <tr>
                     <td class="auto-style3">往来单位<asp:TextBox id="fykzj_wldw" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">费用名称<asp:TextBox id="fykzj_fymc" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">增加金额<asp:TextBox id="fykzj_zjje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">增加金额<asp:TextBox id="fykzj_zjje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
                 <tr>
                    
@@ -168,7 +168,7 @@
                 <tr>
                     <td class="auto-style3">往来单位<asp:TextBox id="yfkjs_wldw" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">收入名称<asp:TextBox id="yfkjs_srmc" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">减少金额<asp:TextBox id="yfkjs_jsje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">减少金额<asp:TextBox id="yfkjs_jsje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
                 <tr>
                    

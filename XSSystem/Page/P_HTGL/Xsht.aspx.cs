@@ -87,9 +87,9 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable = new DataTable();
             Zlbz_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
             Zlbz_dataTable.Columns.Add("mz", Type.GetType("System.String"));
-            Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.Double"));
-            Zlbz_dataTable.Columns.Add("hf", Type.GetType("System.Double"));
-            Zlbz_dataTable.Columns.Add("hff", Type.GetType("System.Double"));
+            Zlbz_dataTable.Columns.Add("ld", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("hf", Type.GetType("System.String"));
+            Zlbz_dataTable.Columns.Add("hff", Type.GetType("System.String"));
             Zlbz_dataTable.Columns.Add("gdt", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("njzs", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("sf", Type.GetType("System.Double"));
@@ -356,9 +356,9 @@ namespace XSSystem.Page.P_Order
             {
                 dr[0] = Zlbz_dataTable.Rows.Count + 1;
                 dr[1] = mz.Text;
-                dr[2] = double.Parse(ld.Text.Trim());
-                dr[3] = double.Parse(hf.Text.Trim());
-                dr[4] = double.Parse(hff.Text.Trim());
+                dr[2] = ld.Text.Trim();
+                dr[3] = hf.Text.Trim();
+                dr[4] = hff.Text.Trim();
                 dr[5] = double.Parse(gdt.Text.Trim());
                 dr[6] = double.Parse(njzs.Text.Trim());
                 dr[7] = double.Parse(sf.Text.Trim());

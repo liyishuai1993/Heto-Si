@@ -330,5 +330,11 @@ namespace XSSystem.Page.P_Order
 
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            shl.Text = (100.0 - double.Parse(klcl.Text) - double.Parse(hhmcl.Text) - double.Parse(mmcl.Text) - double.Parse(zmcl.Text) - double.Parse(nmcl.Text) - double.Parse(gscl.Text)).ToString("f3") ;
+            return;
+        }
     }
 }

@@ -44,7 +44,7 @@
                 <tr>
                     <td class="auto-style3">供货商<asp:TextBox id="zjzj_srmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">付款账户<asp:TextBox id="zjzj_je" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">实付金额<asp:TextBox id="zjzj_zh" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">实付金额<asp:TextBox id="zjzj_zh" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>    
                 <tr>
                     <td class="auto-style3">开票类型<asp:DropDownList ID="kplx" runat="server" Height="16px" Width="284px">
@@ -88,7 +88,7 @@
                 <tr>
                     <td class="auto-style3">收款单位<asp:TextBox id="zjjs_fymc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">收款账户<asp:TextBox id="zjjs_je" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">实收金额<asp:TextBox id="zjjs_zh" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">实收金额<asp:TextBox id="zjjs_zh" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
             </table>     
 

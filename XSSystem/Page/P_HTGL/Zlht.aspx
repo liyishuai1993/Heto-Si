@@ -59,7 +59,7 @@
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
        
             </table>            
@@ -71,7 +71,7 @@
             <p>               
                 起始日期<asp:TextBox id="qsrq" runat="server" Height="16px"  Text="" onClick="WdatePicker()" Width ="150px"></asp:TextBox>
                 终止日期<asp:TextBox id="zzrq" runat="server" Height="16px" Width ="150px"  Text="" onClick="WdatePicker()"></asp:TextBox>
-                租金<asp:TextBox id="zj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                租金<asp:TextBox id="zj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
             <p>
                 付款条款<asp:TextBox id="fktk" runat="server" Height="16px" Width ="150px"></asp:TextBox>

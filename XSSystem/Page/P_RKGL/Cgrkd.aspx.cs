@@ -168,5 +168,18 @@ namespace XSSystem.Page.P_Order
             //dml.Add("@gsjy", StrToFloat(gsjy.Text.Trim()));
             //dml.Add("@kphsksj", Convert.ToDateTime(kphsksj.Text));
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            zcjz.Text = Sub(zcmz.Text, zcpz.Text);
+            jsmk.Text = Mul(zcjz.Text, mj.Text);
+            ksds.Text = Sub(zcjz.Text, rkjz.Text);
+            yyds.Text = Sub(rkjz.Text, zcjz.Text);
+            kkds.Text = Sub(ksds.Text, yslhbz.Text);
+            kkje.Text = Mul(kkbz.Text, kkds.Text);
+            yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), kkje.Text);
+            jsyf.Text = Sub(yfyf.Text, yfyk.Text);
+            return;
+        }
     }
 }

@@ -160,5 +160,13 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("新增成功");
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ckjz1.Text = Sub(ckmz.Text, ckpz.Text);
+            ckjz2.Text = Sub(ckjz1.Text, jbds.Text);
+            hkgsje.Text = Mul(ckjz2.Text, mj.Text);
+            return;
+        }
     }
 }

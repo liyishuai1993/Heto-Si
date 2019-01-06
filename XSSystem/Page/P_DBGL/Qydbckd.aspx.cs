@@ -162,6 +162,19 @@ namespace XSSystem.Page.P_Order
             }
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ckjz.Text = Sub(ckmz.Text, ckpz.Text);
+            rkjz.Text = Sub(rkmz.Text, rkpz.Text);
+            yyds.Text = Sub(rkjz.Text, ckjz.Text);
+            yfkkds.Text = Sub(ksds.Text, yslhbz.Text);
+            yfkkje.Text = Mul(yfkkbz.Text, yfkkds.Text);
+            yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), yfkkje.Text);
+            jsyf.Text = Sub(yfyf.Text, yfyk.Text);
+            drje.Text = Add(Mul(ckjz.Text, dcmj.Text), yfyf.Text);
+            drmj.Text = Div(drje.Text, rkjz.Text);
 
+            return;
+        }
     }
 }

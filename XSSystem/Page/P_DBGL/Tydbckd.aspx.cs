@@ -237,5 +237,10 @@ namespace XSSystem.Page.P_Order
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -149,7 +149,31 @@ namespace xsFramework.Web.WebPage
 
             }
             return true;
-        }       
+        }
+        
+        public string Add(string a,string b)
+        {
+            return (double.Parse(a) + double.Parse(b)).ToString();
+        }
+
+        public string Sub(string a, string b)
+        {
+            return (double.Parse(a) - double.Parse(b)).ToString();
+        }
+
+        public string Mul(string a, string b)
+        {
+            return (double.Parse(a) * double.Parse(b)).ToString();
+        }
+
+        public string Div(string a,string b)
+        {
+            double c = double.Parse(b);
+            if (c == 0)
+                return "";
+            else
+                return (double.Parse(a) / c).ToString("f3");
+        }
 
     }
 }

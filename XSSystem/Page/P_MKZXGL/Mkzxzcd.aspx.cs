@@ -203,6 +203,11 @@ namespace XSSystem.Page.P_Order
             this.GridView1.DataBind();
         }
 
-        
+        protected void refresh_Click(object sender, EventArgs e)
+        {
+            cgjsje.Text = Mul(zcjz.Text, cgmj.Text);
+            xsjsje.Text = Mul(Add(yj.Text, xsmj.Text), zcjz.Text);
+            return;
+        }
     }
 }

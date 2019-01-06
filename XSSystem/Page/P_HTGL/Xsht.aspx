@@ -141,17 +141,17 @@
                         <asp:ListItem>电汇或承兑</asp:ListItem>
                         </asp:DropDownList>
                 煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" ></asp:TextBox>
-                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
             <p>
-                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
             <p>
-                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
-                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/\D/g,'')"></asp:TextBox>
+                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>
@@ -233,22 +233,22 @@
             <p>
                
                 煤种<asp:TextBox id="mz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
                 </p>
             <p>
-                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
             <p>
-                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             
             </p>
                 </div>
@@ -265,11 +265,11 @@
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="粒度≥%" DataField="ld" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="粒度%-%" DataField="ld" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="灰分≤%" DataField="hf" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="灰分%-%" DataField="hf" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
