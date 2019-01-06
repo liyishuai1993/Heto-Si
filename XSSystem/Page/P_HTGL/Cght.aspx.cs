@@ -27,7 +27,6 @@ namespace XSSystem.Page.P_Order
         {
             if (!IsPostBack)
             {
-                qdje.Attributes.Add("OnFocus", "qdje.text=(double.Parse(htmj.Text)*double.Parse(qdds.Text)).ToString()");
                 DropListInit();
                 if (Session["cght"]!=null)
                 {
@@ -388,6 +387,12 @@ namespace XSSystem.Page.P_Order
             else AlertMessage("订单删除失败");
         }
 
+        protected void CalForm(object sender, EventArgs e)
+        {
+            qdje.Text = (double.Parse(qdds.Text) * double.Parse(htmj.Text)).ToString();
+            return;
+        }
+
         protected void AddZlbz(object sender, EventArgs e)
         {
             //string shtbh = htbh.Text;
@@ -467,5 +472,6 @@ namespace XSSystem.Page.P_Order
             }
 
         }
+
     }
 }
