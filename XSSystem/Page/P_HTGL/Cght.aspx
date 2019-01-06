@@ -143,12 +143,12 @@ function FormCheck()
                 </p>
             <p>
                 开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                *合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                *签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
                 </p>
             <p>
-                签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                #签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>
@@ -339,6 +339,7 @@ function FormCheck()
         </div>
 
         <p class="auto-style5">
+            <asp:Button ID="Button3" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button3_Click"></asp:Button>&nbsp
                 <asp:Button ID="submit" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp    
                 <asp:Button ID="shenhe" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp

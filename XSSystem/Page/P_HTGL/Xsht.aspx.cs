@@ -333,18 +333,21 @@ namespace XSSystem.Page.P_Order
 
         protected void DelJgxx(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            DirModel dml = new DirModel();
-            LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@bh", (sender as Button).CommandArgument);
-            dml.Add("@htbh", shtbh);
-            dml.Add("@user_no", model.LoginUser);
-            if (_htglLogic.DeleteChildTable(dml, "xs_XshtTable_Jgxx"))
+            string itemBh = (sender as Button).CommandArgument;
+            for (int i = 0; i < Jgxx_dataTable.Rows.Count; i++)
             {
-                AlertMessage("订单删除成功");
-
+                if (Jgxx_dataTable.Rows[i][0].ToString().Equals(itemBh))
+                {
+                    Jgxx_dataTable.Rows.Remove(Jgxx_dataTable.Rows[i]);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
-            else AlertMessage("订单删除失败");
+            GridView2.DataSource = Jgxx_dataTable;
+            GridView2.DataBind();
         }
 
         protected void AddZlbz(object sender, EventArgs e)
@@ -382,18 +385,21 @@ namespace XSSystem.Page.P_Order
 
         protected void DelZlbz(object sender, EventArgs e)
         {
-            string shtbh = htbh.Text;
-            DirModel dml = new DirModel();
-            LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@bh", (sender as Button).CommandArgument);
-            dml.Add("@htbh", shtbh);
-            dml.Add("@user_no", model.LoginUser);
-            if (_htglLogic.DeleteChildTable(dml, "xs_XshtTable_Zlbz"))
+            string itemBh = (sender as Button).CommandArgument;
+            for (int i = 0; i < Zlbz_dataTable.Rows.Count; i++)
             {
-                AlertMessage("订单删除成功");
-
+                if (Zlbz_dataTable.Rows[i][0].ToString().Equals(itemBh))
+                {
+                    Zlbz_dataTable.Rows.Remove(Zlbz_dataTable.Rows[i]);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
-            else AlertMessage("订单删除失败");
+            GridView1.DataSource = Zlbz_dataTable;
+            GridView1.DataBind();
         }
 
         protected void DropListInit()

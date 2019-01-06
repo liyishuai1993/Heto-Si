@@ -164,8 +164,9 @@ namespace XSSystem.Page.P_Order
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ckjz.Text = Sub(ckmz.Text, ckpz.Text);
+            
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
+            ksds.Text = Sub(ckjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz.Text);
             yfkkds.Text = Sub(ksds.Text, yslhbz.Text);
             yfkkje.Text = Mul(yfkkbz.Text, yfkkds.Text);
@@ -174,6 +175,12 @@ namespace XSSystem.Page.P_Order
             drje.Text = Add(Mul(ckjz.Text, dcmj.Text), yfyf.Text);
             drmj.Text = Div(drje.Text, rkjz.Text);
 
+            return;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ckjz.Text = Sub(ckmz.Text, ckpz.Text);
             return;
         }
     }

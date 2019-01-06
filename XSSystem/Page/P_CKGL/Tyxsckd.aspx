@@ -96,7 +96,7 @@
             <p>
                 卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" name="卸货吨数" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                结算货款<asp:TextBox id="jshk" runat="server" Height="16px" name="结算货款" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>     
+                #结算货款<asp:TextBox id="jshk" runat="server" Height="16px" name="结算货款" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>     
                 自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" name="自备箱使费" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 </p>
             <p>

@@ -256,7 +256,7 @@ namespace XSSystem.Page.P_Order
         protected void Button1_Click(object sender, EventArgs e)
         {
             jshk.Text = Mul(mj.Text, xhdw.Text);
-            
+           
         }
     }
 }

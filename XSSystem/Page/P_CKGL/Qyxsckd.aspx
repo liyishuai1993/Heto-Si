@@ -73,15 +73,15 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">加磅吨数<asp:TextBox id="jbds" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="加磅吨数" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">出库净重1<asp:TextBox id="ckjz1" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库净重1" valued="must1"></asp:TextBox> 
+                    <td class="auto-style3">#出库净重1<asp:TextBox id="ckjz1" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库净重1" valued="must1"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">出库净重2<asp:TextBox id="ckjz2" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库净重2" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">#出库净重2<asp:TextBox id="ckjz2" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库净重2" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="煤价" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">货款估算金额<asp:TextBox id="hkgsje" runat="server" Height="16px" Width ="482px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">#货款估算金额<asp:TextBox id="hkgsje" runat="server" Height="16px" Width ="482px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">已付油卡<asp:TextBox id="yfyk" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="已付油卡" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
