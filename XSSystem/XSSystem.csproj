@@ -976,6 +976,7 @@
     <Content Include="Page\P_CKGL\TyxsckdGl.aspx" />
     <Content Include="Page\P_CKGL\QyxsckdGl.aspx" />
     <Content Include="Page\P_CKGL\QykhhdlrGl.aspx" />
+    <Content Include="Page\P_CWGL\FormExport.aspx" />
     <Content Include="Page\P_CWGL\TxcxzzGl.aspx" />
     <Content Include="Page\P_CWGL\JxfpqsdGl.aspx" />
     <Content Include="Page\P_CWGL\XxfpyjdGl.aspx" />
@@ -1159,6 +1160,13 @@
     </Compile>
     <Compile Include="Page\P_CKGL\QykhhdlrGl.aspx.designer.cs">
       <DependentUpon>QykhhdlrGl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\FormExport.aspx.cs">
+      <DependentUpon>FormExport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\FormExport.aspx.designer.cs">
+      <DependentUpon>FormExport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_CWGL\TxcxzzGl.aspx.cs">
       <DependentUpon>TxcxzzGl.aspx</DependentUpon>
