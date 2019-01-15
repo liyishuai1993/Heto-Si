@@ -153,8 +153,6 @@ function FormCheck()
             </p>
                 </div>
             <p>
-                
-                
                 <asp:GridView ID="GridView_JGXX" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

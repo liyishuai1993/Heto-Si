@@ -16,8 +16,28 @@ namespace XSSystem.Page.P_CWGL
     public partial class FormExport : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable Jgxx_dataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
+            InitDataTableJgxx();
+        }
+
+        private void InitDataTableJgxx()
+        {
+            Jgxx_dataTable = new DataTable();
+            Jgxx_dataTable.Columns.Add("kh", Type.GetType("System.Int32"));
+            Jgxx_dataTable.Columns.Add("fhdw", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("yskjy", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("ljqp", Type.GetType("System.String"));
+            Jgxx_dataTable.Columns.Add("drsk", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("drkp", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("fhdw2", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("fhdj", Type.GetType("System.Double"));
+            Jgxx_dataTable.Columns.Add("je", Type.GetType("System.Double"));
+            GridView1.DataSource = Jgxx_dataTable;
+            GridView1.DataBind();
+
+
 
         }
 
@@ -84,46 +104,6 @@ namespace XSSystem.Page.P_CWGL
         //    }
         //    xlApp.Visible = true;
         //}
-
-        /// <summary>
-        /// 将DataTable 导出为EXCEL，并直接提供下载
-        /// </summary>
-        /// <param name="ds">需要导处的DataTable</param>
-        /// <param name="fileName">到处生成的文件名</param>
-        /// 
-        public bool ExportExcelByDataTable(DataTable dt, string fileName)
-        {
-            try
-            {
-                HttpContext.Current.Response.Clear();
-                HttpContext.Current.Response.Charset = "utf-7";
-                HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("utf-7");
-
-                HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
-                StringWriter stringWrite = new StringWriter();
-                HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-                DataGrid dg = new DataGrid();
-                dg.HeaderStyle.CssClass = "dgHead";
-                dg.DataSource = dt;
-                dg.DataBind();
-                dg.RenderControl(htmlWrite);
-                //            GridView gv = new GridView();
-                //            gv.HeaderStyle.CssClass = "gvHead";
-                //            gv.DataSource = dt;
-                //            gv.DataBind();
-                //            gv.RenderControl(htmlWrite);
-                HttpContext.Current.Response.Write(stringWrite.ToString());
-                HttpContext.Current.Response.AddHeader("content-disposition", "attachment; filename=" + HttpUtility.UrlEncode(fileName, System.Text.Encoding.UTF8) + ".xls");
-                HttpContext.Current.Response.Charset = "gb2312";
-                HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
-                HttpContext.Current.Response.End();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
 
         /// <summary>
         /// DataTable中的数据导出到Excel并下载
