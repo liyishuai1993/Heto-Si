@@ -70,8 +70,8 @@ namespace XSSystem.Logic
                 sqlpara = new xsSqlParameter();
                 sqlpara.AddSqlParameter(val);
                 sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,mz,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
-                "values(@user_no,@bh,@mz,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
+                sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,mz,dj,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
+                "values(@user_no,@bh,@mz,@dj,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
                 xsSqls.Add(sqlpara);
             }
             foreach (var val in child2)
