@@ -381,6 +381,7 @@ namespace XSSystem.Page.P_Order
             ldr[2] = Scxx_dataTable.Compute("sum(je)", "TRUE");
             ldr[3] = Scxx_dataTable.Compute("sum(sl)", "TRUE");
             Scxx_dataTable.Rows.Add(ldr);
+            SortDt(Scxx_dataTable, 11);
             GridView_SCXX.DataSource = Scxx_dataTable;
             GridView_SCXX.DataBind();
         }
@@ -404,7 +405,9 @@ namespace XSSystem.Page.P_Order
             DataRow ldr = Ccxx_dataTable.NewRow();
             ldr[0] = "合计";
             ldr[1] = Ccxx_dataTable.Compute("sum(je)", "TRUE");
-            ldr[2] = (double)Ccxx_dataTable.Compute("sum(sl)", "TRUE") * (double.Parse(shl.Text.Trim()) / 100);
+            ldr[2] = (double)Ccxx_dataTable.Compute("sum(sl)", "TRUE") * (1-double.Parse(shl.Text.Trim()) / 100);
+            Ccxx_dataTable.Rows.Add(ldr);
+            SortDt(Ccxx_dataTable, 4);
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();
         }
