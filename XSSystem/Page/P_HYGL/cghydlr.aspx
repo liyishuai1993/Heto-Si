@@ -9,9 +9,9 @@
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <style type="text/css">
         .auto-style1 {
-            background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1600px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -34,7 +34,7 @@
     <div> <p class="auto-style5">采购化验单录入</p>
         <div>
             <p>基本信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*化验单编号<asp:TextBox ID="hydbh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
                     <td class="auto-style3">*化验日期<asp:TextBox ID="hyrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox></td>                                    

@@ -43,29 +43,29 @@
                     </td>
                 </tr>
                 <tr>                 
-                    <td class="auto-style3">*出租方<asp:DropDownList id="czf" runat="server" Height="16px" Width ="284px"></asp:DropDownList>
+                    <td class="auto-style3">*出租方<asp:DropDownList id="czf" runat="server" Height="25px" Width ="284px"></asp:DropDownList>
                     </td>
                     <td class="auto-style3">
-                        *承租方<asp:DropDownList id="czf2" runat="server" Height="16px" Width ="284px"></asp:DropDownList>  
+                        *承租方<asp:DropDownList id="czf2" runat="server" Height="25px" Width ="284px"></asp:DropDownList>  
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" runat="server" Height="16px" Width ="284px"></asp:DropDownList> 
+                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" runat="server" Height="25px" Width ="284px"></asp:DropDownList> 
                     </td>
                     <td class="auto-style3">租赁期限
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="25px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
        
             </table>            
         </div>
 
-        <div>
+        <div style="margin-top:15px">
             <div class="divcss5">
             <p>租金信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZjxx"/></p>
             <p>               

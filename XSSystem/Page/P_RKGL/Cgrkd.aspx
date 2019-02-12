@@ -14,6 +14,7 @@
             background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1600px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -34,7 +35,7 @@
         <div>
             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>基本信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px">
+            <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
                     <td class="auto-style3">*合同号<asp:TextBox ID="hth" valued="must1" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">煤矿名称
@@ -59,7 +60,7 @@
 
          <div>
             <p>装车信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px" >
+            <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
                     <td class="auto-style3">装车磅单号<asp:TextBox ID="zcbdh" runat="server" Height="16px" Width="284px" valued="must1" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">提煤单号<asp:TextBox ID="tmdh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
@@ -77,7 +78,7 @@
 
         <div>
             <p>入场信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1600px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" >
                 <tr class="auto-style3"><td class="auto-style3">入库日期<asp:TextBox ID="rkrq" runat="server" Text="" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox></td></tr>
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td>

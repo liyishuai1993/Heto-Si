@@ -10,9 +10,9 @@
         <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
-            background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1600px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -46,7 +46,7 @@
         <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
             编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></p>
         <div>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">收款单位<asp:TextBox ID="skdw" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">经手人<asp:TextBox id="jsr" runat="server" Height="16px" Width ="284px"></asp:TextBox>

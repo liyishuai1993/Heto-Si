@@ -13,6 +13,7 @@
             background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -36,19 +37,19 @@
         <div>
             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>出库信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
                     <td class="auto-style3">出库磅单号<asp:TextBox id="ckbdh" runat="server" name="出库磅单号" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">*装车时间<asp:TextBox ID="zcsj" runat="server" name="装车时间" Text="" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">*装车时间<asp:TextBox ID="zcsj" runat="server" name="装车时间" Text="" onClick="WdatePicker()" Width="500px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">*车号<asp:TextBox id="ch" runat="server" name="车号" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
@@ -86,13 +87,13 @@
 
         <div>
             <p>回单信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
                     <td class="auto-style3">入库磅单号<asp:TextBox ID="rkbdh" runat="server" name="入库磅单号" Height="16px" Width="500px" valued="must1"></asp:TextBox></td>
-                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" name="入库时间" Text="" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox> </td>                                    
+                    <td class="auto-style3">入库时间<asp:TextBox id="rksj" runat="server" name="入库时间" Text="" onClick="WdatePicker()" Width="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3">*收煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_smmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">*收煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_smmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入收煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收煤煤场" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" runat="server" name="入库毛重" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td>

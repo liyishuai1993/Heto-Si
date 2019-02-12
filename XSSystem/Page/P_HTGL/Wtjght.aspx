@@ -72,7 +72,7 @@
             </table>            
         </div>
 
-        <div>
+        <div style="margin-top:15px">
             <div class="divcss5">
             <p>价格信息<asp:Button ID="Button1" runat="server" Text="新增记录"  OnClick="AddJgxx"/> </p>
             <p>

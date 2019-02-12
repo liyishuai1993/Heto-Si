@@ -10,23 +10,24 @@
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <script src="../../js/FormStyle.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <p>
-                <span>合同编号</span><asp:TextBox id="tbhtbh" runat="server" Width="140px"></asp:TextBox>
-                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
-                <asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
-                供方名称<asp:TextBox id="tbgfmc" runat="server" Width="140px"></asp:TextBox>              
-                合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="140px"></asp:TextBox>
-                审核状态<asp:TextBox id="tbzt" runat="server" Width="140px"></asp:TextBox>
+        <div class="divcss5" style="width:1200px;margin-bottom:15px">
+            <span>
+                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>
+                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                供方名称<asp:TextBox id="tbgfmc" runat="server" Width="90px"></asp:TextBox>              
+                合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="80px"></asp:TextBox>
+                审核状态<asp:TextBox id="tbzt" runat="server" Width="50px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
-    </p>
+    </span>
         </div>
     <div>
     <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">

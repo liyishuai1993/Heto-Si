@@ -11,9 +11,9 @@
     <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
-            background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+ font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -37,9 +37,9 @@
         <div>
             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
             <p>基本信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1271px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 800px" >
                 <tr>
-                    <td class="auto-style3">配煤编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
+                    <td class="auto-style3">配煤编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">配煤日期<asp:TextBox ID="pmrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
                 </tr>
                 
@@ -60,7 +60,7 @@
             <p>
                 <asp:Button ID="ylmz_tjje" runat="server" Text="添加原料" OnClick="ylmz_tjje_Click"/>&nbsp&nbsp 
                 原料
-                <asp:DropDownList id="YLDropDownList" runat="server" Height="16px" Width ="80px">
+                <asp:DropDownList id="YLDropDownList" runat="server" Height="25px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>      
                  原料吨数<asp:TextBox id="ylds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>  
@@ -120,7 +120,7 @@
             <p>
                 <asp:Button ID="ccmz_tjje" runat="server" Text="添加产品" OnClick="ccmz_tjje_Click" />&nbsp&nbsp 
                 产品
-                <asp:DropDownList id="CPDropDownList" runat="server" Height="16px" Width ="80px">
+                <asp:DropDownList id="CPDropDownList" runat="server" Height="25px" Width ="80px">
                     <asp:ListItem>请选择</asp:ListItem>
                 </asp:DropDownList>
                 产出吨数<asp:TextBox id="ccds" runat="server" Height="16px" Width ="50px" CssClass="auto-style4"></asp:TextBox>

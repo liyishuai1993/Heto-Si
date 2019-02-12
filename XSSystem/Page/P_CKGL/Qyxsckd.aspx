@@ -14,6 +14,7 @@
             background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -37,7 +38,7 @@
         <div>
              <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>出库信息(出库单)</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
                     <td class="auto-style3">出库磅单号<asp:TextBox ID="ckbdh" runat="server" Height="16px" Width="500px" name="出库磅单号" valued="must1" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="500px" valued="must1" name="合同编号"></asp:TextBox> </td>                                    
@@ -95,7 +96,7 @@
         
         <div>
             <p>入库信息(客户回单)</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
                     <td class="auto-style3">*入库磅单号<asp:TextBox ID="rkbdh" runat="server" Height="16px" Width="284px" name="入库磅单号" valued="must1"></asp:TextBox></td>
                     <td class="auto-style3">入库时间

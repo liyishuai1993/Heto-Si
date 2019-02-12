@@ -27,11 +27,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div> <p class="auto-style5">汽运合同</p>
+    <div>
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
+        <p class="auto-style5">汽运合同</p>
         <div>
-             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
+             
             <p>基本信息</p>
-            <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
                 <tr>
                     <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
@@ -74,23 +75,23 @@
             </table>            
         </div>
 
-        <div>
+        <div style="margin-top:15px">
             <div class="divcss5">
             <p>价格信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
-            <p>
-                
-                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px" valued="must2" name="物料名称"></asp:TextBox>
-                起运地<telerik:RadComboBox RenderMode="Lightweight" ID="tk_qyd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+            <span>               
+                 物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="100px" valued="must2" name="物料名称"></asp:TextBox>
+                起运地 <telerik:RadComboBox RenderMode="Lightweight" ID="tk_qyd" AutoPostBack="True" runat="server" Width="140px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" valued="must2" name="起运地"
    HighlightTemplatedItems="true"/>
-                目的地<telerik:RadComboBox RenderMode="Lightweight" ID="tk_mdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                目的地<telerik:RadComboBox RenderMode="Lightweight" ID="tk_mdd" AutoPostBack="True" runat="server" Width="140px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" valued="must2" name="目的地"
    HighlightTemplatedItems="true"/>
-                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                </p>
+            </span>
             <p>
-                运费路耗标准(吨)<asp:TextBox id="yflhbz" valued="must2" name="运费路耗标准" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                执行状态<asp:TextBox id="zxzt" runat="server" name="执行状态" valued="must2" Height="16px" Width ="150px"></asp:TextBox>
+                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+
+                运费路耗标准(吨)<asp:TextBox id="yflhbz" valued="must2" name="运费路耗标准" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                执行状态<asp:TextBox id="zxzt" runat="server" name="执行状态" valued="must2" Height="16px" Width ="100px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>
                 </div>

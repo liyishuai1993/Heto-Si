@@ -18,9 +18,8 @@
         }
         .auto-style3 {
             height: auto;
-            width:auto;
+            width:400px;
             text-align:right;
-            word-wrap:break-word;
 
             }
         .Wdate {}
@@ -38,16 +37,16 @@
         <div class="autosize">
             <p>基本信息</p>
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px;table-layout:fixed;" >--%>
-                <table border="0" aria-haspopup="False" class="auto-style1" style="width: inherit; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
+                <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
                 <tr>
-                    <td class="auto-style3" style="table-layout: fixed">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px"  Enabled="False"></asp:TextBox></td>
-                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" >
+                    <td class="auto-style3" style="table-layout: fixed">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px"  Enabled="False"></asp:TextBox></td>
+                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width="284px" >
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" ></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -90,42 +89,42 @@
                     <td class="auto-style3"></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*箱类型<asp:DropDownList id="xlx" runat="server" Height="16px" >
+                    <td class="auto-style3">*箱类型<asp:DropDownList id="xlx" runat="server" Height="25px" Width="284px">
                         <asp:ListItem>铁路箱</asp:ListItem>
                         <asp:ListItem>自备箱</asp:ListItem>
                        </asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3"> </td>
                 </tr>
        
             </table>            
         </div>
 
-        <div>
+        <div style="margin-top:15px">
             <div class="divcss5">
             <p>价格信息(元/吨)<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
-            <p>
+            <span>
                 
-                公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="140px" Height="200px"
   EmptyMessage="请输入公司名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must1" 
    HighlightTemplatedItems="true"/>
-                对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                开票类型<asp:TextBox id="kplx" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                开票类型<asp:TextBox id="kplx" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                
+                </span>
+            <p>
+                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                代理费(元/组)<asp:TextBox id="dlf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                装箱费(元/吨)<asp:TextBox id="zxf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                始发站倒短(元/吨)<asp:TextBox id="sfzdd" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>     
                 
                 </p>
             <p>
-                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                代理费(元/组)<asp:TextBox id="dlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                装箱费(元/吨)<asp:TextBox id="zxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                始发站倒短(元/吨)<asp:TextBox id="sfzdd" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>     
-                
-                </p>
-            <p>
-                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                到站代理费(元/组)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>         
+                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                到站代理费(元/组)<asp:TextBox id="dzdlf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>         
             
             </p>
                 </div>

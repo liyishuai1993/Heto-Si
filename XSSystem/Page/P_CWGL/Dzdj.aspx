@@ -10,9 +10,9 @@
         <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
-            background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1600px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -35,7 +35,7 @@
     <div> <p class="auto-style5">调账单据</p>
         <div>
             <p>资金增加</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="zjzj_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="zjzj_rq" runat="server" Height="25px" Width="284px" CssClass="auto-style4" Text="" onClick="WdatePicker()"></asp:TextBox></td>
@@ -59,7 +59,7 @@
 
         <div>
             <p>资金减少</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="zjjs_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="zjjs_rq" runat="server" Height="25px" Width="284px"></asp:TextBox></td>
@@ -83,7 +83,7 @@
 
         <div>
             <p>应收款增加</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="yskzj_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="yskzj_rq" runat="server" Height="25px" Width="284px"></asp:TextBox></td>
@@ -108,7 +108,7 @@
 
         <div>
             <p>应收款减少</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="yskjs_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="yskjs_rq" runat="server" Height="25px" Width="284px"></asp:TextBox></td>
@@ -133,7 +133,7 @@
 
         <div>
             <p>应付款增加</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="fykzj_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="fykzj_rq" runat="server" Height="25px" Width="284px"></asp:TextBox></td>
@@ -159,7 +159,7 @@
 
         <div>
             <p>应付款减少</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
                     <td class="auto-style3">*编号<asp:TextBox ID="yfkjs_bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>  <%--FY+日期+序号--%>
                     <td class="auto-style3">日期<asp:TextBox ID="yfkjs_rq" runat="server" Height="25px" Width="284px"></asp:TextBox></td>

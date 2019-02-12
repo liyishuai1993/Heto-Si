@@ -9,37 +9,27 @@
 <head runat="server">
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <script src="../../js/FormStyle.js"></script>
-    <script type="text/javascript">
-
-    </script>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <link href="../../style/sysCss.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <p>
-        <span>出库磅单号</span>
-        <asp:TextBox id="tbckbdh" runat="server" Width="100px"></asp:TextBox>
-<%--        <span>名称：</span>
-                <asp:TextBox ID="txtNewName" runat="server" CssClass="inputText" Visible="false"></asp:TextBox>
-                <asp:Dropdownlist id="ddshzt" runat="server" autopostback="true" onselectedindexchanged="ddlnewtype_selectedindexchanged">
-            <asp:ListItem>已审核</asp:ListItem>
-            <asp:ListItem>未审核</asp:ListItem>--%>
-        <%--</asp:Dropdownlist>--%>
-                装车时间<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="100px"></asp:TextBox>
-                ～<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="100px"></asp:TextBox>
-                发煤煤场<asp:TextBox id="tbfmmc" runat="server" Width="140px"></asp:TextBox>
-                需方<asp:TextBox id="tbxf" runat="server" Width="50px"></asp:TextBox>
-                车号<asp:TextBox id="tbch" runat="server" Width="100px"></asp:TextBox>
+        <div class="divcss5" style="margin-bottom:15px;width:1500px">
+            <span>
+                出库磅单号<asp:TextBox id="tbckbdh" runat="server" Width="80px"></asp:TextBox>
+                装车时间<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                发煤煤场<asp:TextBox id="tbfmmc" runat="server" Width="100px"></asp:TextBox>
+                需方<asp:TextBox id="tbxf" runat="server" Width="80px"></asp:TextBox>
+                车号<asp:TextBox id="tbch" runat="server" Width="80px"></asp:TextBox>
                 出库净重2<asp:TextBox id="tbckjz2" runat="server" Width="60px"></asp:TextBox>
                 煤价<asp:TextBox id="tbmj" runat="server" Width="60px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
-                <%--<asp:Button ID="BtnUpdate" runat="server" Text="审核" CssClass="button" OnClick="btnQuery_Click" />--%>
-    </p>
+    </span>
         </div>
     <div>
     <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">

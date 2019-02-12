@@ -175,15 +175,6 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox zcmz;
         
         /// <summary>
-        /// zcpz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zcpz;
-        
-        /// <summary>
         /// zcjz 控件。
         /// </summary>
         /// <remarks>
@@ -191,6 +182,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox zcjz;
+        
+        /// <summary>
+        /// zcpz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox zcpz;
         
         /// <summary>
         /// yfyf 控件。

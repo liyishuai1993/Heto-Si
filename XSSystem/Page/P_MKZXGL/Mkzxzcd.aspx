@@ -15,6 +15,7 @@
             background-color: #EEEEEE;
     text-align: center;
     border-style: none;
+    width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;
         }
         .auto-style3 {
             height: 20px;
@@ -36,11 +37,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div> <p class="auto-style5">煤矿直销装车单</p>
+    <div> <p class="auto-style5" style="text-align:center">煤矿直销装车单</p>
         <div>
             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"/>
             <p>基本信息</p>
-            <table border="1" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
+            <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
                     <td class="auto-style3">*单据编号<asp:TextBox ID="djbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">*装车时间
@@ -72,27 +73,26 @@
             </table>            
         </div>
 
-        <div>
+        <div style="margin-top:15px;width:1200px">
             <div class="divcss5">
             <p>车辆信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddClxx" /></p>
             <p class="auto-style5">
                 
-                磅单号<asp:TextBox id="bdh"  runat="server" name="磅单号" Height="16px" Width ="150px" ToolTip="磅单号" valued="must2"></asp:TextBox>
-                提货单号<asp:TextBox id="thdh" runat="server" name="提货单号" Height="16px" Width ="150px"></asp:TextBox>
-                车号<asp:TextBox id="ch"  runat="server" name="车号" Height="16px" Width ="150px" valued="must2"></asp:TextBox>
-                装车毛重<asp:TextBox id="zcmz"  runat="server" name="装车毛重" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                </p>
+                磅单号<asp:TextBox id="bdh"  runat="server" name="磅单号" Height="16px" Width ="100px" ToolTip="磅单号" valued="must2"></asp:TextBox>
+                提货单号<asp:TextBox id="thdh" runat="server" name="提货单号" Height="16px" Width ="100px"></asp:TextBox>
+                车号<asp:TextBox id="ch"  runat="server" name="车号" Height="16px" Width ="100px" valued="must2"></asp:TextBox>
+                装车毛重<asp:TextBox id="zcmz"  runat="server" name="装车毛重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                #装车净重<asp:TextBox id="zcjz" runat="server" name="装车净重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>装车皮重<asp:TextBox id="zcpz" runat="server" name="装车皮重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>    
+            </p>
             <p class="auto-style5">
                 
-                装车皮重<asp:TextBox id="zcpz" runat="server" name="装车皮重" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                #装车净重<asp:TextBox id="zcjz" runat="server" name="装车净重" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                应付运费<asp:TextBox id="yfyf"  runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                #采购结算金额<asp:TextBox id="cgjsje" runat="server" name="采购结算金额" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>   
-                </p>
-            <p class="auto-style5">
-                #销售结算金额<asp:TextBox id="xsjsje" runat="server" name="销售结算金额" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                
+                
+                应付运费<asp:TextBox id="yfyf"  runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                #采购结算金额<asp:TextBox id="cgjsje" runat="server" name="采购结算金额" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>   
+                #销售结算金额<asp:TextBox id="xsjsje" runat="server" name="销售结算金额" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="100px"></asp:TextBox>
                 
             </p>
                 </div>
@@ -160,7 +160,7 @@
             </p>                
         </div>
 
-        <p class="auto-style5">
+        <p class="auto-style5" style="text-align:center">
             <asp:Button ID="refresh" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="refresh_Click"></asp:Button>&nbsp
                 <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 

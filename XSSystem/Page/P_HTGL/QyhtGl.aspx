@@ -8,27 +8,27 @@
     <link href="../../style/sysCss.css" rel="stylesheet" />
     <script src="../../js/FormStyle.js"></script>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <p>
+        <div class="divcss5" style="margin-bottom:15px;width:1500px">
+            <span>
         
-                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="100px"></asp:TextBox>
-                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="100px"></asp:TextBox>-<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="100px"></asp:TextBox>
-                <%--委托方<asp:TextBox id="tbwtf" runat="server" Width="140px"></asp:TextBox>--%>
-                受托方<asp:TextBox id="tbstf" runat="server" Width="100px"></asp:TextBox>
-                起运地<asp:TextBox id="tbqyd" runat="server" Width="140px"></asp:TextBox>
-                目的地<asp:TextBox id="tbmdd" runat="server" Width="140px"></asp:TextBox>
+                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>
+                签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                受托方<asp:TextBox id="tbstf" runat="server" Width="90px"></asp:TextBox>
+                起运地<asp:TextBox id="tbqyd" runat="server" Width="100px"></asp:TextBox>
+                目的地<asp:TextBox id="tbmdd" runat="server" Width="100px"></asp:TextBox>
                 运价<asp:TextBox id="tbyj" runat="server" Width="60px"></asp:TextBox>
                 状态<asp:TextBox id="tbzt" runat="server" Width="60px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
-                <%--<asp:Button ID="BtnUpdate" runat="server" Text="审核" CssClass="button" OnClick="btnQuery_Click" />--%>
-    </p>
+    </span>
         </div>
     <div>
     <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
