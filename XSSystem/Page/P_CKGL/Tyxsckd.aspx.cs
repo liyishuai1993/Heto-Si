@@ -255,8 +255,12 @@ namespace XSSystem.Page.P_Order
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
             jshk.Text = Mul(mj.Text, xhdw.Text);
-           
+
         }
     }
 }

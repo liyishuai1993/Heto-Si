@@ -150,7 +150,36 @@ namespace xsFramework.Web.WebPage
             }
             return true;
         }
-        
+
+        public bool CalDataChecked(int type)
+        {
+            foreach (Control c in this.Controls)
+            {
+                foreach (Control child in c.Controls)
+                {
+                    TextBox textBox = child as TextBox;
+                    if (textBox != null)
+                    {
+                        if (textBox.Attributes["cal"] == "must" + type.ToString())
+                        {
+                            if (string.IsNullOrEmpty(textBox.Text))
+                            {
+                                AlertMessage(string.Format("{0}不能为空！", textBox.Attributes["name"]));
+                                textBox.Focus();
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+
+            }
+            return true;
+        }
+
         public string Add(string a,string b)
         {
             return (double.Parse(a) + double.Parse(b)).ToString();

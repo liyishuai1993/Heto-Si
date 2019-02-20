@@ -328,7 +328,7 @@ namespace XSSystem.Page.P_Order
             try
             {
                 dr[0] = Jgxx_dataTable.Rows.Count + 1;
-                dr[1] = mkmcgv.SelectedItem.Text;
+                dr[1] = mkmc2.Text.Trim();
                 dr[2] = mzmc.Text;
                 dr[3] = frl.Text.Trim();
                 dr[4] = double.Parse(lf.Text.Trim());
