@@ -205,7 +205,12 @@ namespace XSSystem.Page.P_Order
 
         protected void refresh_Click(object sender, EventArgs e)
         {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
             zcjz.Text = Sub(zcmz.Text, zcpz.Text);
+            yfyf.Text = Mul(zcjz.Text, yj.Text);
             cgjsje.Text = Mul(zcjz.Text, cgmj.Text);
             xsjsje.Text = Mul(Add(yj.Text, xsmj.Text), zcjz.Text);
             return;

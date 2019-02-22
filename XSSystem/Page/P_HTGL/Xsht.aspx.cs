@@ -447,5 +447,15 @@ namespace XSSystem.Page.P_Order
             }
         }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
+            qdje.Text = Mul(htmj.Text, qdds.Text);
+            return;
+        }
+
     }
 }

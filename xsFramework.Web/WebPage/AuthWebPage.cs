@@ -204,6 +204,11 @@ namespace xsFramework.Web.WebPage
                 return (double.Parse(a) / c).ToString("f3");
         }
 
+        public double Num(string a)
+        {
+            return double.Parse(a);
+        }
+
         public void SortDt(DataTable dt, int colnum)
         {
             for (int i = 0; i < dt.Rows.Count; i++)

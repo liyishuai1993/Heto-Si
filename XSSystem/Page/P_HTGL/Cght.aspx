@@ -140,9 +140,9 @@ function FormCheck()
                 </p>
             <p>
                
-                *合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                *合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" cal="must1" name="合同煤价" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                *签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                *签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="100px" cal="must1" name="签订吨数" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
                 #签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="100px"></asp:TextBox>
             </p>

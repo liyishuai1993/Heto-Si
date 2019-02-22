@@ -163,9 +163,24 @@ namespace XSSystem.Page.P_Order
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
             ckjz1.Text = Sub(ckmz.Text, ckpz.Text);
             ckjz2.Text = Sub(ckjz1.Text, jbds.Text);
             hkgsje.Text = Mul(ckjz2.Text, mj.Text);
+            rkjz.Text = Sub(rkmz.Text, rkpz.Text);
+            ksds.Text = Sub(ckjz2.Text, rkjz.Text);
+            yyds.Text = Sub(rkjz.Text, ckjz2.Text);
+            yfkkds.Text = Sub(ksds.Text, yfhllh.Text);
+            yfkkje.Text = Mul(yflhbz.Text, yfkkds.Text);
+            yfjsdw.Text = double.Parse(ckjz2.Text) >= double.Parse(rkjz.Text) ? rkjz.Text : ckjz2.Text;
+            yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), yfkkje.Text);
+            jsyf.Text = Sub(Sub(yfyf.Text, yfyk.Text), fykk.Text);
+            hkjsdw.Text = Sub(rkjz.Text, kd.Text);
+            jshk.Text = Mul(hkjsdw.Text, mj.Text);
+            tcje.Text = Mul(hkjsdw.Text, tcbz.Text);
             return;
         }
     }
