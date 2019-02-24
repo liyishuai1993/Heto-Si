@@ -340,7 +340,10 @@ namespace XSSystem.Page.P_Order
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            if (!CalDataChecked(1))
+                return;
             scxx_je.Text = Mul(sxcc_dj.Text, scxx_sl.Text);
+            return;
         }
 
         protected void Button3_Click(object sender, EventArgs e)
