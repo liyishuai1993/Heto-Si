@@ -240,6 +240,13 @@ namespace XSSystem.Page.P_Order
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
+            drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
+                Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
+                Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
             
         }
     }
