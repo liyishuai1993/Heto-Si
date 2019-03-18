@@ -183,8 +183,8 @@
                     EmptyMessage="选择" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must2"
                     HighlightTemplatedItems="true">
                 </telerik:RadComboBox>
-                    数量(t):<asp:TextBox ID="scxx_sl" valued="must2" name="数量" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
-                单价:<asp:TextBox ID="sxcc_dj" valued="must2" name="单价" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
+                    数量(t):<asp:TextBox ID="scxx_sl" valued="must2" cal="must1" name="数量" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
+                单价:<asp:TextBox ID="sxcc_dj" valued="must2" cal="must1" name="单价" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
                 金额<asp:TextBox ID="scxx_je" runat="server" name="金额" valued="must2" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
                     <asp:Button ID="Button2" runat="server" Text="计算" OnClick="Button2_Click" />&nbsp&nbsp
                 </p>

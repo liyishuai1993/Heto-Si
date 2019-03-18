@@ -66,7 +66,7 @@
                     <td class="auto-style3">运价<asp:TextBox id="yj" cal="must1" name="运价" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*采购煤价<asp:TextBox id="cgmj" cal="must1" name="采购煤价" runat="server" name="采购煤价" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">*采购煤价<asp:TextBox id="cgmj" cal="must1"  runat="server" name="采购煤价" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">销售煤价<asp:TextBox id="xsmj" runat="server" cal="must1" name="销售煤价" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td></td>
                 </tr>
@@ -81,8 +81,8 @@
                 磅单号<asp:TextBox id="bdh"  runat="server" name="磅单号" Height="16px" Width ="100px" ToolTip="磅单号" valued="must2"></asp:TextBox>
                 提货单号<asp:TextBox id="thdh" runat="server" name="提货单号" Height="16px" Width ="100px"></asp:TextBox>
                 车号<asp:TextBox id="ch"  runat="server" name="车号" Height="16px" Width ="100px" valued="must2"></asp:TextBox>
-                装车毛重<asp:TextBox id="zcmz" cal="must1" name="装车毛重"  runat="server" name="装车毛重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                装车皮重<asp:TextBox id="zcpz" cal="must1" name="装车皮重" runat="server" name="装车皮重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>    
+                装车毛重<asp:TextBox id="zcmz" cal="must1" name="装车毛重"  runat="server"  Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                装车皮重<asp:TextBox id="zcpz" cal="must1" name="装车皮重" runat="server"  Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>    
                 #装车净重<asp:TextBox id="zcjz" runat="server" name="装车净重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 
             </p>

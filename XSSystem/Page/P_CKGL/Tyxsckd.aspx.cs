@@ -259,8 +259,15 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
-            jshk.Text = Mul(mj.Text, xhdw.Text);
-
+            if (dataTable.Rows.Count > 0)
+            {
+                double ds = (double)dataTable.Compute("sum(xhds)", "TRUE");
+                tcje.Text = Mul(tcbz.Text, ds.ToString());
+            }
+            
+            jshk.Text = Mul(mj.Text, xhds.Text);
+            tlyfxj.Text = (Num(zbxsf.Text) / 2.0f + Num(fzdlf.Text) / 2.0f + Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) *
+                Num(sxds.Text) + Num(tlyf.Text) / 2.0f + Num(dzzxf.Text) / 2.0f + Num(dzmcddf.Text) / 2.0f + Num(dzdlf.Text) * Num(xhds.Text)).ToString();
         }
     }
 }
