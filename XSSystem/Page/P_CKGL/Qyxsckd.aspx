@@ -116,7 +116,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">运费合理路耗(吨)<asp:TextBox id="yfhllh" cal="must1" name="运费合理路耗"  runat="server" Height="16px" Width ="254px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
-                    <td class="auto-style3">运费扣款标准(元/吨)<asp:TextBox id="yflhbz" cal="must1" name="运费扣款标准" runat="server" Height="16px" Width ="233px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">#运费扣款标准(元/吨)<asp:TextBox id="yflhbz"  name="运费扣款标准" runat="server" Height="16px" Width ="233px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">#运费扣亏吨数<asp:TextBox id="yfkkds" name="运费扣亏吨数" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     
                 </tr>

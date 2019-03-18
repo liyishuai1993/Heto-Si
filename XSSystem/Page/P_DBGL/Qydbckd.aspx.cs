@@ -173,6 +173,7 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
+            yfkkbz.Text = dcmj.Text;
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
             ksds.Text = Sub(ckjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz.Text);
@@ -197,6 +198,7 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
+            
             ckjz.Text = Sub(ckmz.Text, ckpz.Text);
             dbje.Text = Mul(ckjz.Text, dcmj.Text);
 

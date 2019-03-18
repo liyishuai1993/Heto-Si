@@ -194,8 +194,7 @@ namespace xs_System.Logic
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_QyxsckdTable set rkbdh =@rkbdh where ckbdh=@ckbdh";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara);
         }
 
         public bool InsertQyxsckd(DirModel dml)
@@ -205,8 +204,7 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_QyxsckdTable (user_no,ckbdh,htbh,zcsj,fmmc,gf,xf,ch,jsy,lxdh,wlmc,ckmz,ckpz,jbds,ckjz1,ckjz2,mj,hkgsje,yfyk,yj,fkzh)" +
                 "values(@user_no,@ckbdh,@htbh,@zcsj,@fmmc,@gf,@xf,@ch,@jsy,@lxdh,@wlmc,@ckmz,@ckpz,@jbds,@ckjz1,@ckjz2,@mj,@hkgsje,@yfyk,@yj,@fkzh)";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara);
         }
 
         public bool InsertCgrkd(DirModel dml)
@@ -216,8 +214,7 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_CgrkdTable (user_no,hth,mkmc,gf,xf,wlmc,mj,yshtbh,cycd,zcbdh,tmdh,zcrq,ch,zcmz,zcpz,zcjz,jsmk,rkrq,rkbdh,rkmc,rkmz,rkpz,rkjz,ksds,yyds,yslhbz,kkbz,kkds,kkje,yfjsdw,yj,yfyf,yfyk,fkzh,jsyf,zfzh,shzt,yfjszt)" +
                 "values(@user_no,@hth,@mkmc,@gf,@xf,@wlmc,@mj,@yshtbh,@cycd,@zcbdh,@tmdh,@zcrq,@ch,@zcmz,@zcpz,@zcjz,@jsmk,@rkrq,@rkbdh,@rkmc,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@yslhbz,@kkbz,@kkds,@kkje,@yfjsdw,@yj,@yfyf,@yfyk,@fkzh,@jsyf,@zfzh,@shzt,@yfjszt)";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara);
         }
 
        

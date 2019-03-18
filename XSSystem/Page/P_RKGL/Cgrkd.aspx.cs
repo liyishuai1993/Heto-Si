@@ -71,33 +71,33 @@ namespace XSSystem.Page.P_Order
             zcpz.Text = dt.Rows[0][14].ToString();
             zcjz.Text = dt.Rows[0][15].ToString();
             jsmk.Text = dt.Rows[0][16].ToString();
-            rkrq.Text = dt.Rows[0][17].ToString();
-            rkbdh.Text = dt.Rows[0][18].ToString();
+            rkrq.Text = dt.Rows[0][37].ToString();
+            rkbdh.Text = dt.Rows[0][17].ToString();
 
-            rkmc.Text = dt.Rows[0][19].ToString();
-            rkmz.Text = dt.Rows[0][20].ToString();
+            rkmc.Text = dt.Rows[0][18].ToString();
+            rkmz.Text = dt.Rows[0][19].ToString();
 
-            rkpz.Text = dt.Rows[0][21].ToString();
-            rkjz.Text = dt.Rows[0][22].ToString();
-            ksds.Text = dt.Rows[0][23].ToString();
-            yyds.Text = dt.Rows[0][24].ToString();
-            yslhbz.Text = dt.Rows[0][25].ToString();
+            rkpz.Text = dt.Rows[0][20].ToString();
+            rkjz.Text = dt.Rows[0][21].ToString();
+            ksds.Text = dt.Rows[0][22].ToString();
+            yyds.Text = dt.Rows[0][23].ToString();
+            yslhbz.Text = dt.Rows[0][24].ToString();
 
-            kkbz.Text = dt.Rows[0][26].ToString();
-            kkds.Text = dt.Rows[0][27].ToString();
+            kkbz.Text = dt.Rows[0][25].ToString();
+            kkds.Text = dt.Rows[0][26].ToString();
 
-            kkje.Text = dt.Rows[0][28].ToString();
-            yfjsdw.Text = dt.Rows[0][29].ToString();
-            yj.Text = dt.Rows[0][30].ToString();
-            yfyf.Text = dt.Rows[0][31].ToString();
-            yfyk.Text = dt.Rows[0][32].ToString();
+            kkje.Text = dt.Rows[0][27].ToString();
+            yfjsdw.Text = dt.Rows[0][28].ToString();
+            yj.Text = dt.Rows[0][29].ToString();
+            yfyf.Text = dt.Rows[0][30].ToString();
+            yfyk.Text = dt.Rows[0][31].ToString();
 
-            fkzh.Text = dt.Rows[0][33].ToString();
-            jsyf.Text = dt.Rows[0][34].ToString();
+            fkzh.Text = dt.Rows[0][32].ToString();
+            jsyf.Text = dt.Rows[0][33].ToString();
 
-            zfzh.Text = dt.Rows[0][35].ToString();
-            shzt.Text = dt.Rows[0][36].ToString();
-            yfjszt.Text = dt.Rows[0][37].ToString();
+            zfzh.Text = dt.Rows[0][34].ToString();
+            shzt.Text = dt.Rows[0][35].ToString();
+            yfjszt.Text = dt.Rows[0][36].ToString();
 
             Session.Remove("cgrkd");
         }
@@ -162,6 +162,10 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
+            else
+            {
+                AlertMessage("存在错误，新增失败");
+            }
             //dml.Add("@dzdje", StrToFloat(dzdje.Text.Trim()));
             //dml.Add("@skje", StrToFloat(skje.Text.Trim()));
             //dml.Add("@kpje", StrToFloat(kpje.Text.Trim()));
@@ -175,6 +179,7 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
+            kkbz.Text = mj.Text;
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
             zcjz.Text = Sub(zcmz.Text, zcpz.Text);
             jsmk.Text = Mul(zcjz.Text, mj.Text);
