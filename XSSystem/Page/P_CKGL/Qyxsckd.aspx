@@ -68,9 +68,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">出库毛重<asp:TextBox id="ckmz" cal="must1"  runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库毛重" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">出库皮重<asp:TextBox id="ckpz" cal="must1" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库皮重" valued="must1"></asp:TextBox> 
                     </td>
+                    <td class="auto-style3">出库毛重<asp:TextBox id="ckmz" cal="must1"  runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="出库毛重" valued="must1"></asp:TextBox> </td>
+
                 </tr>
                 <tr>
                     <td class="auto-style3">加磅吨数<asp:TextBox id="jbds" runat="server" cal="must1"  Height="16px" Width ="500px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="加磅吨数" valued="must1"></asp:TextBox> </td>
@@ -105,8 +106,8 @@
                     <td class="auto-style3"></td>                
                 </tr>
                 <tr>
-                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" cal="must1" name="入库毛重" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" cal="must1" name="入库皮重" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" cal="must1" name="入库毛重" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">#入库净重<asp:TextBox id="rkjz" name="入库净重" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
