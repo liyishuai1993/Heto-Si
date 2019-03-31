@@ -112,7 +112,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">运输路耗标准(吨)<asp:TextBox id="yslhbz" cal="must1" name="运输路耗标准" runat="server" Height="16px" Width ="455px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">运输路耗标准(吨)<asp:TextBox id="yslhbz"  name="运输路耗标准" runat="server" Height="16px" Width ="355px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
+                        *<asp:TextBox id="percent" ToolTip="百分比,请按小数输入" runat="server" Height="16px" Width ="60px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <asp:CheckBox runat="server" ToolTip="勾选按入库净重百分比计算" id="IsCal" Height="20px" width="20px"/>
+                    </td>
                     <td class="auto-style3">#运费扣款标准(元/吨)<asp:TextBox id="yfkkbz"  name="运费扣款标准" runat="server" Height="16px" Width ="430px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
                     </td>
                 </tr>

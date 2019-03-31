@@ -175,6 +175,11 @@ namespace XSSystem.Page.P_Order
             }
             yfkkbz.Text = dcmj.Text;
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
+            if (IsCal.Checked)
+            {
+                yslhbz.Text = Mul(rkjz.Text, percent.Text);
+            }
+
             ksds.Text = Sub(ckjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz.Text);
             yfkkds.Text = Sub(ksds.Text, yslhbz.Text);

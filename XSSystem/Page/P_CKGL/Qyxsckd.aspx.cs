@@ -20,8 +20,45 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["qyxsckd"]);
                 }
-                
+                if (Session["qykhhdlr"] != null)
+                {
+                    InitData2(Session["qykhhdlr"]);
+                }
+
             }
+        }
+
+        void InitData2(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            rkbdh.Text = dt.Rows[0][1].ToString();
+            rksj.Text = dt.Rows[0][2].ToString();
+            rkmz.Text = dt.Rows[0][3].ToString();
+            rkpz.Text = dt.Rows[0][4].ToString();
+            rkjz.Text = dt.Rows[0][5].ToString();
+
+            ksds.Text = dt.Rows[0][6].ToString();
+            yyds.Text = dt.Rows[0][7].ToString();
+            kd.Text = dt.Rows[0][8].ToString();
+            yfhllh.Text = dt.Rows[0][9].ToString();
+            yflhbz.Text = dt.Rows[0][10].ToString();
+
+            yfkkds.Text = dt.Rows[0][11].ToString();
+            yfkkje.Text = dt.Rows[0][12].ToString();
+            yfjsdw.Text = dt.Rows[0][13].ToString();
+            yfyf.Text = dt.Rows[0][14].ToString();
+            fykk.Text = dt.Rows[0][15].ToString();
+
+            jsyf.Text = dt.Rows[0][16].ToString();
+            hkjsdw.Text = dt.Rows[0][17].ToString();
+            jshk.Text = dt.Rows[0][18].ToString();
+            tcbz.Text = dt.Rows[0][19].ToString();
+            tcje.Text = dt.Rows[0][20].ToString();
+
+            ywy.Text = dt.Rows[0][21].ToString();
+            yfjszt.Text = dt.Rows[0][22].ToString();
+            shzt.Text = dt.Rows[0][23].ToString();
+            Session.Remove("qykhhdlr");
         }
 
         protected void DropListInit()
@@ -175,11 +212,15 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
-            yflhbz.Text = mj.Text;
             ckjz1.Text = Sub(ckmz.Text, ckpz.Text);
             ckjz2.Text = Sub(ckjz1.Text, jbds.Text);
             hkgsje.Text = Mul(ckjz2.Text, mj.Text);
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
+            if (IsCal.Checked)
+            {
+                yfhllh.Text = Mul(rkjz.Text, percent.Text);
+            }
+            yflhbz.Text = mj.Text;
             ksds.Text = Sub(ckjz2.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz2.Text);
             yfkkds.Text = Sub(ksds.Text, yfhllh.Text);

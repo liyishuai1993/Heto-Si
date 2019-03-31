@@ -179,9 +179,14 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
+            
             kkbz.Text = mj.Text;
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
             zcjz.Text = Sub(zcmz.Text, zcpz.Text);
+            if (IsCal.Checked)
+            {
+                yslhbz.Text = Mul(zcjz.Text, percent.Text);
+            }
             jsmk.Text = Mul(zcjz.Text, mj.Text);
             ksds.Text = Sub(zcjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, zcjz.Text);

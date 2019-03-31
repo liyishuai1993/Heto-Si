@@ -116,7 +116,10 @@
                     <td class="auto-style3">扣吨(扣杂)<asp:TextBox id="kd" cal="must1" name="扣吨" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">运费合理路耗(吨)<asp:TextBox id="yfhllh" cal="must1" name="运费合理路耗"  runat="server" Height="16px" Width ="254px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">运费合理路耗(吨)<asp:TextBox id="yfhllh"  name="运费合理路耗"  runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        *<asp:TextBox id="percent" ToolTip="百分比,请按小数输入" runat="server" Height="16px" Width ="60px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <asp:CheckBox runat="server" ToolTip="勾选按入库净重百分比计算" id="IsCal" Height="20px" width="20px"/>
+                    </td> 
                     <td class="auto-style3">#运费扣款标准(元/吨)<asp:TextBox id="yflhbz"  name="运费扣款标准" runat="server" Height="16px" Width ="233px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">#运费扣亏吨数<asp:TextBox id="yfkkds" name="运费扣亏吨数" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     

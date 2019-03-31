@@ -121,10 +121,17 @@ namespace XSSystem.Page.P_CKGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.ckbdh = (sender as Button).CommandArgument;
+            string[] estr = (sender as Button).CommandArgument.ToString().Split(',');
+            qc.ckbdh = estr[0];
+            qc.rkbdh = estr[1];
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex,1);
+            DataTable dt2 = SelectSQL(qc, ex, 2);
             Session["qyxsckd"] = dt;
+            if (dt2.Rows.Count > 0)
+            {
+                Session["qykhhdlr"] = dt2;
+            }
             JavaScript("window.location.href='Qyxsckd.aspx'");
         }
 
