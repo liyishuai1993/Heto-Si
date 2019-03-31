@@ -160,7 +160,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public string InsertTyxsckd(DirModel dml,List<DirModel>child1)
+        public string InsertTyxsckd(DirModel dml,List<DirModel>child1, List<DirModel> child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -176,6 +176,16 @@ namespace xs_System.Logic
                 sqlpara.SqlConnectString = GlabalString.DBString;
                 sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj)" +
                 "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj)";
+                xsSqls.Add(sqlpara);
+            }
+
+            foreach (var val in child2)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_QkrxxTable (user_no,name,zqkje,yhkje,syqkje,qkxm,phone,bz)" +
+                "values(@user_no,@name,@zqkje,@yhkje,@syqkje,@qkxm,@phone,@bz)";
                 xsSqls.Add(sqlpara);
             }
             return SqlHelper.Execute(xsSqls);
@@ -617,6 +627,12 @@ namespace xs_System.Logic
         public string QueryCghtChildTable(QueryClass qc)
         {
             string sql=@"select * from  "+qc.tableName+ " where user_no='"+qc.user_no+"' and htbh='"+qc.htbh+"'";
+            return sql;
+        }
+
+        public string QueryQkrxxTable(QueryClass qc)
+        {
+            string sql = @"select * from  " + qc.tableName + " where user_no='" + qc.user_no  + "'";
             return sql;
         }
 

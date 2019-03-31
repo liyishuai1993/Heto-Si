@@ -18,6 +18,7 @@ namespace XSSystem.Page.P_Order
     {
         HTGLLogic _htglLogic = new HTGLLogic();
         static DataTable dataTable;
+        static DataTable dataTable2;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -29,7 +30,9 @@ namespace XSSystem.Page.P_Order
                     InitData(Session["tyxsckd"]);
                 }
                 InitDataTable();
+                InitDataTable2();
                 InitGridView();
+                InitGridView2();
             }
             
         }
@@ -106,6 +109,20 @@ namespace XSSystem.Page.P_Order
 
         }
 
+        private void InitDataTable2()
+        {
+            dataTable2 = new DataTable();
+            dataTable2.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable2.Columns.Add("name", System.Type.GetType("System.String"));
+            dataTable2.Columns.Add("zqkje", System.Type.GetType("System.Double"));
+            dataTable2.Columns.Add("yhkje", System.Type.GetType("System.Double"));
+            dataTable2.Columns.Add("syqkje", System.Type.GetType("System.Double"));
+            dataTable2.Columns.Add("qkxm", System.Type.GetType("System.String"));
+            dataTable2.Columns.Add("phone", System.Type.GetType("System.String"));
+            dataTable2.Columns.Add("bz", System.Type.GetType("System.String"));
+            dataTable2.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
+        }
+
         void InitData(object mk)
         {
             DataTable dt = mk as DataTable;
@@ -148,6 +165,26 @@ namespace XSSystem.Page.P_Order
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
+        }
+
+        public void InitGridView2()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass qc = new QueryClass();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
+            qc.tableName = "xs_QkrxxTable";
+            pagepara.Sql = _htglLogic.QueryQkrxxTable(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs e = new PageChangedEventArgs(0);
+            dataTable2 = xsPageHelper.BindPager(pagepara, e);
+            if (dataTable2.Columns.Count == 0)
+            {
+                InitDataTable2();
+            }
+            this.GridView2.DataSource = dataTable2;
+            this.GridView2.DataBind();
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -206,7 +243,25 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-            string reply = _htglLogic.InsertTyxsckd(dml, Child1);
+
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow val in dataTable2.Rows)
+            {
+                if ((bool)val[8])
+                {
+                    temp = new DirModel();
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@name", val[1]);
+                    temp.Add("@zqkje", val[2]);
+                    temp.Add("@yhkje", val[3]);
+                    temp.Add("@syqkje", val[4]);
+                    temp.Add("@qkxm", val[5]);
+                    temp.Add("@phone", val[6]);
+                    temp.Add("@bz", val[7]);
+                    Child2.Add(temp);
+                }
+            }
+            string reply = _htglLogic.InsertTyxsckd(dml, Child1,Child2);
             if (reply == "")
             {
                 AlertMessage("新增成功");
@@ -268,6 +323,31 @@ namespace XSSystem.Page.P_Order
             jshk.Text = Mul(mj.Text, xhds.Text);
             tlyfxj.Text = (Num(zbxsf.Text) / 2.0f + Num(fzdlf.Text) / 2.0f + Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) *
                 Num(sxds.Text) + Num(tlyf.Text) / 2.0f + Num(dzzxf.Text) / 2.0f + Num(dzmcddf.Text) / 2.0f + Num(dzdlf.Text) * Num(xhds.Text)).ToString();
+        }
+
+        protected void Btn_Qkr_Click(object sender, EventArgs e)
+        {
+            DataRow dr = dataTable2.NewRow();
+            try
+            {
+                dr[0] = dataTable2.Rows.Count + 1;
+                dr[1] = name.Text;
+                dr[2] = double.Parse(zqkje.Text);
+                dr[3] = double.Parse(yhkje.Text.Trim());
+                dr[4] = double.Parse(syqkje.Text.Trim());
+                dr[5] = qkxm.Text;
+                dr[6] = phone.Text;
+                dr[7] = bz.Text;
+                dr[8] = true;
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            dataTable2.Rows.Add(dr);
+            GridView2.DataSource = dataTable2;
+            GridView2.DataBind();
         }
     }
 }

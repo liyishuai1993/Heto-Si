@@ -205,6 +205,77 @@
                    
         </div>
 
+                <div style="margin-top:15px;width:1200px">
+            <div class="divcss5">
+            <p>欠款人信息<asp:Button ID="Btn_Qkr" runat="server" Text="新增记录"  OnClick="Btn_Qkr_Click"/></p>
+            <p>
+                
+                欠款人<asp:TextBox id="name" runat="server"  Height="16px" Width ="100px" ></asp:TextBox>
+                总欠款金额<asp:TextBox id="zqkje" runat="server"   Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                已还款金额<asp:TextBox id="yhkje" Text=""  cal="must1" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" runat="server" Height="16px" Width ="100px" ></asp:TextBox>
+                剩余还款金额<asp:TextBox id="syqkje" Text=""  runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                </p>
+                <p>
+                欠款项目<asp:TextBox id="qkxm" runat="server" Height="16px"   Width ="400px"  ></asp:TextBox>
+                手机号<asp:TextBox id="phone" Text=""  runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                备注<asp:TextBox id="bz" runat="server" Height="16px"  Width ="100px"  ></asp:TextBox>     
+            </p>
+                </div>
+            <p>
+                
+                <asp:GridView ID="GridView2" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:BoundField HeaderText="序号" DataField="bh" HeaderStyle-Width="5%" >
+<HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="欠款人" DataField="name" HeaderStyle-Width="5%" >
+<HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="总欠款金额" DataField="zqkje" HeaderStyle-Width="5%" >
+<HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="已还款金额" DataField="yhkje" HeaderStyle-Width="10%" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="剩余还款金额" DataField="syqkje" HeaderStyle-Width="10%" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="欠款项目" DataField="qkxm" HeaderStyle-Width="5%" >
+<HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="手机号" DataField="phone" HeaderStyle-Width="10%" >
+<HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="备注" DataField="bz" HeaderStyle-Width="5%" >
+<HeaderStyle HorizontalAlign="Left" Width="5%" />
+                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+            </p>
+            
+
+                   
+        </div>
+
 
 
         <p class="auto-style5">
