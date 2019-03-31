@@ -123,6 +123,10 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
+            else
+            {
+                AlertMessage("数据已存在，新增失败");
+            }
         }
 
         protected void submit2_Click(object sender, EventArgs e)
@@ -159,6 +163,10 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage("新增成功");
             }
+            else
+            {
+                AlertMessage("记录有误，新增失败");
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -167,6 +175,7 @@ namespace XSSystem.Page.P_Order
             {
                 return;
             }
+            yflhbz.Text = mj.Text;
             ckjz1.Text = Sub(ckmz.Text, ckpz.Text);
             ckjz2.Text = Sub(ckjz1.Text, jbds.Text);
             hkgsje.Text = Mul(ckjz2.Text, mj.Text);

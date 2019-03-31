@@ -81,8 +81,8 @@
                 磅单号<asp:TextBox id="bdh"  runat="server" name="磅单号" Height="16px" Width ="100px" ToolTip="磅单号" valued="must2"></asp:TextBox>
                 提货单号<asp:TextBox id="thdh" runat="server" name="提货单号" Height="16px" Width ="100px"></asp:TextBox>
                 车号<asp:TextBox id="ch"  runat="server" name="车号" Height="16px" Width ="100px" valued="must2"></asp:TextBox>
-                装车毛重<asp:TextBox id="zcmz" cal="must1" name="装车毛重"  runat="server"  Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 装车皮重<asp:TextBox id="zcpz" cal="must1" name="装车皮重" runat="server"  Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>    
+                装车毛重<asp:TextBox id="zcmz" cal="must1" name="装车毛重"  runat="server"  Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 #装车净重<asp:TextBox id="zcjz" runat="server" name="装车净重" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 
             </p>
@@ -115,11 +115,11 @@
                         <HeaderStyle HorizontalAlign="Left" Width="10%" />
                         <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="装车毛重" DataField="zcmz" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="装车皮重" DataField="zcpz" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="装车皮重" DataField="zcpz" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="装车毛重" DataField="zcmz" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>

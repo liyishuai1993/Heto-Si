@@ -112,15 +112,6 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox wlmc;
         
         /// <summary>
-        /// ckmz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ckmz;
-        
-        /// <summary>
         /// ckpz 控件。
         /// </summary>
         /// <remarks>
@@ -128,6 +119,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ckpz;
+        
+        /// <summary>
+        /// ckmz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ckmz;
         
         /// <summary>
         /// ckjz 控件。
@@ -211,15 +211,6 @@ namespace XSSystem.Page.P_Order {
         protected global::Telerik.Web.UI.RadComboBox tk_smmc;
         
         /// <summary>
-        /// rkmz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rkmz;
-        
-        /// <summary>
         /// rkpz 控件。
         /// </summary>
         /// <remarks>
@@ -227,6 +218,15 @@ namespace XSSystem.Page.P_Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox rkpz;
+        
+        /// <summary>
+        /// rkmz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox rkmz;
         
         /// <summary>
         /// rkjz 控件。
