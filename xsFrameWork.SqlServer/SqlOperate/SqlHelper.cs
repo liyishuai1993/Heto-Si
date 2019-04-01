@@ -88,7 +88,7 @@ namespace xsFramework.SqlServer
                 Dao.Close();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 Dao.RollBack();
                 return false;

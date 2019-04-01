@@ -20,9 +20,9 @@ namespace XSSystem.Page.P_DBGL
         {
             if (!IsPostBack)
             {
+                qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
+                qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
                 xsPage.StartShowPage();
-                qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
-                qdfwZ.Text = DateTime.Now.ToShortDateString();
             }
 
 
@@ -79,24 +79,7 @@ namespace XSSystem.Page.P_DBGL
             return xsPageHelper.BindPager(pagepara, e);
         }
 
-        protected void btnViewHD_Click(object sender, EventArgs e)
-        {
-            QueryClass qc = new QueryClass();
-            qc.rkbdh = (sender as Button).CommandArgument;
-
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
-            DataTable dt = SelectSQL(qc, ex, 2);
-            if (dt.Rows.Count == 0)
-            {
-                AlertMessage("无对应客户回单");
-            }
-            else
-            {
-                Session["qydbhd"] = dt;
-                JavaScript("window.location.href='Qydbhd.aspx'");
-            }
-
-        }
+        
 
 
         protected void btnDel_Click(object sender, EventArgs e)
@@ -146,12 +129,38 @@ namespace XSSystem.Page.P_DBGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.ckbdh = (sender as Button).CommandArgument;
+            string[] estr = (sender as Button).CommandArgument.ToString().Split(',');
+            qc.ckbdh = estr[0];
+            qc.rkbdh = estr[1];
 
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex,1);
+            DataTable dt2 = SelectSQL(qc, ex, 2);
             Session["qydbckd"] = dt;
+            if (dt2.Rows.Count > 0)
+            {
+                Session["qydbhd"] = dt2;
+            }
             JavaScript("window.location.href='Qydbckd.aspx'");
+        }
+
+        protected void btnViewHD_Click(object sender, EventArgs e)
+        {
+            QueryClass qc = new QueryClass();
+            qc.rkbdh = (sender as Button).CommandArgument;
+
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            DataTable dt = SelectSQL(qc, ex, 2);
+            if (dt.Rows.Count == 0)
+            {
+                AlertMessage("无对应客户回单");
+            }
+            else
+            {
+                Session["qydbhd"] = dt;
+                JavaScript("window.location.href='Qydbhd.aspx'");
+            }
+
         }
 
 

@@ -25,6 +25,10 @@ namespace XSSystem.Page.P_Order
                 {
                     InitData(Session["qydbckd"]);
                 }
+                if (Session["qydbhd"] != null)
+                {
+                    InitData2(Session["qydbhd"]);
+                }
             }
         }
 
@@ -57,6 +61,36 @@ namespace XSSystem.Page.P_Order
                 tk_fmmc.SelectedIndex = 1;
                 tk_smmc.SelectedIndex = 1;
             }
+        }
+
+        void InitData2(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            rkbdh.Text = dt.Rows[0][1].ToString();
+            rksj.Text = dt.Rows[0][2].ToString();
+            tk_smmc.Text = dt.Rows[0][3].ToString();
+            rkmz.Text = dt.Rows[0][4].ToString();
+            rkpz.Text = dt.Rows[0][5].ToString();
+
+            rkjz.Text = dt.Rows[0][6].ToString();
+            ksds.Text = dt.Rows[0][7].ToString();
+            yyds.Text = dt.Rows[0][8].ToString();
+            yslhbz.Text = dt.Rows[0][9].ToString();
+            yfkkbz.Text = dt.Rows[0][10].ToString();
+
+            yfkkds.Text = dt.Rows[0][11].ToString();
+            yfkkje.Text = dt.Rows[0][12].ToString();
+            yfjsdw.Text = dt.Rows[0][13].ToString();
+            yfyf.Text = dt.Rows[0][14].ToString();
+            fykk.Text = dt.Rows[0][15].ToString();
+
+            jsyf.Text = dt.Rows[0][16].ToString();
+            drje.Text = dt.Rows[0][17].ToString();
+
+            drmj.Text = dt.Rows[0][18].ToString();
+            shzt.Text = dt.Rows[0][19].ToString();
+            yfjszt.Text = dt.Rows[0][20].ToString();
+            Session.Remove("qydbhd");
         }
 
         void InitData(object mk)
@@ -159,6 +193,10 @@ namespace XSSystem.Page.P_Order
             if (_htglLogic.InsertQydbhd(dml))
             {
                 AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("新增失败");
             }
         }
 

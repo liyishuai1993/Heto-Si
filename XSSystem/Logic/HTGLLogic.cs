@@ -139,14 +139,16 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "insert into xs_QydbhdTable (user_no,rkbdh,rksj,smmc,rkmz,rkpz,rkjz,ksds,yyds,yslhbz,yfkkbz,yfkkds,yfkkje,yfjsdw,yfyf,fykk,jsyf,drje,drmj,shzt,yfjszt)" +
                 "values(@user_no,@rkbdh,@rksj,@smmc,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@yslhbz,@yfkkbz,@yfkkds,@yfkkje,@yfjsdw,@yfyf,@fykk,@jsyf,@drje,@drmj,@shzt,@yfjszt)";
-            SqlHelper.Execute(sqlpara);
+            bool a=SqlHelper.Execute(sqlpara);
+            if (!a)
+                return a;
 
             sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_QydbckdTable set rkbdh =@rkbdh where ckbdh=@ckbdh";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara)&&a;
+             
         }
 
         public bool InsertQydbckd(DirModel dml)
