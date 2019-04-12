@@ -46,7 +46,7 @@
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" name="签订日期" valued="must1" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -73,8 +73,8 @@
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">执行期限
-               <asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
-                        <asp:TextBox ID="zxqxZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+               <asp:TextBox ID="zxqxQ" runat="server" Text="" name="签订日期" valued="must1" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
+                        <asp:TextBox ID="zxqxZ" runat="server" name="签订日期" valued="must1" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
                    </td> 
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <asp:ListItem>自备箱</asp:ListItem>
                        </asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">数量(组)<asp:TextBox id="sl" name="数量" valued="must1" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3"> </td>
                 </tr>
        

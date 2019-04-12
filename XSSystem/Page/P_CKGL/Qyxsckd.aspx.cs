@@ -123,6 +123,10 @@ namespace XSSystem.Page.P_Order
 
         protected void submit_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
@@ -168,6 +172,10 @@ namespace XSSystem.Page.P_Order
 
         protected void submit2_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(2))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
 

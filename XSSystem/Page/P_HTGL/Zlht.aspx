@@ -39,7 +39,7 @@
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" Text="" name="签订日期" valued="must1" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>                 
@@ -53,13 +53,13 @@
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" runat="server" Height="25px" Width ="284px"></asp:DropDownList> 
+                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" name="出租地段" valued="must1" runat="server" Height="25px" Width ="284px"></asp:DropDownList> 
                     </td>
                     <td class="auto-style3">租赁期限
-                        <asp:TextBox ID="zlqxQ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
-                        <asp:TextBox ID="zlqxZ" runat="server" Text="" onClick="WdatePicker()" Width="141px"></asp:TextBox>
+                        <asp:TextBox ID="zlqxQ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
+                        <asp:TextBox ID="zlqxZ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">押金 <asp:TextBox id="yj" name="押金" valued="must1" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
        
             </table>            

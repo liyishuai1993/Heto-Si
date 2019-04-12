@@ -42,19 +42,19 @@
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" name="签订日期" valued="must1" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="对方合同号" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
-  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
                         *受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
-  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
+  EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="受托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                    </td> 
                 </tr>
@@ -66,8 +66,8 @@
                         <asp:ListItem>两票</asp:ListItem>
                         <asp:ListItem>原票原转</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">执行期限<asp:TextBox ID="zxqxQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
-                        <asp:TextBox ID="zxqxZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+                    <td class="auto-style3">执行期限<asp:TextBox ID="zxqxQ" runat="server" name="执行期限" valued="must1" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>-
+                        <asp:TextBox ID="zxqxZ" runat="server" Text="" onClick="WdatePicker()" name="执行期限" valued="must1" Width="140px"></asp:TextBox>
                     </td>
                     <td class="auto-style3"> </td> 
                 </tr>

@@ -40,7 +40,7 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1" >
                 <tr>
-                    <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
+                    <td class="auto-style3">*编号<asp:TextBox ID="bh" name="合同编号" valued="must1" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
                     <td class="auto-style3">合同编号<asp:TextBox id="htbh" name="合同编号" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>

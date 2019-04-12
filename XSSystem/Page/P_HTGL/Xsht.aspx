@@ -49,11 +49,11 @@
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
                     <td class="auto-style3">*签订日期
-                        <asp:TextBox ID="qdrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="qdrq" runat="server" name="签订日期" valued="must1" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="对方合同号" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
                     <td class="auto-style3">*供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
@@ -79,7 +79,7 @@
                         </asp:DropDownList> 
                     </td>
                     <td class="auto-style3">
-                        货款路耗标准<asp:TextBox id="hklhbz" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
+                        货款路耗标准<asp:TextBox id="hklhbz" name="货款路耗标准" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox>  
                    </td> 
                 </tr>
                 <tr>
@@ -89,8 +89,8 @@
                         <asp:ListItem>两票</asp:ListItem>
                         <asp:ListItem>原票原转</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">执行时间 <asp:TextBox ID="jhsjQ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
-                        <asp:TextBox ID="jhsjZ" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>
+                    <td class="auto-style3">执行时间 <asp:TextBox ID="jhsjQ" name="执行时间" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
+                        <asp:TextBox ID="jhsjZ" runat="server" Text="" name="执行时间" valued="must1" onClick="WdatePicker()" Width="142px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">货款结算方式<asp:DropDownList id="hkjsfs" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>现金</asp:ListItem>
@@ -110,7 +110,7 @@
                         <asp:ListItem>对方付款</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" name="煤矿名称" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">控制标准<asp:DropDownList ID="kzbz" runat="server" Height="25px" Width="284px">

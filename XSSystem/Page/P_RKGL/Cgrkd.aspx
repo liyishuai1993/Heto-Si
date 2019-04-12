@@ -37,9 +37,9 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
-                    <td class="auto-style3">*合同号<asp:TextBox ID="hth" valued="must1" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*合同号<asp:TextBox ID="hth" valued="must1" name="合同号" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">煤矿名称
-                        <asp:TextBox ID="mkmc" runat="server"  Height="16px" Width="284px"></asp:TextBox>
+                        <asp:TextBox ID="mkmc" runat="server" valued="must1" name="煤矿名称" Height="16px" Width="284px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
@@ -50,7 +50,7 @@
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px" valued="must1" name="物料名称"></asp:TextBox> </td>
                     <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" cal="must1" name="煤价" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">运输合同编号<asp:TextBox id="yshtbh" runat="server" Height="16px" Width ="284px"></asp:TextBox>  </td> 
                     <td class="auto-style3">承运车队<asp:TextBox id="cycd" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
@@ -62,10 +62,10 @@
             <p>装车信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
-                    <td class="auto-style3">装车磅单号<asp:TextBox ID="zcbdh" runat="server" Height="16px" Width="284px" valued="must1" ></asp:TextBox></td>
-                    <td class="auto-style3">提煤单号<asp:TextBox ID="tmdh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                    <td class="auto-style3">装车日期<asp:TextBox ID="zcrq" runat="server" Text="" onClick="WdatePicker()" Width="284px" valued="must1" ></asp:TextBox></td>
-                    <td class="auto-style3">车号<asp:TextBox id="ch" runat="server" Height="16px" Width ="284px" valued="must1"></asp:TextBox> </td>                   
+                    <td class="auto-style3">装车磅单号<asp:TextBox ID="zcbdh" runat="server" Height="16px" Width="284px" valued="must1" name="装车磅单号"></asp:TextBox></td>
+                    <td class="auto-style3">提煤单号<asp:TextBox ID="tmdh" runat="server" Height="16px" Width="284px" name="提煤单号"></asp:TextBox></td>
+                    <td class="auto-style3">装车日期<asp:TextBox ID="zcrq" runat="server" Text="" onClick="WdatePicker()" Width="284px" valued="must1" name="装车日期"></asp:TextBox></td>
+                    <td class="auto-style3">车号<asp:TextBox id="ch" runat="server" Height="16px" Width ="284px" valued="must1" name="车号"></asp:TextBox> </td>                   
                 </tr>
                 <tr>
                     <td class="auto-style3">装车皮重<asp:TextBox id="zcpz" runat="server" cal="must1" name="装车皮重" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
