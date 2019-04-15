@@ -88,9 +88,9 @@
    HighlightTemplatedItems="true"/>
             </span>
             <p>
-                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                运价(元/吨)<asp:TextBox id="yj" runat="server" Height="16px" valued="must2" name="运价" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
 
-                运费路耗标准(吨)<asp:TextBox id="yflhbz" valued="must2" name="运费路耗标准" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                运费路耗标准(吨)<asp:TextBox id="yflhbz" valued="must2" name="运费路耗标准" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 执行状态<asp:TextBox id="zxzt" runat="server" name="执行状态" valued="must2" Height="16px" Width ="100px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
             </p>

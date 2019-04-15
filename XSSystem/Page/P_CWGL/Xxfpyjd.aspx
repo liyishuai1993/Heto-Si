@@ -54,18 +54,18 @@
                 <tr>
                     <td class="auto-style3">票号<asp:TextBox id="ph" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">品名<asp:TextBox id="pm" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
-                    <td class="auto-style3">数量<asp:TextBox id="shuliang" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">数量<asp:TextBox id="shuliang" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">单价(含税)<asp:TextBox id="dj_hs" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
-                    <td class="auto-style3">金额<asp:TextBox id="je" runat="server" Height="16px" Width ="285px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
-                    <td class="auto-style3">税率<asp:TextBox id="sl" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
+                    <td class="auto-style3">单价(含税)<asp:TextBox id="dj_hs" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3">金额<asp:TextBox id="je" runat="server" Height="16px" Width ="285px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">税率<asp:TextBox id="sl" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">税额<asp:TextBox id="se" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
-                    <td class="auto-style3">税价合计<asp:TextBox id="sjhj" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
-                    <td class="auto-style3">印花税<asp:TextBox id="yhs" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>  </td> 
+                    <td class="auto-style3">税额<asp:TextBox id="se" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">税价合计<asp:TextBox id="sjhj" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3">印花税<asp:TextBox id="yhs" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>  </td> 
                 </tr>
                 <tr>
                     <td class="auto-style3">快递单号<asp:TextBox id="kddh" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>

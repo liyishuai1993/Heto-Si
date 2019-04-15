@@ -47,37 +47,37 @@
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td> 
+                    <td class="auto-style3">入库毛重<asp:TextBox id="rkmz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">入库皮重<asp:TextBox id="rkpz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">入库净重<asp:TextBox id="rkjz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">亏损吨数<asp:TextBox id="ksds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">盈余吨数<asp:TextBox id="yyds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td>
-                    <td class="auto-style3">扣吨(扣杂)<asp:TextBox id="kd" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td> 
+                    <td class="auto-style3">亏损吨数<asp:TextBox id="ksds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">盈余吨数<asp:TextBox id="yyds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td>
+                    <td class="auto-style3">扣吨(扣杂)<asp:TextBox id="kd" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">运费合理路耗(吨)<asp:TextBox id="yfhllh" runat="server" Height="16px" Width ="254px" OnKeyPress="isnum()"></asp:TextBox></td> 
-                    <td class="auto-style3">运费扣款标准(元/吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="233px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">运费扣亏吨数<asp:TextBox id="yfkkds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">运费合理路耗(吨)<asp:TextBox id="yfhllh" runat="server" Height="16px" Width ="254px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td> 
+                    <td class="auto-style3">运费扣款标准(元/吨)<asp:TextBox id="yflhbz" runat="server" Height="16px" Width ="233px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">运费扣亏吨数<asp:TextBox id="yfkkds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td>
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">运费扣款金额<asp:TextBox id="yfkkje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox>  </td> 
+                    <td class="auto-style3">运费扣款金额<asp:TextBox id="yfkkje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">运费结算吨位<asp:TextBox id="yfjsdw" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox>  </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">费用扣款(手续费、卸车费)<asp:TextBox id="fykk" runat="server" Height="16px" Width ="188px" OnKeyPress="isnum()"></asp:TextBox></td> 
-                    <td class="auto-style3">结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">货款结算吨位<asp:TextBox id="hkjsdw" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">费用扣款(手续费、卸车费)<asp:TextBox id="fykk" runat="server" Height="16px" Width ="188px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td> 
+                    <td class="auto-style3">结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">货款结算吨位<asp:TextBox id="hkjsdw" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td>
                     
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">结算货款<asp:TextBox id="jshk" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td> 
-                    <td class="auto-style3">提成标准<asp:TextBox id="tcbz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox> </td>
-                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"></asp:TextBox></td>
+                    <td class="auto-style3">结算货款<asp:TextBox id="jshk" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td> 
+                    <td class="auto-style3">提成标准<asp:TextBox id="tcbz" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox> </td>
+                    <td class="auto-style3">提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字"></asp:TextBox></td>
                     
                 </tr>
 
