@@ -190,6 +190,12 @@ namespace xsFramework.Web.WebPage
             return (double.Parse(a) - double.Parse(b)).ToString();
         }
 
+        public string AbsSub(string a, string b)
+        {
+            double ret = (double.Parse(a) - double.Parse(b));
+            return ret >= 0 ? ret.ToString() : "0";
+        }
+
         public string Mul(string a, string b)
         {
             return (double.Parse(a) * double.Parse(b)).ToString();

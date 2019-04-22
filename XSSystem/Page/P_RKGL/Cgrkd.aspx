@@ -50,7 +50,12 @@
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="284px" valued="must1" name="物料名称"></asp:TextBox> </td>
+                    <td class="auto-style3">物料名称
+                 <telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="284px" Height="400px"
+                    EmptyMessage="选择" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must2"
+                    HighlightTemplatedItems="true">
+                </telerik:RadComboBox>
+                        </td>
                     <td class="auto-style3">煤价<asp:TextBox id="mj" runat="server" Height="16px" cal="must1" name="煤价" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">运输合同编号<asp:TextBox id="yshtbh" runat="server" Height="16px" Width ="284px"></asp:TextBox>  </td> 
                     <td class="auto-style3">承运车队<asp:TextBox id="cycd" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
@@ -99,7 +104,7 @@
                     <td class="auto-style3">#扣款标准（元/吨）<asp:TextBox id="kkbz"  name="扣款标准" runat="server" Height="16px" Width ="228px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">#扣亏吨数<asp:TextBox id="kkds" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">#扣亏金额<asp:TextBox id="kkje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
-                    <td class="auto-style3">#运费结算吨位<asp:TextBox id="yfjsdw" cal="must1" name="运费结算吨位" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td>
+                    <td class="auto-style3">#运费结算吨位<asp:TextBox id="yfjsdw"  name="运费结算吨位" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">运价<asp:TextBox id="yj" runat="server" Height="16px" cal="must1" name="运价" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>

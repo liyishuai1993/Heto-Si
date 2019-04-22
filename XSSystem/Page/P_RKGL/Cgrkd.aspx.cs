@@ -47,6 +47,18 @@ namespace XSSystem.Page.P_Order
                 tk_xf.SelectedIndex = 1;
             }
 
+            DataTable dt2 = GlabalString.GetMZMC();
+            if (dt2.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_wlmc.Items.Add(radcbItem);
+                }
+                tk_wlmc.SelectedIndex = 1;
+            }
+
         }
 
         void InitData(object mk)
@@ -56,7 +68,7 @@ namespace XSSystem.Page.P_Order
             mkmc.Text = dt.Rows[0][2].ToString();
             tk_gf.SelectedItem.Text = dt.Rows[0][3].ToString();
             tk_xf.SelectedItem.Text = dt.Rows[0][4].ToString();
-            wlmc.Text = dt.Rows[0][5].ToString();
+            tk_wlmc.Text = dt.Rows[0][5].ToString();
 
             mj.Text = dt.Rows[0][6].ToString();
             yshtbh.Text = dt.Rows[0][7].ToString();
@@ -117,7 +129,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
                 dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
                 dml.Add("@yshtbh", yshtbh.Text.Trim());
                 dml.Add("@cycd", cycd.Text.Trim());
@@ -145,7 +157,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", float.Parse(fkzh.Text.Trim()));
+                dml.Add("@fkzh", fkzh.Text.Trim());
                 dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
                 dml.Add("@zfzh", zfzh.Text.Trim());
                 dml.Add("@shzt", shzt.Text.Trim());
@@ -191,10 +203,15 @@ namespace XSSystem.Page.P_Order
             {
                 yslhbz.Text = Mul(zcjz.Text, percent.Text);
             }
+            else if(string.IsNullOrEmpty(yslhbz.Text))
+            {
+                AlertMessage("运输路耗标准不能为空！");
+                return;
+            }
             jsmk.Text = Mul(zcjz.Text, mj.Text);
-            ksds.Text = Sub(zcjz.Text, rkjz.Text);
+            ksds.Text = AbsSub(zcjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, zcjz.Text);
-            kkds.Text = Sub(ksds.Text, yslhbz.Text);
+            kkds.Text = AbsSub(ksds.Text, yslhbz.Text);
             kkje.Text = Mul(kkbz.Text, kkds.Text);
             yfjsdw.Text = double.Parse(zcjz.Text) > double.Parse(rkjz.Text) ? rkjz.Text : zcjz.Text;
             yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), kkje.Text);
