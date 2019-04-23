@@ -59,6 +59,21 @@ namespace XSSystem.Page.P_Order
                 tk_wlmc.SelectedIndex = 1;
             }
 
+            DataTable dt3 = GlabalString.GetZH();
+            if (dt3.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt3.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_zfzh.Items.Add(radcbItem);
+                    tk_fkzh.Items.Add(radcbItem2);
+                }
+                tk_zfzh.SelectedIndex = 1;
+                tk_fkzh.SelectedIndex = 1;
+            }
+
         }
 
         void InitData(object mk)
@@ -104,10 +119,10 @@ namespace XSSystem.Page.P_Order
             yfyf.Text = dt.Rows[0][30].ToString();
             yfyk.Text = dt.Rows[0][31].ToString();
 
-            fkzh.Text = dt.Rows[0][32].ToString();
+            tk_fkzh.Text = dt.Rows[0][32].ToString();
             jsyf.Text = dt.Rows[0][33].ToString();
 
-            zfzh.Text = dt.Rows[0][34].ToString();
+            tk_zfzh.Text = dt.Rows[0][34].ToString();
             shzt.Text = dt.Rows[0][35].ToString();
             yfjszt.Text = dt.Rows[0][36].ToString();
 
@@ -157,9 +172,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", fkzh.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
                 dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
-                dml.Add("@zfzh", zfzh.Text.Trim());
+                dml.Add("@zfzh", tk_zfzh.SelectedItem.Text.Trim());
                 dml.Add("@shzt", shzt.Text.Trim());
                 dml.Add("@yfjszt", yfjszt.Text.Trim());
             }

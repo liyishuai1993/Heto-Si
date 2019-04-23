@@ -83,5 +83,21 @@ namespace XSSystem.Page.P_System
                 AlertMessage("已存在，添加失败！");
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@zh", ZH.Text.Trim());
+            if (_htglLogic.InsertZhangHu(dml))
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("已存在，添加失败！");
+            }
+        }
     }
 }

@@ -20,9 +20,8 @@
                 </asp:DropDownList>
                 <asp:Button runat="server" text="新增" ID="submit2" OnClick="submit4_Click"/></p>
             <p>新增煤场<asp:TextBox runat="server" ID="YL" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit3" OnClick="submit3_Click"/></p>
-            <p>新增仓库<asp:TextBox runat="server" ID="CP" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit4" OnClick="submit2_Click"
-                /></p>
-
+            <p>新增仓库<asp:TextBox runat="server" ID="CP" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit4" OnClick="submit2_Click"/></p>
+            <p>新增账户<asp:TextBox runat="server" ID="ZH" ></asp:TextBox><asp:Button runat="server" text="新增" ID="Button1" OnClick="Button1_Click"/></p>
         </div>
     </form>
 </body>

@@ -58,6 +58,24 @@ public class GlabalString
     }
 
     /// <summary>
+    /// 获取账户
+    /// </summary>
+    /// <returns></returns>
+    public static DataTable GetZH()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "zh";
+        pagepara.Sql = ht.QueryDropList("xs_ZhangHu", arrList);
+        pagepara.OrderBy = "zh";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
+
+    /// <summary>
     /// 获取煤场
     /// </summary>
     /// <returns></returns>

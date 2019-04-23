@@ -110,11 +110,13 @@
                     <td class="auto-style3">运价<asp:TextBox id="yj" runat="server" Height="16px" cal="must1" name="运价" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">#应付运费<asp:TextBox id="yfyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">已付油卡<asp:TextBox id="yfyk" runat="server" cal="must1" name="已付油卡" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td> 
-                    <td class="auto-style3">付卡账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
+                    <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh" AutoPostBack="True" runat="server" Width="284px" Height="200px" EmptyMessage="请输入支付账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" 
+   HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">#结算运费<asp:TextBox id="jsyf" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">支付账户<asp:TextBox id="zfzh" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">支付账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zfzh" AutoPostBack="True" runat="server" Width="284px" Height="200px" EmptyMessage="请输入支付账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" 
+   HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">审核状态<asp:TextBox id="shzt" runat="server" Height="16px" Width ="284px"></asp:TextBox></td> 
                     <td class="auto-style3">运费结算状态<asp:TextBox id="yfjszt" runat="server" Height="16px" Width ="284px"></asp:TextBox></td>
                 </tr>
