@@ -221,6 +221,7 @@ namespace XSSystem.Page.P_Order
             else if(string.IsNullOrEmpty(yslhbz.Text))
             {
                 AlertMessage("运输路耗标准不能为空！");
+                yslhbz.Focus();
                 return;
             }
             jsmk.Text = Mul(zcjz.Text, mj.Text);
