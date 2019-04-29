@@ -56,7 +56,10 @@ namespace XSSystem.Page.P_Order
         private void InitDataTable()
         {
             dataTable = new DataTable();
-            dataTable.Columns.Add("bdh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("user_no", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("djbh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("bh", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("bdh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("thdh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("ch", System.Type.GetType("System.String"));
             dataTable.Columns.Add("zcmz", System.Type.GetType("System.Double"));
@@ -68,7 +71,7 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("xsjsje", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
             dataTable.Columns.Add("zt", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Int64"));
 
 
         }
@@ -125,22 +128,22 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[11])
+                if (long.Parse(val[14].ToString())==9)
                 {
                     temp = new DirModel();
                     temp.Add("@djbh", djbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@bdh", val[0]);                   
-                    temp.Add("@thdh", val[1]);
-                    temp.Add("@ch", val[2]);
-                    temp.Add("@zcmz", val[3]);
-                    temp.Add("@zcpz", val[4]);
-                    temp.Add("@zcjz", val[5]);
-                    temp.Add("@yfyf", val[6]);
-                    temp.Add("@cgjsje", val[7]);
-                    temp.Add("@xsjsje", val[8]);
-                    temp.Add("@bz", val[9]);
-                    temp.Add("@zt", val[10]);
+                    temp.Add("@bdh", val[3]);                   
+                    temp.Add("@thdh", val[4]);
+                    temp.Add("@ch", val[5]);
+                    temp.Add("@zcmz", val[6]);
+                    temp.Add("@zcpz", val[7]);
+                    temp.Add("@zcjz", val[8]);
+                    temp.Add("@yfyf", val[9]);
+                    temp.Add("@cgjsje", val[10]);
+                    temp.Add("@xsjsje", val[11]);
+                    temp.Add("@bz", val[12]);
+                    temp.Add("@zt", val[13]);
                     Child1.Add(temp);
                 }
             }
@@ -153,32 +156,45 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage(reply);
-                return;
+                
             }
         }
 
         protected void AddClxx(object sender,EventArgs e)
         {
+            if (!DataChecked(2))
+            {
+                return;
+            }
+            foreach(DataRow val in dataTable.Rows)
+            {
+                if (val[3].ToString() == bdh.Text)
+                {
+                    AlertMessage("磅单号已存在");
+                    return;
+                }
+                else
+                    continue;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {
-                dr[0] = bdh.Text;
-                dr[1] = thdh.Text;
-                dr[2] = ch.Text;
-                dr[3] = double.Parse(zcmz.Text);
-                dr[4] = double.Parse(zcpz.Text);
-                dr[5] = double.Parse(zcjz.Text);
-                dr[6] = double.Parse(yfyf.Text);
-                dr[7] = double.Parse(cgjsje.Text);
-                dr[8] = double.Parse(xsjsje.Text);
-                dr[9] = bz.Text;
-                dr[10] = zt.Text;
-                dr[11] = true;
+                dr[3] = bdh.Text;
+                dr[4] = thdh.Text;
+                dr[5] = ch.Text;
+                dr[6] = double.Parse(zcmz.Text);
+                dr[7] = double.Parse(zcpz.Text);
+                dr[8] = double.Parse(zcjz.Text);
+                dr[9] = double.Parse(yfyf.Text);
+                dr[10] = double.Parse(cgjsje.Text);
+                dr[11] = double.Parse(xsjsje.Text);
+                dr[12] = bz.Text;
+                dr[13] = zt.Text;
+                dr[14] = 9;
             }
-            catch
+            catch(Exception ex)
             {
-                AlertMessage("数据存在错误，请检查");
+                AlertMessage(string.Format("数据存在错误,错误信息{0}",ex.Message));
                 return;
             }
             dataTable.Rows.Add(dr);

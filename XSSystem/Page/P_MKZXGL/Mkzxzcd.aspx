@@ -43,7 +43,7 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1"  >
                 <tr>
-                    <td class="auto-style3">*单据编号<asp:TextBox ID="djbh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3">*单据编号<asp:TextBox ID="djbh" runat="server" valued="must1" name="单据编号" Height="16px" Width="284px"></asp:TextBox></td>
                     <td class="auto-style3">*装车时间
                         <asp:TextBox ID="zcsj" runat="server" Text="" name="装车时间" onClick="WdatePicker()" Width="284px" valued="must1"></asp:TextBox>
                     </td>

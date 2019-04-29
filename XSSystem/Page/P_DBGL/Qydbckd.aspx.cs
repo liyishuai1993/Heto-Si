@@ -223,16 +223,21 @@ namespace XSSystem.Page.P_Order
             rkjz.Text = Sub(rkmz.Text, rkpz.Text);
             if (IsCal.Checked)
             {
-                yslhbz.Text = Mul(rkjz.Text, percent.Text);
+                yslhbz.Text = Mul(ckjz.Text, percent.Text);
             }
-
-            ksds.Text = Sub(ckjz.Text, rkjz.Text);
+            else if (string.IsNullOrEmpty(yslhbz.Text))
+            {
+                AlertMessage("运输路耗标准不能为空！");
+                yslhbz.Focus();
+                return;
+            }
+            ksds.Text = AbsSub(ckjz.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz.Text);
             yfkkds.Text = Sub(ksds.Text, yslhbz.Text);
             yfkkje.Text = Mul(yfkkbz.Text, yfkkds.Text);
             yfjsdw.Text = double.Parse(ckjz.Text) >= double.Parse(rkjz.Text) ? rkjz.Text : ckjz.Text;
             yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), yfkkje.Text);
-            jsyf.Text = Sub(yfyf.Text, yfyk.Text);
+            jsyf.Text = Sub(yfyf.Text, yfkkje.Text);
             drje.Text = Add(Mul(ckjz.Text, dcmj.Text), yfyf.Text);
             drmj.Text = Div(drje.Text, rkjz.Text);
             return;
