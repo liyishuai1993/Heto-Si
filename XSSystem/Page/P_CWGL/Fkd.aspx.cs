@@ -10,6 +10,7 @@ using xsFramework.Web.Login;
 using XSSystem.Logic;
 using xsFramework.UserControl.Pager;
 using XSSystem.Class;
+using Telerik.Web.UI;
 
 namespace XSSystem.Page.P_Order
 {
@@ -22,6 +23,7 @@ namespace XSSystem.Page.P_Order
             if (!IsPostBack)
             {
                 //InitGridView1();
+                InitBh();
                 if (Session["fkd"] != null)
                 {
                     InitData(Session["fkd"]);
@@ -30,6 +32,43 @@ namespace XSSystem.Page.P_Order
                 InitGridView();
             }
             
+        }
+
+        private void InitBh()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            QueryClass2 qc = new QueryClass2();
+            qc.all = 1;
+            pagepara.Sql = _cwglLogic.QueryFkdOrder(qc);
+            pagepara.OrderBy = "bh";
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            DataTable dt= xsPageHelper.BindPager(pagepara, ex);
+            bh.Text = string.Format("FK{0}{1}", DateTime.Now.ToString("yyyyMMdd"), dt.Rows.Count);
+            RadComboBoxItem radcbItem;
+            DataTable dt2 = GlabalString.GetGongSi();
+            if (dt2.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_skdw.Items.Add(radcbItem);
+                }
+                tk_skdw.SelectedIndex = 1;
+            }
+            dt2 = GlabalString.GetYuanGong();
+            if (dt2.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_jsr.Items.Add(radcbItem);
+                }
+                tk_jsr.SelectedIndex = 1;
+            }
+
         }
 
         public void InitGridView()
@@ -58,8 +97,8 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             bh.Text = dt.Rows[0][1].ToString();
             ldrq.Text = dt.Rows[0][2].ToString();
-            skdw.Text = dt.Rows[0][3].ToString();
-            jsr.Text = dt.Rows[0][4].ToString();
+            tk_skdw.Text = dt.Rows[0][3].ToString();
+            tk_jsr.Text = dt.Rows[0][4].ToString();
             bm.Text = dt.Rows[0][5].ToString();
             htbh.Text = dt.Rows[0][6].ToString();
             zy.Text = dt.Rows[0][7].ToString();
@@ -79,8 +118,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
-                dml.Add("@skdw", skdw.Text.Trim());
-                dml.Add("@jsr", jsr.Text.Trim());
+                dml.Add("@skdw", tk_skdw.SelectedItem.Text.Trim());
+                dml.Add("@jsr", tk_jsr.SelectedItem.Text.Trim());
                 dml.Add("@bm", bm.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
                 dml.Add("@zy", zy.Text.Trim());

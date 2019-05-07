@@ -129,4 +129,22 @@ public class GlabalString
         DataTable dt = xsPageHelper.BindPager(pagepara);
         return dt;
     }
+
+    /// <summary>
+    /// 获取员工
+    /// </summary>
+    /// <returns></returns>
+    public static DataTable GetYuanGong()
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "yg";
+        pagepara.Sql = ht.QueryDropList("xs_YuanGong", arrList);
+        pagepara.OrderBy = "yg";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
 }

@@ -172,7 +172,7 @@ namespace XSSystem.Logic
             }
             else
             {
-                sql= @"select * from xs_FkdTable bh='"+qc.bh+"'";
+                sql= @"select * from xs_FkdTable where bh='"+qc.bh+"'";
             }
            
 

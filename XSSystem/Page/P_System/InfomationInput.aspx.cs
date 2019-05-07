@@ -99,5 +99,19 @@ namespace XSSystem.Page.P_System
                 AlertMessage("已存在，添加失败！");
             }
         }
+
+        protected void submit5_Click(object sender, EventArgs e)
+        {
+            DirModel dml = new DirModel();
+            dml.Add("@yg", YG.Text.Trim());
+            if (_htglLogic.InsertYuanGong(dml))
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("已存在，添加失败！");
+            }
+        }
     }
 }

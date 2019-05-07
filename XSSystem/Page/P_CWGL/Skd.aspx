@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Skd.aspx.cs" Inherits="XSSystem.Page.P_Order.Skd" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,18 +44,25 @@
 <body>
     <form id="form1" runat="server">
     <div> <p class="auto-style5">收款单</p>
+                <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
         <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
-            编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></p>
+            编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></p>
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width:1200px" >
                 <tr>
-                    <td class="auto-style3">付款单位<asp:TextBox ID="fkdw" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                    <td class="auto-style3">经手人<asp:TextBox id="jsr" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">付款单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkdw" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入付款单位"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="付款单位" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
+                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">部门<asp:TextBox id="bm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请选择合同编号"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="合同编号" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>

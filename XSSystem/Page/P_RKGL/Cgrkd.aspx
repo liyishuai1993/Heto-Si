@@ -39,7 +39,7 @@
                 <tr>
                     <td class="auto-style3">*合同号<asp:TextBox ID="hth" valued="must1" name="合同号" runat="server" Height="16px" Width="200px"></asp:TextBox></td>
                     <td class="auto-style3">煤矿名称
-                        <asp:TextBox ID="mkmc" runat="server" valued="must1" name="煤矿名称" Height="16px" Width="200px"></asp:TextBox>
+                        <asp:TextBox ID="mkmc" runat="server"  name="煤矿名称" Height="16px" Width="200px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" AutoPostBack="True" runat="server" Width="200px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
