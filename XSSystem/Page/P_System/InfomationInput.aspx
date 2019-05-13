@@ -20,8 +20,13 @@
                 </asp:DropDownList>
                 <asp:Button runat="server" text="新增" ID="submit2" OnClick="submit4_Click"/></p>
             <p>新增煤场<asp:TextBox runat="server" ID="YL" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit3" OnClick="submit3_Click"/></p>
-            <p>新增仓库<asp:TextBox runat="server" ID="CP" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit4" OnClick="submit2_Click"/></p>
-            <p>新增账户<asp:TextBox runat="server" ID="ZH" ></asp:TextBox><asp:Button runat="server" text="新增" ID="Button1" OnClick="Button1_Click"/></p>
+<%--            <p>新增仓库<asp:TextBox runat="server" ID="CP" ></asp:TextBox><asp:Button runat="server" text="新增" ID="submit4" OnClick="submit2_Click"/></p>--%>
+            <p>新增账户—
+                账号<asp:TextBox runat="server" ID="ZH" ToolTip="输入账号"></asp:TextBox>
+                账户名<asp:TextBox runat="server" ID="ZHM" ToolTip="输入对应账户名" ></asp:TextBox>
+                开户行<asp:TextBox runat="server" ID="KHH" ToolTip="输入对应开户行" ></asp:TextBox>
+                <asp:Button runat="server" text="新增" ID="Button1" OnClick="Button1_Click"/></p>
+            
             <p>新增人员<asp:TextBox runat="server" ID="YG" ToolTip="所有员工、司机、个人客户在此录入" ></asp:TextBox>
                 <asp:Button runat="server" text="新增" ID="submit5" OnClick="submit5_Click"/></p>
         </div>

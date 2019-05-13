@@ -51,21 +51,21 @@ namespace XSSystem.Page.P_System
             }
         }
 
-        protected void submit3_Click(object sender, EventArgs e)
-        {
-            DirModel dml = new DirModel();
-            LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@user_no", model.LoginUser);
-            dml.Add("@cp", CP.Text.Trim());
-            if (_htglLogic.InsertChanPing(dml))
-            {
-                AlertMessage("新增成功");
-            }
-            else
-            {
-                AlertMessage("已存在，添加失败！");
-            }
-        }
+        //protected void submit3_Click(object sender, EventArgs e)
+        //{
+        //    DirModel dml = new DirModel();
+        //    LoginModel model = Session["LoginModel"] as LoginModel;
+        //    dml.Add("@user_no", model.LoginUser);
+        //    dml.Add("@cp", CP.Text.Trim());
+        //    if (_htglLogic.InsertChanPing(dml))
+        //    {
+        //        AlertMessage("新增成功");
+        //    }
+        //    else
+        //    {
+        //        AlertMessage("已存在，添加失败！");
+        //    }
+        //}
 
         protected void submit4_Click(object sender, EventArgs e)
         {
@@ -90,6 +90,8 @@ namespace XSSystem.Page.P_System
             LoginModel model = Session["LoginModel"] as LoginModel;
             dml.Add("@user_no", model.LoginUser);
             dml.Add("@zh", ZH.Text.Trim());
+            dml.Add("@zhm", ZHM.Text.Trim());
+            dml.Add("@khh", KHH.Text.Trim());
             if (_htglLogic.InsertZhangHu(dml))
             {
                 AlertMessage("新增成功");

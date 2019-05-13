@@ -147,4 +147,23 @@ public class GlabalString
         DataTable dt = xsPageHelper.BindPager(pagepara);
         return dt;
     }
+
+    /// <summary>
+    /// 获取合同编号
+    /// </summary>
+    /// <param name="tableName">合同表名</param>
+    /// <returns></returns>
+    public static DataTable GetHeTongHao(string tableName)
+    {
+        PagerParameter pagepara = new PagerParameter();
+        pagepara.DbConn = GlabalString.DBString;
+        //pagepara.XsPager=
+        HTGLLogic ht = new HTGLLogic();
+        string[] arrList = new string[1];
+        arrList[0] = "htbh";
+        pagepara.Sql = ht.QueryDropList(tableName, arrList);
+        pagepara.OrderBy = "htbh";
+        DataTable dt = xsPageHelper.BindPager(pagepara);
+        return dt;
+    }
 }

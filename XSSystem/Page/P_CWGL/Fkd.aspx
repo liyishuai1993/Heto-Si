@@ -60,15 +60,17 @@
                     <td class="auto-style3">部门<asp:TextBox id="bm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请选择合同编号"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="合同编号" valued="must1" 
+   HighlightTemplatedItems="true"/> </td>
                     <td class="auto-style3">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
-                <tr>
+<%--                <tr>
                     <td class="auto-style3">应付余额<asp:TextBox id="yfye" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3"></td>
                     <td></td>
-                </tr>
+                </tr>--%>
             </table>            
         </div>
 

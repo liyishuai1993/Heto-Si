@@ -147,7 +147,7 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_ZhangHu (zh) values (@zh)";
+            sqlpara.SQL = "insert into xs_ZhangHu (zh,zhm,khh) values (@zh,@zhm,@khh)";
 
             return SqlHelper.Execute(sqlpara);
         }

@@ -69,6 +69,17 @@ namespace XSSystem.Page.P_Order
                 tk_jsr.SelectedIndex = 1;
             }
 
+            dt2 = GlabalString.GetHeTongHao("xs_XshtTable");
+            if (dt2.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_htbh.Items.Add(radcbItem);
+                }
+                tk_htbh.SelectedIndex = 1;
+            }
+
         }
 
         public void InitGridView()
@@ -103,8 +114,8 @@ namespace XSSystem.Page.P_Order
             tk_htbh.Text = dt.Rows[0][6].ToString();
             zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
-            ysye.Text = dt.Rows[0][9].ToString();
-            yfye.Text = dt.Rows[0][10].ToString();
+           // ysye.Text = dt.Rows[0][9].ToString();
+           // yfye.Text = dt.Rows[0][10].ToString();
             Session.Remove("skd");
         }
 
@@ -125,7 +136,7 @@ namespace XSSystem.Page.P_Order
             try
             {
                 dr[0] = dataTable.Rows.Count;
-                dr[1] = skzhbh.Text;
+                dr[1] = tk_skzhbh.SelectedItem.Text;
                 dr[2] = skzhmc.Text;
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
@@ -156,8 +167,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
                 dml.Add("@zy", zy.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
-                dml.Add("@ysye", ysye.Text.Trim());
-                dml.Add("@yfye", yfye.Text.Trim());
+              //  dml.Add("@ysye", ysye.Text.Trim());
+              ///  dml.Add("@yfye", yfye.Text.Trim());
             }
             catch
             {

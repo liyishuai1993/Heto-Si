@@ -85,24 +85,6 @@ namespace XSSystem.Page.P_System {
         protected global::System.Web.UI.WebControls.Button submit3;
         
         /// <summary>
-        /// CP 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CP;
-        
-        /// <summary>
-        /// submit4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit4;
-        
-        /// <summary>
         /// ZH 控件。
         /// </summary>
         /// <remarks>
@@ -110,6 +92,24 @@ namespace XSSystem.Page.P_System {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ZH;
+        
+        /// <summary>
+        /// ZHM 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ZHM;
+        
+        /// <summary>
+        /// KHH 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox KHH;
         
         /// <summary>
         /// Button1 控件。

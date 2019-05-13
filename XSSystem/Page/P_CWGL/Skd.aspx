@@ -66,18 +66,21 @@
                     <td class="auto-style3">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
-                <tr>
+<%--                <tr>
                     <td class="auto-style3">应收余额<asp:TextBox id="ysye" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td class="auto-style3">应付余额<asp:TextBox id="yfye" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
                     <td></td>
-                </tr>
+                </tr>--%>
             </table>            
         </div>
 
         <div>
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
-                收款账户编号<asp:TextBox runat="server" id="skzhbh"/>
+                收款账户编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入收款账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must1" 
+   HighlightTemplatedItems="true"/>
                 收款账户名称<asp:TextBox runat="server" id="skzhmc"/>
+                开户行<asp:TextBox runat="server" id="khh"/>
                 金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"/>
                 备注<asp:TextBox runat="server" ID="bz"/>
             </p>
