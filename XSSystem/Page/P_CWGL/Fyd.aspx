@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Fyd.aspx.cs" Inherits="XSSystem.Page.P_Order.Fyd" %>
-
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,19 +44,26 @@
 <body>
     <form id="form1" runat="server">
     <div> <p class="auto-style5">费用单</p>
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
         <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
-            编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></p>
+            编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></p>
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
-                    <td class="auto-style3">收费单位<asp:TextBox ID="sfdw" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                    <td class="auto-style3">经手人<asp:TextBox id="jsr" runat="server" Height="16px" Width ="284px"></asp:TextBox>
+                    <td class="auto-style3">收费单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_sfdw" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入收费单位"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收费单位" valued="must1" 
+   HighlightTemplatedItems="true"/></td>
+                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+  EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">部门<asp:TextBox id="bm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style6" colspan="2">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="682px"></asp:TextBox> </td>
-                    <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3" >摘要<asp:DropDownList id="dp_zy" runat="server" Height="24px" Width ="284px">
+                        <asp:ListItem>报销</asp:ListItem>
+                                              </asp:DropDownList> </td>
+                    <td class="auto-style3" >附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
             </table>            
         </div>

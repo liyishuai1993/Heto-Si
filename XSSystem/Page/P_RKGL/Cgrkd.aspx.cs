@@ -59,7 +59,7 @@ namespace XSSystem.Page.P_Order
                 tk_wlmc.SelectedIndex = 1;
             }
 
-            DataTable dt3 = GlabalString.GetZH();
+            DataTable dt3 = GlabalString.zhDataTable;
             if (dt3.Rows.Count != 0)
             {
 

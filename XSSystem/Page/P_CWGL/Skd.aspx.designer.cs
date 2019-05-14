@@ -85,13 +85,13 @@ namespace XSSystem.Page.P_Order {
         protected global::Telerik.Web.UI.RadComboBox tk_htbh;
         
         /// <summary>
-        /// zy 控件。
+        /// dp_zy 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zy;
+        protected global::System.Web.UI.WebControls.DropDownList dp_zy;
         
         /// <summary>
         /// fjsm 控件。
@@ -121,13 +121,13 @@ namespace XSSystem.Page.P_Order {
         protected global::Telerik.Web.UI.RadComboBox tk_skzhbh;
         
         /// <summary>
-        /// skzhmc 控件。
+        /// zhm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox skzhmc;
+        protected global::System.Web.UI.WebControls.TextBox zhm;
         
         /// <summary>
         /// khh 控件。

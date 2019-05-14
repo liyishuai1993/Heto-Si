@@ -85,13 +85,13 @@ namespace XSSystem.Page.P_Order {
         protected global::Telerik.Web.UI.RadComboBox tk_htbh;
         
         /// <summary>
-        /// zy 控件。
+        /// dp_zy 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zy;
+        protected global::System.Web.UI.WebControls.DropDownList dp_zy;
         
         /// <summary>
         /// fjsm 控件。
@@ -112,22 +112,31 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button InsertBtn;
         
         /// <summary>
-        /// fkzhbh 控件。
+        /// tk_skzhbh 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fkzhbh;
+        protected global::Telerik.Web.UI.RadComboBox tk_skzhbh;
         
         /// <summary>
-        /// fkzhmc 控件。
+        /// zhm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fkzhmc;
+        protected global::System.Web.UI.WebControls.TextBox zhm;
+        
+        /// <summary>
+        /// khh 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox khh;
         
         /// <summary>
         /// je 控件。

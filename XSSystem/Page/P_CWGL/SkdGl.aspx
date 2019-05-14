@@ -75,14 +75,14 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="ysye"  HeaderText="应收余额">
+<%--                <asp:BoundField DataField="ysye"  HeaderText="应收余额">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="yfye"  HeaderText="应付余额">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
-                </asp:BoundField>
+                </asp:BoundField>--%>
                 <asp:TemplateField  HeaderText="详情">
                     <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />

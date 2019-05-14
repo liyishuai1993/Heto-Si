@@ -22,6 +22,15 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// RadScriptManager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
+        
+        /// <summary>
         /// ldrq 控件。
         /// </summary>
         /// <remarks>
@@ -40,22 +49,22 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox bh;
         
         /// <summary>
-        /// sfdw 控件。
+        /// tk_sfdw 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sfdw;
+        protected global::Telerik.Web.UI.RadComboBox tk_sfdw;
         
         /// <summary>
-        /// jsr 控件。
+        /// tk_jsr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jsr;
+        protected global::Telerik.Web.UI.RadComboBox tk_jsr;
         
         /// <summary>
         /// bm 控件。
@@ -67,13 +76,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox bm;
         
         /// <summary>
-        /// zy 控件。
+        /// dp_zy 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zy;
+        protected global::System.Web.UI.WebControls.DropDownList dp_zy;
         
         /// <summary>
         /// fjsm 控件。

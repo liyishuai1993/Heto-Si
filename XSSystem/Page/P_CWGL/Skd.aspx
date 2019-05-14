@@ -63,7 +63,11 @@
                     <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请选择合同编号"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="合同编号" valued="must1" 
    HighlightTemplatedItems="true"/></td>
-                    <td class="auto-style3">摘要<asp:TextBox id="zy" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3">摘要<asp:DropDownList id="dp_zy" runat="server" Height="24px" Width ="284px">
+                        <asp:ListItem>借款</asp:ListItem>
+                        <asp:ListItem>货款收入</asp:ListItem>
+                        <asp:ListItem>往来</asp:ListItem>
+                                              </asp:DropDownList> </td>
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
 <%--                <tr>
@@ -76,10 +80,10 @@
 
         <div>
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
-                收款账户编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                收款账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server"  Height="200px"
   EmptyMessage="请输入收款账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must1" 
-   HighlightTemplatedItems="true"/>
-                收款账户名称<asp:TextBox runat="server" id="skzhmc"/>
+   HighlightTemplatedItems="true"  OnSelectedIndexChanged="tk_skzhbh_SelectedIndexChanged"/>
+                收款账户名称<asp:TextBox runat="server" id="zhm"/>
                 开户行<asp:TextBox runat="server" id="khh"/>
                 金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"/>
                 备注<asp:TextBox runat="server" ID="bz"/>

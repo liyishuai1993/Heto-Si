@@ -10,6 +10,7 @@ public class GlabalString
 {
     private static string dbString = System.Configuration.ConfigurationManager.ConnectionStrings["DbCon"].ConnectionString;
     public static string ProductPicPath = "/Resource/Products/pic/";
+    public static DataTable zhDataTable;
     /// <summary>
     /// 数据库连接
     /// </summary>
@@ -39,6 +40,11 @@ public class GlabalString
         }
     }
 
+    static GlabalString()
+    {
+        GetZH();
+    }
+
     /// <summary>
     /// 获取煤种名称
     /// </summary>
@@ -61,18 +67,19 @@ public class GlabalString
     /// 获取账户
     /// </summary>
     /// <returns></returns>
-    public static DataTable GetZH()
+    public static void GetZH()
     {
         PagerParameter pagepara = new PagerParameter();
-        pagepara.DbConn = GlabalString.DBString;
+        pagepara.DbConn = DBString;
         //pagepara.XsPager=
         HTGLLogic ht = new HTGLLogic();
-        string[] arrList = new string[1];
+        string[] arrList = new string[3];
         arrList[0] = "zh";
+        arrList[1] = "zhm";
+        arrList[2] = "khh";
         pagepara.Sql = ht.QueryDropList("xs_ZhangHu", arrList);
         pagepara.OrderBy = "zh";
-        DataTable dt = xsPageHelper.BindPager(pagepara);
-        return dt;
+        zhDataTable = xsPageHelper.BindPager(pagepara);
     }
 
     /// <summary>

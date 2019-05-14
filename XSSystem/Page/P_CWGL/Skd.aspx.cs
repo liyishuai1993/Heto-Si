@@ -80,6 +80,15 @@ namespace XSSystem.Page.P_Order
                 tk_htbh.SelectedIndex = 1;
             }
 
+            if (GlabalString.zhDataTable.Rows.Count != 0)
+            {
+                foreach (DataRow val in GlabalString.zhDataTable.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_skzhbh.Items.Add(radcbItem);
+                }
+            }
+
         }
 
         public void InitGridView()
@@ -112,7 +121,7 @@ namespace XSSystem.Page.P_Order
             tk_jsr.Text = dt.Rows[0][4].ToString();
             bm.Text = dt.Rows[0][5].ToString();
             tk_htbh.Text = dt.Rows[0][6].ToString();
-            zy.Text = dt.Rows[0][7].ToString();
+            dp_zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
            // ysye.Text = dt.Rows[0][9].ToString();
            // yfye.Text = dt.Rows[0][10].ToString();
@@ -137,7 +146,7 @@ namespace XSSystem.Page.P_Order
             {
                 dr[0] = dataTable.Rows.Count;
                 dr[1] = tk_skzhbh.SelectedItem.Text;
-                dr[2] = skzhmc.Text;
+                dr[2] = zhm.Text;
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
             }
@@ -162,10 +171,10 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
                 dml.Add("@fkdw", tk_fkdw.SelectedItem.Text.Trim());
-                dml.Add("@jsr", tk_jsr.SelectedItem.Text.Trim());
+                dml.Add("@jsr", tk_jsr.Text.Trim());
                 dml.Add("@bm", bm.Text.Trim());
                 dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
-                dml.Add("@zy", zy.Text.Trim());
+                dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
               //  dml.Add("@ysye", ysye.Text.Trim());
               ///  dml.Add("@yfye", yfye.Text.Trim());
@@ -196,6 +205,19 @@ namespace XSSystem.Page.P_Order
             else
             {
                 AlertMessage("新增失败");
+            }
+        }
+
+        protected void tk_skzhbh_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            foreach(DataRow val in GlabalString.zhDataTable.Rows)
+            {
+                if (val[0].ToString() == tk_skzhbh.Text)
+                {
+                    zhm.Text = val[1].ToString();
+                    khh.Text = val[2].ToString();
+                    break;
+                }
             }
         }
     }

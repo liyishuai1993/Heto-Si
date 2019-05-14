@@ -95,6 +95,7 @@ namespace XSSystem.Page.P_System
             if (_htglLogic.InsertZhangHu(dml))
             {
                 AlertMessage("新增成功");
+                GlabalString.GetZH();
             }
             else
             {
