@@ -90,6 +90,17 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_fmmc.SelectedIndex = 1;
             }
+
+            dt = GlabalString.GetMZMC();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_wlmc.Items.Add(radcbItem);
+                }
+                tk_wlmc.SelectedIndex = 1;
+            }
         }
 
         void InitData(object mk)
@@ -105,7 +116,7 @@ namespace XSSystem.Page.P_Order
             ch.Text = dt.Rows[0][7].ToString();
             jsy.Text = dt.Rows[0][8].ToString();
             lxdh.Text = dt.Rows[0][9].ToString();
-            wlmc.Text = dt.Rows[0][10].ToString();
+            tk_wlmc.Text = dt.Rows[0][10].ToString();
 
             ckmz.Text = dt.Rows[0][11].ToString();
             ckpz.Text = dt.Rows[0][12].ToString();
@@ -141,7 +152,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
-                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@ckmz", float.Parse(ckmz.Text.Trim()));
                 dml.Add("@ckpz", float.Parse(ckpz.Text.Trim()));
                 dml.Add("@jbds", float.Parse(jbds.Text.Trim()));

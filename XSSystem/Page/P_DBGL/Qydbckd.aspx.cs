@@ -61,6 +61,19 @@ namespace XSSystem.Page.P_Order
                 tk_fmmc.SelectedIndex = 1;
                 tk_smmc.SelectedIndex = 1;
             }
+
+            dt = GlabalString.GetMZMC();
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow val in dt.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_wlmc.Items.Add(radcbItem);
+                }
+                tk_wlmc.SelectedIndex = 1;
+            }
+
+
         }
 
         void InitData2(object mk)
@@ -105,7 +118,7 @@ namespace XSSystem.Page.P_Order
             ch.Text = dt.Rows[0][6].ToString();
             jsy.Text = dt.Rows[0][7].ToString();
             lxdh.Text = dt.Rows[0][8].ToString();
-            wlmc.Text = dt.Rows[0][9].ToString();
+            tk_wlmc.Text = dt.Rows[0][9].ToString();
             ckmz.Text = dt.Rows[0][10].ToString();
 
             ckpz.Text = dt.Rows[0][11].ToString();
@@ -139,7 +152,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
-                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@ckmz", float.Parse(ckmz.Text.Trim()));
                 dml.Add("@ckpz", float.Parse(ckpz.Text.Trim()));
                 dml.Add("@ckjz", float.Parse(ckjz.Text.Trim()));
@@ -232,12 +245,12 @@ namespace XSSystem.Page.P_Order
                 return;
             }
             ksds.Text = AbsSub(ckjz.Text, rkjz.Text);
-            yyds.Text = Sub(rkjz.Text, ckjz.Text);
+            yyds.Text = AbsSub(rkjz.Text, ckjz.Text);
             yfkkds.Text = Sub(ksds.Text, yslhbz.Text);
             yfkkje.Text = Mul(yfkkbz.Text, yfkkds.Text);
             yfjsdw.Text = double.Parse(ckjz.Text) >= double.Parse(rkjz.Text) ? rkjz.Text : ckjz.Text;
             yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), yfkkje.Text);
-            jsyf.Text = Sub(yfyf.Text, yfkkje.Text);
+            jsyf.Text = Sub(Sub(yfyf.Text, yfyk.Text),fykk.Text);
             drje.Text = Add(Mul(ckjz.Text, dcmj.Text), yfyf.Text);
             drmj.Text = Div(drje.Text, rkjz.Text);
             return;

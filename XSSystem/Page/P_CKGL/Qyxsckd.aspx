@@ -64,7 +64,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">联系电话<asp:TextBox id="lxdh" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="500px" name="物料名称" valued="must1"></asp:TextBox> 
+                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+  EmptyMessage="请输入物料名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1" 
+   HighlightTemplatedItems="true"/>
                     </td>
                 </tr>
                 <tr>
