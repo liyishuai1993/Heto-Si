@@ -120,8 +120,10 @@ namespace XSSystem.Page.P_HTGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.htbh = (sender as Button).CommandArgument;
-
+            qc.tableName = "xs_XshtTable";
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.selectedKey = "htbh";
+            qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["xsht"] = dt;

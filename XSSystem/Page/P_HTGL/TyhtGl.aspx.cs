@@ -125,7 +125,10 @@ namespace XSSystem.Page.P_HTGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.htbh = (sender as Button).CommandArgument;
+            qc.tableName = "xs_TyhtTable";
+            qc.selectedKey = "htbh";
+            qc.selectedCon = "or";
+            qc.selectedItem = (sender as Button).CommandArgument;
 
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
