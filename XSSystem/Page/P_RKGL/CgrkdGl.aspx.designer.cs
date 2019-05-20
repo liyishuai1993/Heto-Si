@@ -22,13 +22,13 @@ namespace XSSystem.Page.P_RKGL {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// tbgfmc 控件。
+        /// allQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbgfmc;
+        protected global::System.Web.UI.WebControls.Button allQuery;
         
         /// <summary>
         /// qdfwQ 控件。
@@ -49,67 +49,22 @@ namespace XSSystem.Page.P_RKGL {
         protected global::System.Web.UI.WebControls.TextBox qdfwZ;
         
         /// <summary>
-        /// tbwlmc 控件。
+        /// sxtj 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbwlmc;
+        protected global::System.Web.UI.WebControls.DropDownList sxtj;
         
         /// <summary>
-        /// tbmj 控件。
+        /// tjz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbmj;
-        
-        /// <summary>
-        /// tbch 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbch;
-        
-        /// <summary>
-        /// tbzcjz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbzcjz;
-        
-        /// <summary>
-        /// tbrkbdh 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbrkbdh;
-        
-        /// <summary>
-        /// tbrkmc 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbrkmc;
-        
-        /// <summary>
-        /// tbrkjz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbrkjz;
+        protected global::System.Web.UI.WebControls.TextBox tjz;
         
         /// <summary>
         /// btnQuery 控件。

@@ -18,14 +18,18 @@
     <form id="form1" runat="server">
         <div class="divcss5" style="margin-bottom:15px;width:1500px">
             <span>
-                出库磅单号<asp:TextBox id="tbckbdh" runat="server" Width="80px"></asp:TextBox>
+                <%--出库磅单号<asp:TextBox id="tbckbdh" runat="server" Width="80px"></asp:TextBox>--%>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
                 装车时间<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
                 -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
-                发煤煤场<asp:TextBox id="tbfmmc" runat="server" Width="100px"></asp:TextBox>
-                需方<asp:TextBox id="tbxf" runat="server" Width="80px"></asp:TextBox>
-                车号<asp:TextBox id="tbch" runat="server" Width="80px"></asp:TextBox>
-                出库净重2<asp:TextBox id="tbckjz2" runat="server" Width="60px"></asp:TextBox>
-                煤价<asp:TextBox id="tbmj" runat="server" Width="60px"></asp:TextBox>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="htbh">合同编号</asp:ListItem>
+                        <asp:ListItem Value="ckbdh">出库磅单号</asp:ListItem>
+                        <asp:ListItem Value="rkbdh">入库磅单号</asp:ListItem>
+                        <asp:ListItem Value="ch">车号</asp:ListItem>
+                        <asp:ListItem Value="wlmc">物料名称</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />

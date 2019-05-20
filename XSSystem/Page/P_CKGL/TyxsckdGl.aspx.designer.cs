@@ -22,58 +22,31 @@ namespace XSSystem.Page.P_CKGL {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// qdfwQ 控件。
+        /// allQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox qdfwQ;
+        protected global::System.Web.UI.WebControls.Button allQuery;
         
         /// <summary>
-        /// qdfwZ 控件。
+        /// sxtj 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox qdfwZ;
+        protected global::System.Web.UI.WebControls.DropDownList sxtj;
         
         /// <summary>
-        /// tbstf 控件。
+        /// tjz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbstf;
-        
-        /// <summary>
-        /// tbzcz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbzcz;
-        
-        /// <summary>
-        /// tbzdz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbzdz;
-        
-        /// <summary>
-        /// tbxh 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxh;
+        protected global::System.Web.UI.WebControls.TextBox tjz;
         
         /// <summary>
         /// btnQuery 控件。

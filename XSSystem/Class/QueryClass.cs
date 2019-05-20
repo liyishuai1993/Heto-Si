@@ -7,6 +7,11 @@ namespace XSSystem.Class
 {
     public class QueryClass:BaseClass
     {
+        public string selectedKey { get; set; }
+        public object selectedItem { get; set; }
+        public string selectedTimeKey { get; set; }
+        public string selectedCon { get; set; }
+        public int IsAll { get; set; }
         public string user_no { get; set; }
         public string tableName { get; set; }
         public string htbh { get; set; }
@@ -63,7 +68,7 @@ namespace XSSystem.Class
 
         public QueryClass()
         {
-
+            selectedCon = "and";
         }
     }
 }

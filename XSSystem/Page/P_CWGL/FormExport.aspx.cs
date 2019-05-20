@@ -63,7 +63,7 @@ namespace XSSystem.Page.P_CWGL
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QueryCghtOrder(qc);
+            pagepara.Sql = _htglLogic.QueryHtOrder(qc);
             pagepara.OrderBy = "htbh";
             return xsPageHelper.BindPager(pagepara, e);
         }

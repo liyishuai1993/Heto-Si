@@ -20,29 +20,25 @@ namespace XSSystem.Page.P_HTGL
         {
             if (!IsPostBack)
             {
-                xsPage.StartShowPage();
+                //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
+                SelectedAll();
             }
 
 
         }
 
-        QueryClass qc;
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
-            qc = new QueryClass();
-            qc.htbh = tbhtbh.Text.Trim();
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_XshtTable";
             if (qdfwQ.Text != "")
                 qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
             if (qdfwZ.Text != "")
                 qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            //qc.gfmc = tbgfmc.Text.Trim();
-            qc.xfmc = tbxfmc.Text.Trim();
-            //qc.mkmc = tbmkmc.Text.Trim();
-            if (tbkpmj.Text.Trim() != "")
-                qc.kpmj = float.Parse(tbkpmj.Text.Trim());
-            qc.zt = tbzt.Text.Trim();
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedItem = tjz.Text.Trim();
 
 
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
@@ -61,7 +57,7 @@ namespace XSSystem.Page.P_HTGL
 
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryXshtOrder(qc);
+            pagepara.Sql = _htglLogic.QueryHtOrder(qc);
             pagepara.OrderBy = "htbh";
             return xsPageHelper.BindPager(pagepara, e);
         }
@@ -141,6 +137,23 @@ namespace XSSystem.Page.P_HTGL
         protected void ddlnewtype_selectedindexchanged(object sender, EventArgs e)
         {
             xsPage.StartShowPage();
+        }
+
+        protected void allQuery_Click(object sender, EventArgs e)
+        {
+            SelectedAll();
+        }
+
+        private void SelectedAll()
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_XshtTable";
+            qc.selectedKey = "htbh";
+            qc.IsAll = 1;
+            GridOrder.DataSource = SelectSQL(qc, ex);
+
+            GridOrder.DataBind();
         }
     }
 }

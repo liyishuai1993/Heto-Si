@@ -163,6 +163,14 @@ namespace XSSystem.Logic
             return sql;
         }
 
+        public string QueryHtOrder(QueryClass qc)
+        {
+            //string sql = string.Format(@"select * from {0} where ({1}='{2}' and (qdrq>='{3}' and qdrq<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+
+            string sql = string.Format(@"select * from {0} where ({1}='{2}') or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+            return sql;
+        }
+
         internal string QueryFkdOrder(QueryClass2 qc)
         {
             string sql;

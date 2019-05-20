@@ -17,14 +17,22 @@
         <div class="divcss5" style="margin-bottom:15px;width:1500px">
             <span>
         
-                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>
+                <%--合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>--%>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
                 签订日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
                 -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
-                受托方<asp:TextBox id="tbstf" runat="server" Width="90px"></asp:TextBox>
+<%--                受托方<asp:TextBox id="tbstf" runat="server" Width="90px"></asp:TextBox>
                 起运地<asp:TextBox id="tbqyd" runat="server" Width="100px"></asp:TextBox>
                 目的地<asp:TextBox id="tbmdd" runat="server" Width="100px"></asp:TextBox>
                 运价<asp:TextBox id="tbyj" runat="server" Width="60px"></asp:TextBox>
-                状态<asp:TextBox id="tbzt" runat="server" Width="60px"></asp:TextBox>
+                状态<asp:TextBox id="tbzt" runat="server" Width="60px"></asp:TextBox>--%>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="htbh">合同编号</asp:ListItem>
+                        <asp:ListItem Value="stf">受托方</asp:ListItem>
+                        <asp:ListItem Value="htmj">起运地</asp:ListItem>
+                        <asp:ListItem Value="shzt">审核状态</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />

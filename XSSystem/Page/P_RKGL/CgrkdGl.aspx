@@ -18,16 +18,26 @@
     <form id="form1" runat="server">
         <div class="divcss5" style="margin-bottom:15px;width:1500px">
             <span>
-                供方名称<asp:TextBox id="tbgfmc" runat="server" Width="80px"></asp:TextBox>
+                <%--供方名称<asp:TextBox id="tbgfmc" runat="server" Width="80px"></asp:TextBox>--%>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
                 装车日期<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="70px"></asp:TextBox>
                 -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="70px"></asp:TextBox>
-                物料名称<asp:TextBox id="tbwlmc" runat="server" Width="80px"></asp:TextBox>
+                <%--物料名称<asp:TextBox id="tbwlmc" runat="server" Width="80px"></asp:TextBox>
                 煤价<asp:TextBox id="tbmj" runat="server" Width="50px"></asp:TextBox>
                 车号<asp:TextBox id="tbch" runat="server" Width="80px"></asp:TextBox>
                 装车净重<asp:TextBox id="tbzcjz" runat="server" Width="60px"></asp:TextBox>
                 入库磅单号<asp:TextBox id="tbrkbdh" runat="server" Width="80px"></asp:TextBox>
                 入库煤场<asp:TextBox id="tbrkmc" runat="server" Width="80px"></asp:TextBox>
-                入库净重<asp:TextBox id="tbrkjz" runat="server" Width="50px"></asp:TextBox>
+                入库净重<asp:TextBox id="tbrkjz" runat="server" Width="50px"></asp:TextBox>--%>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="hth">合同号</asp:ListItem>
+                        <asp:ListItem Value="gf">供方</asp:ListItem>
+                        <asp:ListItem Value="wlmc">物料名称</asp:ListItem>
+                        <asp:ListItem Value="ch">车号</asp:ListItem>
+                        <asp:ListItem Value="rkbdh">入库磅单号</asp:ListItem>
+                        <asp:ListItem Value="shzt">审核状态</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />

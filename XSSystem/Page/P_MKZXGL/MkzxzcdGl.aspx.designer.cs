@@ -22,6 +22,15 @@ namespace XSSystem.Page.P_MKZXGL {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// allQuery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button allQuery;
+        
+        /// <summary>
         /// zcrqfwQ 控件。
         /// </summary>
         /// <remarks>
@@ -40,49 +49,22 @@ namespace XSSystem.Page.P_MKZXGL {
         protected global::System.Web.UI.WebControls.TextBox zcrqfwZ;
         
         /// <summary>
-        /// tbghf 控件。
+        /// sxtj 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbghf;
+        protected global::System.Web.UI.WebControls.DropDownList sxtj;
         
         /// <summary>
-        /// tbshf 控件。
+        /// tjz 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbshf;
-        
-        /// <summary>
-        /// tbwlmc 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbwlmc;
-        
-        /// <summary>
-        /// tbch 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbch;
-        
-        /// <summary>
-        /// tbzcjz 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbzcjz;
+        protected global::System.Web.UI.WebControls.TextBox tjz;
         
         /// <summary>
         /// btnQuery 控件。

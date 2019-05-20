@@ -22,7 +22,8 @@ namespace XSSystem.Page.P_DBGL
             {
                 qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
-                xsPage.StartShowPage();
+                //xsPage.StartShowPage();
+                SelectedAll();
             }
 
 
@@ -33,17 +34,13 @@ namespace XSSystem.Page.P_DBGL
 
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_QydbckdTable";
-            qc.ckbdh = tbckbdh.Text.Trim();
-            if(qdfwQ.Text!="")
+            if (qdfwQ.Text != "")
                 qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
-            if(qdfwZ.Text!="")
+            if (qdfwZ.Text != "")
                 qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-           // qc.gfmc = tbgfmc.Text.Trim();
-            qc.wlmc = tbwlmc.Text.Trim();
-            qc.fmmc = tbfmmc.Text.Trim();
-            qc.ch = tbch.Text.Trim();
-            if (tbckjz.Text.Trim() != "")
-                qc.ckjz = float.Parse(tbckjz.Text.Trim());
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedItem = tjz.Text.Trim();
 
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
             //{
@@ -66,12 +63,12 @@ namespace XSSystem.Page.P_DBGL
 
             if (flag == 1)
             {
-                pagepara.Sql = _htglLogic.QueryQydbckdOrder(qc);
+                pagepara.Sql = _htglLogic.QueryHt2Order(qc);
                 pagepara.OrderBy = "ckbdh";
             }
             else
             {
-                pagepara.Sql = _htglLogic.QueryQydbhdOrder(qc);
+                pagepara.Sql = _htglLogic.QueryHt2Order(qc);
                 pagepara.OrderBy = "rkbdh";
             }
 
@@ -99,7 +96,7 @@ namespace XSSystem.Page.P_DBGL
 
 
             dml.Add("@htbhArr", ckb);
-            if (_htglLogic.DeleteData(dml, "xs_QyxsckdTable","bh"))
+            if (_htglLogic.DeleteData(dml, "xs_QydbckdTable", "bh"))
             {
                 AlertMessage("订单删除成功");
             }
@@ -129,13 +126,18 @@ namespace XSSystem.Page.P_DBGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
+            QueryClass qc2 = new QueryClass();
             string[] estr = (sender as Button).CommandArgument.ToString().Split(',');
-            qc.ckbdh = estr[0];
-            qc.rkbdh = estr[1];
+            qc.selectedItem = estr[0];
+            qc.tableName = "xs_QydbckdTable";
+            qc.selectedKey = "ckbdh";
+            qc2.tableName = "xs_QydbhdTable";
+            qc2.selectedKey = "rkbdh";
+            qc2.selectedItem = estr[1];
 
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex,1);
-            DataTable dt2 = SelectSQL(qc, ex, 2);
+            DataTable dt2 = SelectSQL(qc2, ex, 2);
             Session["qydbckd"] = dt;
             if (dt2.Rows.Count > 0)
             {
@@ -175,6 +177,24 @@ namespace XSSystem.Page.P_DBGL
         protected void ddlnewtype_selectedindexchanged(object sender, EventArgs e)
         {
             xsPage.StartShowPage();
+        }
+
+        protected void allQuery_Click(object sender, EventArgs e)
+        {
+            SelectedAll();
+        }
+
+        private void SelectedAll()
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_QydbckdTable";
+            qc.selectedKey = "ckbdh";
+            qc.selectedTimeKey = "zcsj";
+            qc.IsAll = 1;
+            GridOrder.DataSource = SelectSQL(qc, ex,1);
+
+            GridOrder.DataBind();
         }
     }
 }

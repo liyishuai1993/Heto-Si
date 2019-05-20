@@ -31,6 +31,15 @@ namespace XSSystem.Page.P_CKGL {
         protected global::System.Web.UI.WebControls.TextBox tbrkbdh;
         
         /// <summary>
+        /// allQuery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button allQuery;
+        
+        /// <summary>
         /// qdfwQ 控件。
         /// </summary>
         /// <remarks>
@@ -49,13 +58,22 @@ namespace XSSystem.Page.P_CKGL {
         protected global::System.Web.UI.WebControls.TextBox qdfwZ;
         
         /// <summary>
-        /// tbrkjz 控件。
+        /// sxtj 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbrkjz;
+        protected global::System.Web.UI.WebControls.DropDownList sxtj;
+        
+        /// <summary>
+        /// tjz 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tjz;
         
         /// <summary>
         /// btnQuery 控件。

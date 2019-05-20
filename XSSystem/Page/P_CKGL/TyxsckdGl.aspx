@@ -18,14 +18,21 @@
     <form id="form1" runat="server">
         <div class="divcss5" style="margin-bottom:15px;width:1500px">
             <span>
-
-                发车日期<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>～
-                <asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
-                受托方<asp:TextBox id="tbstf" runat="server" Width="140px"></asp:TextBox>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
+<%--                发车日期<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>～
+                <asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>--%>
+                <%--受托方<asp:TextBox id="tbstf" runat="server" Width="140px"></asp:TextBox>
                 装车站<asp:TextBox id="tbzcz" runat="server" Width="140px"></asp:TextBox>
                 终到站<asp:TextBox id="tbzdz" runat="server" Width="140px"></asp:TextBox>
-                箱号<asp:TextBox id="tbxh" runat="server" Width="140px"></asp:TextBox>
+                箱号<asp:TextBox id="tbxh" runat="server" Width="140px"></asp:TextBox>--%>
 <%--                状态<asp:TextBox id="tbzt" runat="server" Width="140px"></asp:TextBox>--%>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="htbh">合同编号</asp:ListItem>
+                        <asp:ListItem Value="gfmc">供方名称</asp:ListItem>
+                        <asp:ListItem Value="htmj">合同煤价</asp:ListItem>
+                        <asp:ListItem Value="shzt">审核状态</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />

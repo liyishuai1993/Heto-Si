@@ -635,11 +635,33 @@ namespace xs_System.Logic
             return sql;
         }
 
-        public string QueryCghtOrder(QueryClass qc)
+        public string QueryHtOrder(QueryClass qc)
         {
-            string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
-                "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
-                 "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
+            //string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
+            //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
+            //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
+
+            string sql = string.Format(@"select * from {0} where ({1}='{2}' {6} (qdrq>='{3}' and qdrq<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.selectedCon);
+            return sql;
+        }
+
+        public string QueryHt2Order(QueryClass qc)
+        {
+            //string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
+            //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
+            //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
+
+            string sql = string.Format(@"select * from {0} where ({1}='{2}' {7} ({6}>='{3}' and {6}<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.selectedTimeKey,qc.selectedCon);
+            return sql;
+        }
+
+        public string QueryHt3Order(QueryClass qc)
+        {
+            //string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
+            //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
+            //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
+
+            string sql = string.Format(@"select * from {0} where ({1}='{2}') or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll, qc.selectedTimeKey, qc.selectedCon);
             return sql;
         }
 
@@ -785,18 +807,18 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
           //  sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sql = @"delete from [" + tablename + "]where "+key+"='";
+            sql = @"delete from " + tablename + " where "+key+"='";
             for (int i = 0; i < ckb.Length; i++)
             {
-                sql += ckb[i];
-                if (i == ckb.Length - 1)
-                    sql += "'";
-                else
-                    sql += "' or "+key+"='";
+                //sql += ckb[i];
+                //if (i == ckb.Length - 1)
+                //    sql += "'";
+                //else
+                //    sql += "' or "+key+"='";
+                sql = @"delete from " + tablename + " where " + key + "='"+ ckb[i]+"'";
+                sqlpara.SQL = sql;
+                SqlHelper.Execute(sqlpara);
             }
-            sqlpara.SQL = sql;
-            SqlHelper.Execute(sqlpara);
-            
             return true;
         }
 

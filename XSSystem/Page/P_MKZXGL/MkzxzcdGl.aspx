@@ -18,13 +18,20 @@
     <form id="form1" runat="server">
         <div class="divcss5" style="margin-bottom:15px;width:1500px">
             <span>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
                 装车日期范围<asp:TextBox ID="zcrqfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
                 -<asp:TextBox ID="zcrqfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
-                供货方<asp:TextBox id="tbghf" runat="server" Width="100px"></asp:TextBox>
+                <%--供货方<asp:TextBox id="tbghf" runat="server" Width="100px"></asp:TextBox>
                 收货方<asp:TextBox id="tbshf" runat="server" Width="100px"></asp:TextBox>
                 物料名称<asp:TextBox id="tbwlmc" runat="server" Width="60px"></asp:TextBox>
                 车号<asp:TextBox id="tbch" runat="server" Width="60px"></asp:TextBox>
-                装车净重<asp:TextBox id="tbzcjz" runat="server" Width="60px"></asp:TextBox>
+                装车净重<asp:TextBox id="tbzcjz" runat="server" Width="60px"></asp:TextBox>--%>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="cghth">采购合同号</asp:ListItem>
+                        <asp:ListItem Value="ghf">供货方</asp:ListItem>
+                        <asp:ListItem Value="shf">收货方</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />

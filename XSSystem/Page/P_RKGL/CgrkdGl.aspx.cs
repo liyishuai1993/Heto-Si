@@ -20,9 +20,10 @@ namespace XSSystem.Page.P_RKGL
         {
             if (!IsPostBack)
             {
-                xsPage.StartShowPage();
+                //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
+                SelectedAll();
             }
         }
 
@@ -30,23 +31,13 @@ namespace XSSystem.Page.P_RKGL
         {
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_CgrkdTable";
-            qc.rkbdh = tbrkbdh.Text.Trim();
             if (qdfwQ.Text != "")
                 qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
             if (qdfwZ.Text != "")
                 qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            qc.gfmc = tbgfmc.Text.Trim();
-            if (tbmj.Text.Trim() != "")
-                qc.mj = float.Parse(tbmj.Text.Trim());
-            if (tbzcjz.Text.Trim() != "")
-                qc.zcjz = float.Parse(tbzcjz.Text.Trim());
-            if (tbrkjz.Text.Trim() != "")
-                qc.rkjz = float.Parse(tbrkjz.Text.Trim());
-            qc.wlmc = tbwlmc.Text.Trim();
-            qc.ch = tbch.Text.Trim();
-            qc.rkmc = tbrkmc.Text.Trim();
-
-
+            qc.selectedTimeKey = "zcrq";
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedItem = tjz.Text.Trim();
             //if (!"G001".Equals(LoginUser.LoginUserGroup))
             //{
             //    gvUser.Columns[2].Visible = false;
@@ -65,7 +56,7 @@ namespace XSSystem.Page.P_RKGL
 
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryCgrkd(qc);
+            pagepara.Sql = _htglLogic.QueryHt2Order(qc);
             pagepara.OrderBy = "hth";
             return xsPageHelper.BindPager(pagepara, e);
         }
@@ -126,6 +117,24 @@ namespace XSSystem.Page.P_RKGL
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             xsPage.RefreshPage();
+        }
+
+        protected void allQuery_Click(object sender, EventArgs e)
+        {
+            SelectedAll();
+        }
+
+        private void SelectedAll()
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_CgrkdTable";
+            qc.selectedKey = "hth";
+            qc.selectedTimeKey = "zcrq";
+            qc.IsAll = 1;
+            GridOrder.DataSource = SelectSQL(qc, ex);
+
+            GridOrder.DataBind();
         }
     }
 }

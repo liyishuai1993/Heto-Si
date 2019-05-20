@@ -53,7 +53,7 @@ function FormCheck()
                 <tr>
                     <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" ReadOnly="true" Enabled="False"></asp:TextBox></td>
                     <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
-                        <asp:ListItem>预付款</asp:ListItem>
+                        <asp:ListItem Value="yfk">预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>

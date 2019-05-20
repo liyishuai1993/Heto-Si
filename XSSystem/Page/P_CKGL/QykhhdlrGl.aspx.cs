@@ -20,9 +20,10 @@ namespace XSSystem.Page.P_CKGL
         {
             if (!IsPostBack)
             {
-                xsPage.StartShowPage();
+                //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
+                SelectedAll();
             }
 
 
@@ -32,22 +33,15 @@ namespace XSSystem.Page.P_CKGL
         {
 
 
-            //if (!"G001".Equals(LoginUser.LoginUserGroup))
-            //{
-            //    gvUser.Columns[2].Visible = false;
-            //}
             QueryClass qc = new QueryClass();
-            qc.tableName = "xs_QykhhdlrTable";
-            qc.rkbdh = tbrkbdh.Text.Trim();
+            qc.tableName = "xs_QyxsckdTable";
             if (qdfwQ.Text != "")
                 qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
             if (qdfwZ.Text != "")
                 qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            // qc.gfmc = tbgfmc.Text.Trim();
-            //qc.xfmc = tbxfmc.Text.Trim();
-            //qc.mkmc = tbmkmc.Text.Trim();
-            if (tbrkjz.Text.Trim() != "")
-                qc.rkjz = float.Parse(tbrkjz.Text.Trim());
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedItem = tjz.Text.Trim();
+
             GridOrder.DataSource = SelectSQL(qc,e);        
             GridOrder.DataBind();
         }
@@ -61,7 +55,7 @@ namespace XSSystem.Page.P_CKGL
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
 
-            pagepara.Sql = _htglLogic.QueryQykhhdlrOrder(qc);
+            pagepara.Sql = _htglLogic.QueryHtOrder(qc);
             pagepara.OrderBy = "rkbdh";
             return xsPageHelper.BindPager(pagepara, e);
         }
@@ -136,6 +130,23 @@ namespace XSSystem.Page.P_CKGL
         protected void ddlnewtype_selectedindexchanged(object sender, EventArgs e)
         {
             xsPage.StartShowPage();
+        }
+
+        protected void allQuery_Click(object sender, EventArgs e)
+        {
+            SelectedAll();
+        }
+
+        private void SelectedAll()
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_QyxsckdTable";
+            qc.selectedKey = "htbh";
+            qc.IsAll = 1;
+            GridOrder.DataSource = SelectSQL(qc, ex);
+
+            GridOrder.DataBind();
         }
     }
 }

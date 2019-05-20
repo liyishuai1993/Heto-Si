@@ -20,9 +20,10 @@ namespace XSSystem.Page.P_DBGL
         {
             if (!IsPostBack)
             {
-                xsPage.StartShowPage();
-                qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
-               // qdfwZ.Text = DateTime.Now.ToShortDateString();
+               // xsPage.StartShowPage();
+                //qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                // qdfwZ.Text = DateTime.Now.ToShortDateString();
+                SelectedAll();
             }
 
 
@@ -32,18 +33,12 @@ namespace XSSystem.Page.P_DBGL
         {
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_TydbckdTable";
-            if(qdfwQ.Text!="")
-                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
-           // qc.gfmc = tbgfmc.Text.Trim();
-            //qc.xfmc = tbxfmc.Text.Trim();
-            //qc.mkmc = tbmkmc.Text.Trim();
-            qc.fmmc = tbfmmc.Text.Trim();
-            qc.wlmc = tbwlmc.Text.Trim();
-            qc.zcz = tbzcz.Text.Trim();
-            qc.zdz = tbzdz.Text.Trim();
-            qc.xlx = tbxlx.Text.Trim();
-            qc.xh = tbxh.Text.Trim();
-            qc.xhck = tbxhck.Text.Trim();
+            //if (qdfwQ.Text != "")
+            //    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+            //if (qdfwZ.Text != "")
+            //    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedItem = tjz.Text.Trim();
 
 
 
@@ -66,7 +61,7 @@ namespace XSSystem.Page.P_DBGL
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
 
-            pagepara.Sql = _htglLogic.QueryTydbckdOrder(qc);
+            pagepara.Sql = _htglLogic.QueryHt3Order(qc);
             pagepara.OrderBy = "bh";
             return xsPageHelper.BindPager(pagepara, e);
         }
@@ -89,7 +84,7 @@ namespace XSSystem.Page.P_DBGL
 
 
             dml.Add("@htbhArr", ckb);
-            if (_htglLogic.DeleteData(dml, "xs_QyxsckdTable","bh"))
+            if (_htglLogic.DeleteData(dml, "xs_TydbckdTable", "bh"))
             {
                 AlertMessage("订单删除成功");
             }
@@ -134,6 +129,23 @@ namespace XSSystem.Page.P_DBGL
         protected void ddlnewtype_selectedindexchanged(object sender, EventArgs e)
         {
             xsPage.StartShowPage();
+        }
+
+        protected void allQuery_Click(object sender, EventArgs e)
+        {
+            SelectedAll();
+        }
+
+        private void SelectedAll()
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            qc.tableName = "xs_TydbckdTable";
+            qc.selectedKey = "bh";
+            qc.IsAll = 1;
+            GridOrder.DataSource = SelectSQL(qc, ex);
+
+            GridOrder.DataBind();
         }
     }
 }
