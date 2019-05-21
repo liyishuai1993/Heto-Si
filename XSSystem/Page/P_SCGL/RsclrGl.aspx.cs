@@ -127,7 +127,11 @@ namespace XSSystem.Page.P_SCGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.bh = (sender as Button).CommandArgument;
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.tableName = "xs_RsclrTable";
+            qc.selectedKey = "bh";
+            qc.selectedTimeKey = "rq";
+            qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["rsclr"] = dt;

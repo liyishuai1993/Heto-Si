@@ -174,7 +174,6 @@ namespace XSSystem.Page.P_HTGL
             qc.selectedKey = "htbh";
             qc.IsAll = 1;
             GridOrder.DataSource = SelectSQL(qc, ex);
-
             GridOrder.DataBind();
         }
     }

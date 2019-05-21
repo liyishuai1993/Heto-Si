@@ -22,9 +22,10 @@ namespace XSSystem.Page.P_Order
             if (!IsPostBack)
             {
                 //xsPage.StartShowPage();
+                qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                qdfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll();
-                // qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
-                // qdfwZ.Text = DateTime.Now.ToShortDateString();
+                
             }
         }
 
@@ -37,9 +38,14 @@ namespace XSSystem.Page.P_Order
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
+            if (qdfwQ.Text != "")
+                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+            if (qdfwZ.Text != "")
+                qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
             qc.tableName = "xs_SkdTable";
             qc.selectedKey = sxtj.SelectedValue;
             qc.selectedItem = tjz.Text.Trim();
+            qc.selectedTimeKey = "ldrq";
             // qc.gfmc = tbgfmc.Text.Trim();
             //qc.xfmc = tbxfmc.Text.Trim();
             //qc.mkmc = tbmkmc.Text.Trim();
@@ -55,7 +61,7 @@ namespace XSSystem.Page.P_Order
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
 
-            pagepara.Sql = _cwglLogic.QueryHtOrder(qc);
+            pagepara.Sql = _htglLogic.QueryHt2Order(qc);
             pagepara.OrderBy = "bh";
             return xsPageHelper.BindPager(pagepara, e);
         }
@@ -63,7 +69,11 @@ namespace XSSystem.Page.P_Order
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.bh = (sender as Button).CommandArgument;
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.tableName = "xs_SkdTable";
+            qc.selectedKey = "bh";
+            qc.selectedTimeKey = "ldrq";
+            qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["skd"] = dt;
@@ -127,6 +137,7 @@ namespace XSSystem.Page.P_Order
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_SkdTable";
             qc.selectedKey = "bh";
+            qc.selectedTimeKey = "ldrq";
             qc.IsAll = 1;
             GridOrder.DataSource = SelectSQL(qc, ex);
 

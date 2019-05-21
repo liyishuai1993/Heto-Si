@@ -55,7 +55,7 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="qdrq"  HeaderText="签订日期">
+                <asp:BoundField DataField="qdrq"  HeaderText="签订日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>

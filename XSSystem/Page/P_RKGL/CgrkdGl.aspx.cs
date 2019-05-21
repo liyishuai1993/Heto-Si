@@ -105,8 +105,11 @@ namespace XSSystem.Page.P_RKGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.hth = (sender as Button).CommandArgument;
-
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.selectedKey = "hth";
+            qc.selectedTimeKey = "zcrq";
+            qc.tableName = "xs_CgrkdTable";
+            qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["cgrkd"] = dt;

@@ -112,7 +112,9 @@ namespace XSSystem.Page.P_CKGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.htbh = (sender as Button).CommandArgument;
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.selectedKey = "bh";
+            qc.tableName = "xs_TyxsckdTable";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["tyxsckd"] = dt;

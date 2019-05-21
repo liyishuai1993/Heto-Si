@@ -77,7 +77,7 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="zcrq"  HeaderText="装车日期">
+                <asp:BoundField DataField="zcrq"  HeaderText="装车日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
@@ -93,7 +93,7 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="rkrq"  HeaderText="入库日期">
+                <asp:BoundField DataField="rkrq"  HeaderText="入库日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>

@@ -38,7 +38,7 @@
     </span>
         </div>
     <div>
-    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
+    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1400px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -54,7 +54,7 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="qdrq"  HeaderText="签订日期">
+                <asp:BoundField DataField="qdrq"  HeaderText="签订日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>

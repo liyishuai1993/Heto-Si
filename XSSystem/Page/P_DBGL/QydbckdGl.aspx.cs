@@ -131,8 +131,12 @@ namespace XSSystem.Page.P_DBGL
             qc.selectedItem = estr[0];
             qc.tableName = "xs_QydbckdTable";
             qc.selectedKey = "ckbdh";
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedCon = "or";
             qc2.tableName = "xs_QydbhdTable";
             qc2.selectedKey = "rkbdh";
+            qc2.selectedTimeKey = "rksj";
+            qc2.selectedCon = "or";
             qc2.selectedItem = estr[1];
 
             PageChangedEventArgs ex = new PageChangedEventArgs(1);

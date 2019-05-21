@@ -111,8 +111,9 @@ namespace XSSystem.Page.P_DBGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.bh = (sender as Button).CommandArgument;
-
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.selectedKey = "bh";
+            qc.tableName = "xs_TydbckdTable";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["tydbckd"] = dt;

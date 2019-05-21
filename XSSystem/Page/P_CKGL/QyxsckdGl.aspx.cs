@@ -119,9 +119,14 @@ namespace XSSystem.Page.P_CKGL
             qc.selectedItem = estr[0];
             qc.selectedKey = "ckbdh";
             qc.tableName = "xs_QyxsckdTable";
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedCon = "or";
+
             qc2.selectedItem = estr[1];
             qc2.selectedKey = "rkbdh";
             qc2.tableName = "xs_QykhhdlrTable";
+            qc2.selectedCon = "or";
+            qc2.selectedTimeKey = "rksj";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex,1);
             DataTable dt2 = SelectSQL(qc2, ex, 2);

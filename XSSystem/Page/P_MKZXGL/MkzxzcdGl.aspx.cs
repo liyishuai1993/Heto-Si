@@ -105,8 +105,11 @@ namespace XSSystem.Page.P_MKZXGL
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.djbh = (sender as Button).CommandArgument;
-
+            qc.selectedItem = (sender as Button).CommandArgument;
+            qc.tableName = "xs_MkzxzcdTable";
+            qc.selectedKey = "djbh";
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["mkzxzcd"] = dt;

@@ -51,7 +51,7 @@
                     <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                 </asp:TemplateField>
-                <asp:BoundField DataField="zcsj"  HeaderText="装车时间">
+                <asp:BoundField DataField="zcsj"  HeaderText="装车时间" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
