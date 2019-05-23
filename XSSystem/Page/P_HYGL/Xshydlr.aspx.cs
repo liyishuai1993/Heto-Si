@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,28 @@ namespace XSSystem.Page.P_Order
         CWGLLogic _cwglLogic = new CWGLLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["xshyd"] != null)
+                {
+                    InitData(Session["xshyd"]);
+                }
+            }
+        }
 
+        public void InitData(object mk)
+        {
+            DataTable dt = mk as DataTable;
+            hydbh.Text = dt.Rows[0][1].ToString();
+            hyrq.Text = dt.Rows[0][2].ToString();
+            kh.Text = dt.Rows[0][3].ToString();
+            mcmc.Text = dt.Rows[0][4].ToString();
+            wlmc.Text = dt.Rows[0][5].ToString();
+            cyr.Text = dt.Rows[0][6].ToString();
+            hyr.Text = dt.Rows[0][7].ToString();
+            // ysye.Text = dt.Rows[0][9].ToString();
+            // yfye.Text = dt.Rows[0][10].ToString();
+            Session.Remove("xshyd");
         }
 
         protected void submit_Click(object sender, EventArgs e)

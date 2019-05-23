@@ -18,25 +18,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-<%--            <p>
-        <span>入库磅单号</span>
-        <asp:TextBox id="tbrkbdh" runat="server" Width="140px"></asp:TextBox>
-<%--        <span>名称：</span>
-                <asp:TextBox ID="txtNewName" runat="server" CssClass="inputText" Visible="false"></asp:TextBox>
-                <asp:Dropdownlist id="ddshzt" runat="server" autopostback="true" onselectedindexchanged="ddlnewtype_selectedindexchanged">
-            <asp:ListItem>已审核</asp:ListItem>
-            <asp:ListItem>未审核</asp:ListItem>--%>
-        <%--</asp:Dropdownlist>--%>
-       <%--         入库时间范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
-                <asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
-                入库净重<asp:TextBox id="tbrkjz" runat="server" Width="140px"></asp:TextBox>
-                <%--开票煤价<asp:TextBox id="tbkpmj" runat="server" Width="140px"></asp:TextBox>
-                状态<asp:TextBox id="tbzt" runat="server" Width="140px"></asp:TextBox>--%>
-              <%--  <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
+        <div class="divcss5" style="width:1200px;margin-bottom:15px">
+            <span>
+<%--                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>--%>
+                <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
+                日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+<%--                供方名称<asp:TextBox id="tbgfmc" runat="server" Width="90px"></asp:TextBox>              
+                合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="80px"></asp:TextBox>
+                审核状态<asp:TextBox id="tbzt" runat="server" Width="50px"></asp:TextBox>--%>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="hydbh">化验单编号</asp:ListItem>
+                        <asp:ListItem Value="kh">客户</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
+                <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
-                <%--<asp:Button ID="BtnUpdate" runat="server" Text="审核" CssClass="button" OnClick="btnQuery_Click" />--%>
-    <%--</p>--%>
+                <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
+    </span>
         </div>
     <div>
     <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
@@ -55,7 +54,7 @@
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
-                <asp:BoundField DataField="hyrq"  HeaderText="化验日期">
+                <asp:BoundField DataField="hyrq"  HeaderText="化验日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
@@ -71,7 +70,7 @@
                     <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                     <ItemTemplate>                                 
-                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("hydbh") %>' CssClass="buttonCancle"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
+                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("hydbh") %>' CssClass="buttonCancle" OnClick="btnUpdate_Click"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                         <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
                     </ItemTemplate>
                     <HeaderStyle Width="5%" />
