@@ -16,8 +16,8 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_FkdTable (user_no,bh,ldrq,skdw,jsr,bm,htbh,zy,fjsm)" +
-                "values(@user_no,@bh,@ldrq,@skdw,@jsr,@bm,@htbh,@zy,@fjsm)";
+            sqlpara.SQL = "insert into xs_FkdTable (user_no,bh,ldrq,skdw,jsr,bm,htbh,zy,fjsm,jsfs)" +
+                "values(@user_no,@bh,@ldrq,@skdw,@jsr,@bm,@htbh,@zy,@fjsm,@jsfs)";
             xsSqls.Add(sqlpara);
             foreach(var val in child1)
             {
@@ -39,8 +39,8 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_FydTable (user_no,bh,ldrq,sfdw,jsr,bm,zy,fjsm)" +
-                "values(@user_no,@bh,@ldrq,@sfdw,@jsr,@bm,@zy,@fjsm)";
+            sqlpara.SQL = "insert into xs_FydTable (user_no,bh,ldrq,sfdw,jsr,bm,zy,fjsm,jsfs)" +
+                "values(@user_no,@bh,@ldrq,@sfdw,@jsr,@bm,@zy,@fjsm,@jsfs)";
             xsSqls.Add(sqlpara);
             foreach (var val in child1)
             {
@@ -379,8 +379,8 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "insert into xs_SkdTable (user_no,bh,ldrq,fkdw,jsr,bm,htbh,zy,fjsm)" +
-                "values(@user_no,@bh,@ldrq,@fkdw,@jsr,@bm,@htbh,@zy,@fjsm)";
+            sqlpara.SQL = "insert into xs_SkdTable (user_no,bh,ldrq,fkdw,jsr,bm,htbh,zy,fjsm,jsfs)" +
+                "values(@user_no,@bh,@ldrq,@fkdw,@jsr,@bm,@htbh,@zy,@fjsm,@jsfs)";
             xsSqls.Add(sqlpara);
             foreach (var val in child1)
             {

@@ -70,11 +70,17 @@
                                               </asp:DropDownList> </td>
                     <td class="auto-style3">附加说明<asp:TextBox id="fjsm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
-<%--                <tr>
-                    <td class="auto-style3">应付余额<asp:TextBox id="yfye" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
+                <tr>
+                    <td class="auto-style3">结算方式<asp:DropDownList id="jsfs" runat="server" Height="25px" Width ="284px">
+                        <asp:ListItem>现金</asp:ListItem>
+                        <asp:ListItem>电汇</asp:ListItem>
+                        <asp:ListItem>承兑汇票</asp:ListItem>
+                        <asp:ListItem>电汇或承兑</asp:ListItem>
+                        <asp:ListItem>电汇加承兑</asp:ListItem>
+                        </asp:DropDownList> </td> 
                     <td class="auto-style3"></td>
                     <td></td>
-                </tr>--%>
+                </tr>
             </table>            
         </div>
 

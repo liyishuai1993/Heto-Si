@@ -102,6 +102,7 @@ namespace XSSystem.Page.P_Order
             bm.Text = dt.Rows[0][5].ToString();
             dp_zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
+            jsfs.Text= dt.Rows[0][9].ToString();
             Session.Remove("fyd");
         }
 
@@ -152,6 +153,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@bm", bm.Text.Trim());
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
+                dml.Add("@jsfs", jsfs.SelectedItem.Text);
             }
             catch
             {

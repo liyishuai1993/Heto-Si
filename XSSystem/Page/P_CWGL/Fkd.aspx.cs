@@ -123,6 +123,7 @@ namespace XSSystem.Page.P_Order
             tk_htbh.Text = dt.Rows[0][6].ToString();
             dp_zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
+            jsfs.Text= dt.Rows[0][9].ToString();
             //ysye.Text = dt.Rows[0][9].ToString();
             //yfye.Text = dt.Rows[0][9].ToString();
             Session.Remove("skd");
@@ -144,6 +145,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
+                dml.Add("@jsfs", jsfs.SelectedItem.Text);
                 //dml.Add("@yfye", yfye.Text.Trim());
             }
             catch
