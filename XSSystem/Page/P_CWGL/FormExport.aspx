@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormExport.aspx.cs" Inherits="XSSystem.Page.P_CWGL.FormExport" %>
-
+<%@ Register Assembly="xsFramework.UserControl" Namespace="xsFramework.UserControl.Pager"
+    TagPrefix="cc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,38 +41,40 @@
                 <asp:TextBox ID="cxsjZ" runat="server"  Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="204px"/></p>
             <p>
                 客户<asp:TextBox id="tbzt" runat="server" Width="140px"></asp:TextBox>
-                <asp:Button Text="生成表格" OnClick="Unnamed_Click" runat="server" ID="Button1" />
-                <asp:Button Text="导出表格" OnClick="Unnamed_Click" runat="server" ID="btn1" />
+                <asp:Button Text="生成表格" name="queryBtn" OnClick="Button1_Click" runat="server" ID="Button1" />
+                <asp:Button Text="导出表格" CommandName="exportBtn" OnClick="Unnamed_Click" runat="server" ID="btn1" />
             </p>
-            <p>
+            </div>
+        <div>
+            <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
                  <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="客户" DataField="kh" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="单位名称" DataField="dwmc" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="发货单位" DataField="fhdw" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="日期" DataField="rq" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="应收款结余" DataField="yskjy" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                         <asp:BoundField HeaderText="累计欠票" DataField="ljqp" HeaderStyle-Width="10%" >
+                         <asp:BoundField HeaderText="出库吨位" DataField="ckdw" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="当日收款" DataField="drsk" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="到货吨位" DataField="dhdw" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="当日开票" DataField="drkp" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="扣吨扣杂" DataField="kd" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="发货吨位" DataField="fhdw2" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="销售结算吨位" DataField="xsjsdw" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="发货单价" DataField="fhdj" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="金额" DataField="je" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
@@ -86,7 +89,9 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-            </p>
+                </asp:Panel>
+                <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
+        </cc1:xsPageControl>
         </div>
     </form>
 

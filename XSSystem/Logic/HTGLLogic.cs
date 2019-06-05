@@ -747,16 +747,17 @@ namespace xs_System.Logic
 
         public string QueryQyxsckdOrder(QueryClass qc)
         {
-            string sql = @"select * from xs_QyxsckdTable where ckbdh='" + qc.ckbdh + "' or ( zcsj>='" + qc.qdrqQ +
-                "' and zcsj<='" + qc.qdrqZ + "' ) or fmmc='" + qc.fmmc + "' or xf='" +
-                qc.xfmc + "' or ch='" + qc.ch + "' or ckjz2="+qc.ckjz2+" or mj="+qc.mj; 
+            string sql = @"select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
+                        ";
             return sql;
         }
 
         public string QueryQykhhdlrOrder(QueryClass qc)
         {
-            string sql = @"select * from xs_QykhhdlrTable where rkbdh= '" + qc.rkbdh + "' or ( rksj>='" + qc.qdrqQ +
-                "' and rksj<='" + qc.qdrqZ + "') or rkjz=" + qc.rkjz;
+            string sql = @"select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
+                        ";
             return sql;
         }
 
@@ -790,11 +791,11 @@ namespace xs_System.Logic
             return sql;
         }
 
-        public string QueryMkzxzcdOrder(QueryClass qc)
+        public string QueryMkzxzcdOrder()
         {
-            string sql = @"select * from xs_MkzxzcdTable where ghf='" + qc.ghf + "' or shf='" + qc.shf + "' or wlmc='" +
-                qc.wlmc + "' or ( zcsj>='" + qc.qdrqQ + "' and zcsj<='" + qc.qdrqZ +"' or djbh='"+qc.djbh+
-                "') or djbh in(select djbh from xs_MkzxzcdTable_Clxx where ch='" + qc.ch + "' or zcjz=" + qc.zcjz+")";
+            string sql = @"select shf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
+                        ";
             return sql;
         }
         

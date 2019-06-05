@@ -18,6 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
         <span>
 <%--                合同编号<asp:TextBox id="tbhtbh" runat="server" Width="80px"></asp:TextBox>--%>
                 <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />

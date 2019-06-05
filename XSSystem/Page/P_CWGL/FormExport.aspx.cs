@@ -16,44 +16,79 @@ namespace XSSystem.Page.P_CWGL
     public partial class FormExport : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-        static DataTable Jgxx_dataTable;
+        static DataTable QyxsckdDT;
+        static DataTable MkzxDT;
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitDataTableJgxx();
+            if (!IsPostBack)
+            {
+                InitDataTableJgxx();
+
+            }
         }
+
+        protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
+        {
+
+
+            //if (!"G001".Equals(LoginUser.LoginUserGroup))
+            //{
+            //    gvUser.Columns[2].Visible = false;
+            //}
+            QueryClass qc = new QueryClass();
+            //if (qdfwQ.Text != "")
+            //    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+            //if (qdfwZ.Text != "")
+            //    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+            //qc.tableName = "cghydlrTbale";
+            //qc.selectedKey = sxtj.SelectedValue;
+            //qc.selectedItem = tjz.Text.Trim();
+            //qc.selectedTimeKey = "hyrq"
+
+            GridView1.DataSource = SelectSQL(qc, e);
+            GridView1.DataBind();
+        }
+
 
         private void InitDataTableJgxx()
         {
-            Jgxx_dataTable = new DataTable();
-            Jgxx_dataTable.Columns.Add("kh", Type.GetType("System.Int32"));
-            Jgxx_dataTable.Columns.Add("fhdw", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("yskjy", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("ljqp", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("drsk", Type.GetType("System.Double"));
-            Jgxx_dataTable.Columns.Add("drkp", Type.GetType("System.Double"));
-            Jgxx_dataTable.Columns.Add("fhdw2", Type.GetType("System.Double"));
-            Jgxx_dataTable.Columns.Add("fhdj", Type.GetType("System.Double"));
-            Jgxx_dataTable.Columns.Add("je", Type.GetType("System.Double"));
-            GridView1.DataSource = Jgxx_dataTable;
+            QyxsckdDT = new DataTable();
+            QyxsckdDT.Columns.Add("dwmc", Type.GetType("System.String"));
+            QyxsckdDT.Columns.Add("rq", Type.GetType("System.String"));
+            QyxsckdDT.Columns.Add("ch", Type.GetType("System.String"));
+            QyxsckdDT.Columns.Add("ckdw", Type.GetType("System.Double"));
+            QyxsckdDT.Columns.Add("dhdw", Type.GetType("System.Double"));
+            QyxsckdDT.Columns.Add("kd", Type.GetType("System.Double"));
+            QyxsckdDT.Columns.Add("xsjsdw", Type.GetType("System.Double"));
+            QyxsckdDT.Columns.Add("mj", Type.GetType("System.Double"));
+            QyxsckdDT.Columns.Add("xsjsje", Type.GetType("System.Double"));
+            GridView1.DataSource = QyxsckdDT;
             GridView1.DataBind();
-
-
-
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
 
             QueryClass qc = new QueryClass();
-            qc.tableName = "xs_CghtTable";
+            qc.tableName = "xs_QyxsckdTable";
             PageChangedEventArgs pe = new PageChangedEventArgs(1);
-            DataTable dt = SelectSQL(qc, pe);
-            dt.Columns[0].ColumnName = "用户名";
-            dt.Columns[1].ColumnName = "合同编号";
-            dt.Columns[2].ColumnName = "合同类型";
-            dt.Columns[3].ColumnName = "签订日期";
+            //DataTable dt = new DataTable();
+            //foreach (DataRow dataRow in Jgxx_dataTable.Rows)
+            //{
+            //    dt.Rows.Add(dataRow);
+            //}
+            QyxsckdDT.Columns[0].ColumnName = "单位名称";
+            QyxsckdDT.Columns[1].ColumnName = "日期";
+            QyxsckdDT.Columns[2].ColumnName = "车号";
+            QyxsckdDT.Columns[3].ColumnName = "出库吨位";
+            QyxsckdDT.Columns[4].ColumnName = "到货吨位";
+            QyxsckdDT.Columns[5].ColumnName = "扣吨";
+            QyxsckdDT.Columns[6].ColumnName = "销售结算吨位";
+            QyxsckdDT.Columns[7].ColumnName = "煤价";
+            QyxsckdDT.Columns[8].ColumnName = "销售结算金额";
+
             //ExportExcelByDataTable(dt,"test");
-            CreateExcel(dt, "application/ms-excel", "test");
+            CreateExcel(QyxsckdDT, "application/ms-excel", "test");
 
 
 
@@ -63,9 +98,9 @@ namespace XSSystem.Page.P_CWGL
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QueryHtOrder(qc);
-            pagepara.OrderBy = "htbh";
-            return xsPageHelper.BindPager(pagepara, e);
+            pagepara.Sql = _htglLogic.QueryQyxsckdOrder(qc);
+            pagepara.OrderBy = "dwmc";
+            return xsPageHelper.BindPager(pagepara);
         }
 
         //protected void ExportExcel(DataTable dt)
@@ -154,6 +189,25 @@ namespace XSSystem.Page.P_CWGL
             }
             Response.Output.Flush();
             Response.End();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            QueryClass qc = new QueryClass();
+            QyxsckdDT= SelectSQL(qc, ex);
+            GridView1.DataSource = QyxsckdDT;
+
+            GridView1.DataBind();
+        }
+
+        private void GetKhhd()
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.Sql = _htglLogic.QueryMkzxzcdOrder();
+            pagepara.OrderBy = "dwmc";
+            MkzxDT= xsPageHelper.BindPager(pagepara);
         }
     }
 }
