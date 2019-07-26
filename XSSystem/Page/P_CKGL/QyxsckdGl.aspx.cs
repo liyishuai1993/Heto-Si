@@ -23,7 +23,7 @@ namespace XSSystem.Page.P_CKGL
                 qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
                // xsPage.StartShowPage();
-                SelectedAll();
+                SelectedAll(1);
 
             }
 
@@ -33,18 +33,25 @@ namespace XSSystem.Page.P_CKGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.tableName = "xs_QyxsckdTable";
-            if (qdfwQ.Text != "")
-                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
-            if (qdfwZ.Text != "")
-                qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            qc.selectedTimeKey = "zcsj";
-            qc.selectedKey = sxtj.SelectedValue;
-            qc.selectedItem = tjz.Text.Trim();
+            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            {
+                SelectedAll(e.CurrentPage);
+            }
+            else
+            {
+                qc.tableName = "xs_QyxsckdTable";
+                if (qdfwQ.Text != "")
+                    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+                if (qdfwZ.Text != "")
+                    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+                qc.selectedTimeKey = "zcsj";
+                qc.selectedKey = sxtj.SelectedValue;
+                qc.selectedItem = tjz.Text.Trim();
 
 
-            GridOrder.DataSource = SelectSQL(qc, e,1);
-            GridOrder.DataBind();
+                GridOrder.DataSource = SelectSQL(qc, e, 1);
+                GridOrder.DataBind();
+            }
         }
 
         DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e,int flag)
@@ -172,12 +179,12 @@ namespace XSSystem.Page.P_CKGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
-            SelectedAll();
+            SelectedAll(1);
         }
 
-        private void SelectedAll()
+        private void SelectedAll(int page)
         {
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            PageChangedEventArgs ex = new PageChangedEventArgs(page);
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_QyxsckdTable";
             qc.selectedTimeKey = "zcsj";

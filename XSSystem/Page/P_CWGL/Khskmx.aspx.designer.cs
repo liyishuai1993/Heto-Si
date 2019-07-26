@@ -10,7 +10,7 @@
 namespace XSSystem.Page.P_CWGL {
     
     
-    public partial class FormExport {
+    public partial class Khskmx {
         
         /// <summary>
         /// form1 控件。

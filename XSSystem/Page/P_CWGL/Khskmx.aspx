@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormExport.aspx.cs" Inherits="XSSystem.Page.P_CWGL.FormExport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Khskmx.aspx.cs" Inherits="XSSystem.Page.P_CWGL.Khskmx" %>
 <%@ Register Assembly="xsFramework.UserControl" Namespace="xsFramework.UserControl.Pager"
     TagPrefix="cc1" %>
 <!DOCTYPE html>
@@ -42,8 +42,8 @@
                 客户<asp:TextBox id="kh" runat="server" Width="140px"></asp:TextBox>
                 <asp:Button Text="生成报表" name="queryBtn" OnClick="Button1_Click" CssClass="button" type="bu" runat="server" ID="Button1" />
                 <asp:Button Text="导出报表" CommandName="exportBtn" OnClick="Unnamed_Click" CssClass="button" runat="server" ID="btn1" />
-            <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />    
-            </span>
+                <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />
+                </span>
             </div>
         <div>
             <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
@@ -56,25 +56,16 @@
                         <asp:BoundField HeaderText="日期" DataField="rq" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="摘要" DataField="zy" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                         <asp:BoundField HeaderText="出库吨位" DataField="ckdw" HeaderStyle-Width="10%" >
+                         <asp:BoundField HeaderText="收款金额" DataField="skje" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="到货吨位" DataField="dhdw" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="收款方式" DataField="skfs" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="扣吨扣杂" DataField="kd" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="销售结算吨位" DataField="xsjsdw" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="收款账户" DataField="skzh" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
@@ -97,3 +88,4 @@
 
 </body>
 </html>
+

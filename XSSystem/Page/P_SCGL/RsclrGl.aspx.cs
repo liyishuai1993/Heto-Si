@@ -25,7 +25,7 @@ namespace XSSystem.Page.P_SCGL
                 //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
-                SelectedAll();
+                SelectedAll(1);
             }
         }
 
@@ -38,18 +38,26 @@ namespace XSSystem.Page.P_SCGL
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
-            if (qdfwQ.Text != "")
-                qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
-            if (qdfwZ.Text != "")
-                qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            qc.tableName = "xs_RsclrTable";
-            qc.selectedKey = sxtj.SelectedValue;
-            qc.selectedItem = tjz.Text.Trim();
-            qc.selectedTimeKey = "rq"; 
+            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            {
+                SelectedAll(e.CurrentPage);
+            }
+            else
+            {
+                if (qdfwQ.Text != "")
+                    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+                if (qdfwZ.Text != "")
+                    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+                qc.tableName = "xs_RsclrTable";
+                qc.selectedKey = sxtj.SelectedValue;
+                qc.selectedItem = tjz.Text.Trim();
+                qc.selectedTimeKey = "rq";
 
 
-            GridOrder.DataSource = SelectSQL(qc, e);
-            GridOrder.DataBind();
+                GridOrder.DataSource = SelectSQL(qc, e);
+                GridOrder.DataBind();
+            }
+            
         }
 
         protected DataTable ddlbind(object bh)
@@ -151,12 +159,12 @@ namespace XSSystem.Page.P_SCGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
-            SelectedAll();
+            SelectedAll(1);
         }
 
-        private void SelectedAll()
+        private void SelectedAll(int page)
         {
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            PageChangedEventArgs ex = new PageChangedEventArgs(page);
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_RsclrTable";
             qc.selectedKey = "bh";

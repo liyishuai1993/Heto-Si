@@ -30,6 +30,11 @@
             width:auto;
             text-align:center;
         }
+         .auto-style6{
+            height: 20px;
+            width:200px;
+            text-align:right;
+            }
         </style>
 </head>
 <body>
@@ -84,7 +89,7 @@
             </table>     
         </div>
         
-        <div style="margin-top:15px;width:1200px">
+        <div style="margin-top:15px;width:1250px">
             <div class="divcss5">
             <p>集装箱信息<asp:Button ID="Button2" runat="server" Text="新增记录"  OnClick="AddJgxx"/></p>
             <p>
@@ -95,26 +100,79 @@
                 发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px"></asp:TextBox>
                 卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" cal="must1" name="卸货吨数" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px"></asp:TextBox>
-                #结算货款<asp:TextBox id="jshk" runat="server" Height="16px" name="结算货款" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>     
-            </p>
-            <p>
-                
-                自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" cal="must1" name="自备箱使费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" cal="must1" name="发站代理费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" cal="must1" name="发站装箱费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" cal="must1" name="发站倒短" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
-                铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" cal="must1" name="铁路运费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
-                </p>
-            <p>
-                到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" cal="must1" name="到站装卸费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
-                到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" cal="must1" name="到站-煤场倒短费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
-                到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" cal="must1" name="到站代理费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
-                #铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
-            
-            </p>
+                 </p>
+                <table border="0" aria-haspopup="False" class="auto-style1" >
+                    <tr>
+                        <td class="auto-style6">
+                            #结算货款<asp:TextBox id="jshk" runat="server" Height="16px" name="结算货款" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                <telerik:RadComboBox RenderMode="Lightweight" ID="jshk_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            自备箱使费(元/组)<asp:TextBox id="zbxsf" runat="server" cal="must1" name="自备箱使费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                <telerik:RadComboBox RenderMode="Lightweight" ID="zbxsf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            发站代理费(元/组)<asp:TextBox id="fzdlf" runat="server" cal="must1" name="发站代理费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                <telerik:RadComboBox RenderMode="Lightweight" ID="fzdlf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6">
+                            发站装箱费(元/吨)<asp:TextBox id="fzzxf" runat="server" cal="must1" name="发站装箱费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
+                <telerik:RadComboBox RenderMode="Lightweight" ID="fzzxf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            发站倒短(元/吨)<asp:TextBox id="fzddf" runat="server" cal="must1" name="发站倒短" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="fzddf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            铁路运费(元/组)<asp:TextBox id="tlyf" runat="server" cal="must1" name="铁路运费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="tlyf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6">
+                            到站装卸费(元/组)<asp:TextBox id="dzzxf" runat="server" cal="must1" name="到站装卸费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="dzzxf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            到站-煤场倒短费(元/组)<asp:TextBox id="dzmcddf" runat="server" cal="must1" name="到站-煤场倒短费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="dzmcddf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                        <td class="auto-style6">
+                            到站代理费(元/吨)<asp:TextBox id="dzdlf" runat="server" cal="must1" name="到站代理费" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="dzdlf_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6">
+                            #铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
+                <telerik:RadComboBox RenderMode="Lightweight" ID="tlyfxj_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+  EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
+   HighlightTemplatedItems="true"/>
+                        </td>
+                    </tr>
+                </table>
                 </div>
-            <p>
-                
+                <p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -199,13 +257,12 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-            </p>
             
-
+                    </p>
                    
         </div>
 
-                <div style="margin-top:15px;width:1200px">
+<%--                <div style="margin-top:15px;width:1200px">
             <div class="divcss5">
             <p>欠款人信息<asp:Button ID="Btn_Qkr" runat="server" Text="新增记录"  OnClick="Btn_Qkr_Click"/></p>
             <p>
@@ -274,7 +331,7 @@
             
 
                    
-        </div>
+        </div>--%>
 
 
 

@@ -182,7 +182,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public string InsertTyxsckd(DirModel dml,List<DirModel>child1, List<DirModel> child2)
+        public string InsertTyxsckd(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -196,20 +196,20 @@ namespace xs_System.Logic
                 sqlpara = new xsSqlParameter();
                 sqlpara.AddSqlParameter(val);
                 sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj)" +
-                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj)";
+                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj,jshk_qkr,zbxsf_qkr,fzdlf_qkr,fzzxf_qkr,fzddf_qkr,tlyf_qkr,dzzxf_qkr,dzmcddf_qkr,dzdlf_qkr,tlyfxj_qkr)" +
+                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj,@jshk_qkr,@zbxsf_qkr,@fzdlf_qkr,@fzzxf_qkr,@fzddf_qkr,@tlyf_qkr,@dzzxf_qkr,@dzmcddf_qkr,@dzdlf_qkr,@tlyfxj_qkr)";
                 xsSqls.Add(sqlpara);
             }
 
-            foreach (var val in child2)
-            {
-                sqlpara = new xsSqlParameter();
-                sqlpara.AddSqlParameter(val);
-                sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_QkrxxTable (user_no,name,zqkje,yhkje,syqkje,qkxm,phone,bz)" +
-                "values(@user_no,@name,@zqkje,@yhkje,@syqkje,@qkxm,@phone,@bz)";
-                xsSqls.Add(sqlpara);
-            }
+            //foreach (var val in child2)
+            //{
+            //    sqlpara = new xsSqlParameter();
+            //    sqlpara.AddSqlParameter(val);
+            //    sqlpara.SqlConnectString = GlabalString.DBString;
+            //    sqlpara.SQL = "insert into xs_QkrxxTable (user_no,name,zqkje,yhkje,syqkje,qkxm,phone,bz)" +
+            //    "values(@user_no,@name,@zqkje,@yhkje,@syqkje,@qkxm,@phone,@bz)";
+            //    xsSqls.Add(sqlpara);
+            //}
             return SqlHelper.Execute(xsSqls);
         }
 
@@ -651,7 +651,7 @@ namespace xs_System.Logic
             //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
             //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
 
-            string sql = string.Format(@"select * from {0} where ({1}='{2}' {7} ({6}>='{3}' and {6}<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.selectedTimeKey,qc.selectedCon);
+            string sql = string.Format(@"select * from {0} where  ({1}='{2}' {7} ({6}>='{3}' and  {6}<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.selectedTimeKey,qc.selectedCon);
             return sql;
         }
 
@@ -747,9 +747,8 @@ namespace xs_System.Logic
 
         public string QueryQyxsckdOrder(QueryClass qc)
         {
-            string sql = @"select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
-                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
-                        ";
+            string sql = string.Format(@"select * from (select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh) tb where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll); 
             return sql;
         }
 
@@ -763,8 +762,8 @@ namespace xs_System.Logic
 
         public string QueryTyxsckdOrder(QueryClass qc)
         {
-            string sql = @"select * from xs_TyxsckdTable where stf= '" + qc.stf + "'or htbh='"+qc.htbh+ "' or zcz='" + qc.zcz+"' or zdz='"+qc.zdz+
-                "' or htbh in(select htbh from xs_Tyxsckd_Jzxxx where xh='" + qc.xh + "' or ( fcrq>='" + qc.qdrqQ +"' and fcrq<='" + qc.qdrqZ +"'))";
+            string sql = string.Format(@"select * from (select stf dwmc,zxrq rq,xh ch,sxds ckdw,xhds dhdw,null kd,xhds xsjsdw,mj,jshk xsjsje  
+        from xs_Tyxsckd_Jzxxx a right join xs_TyxsckdTable b on a.bh=b.bh) tb where 1={3} or (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}')", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
             return sql;
         }
 
@@ -791,11 +790,24 @@ namespace xs_System.Logic
             return sql;
         }
 
-        public string QueryMkzxzcdOrder()
+        public string QueryMkzxzcdOrder(QueryClass qc)
         {
-            string sql = @"select shf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
-                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
-                        ";
+            string sql = string.Format(@"select * from (select shf dwmc,zcsj rq,ch,zcjz ckdw,null dhdw,null kd,zcjz xsjsdw,xsmj mj,xsjsje  
+                            from xs_MkzxzcdTable a right join xs_MkzxzcdTable_Clxx b on a.djbh=b.djbh) tb  where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
+            return sql;
+        }
+
+        public string QuerySkdOrder(QueryClass qc)
+        {
+            string sql = string.Format(@"select * from (select fkdw dwmc,ldrq rq,zy,je skje,jsfs skfs,skzhbh skzh  
+                            from xs_SkdTable a right join xs_SkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
+            return sql;
+        }
+
+        public string QueryFkdOrder(QueryClass qc)
+        {
+            string sql = string.Format(@"select * from (select skdw dwmc,ldrq rq,zy,je skje,jsfs skfs,fkzhbh skzh  
+                            from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where 1={3} or (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
             return sql;
         }
         

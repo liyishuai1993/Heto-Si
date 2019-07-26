@@ -24,7 +24,7 @@ namespace XSSystem.Page.P_Order
                 //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
-                SelectedAll();
+                SelectedAll(1);
                 
             }
         }
@@ -38,6 +38,10 @@ namespace XSSystem.Page.P_Order
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
+            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            {
+                SelectedAll(e.CurrentPage);
+            }
             if (qdfwQ.Text != "")
                 qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
             if (qdfwZ.Text != "")
@@ -128,12 +132,12 @@ namespace XSSystem.Page.P_Order
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
-            SelectedAll();
+            SelectedAll(1);
         }
 
-        private void SelectedAll()
+        private void SelectedAll(int page)
         {
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            PageChangedEventArgs ex = new PageChangedEventArgs(page);
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_SkdTable";
             qc.selectedKey = "bh";

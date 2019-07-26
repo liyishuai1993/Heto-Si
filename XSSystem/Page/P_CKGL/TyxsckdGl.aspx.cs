@@ -23,7 +23,7 @@ namespace XSSystem.Page.P_CKGL
                 //xsPage.StartShowPage();
                 //qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 //qdfwZ.Text = DateTime.Now.ToShortDateString();
-                SelectedAll();
+                SelectedAll(1);
             }
 
 
@@ -32,24 +32,29 @@ namespace XSSystem.Page.P_CKGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             QueryClass qc = new QueryClass();
-            qc.tableName = "xs_TyxsckdTable";
-            //if (qdfwQ.Text != "")
-            //    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
-            //if (qdfwZ.Text != "")
-            //    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
-            qc.selectedKey = sxtj.SelectedValue;
-            qc.selectedItem = tjz.Text.Trim();
+            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            {
+                SelectedAll(e.CurrentPage);
+            }
+            else
+            {
+                qc.tableName = "xs_TyxsckdTable";
+                //if (qdfwQ.Text != "")
+                //    qc.qdrqQ = Convert.ToDateTime(qdfwQ.Text.Trim());
+                //if (qdfwZ.Text != "")
+                //    qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
+                qc.selectedKey = sxtj.SelectedValue;
+                qc.selectedItem = tjz.Text.Trim();
 
 
-            //if (!"G001".Equals(LoginUser.LoginUserGroup))
-            //{
-            //    gvUser.Columns[2].Visible = false;
-            //}
-            GridOrder.DataSource = SelectSQL(qc,e);
+                //if (!"G001".Equals(LoginUser.LoginUserGroup))
+                //{
+                //    gvUser.Columns[2].Visible = false;
+                //}
+                GridOrder.DataSource = SelectSQL(qc, e);
 
-            GridOrder.DataBind();
-            
-
+                GridOrder.DataBind();
+            }
         }
 
         DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e)
@@ -135,12 +140,12 @@ namespace XSSystem.Page.P_CKGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
-            SelectedAll();
+            SelectedAll(1);
         }
 
-        private void SelectedAll()
+        private void SelectedAll(int page)
         {
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
+            PageChangedEventArgs ex = new PageChangedEventArgs(page);
             QueryClass qc = new QueryClass();
             qc.tableName = "xs_TyxsckdTable";
             qc.selectedKey = "bh";
