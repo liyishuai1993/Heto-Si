@@ -4,3 +4,33 @@
     width: auto;
     padding: 4px
 }
+
+    .divcss5 span {
+        color: red;
+    }
+
+.auto-style3 {
+    height: auto;
+    width: 400px;
+    text-align: right;
+}
+
+    .auto-style3 span {
+        color: red;
+    }
+
+.Wdate {
+}
+
+.auto-style4 {
+    height: 20px;
+    width: 1200px;
+    text-align: left;
+}
+
+.auto-style5 {
+    height: auto;
+    width: auto;
+    text-align: center;
+}
+

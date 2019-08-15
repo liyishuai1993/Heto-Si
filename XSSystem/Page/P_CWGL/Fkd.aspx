@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>付款单</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
         <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
@@ -45,7 +47,7 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">付款单</p>
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
-        <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
+        <p class="auto-style4"><span>录单日期</span><asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
             编号<asp:TextBox ID="bh" runat="server" Enabled="false" Height="16px" Width="284px"></asp:TextBox></p>
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
@@ -57,7 +59,7 @@
   EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">部门<asp:TextBox id="bm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>部门</span><asp:TextBox id="bm" runat="server" Height="16px" Width ="284px" name="部门" valued="must1" ></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
@@ -87,11 +89,11 @@
         <div>
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
                 收款账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server"  Height="200px"
-  EmptyMessage="请输入收款账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must1" 
+  EmptyMessage="请输入收款账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must2" 
    HighlightTemplatedItems="true"  OnSelectedIndexChanged="tk_skzhbh_SelectedIndexChanged"/>
-                收款账户名称<asp:TextBox runat="server" id="zhm"/>
-                开户行<asp:TextBox runat="server" id="khh"/>
-                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"/>
+                收款账户名称<asp:TextBox runat="server" id="zhm" valued="must2" name="收款账户名称"/>
+                开户行<asp:TextBox runat="server" id="khh" valued="must2" name="开户行"/>
+                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2" name="金额"/>
                 备注<asp:TextBox runat="server" ID="bz"/>
             </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">

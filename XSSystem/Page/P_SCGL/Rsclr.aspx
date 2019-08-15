@@ -9,6 +9,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>日生产录入</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
@@ -60,13 +61,13 @@
                             <asp:TextBox ID="bh" runat="server" Visible="false"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">所属煤场<asp:TextBox ID="ssmc" valued="must1" name="所属煤场" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                        <td class="auto-style3">日期<asp:TextBox ID="rq" runat="server" name="日期" valued="must" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
+                        <td class="auto-style3"><span>所属煤场</span><asp:TextBox ID="ssmc" valued="must1" name="所属煤场" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                        <td class="auto-style3"><span>日期</span><asp:TextBox ID="rq" runat="server" name="日期" valued="must1" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">开机时间<asp:TextBox ID="kjsj" name="开机时间" runat="server" valued="must1" Text="" onClick="WdatePicker({dateFmt:'HH:mm:ss'})" Width="284px"></asp:TextBox></td>
-                        <td class="auto-style3">关机时间<asp:TextBox ID="gjsj" name="关机时间" runat="server" valued="must1" Text="" onClick="WdatePicker({dateFmt:'HH:mm:ss'})" Width="284px"></asp:TextBox></td>
+                        <td class="auto-style3"><span>开机时间</span><asp:TextBox ID="kjsj" name="开机时间" runat="server" valued="must1" Text="" onClick="WdatePicker({dateFmt:'HH:mm:ss'})" Width="284px"></asp:TextBox></td>
+                        <td class="auto-style3"><span>关机时间</span><asp:TextBox ID="gjsj" name="关机时间" runat="server" valued="must1" Text="" onClick="WdatePicker({dateFmt:'HH:mm:ss'})" Width="284px"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td class="auto-style3">班次<asp:DropDownList ID="bc" runat="server" Height="20px" Width="284px" CssClass="auto-style4">
@@ -75,13 +76,13 @@
                             <asp:ListItem>夜班</asp:ListItem>
                         </asp:DropDownList>
                         </td>
-                        <td class="auto-style3">用电总数(度)<asp:TextBox ID="ydzs" name="用电总数" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <td class="auto-style3"><span>用电总数(度)</span><asp:TextBox ID="ydzs" name="用电总数" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">用电吨耗(吨/度)<asp:TextBox ID="yddh" name="用电吨耗" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <td class="auto-style3"><span>用电吨耗(吨/度)</span><asp:TextBox ID="yddh" name="用电吨耗" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">用煤总数(吨)<asp:TextBox ID="ymzs" name="用煤总数" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <td class="auto-style3"><span>用煤总数(吨)</span><asp:TextBox ID="ymzs" name="用煤总数" runat="server" valued="must1" Height="16px" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -94,9 +95,9 @@
                         <td class="auto-style3"></td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">加工费金额
+                        <td class="auto-style3"><span>加工费金额</span>
                             <asp:TextBox ID="jgfje" name="加工费金额" runat="server" Height="16px" valued="must1" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td>
-                        <td class="auto-style3">每吨费用(元/吨)<asp:TextBox ID="mdfy" name="每吨费用" runat="server" Height="16px" valued="must1" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <td class="auto-style3"><span>每吨费用(元/吨)</span><asp:TextBox ID="mdfy" name="每吨费用" runat="server" Height="16px" valued="must1" Width="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

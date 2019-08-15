@@ -305,9 +305,10 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            //string shtbh = htbh.Text;
-            //Response.Write("<script>window.showModelessDialog('XshtJgxx.aspx?transmissionInfo=" + shtbh + "')</script>");
-            // Response.Write("<script>window.location.reload();</script>");
+            if (!DataChecked(2))
+            {
+                return;
+            }
 
             DataRow dr = Jgxx_dataTable.NewRow();
             try
@@ -356,8 +357,10 @@ namespace XSSystem.Page.P_Order
 
         protected void AddZlbz(object sender, EventArgs e)
         {
-            // string shtbh = htbh.Text;
-            //Response.Write("<script>window.showModelessDialog('XshtZlbz.aspx?transmissionInfo=" + shtbh + "')</script>");
+            if (!DataChecked(3))
+            {
+                return;
+            }
             DataRow dr = Zlbz_dataTable.NewRow();
             try
             {

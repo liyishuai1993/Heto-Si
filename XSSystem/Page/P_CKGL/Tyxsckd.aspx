@@ -45,8 +45,8 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1" >
                 <tr>
-                    <td class="auto-style3">*编号<asp:TextBox ID="bh" name="合同编号" valued="must1" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" name="合同编号" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
+                    <td class="auto-style3"><span>编号</span><asp:TextBox ID="bh" name="合同编号" valued="must1" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
+                    <td class="auto-style3"><span>合同编号</span><asp:TextBox id="htbh" name="合同编号" runat="server" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
                     <td class="auto-style3">委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="500px" Height="200px"
@@ -57,13 +57,13 @@
    HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                    <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
    HighlightTemplatedItems="true"/> </td>
-                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" name="物料名称" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>物料名称</span><asp:TextBox id="wlmc" name="物料名称" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">煤价<asp:TextBox id="mj" name="煤价" cal="must1" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>煤价</span><asp:TextBox id="mj" name="煤价" cal="must1" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入装车站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="装车站" valued="must1" 
    HighlightTemplatedItems="true"/>
@@ -77,7 +77,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">提成标准<asp:TextBox id="tcbz" cal="must1" name="提成标准" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>提成标准</span><asp:TextBox id="tcbz" cal="must1" name="提成标准" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                     <td class="auto-style3">#提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
                     </td>
                 </tr>
@@ -97,9 +97,9 @@
                 箱号<asp:TextBox id="xh" runat="server" name="箱号" Height="16px" Width ="100px" valued="must2"></asp:TextBox>
                 上箱吨数<asp:TextBox id="sxds" runat="server" cal="must1" name="上箱吨数" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
                 装箱日期<asp:TextBox id="zxrq" Text="" onClick="WdatePicker()" cal="must1" name="装箱日期" runat="server" Height="16px" Width ="100px" valued="must2"></asp:TextBox>
-                发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                发车日期<asp:TextBox id="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px" valued="must2" name="起始日期"></asp:TextBox>
                 卸货吨数<asp:TextBox id="xhds" runat="server" Height="16px" cal="must1" name="卸货吨数" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                到站日期<asp:TextBox id="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width ="100px" valued="must2" name="起始日期"></asp:TextBox>
                  </p>
                 <table border="0" aria-haspopup="False" class="auto-style1" >
                     <tr>

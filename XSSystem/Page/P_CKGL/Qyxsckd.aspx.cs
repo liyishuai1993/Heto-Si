@@ -257,7 +257,7 @@ namespace XSSystem.Page.P_Order
                 yfhllh.Focus();
                 return;
             }
-            yflhbz.Text = mj.Text;
+            //yflhbz.Text = mj.Text;
             ksds.Text = AbsSub(ckjz2.Text, rkjz.Text);
             yyds.Text = Sub(rkjz.Text, ckjz2.Text);
             yfkkds.Text = Sub(ksds.Text, yfhllh.Text);

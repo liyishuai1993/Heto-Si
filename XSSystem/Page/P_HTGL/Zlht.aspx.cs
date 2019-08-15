@@ -193,6 +193,10 @@ namespace XSSystem.Page.P_Order
         {
             //string shtbh = htbh.Text;
             //Response.Write("<script>window.showModelessDialog('ZlhtZjxx.aspx?transmissionInfo=" + shtbh + "')</script>");
+            if (!DataChecked(2))
+            {
+                return;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {

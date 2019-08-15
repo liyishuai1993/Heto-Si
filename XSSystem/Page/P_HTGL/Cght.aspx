@@ -7,37 +7,19 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>采购合同</title>
-    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script  src="../../My97DatePicker/WdatePicker.js" type="text/javascript" ></script>
     <script src="../../My97DatePicker/calendar.js" type="text/javascript"></script>
     <script src="../../My97DatePicker/config.js" type="text/javascript"></script>
     <script src="../../js/FormStyle.js"></script>
     <link href="../../style/sysCss.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style3 {
-            height: auto;
-            width:400px;
-            text-align:right;
-            }
-        .Wdate {}
-        .auto-style4 {
-            height:20px;
-            width:1200px;
-            text-align:left;
-        }
-        .auto-style5 {
-            height:auto;
-            width:auto;
-            text-align:center;
-        }
-        </style>
     <link href="../../My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
+    <link href="../../style/FormStyle.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" >
 function FormCheck()
 {
-    var l = document.getElementsByName("ip").length;
-    alert(l);
-    return false;
+    var a = document.getElementById("htmj").value;
+    var b = document.getElementById("qdds").value;
+    document.getElementById("qdje").value = a * b;
     
 }
     </script>
@@ -51,56 +33,56 @@ function FormCheck()
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" ReadOnly="true" Enabled="False"></asp:TextBox></td>
-                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
+                    <td class="auto-style3"><span>合同编号</span><asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" ReadOnly="true" Enabled="False"></asp:TextBox></td>
+                    <td class="auto-style3"><span>合同类型</span><asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem Value="yfk">预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">*签订日期
+                    <td class="auto-style3"><span>签订日期</span>
                         <asp:TextBox ID="qdrq" runat="server" name="签订日期" valued="must1"   Text=""  onClick="WdatePicker()" Width="284px"></asp:TextBox>                       
                     </td>
                     
                 </tr>
                 <tr>
-                    <td class="auto-style3">对方合同号<asp:TextBox id="dfhth" name="对方合同号" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> 
+                    <td class="auto-style3"><span>对方合同号</span><asp:TextBox id="dfhth" name="对方合同号" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">*供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>供方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">*需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>需方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">货款结算依据<asp:DropDownList id="hkjsyj" runat="server" Height="25px" Width ="284px" CssClass="auto-style4">
+                    <td class="auto-style3"><span>货款结算依据</span><asp:DropDownList id="hkjsyj" runat="server" Height="25px" Width ="284px" CssClass="auto-style4">
                         <asp:ListItem>原发净重</asp:ListItem>
                         <asp:ListItem>收货净重</asp:ListItem>
                         <asp:ListItem>原发净重减扣吨</asp:ListItem>
                         <asp:ListItem>收货净重减扣吨</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">货款路耗类型<asp:DropDownList id="hklhlx" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3"><span>货款路耗类型</span><asp:DropDownList id="hklhlx" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>不计路耗</asp:ListItem>
                         <asp:ListItem>百分之或千分比</asp:ListItem>
                         <asp:ListItem>吨数</asp:ListItem>
                         </asp:DropDownList> 
                     </td>
                     <td class="auto-style3">
-                        货款路耗标准<asp:TextBox id="hklhbz" runat="server" name="货款路耗标准" valued="must1"  Height="16px" Width ="284px"></asp:TextBox>  
+                        <span>货款路耗标准</span><asp:TextBox id="hklhbz" runat="server" name="货款路耗标准" valued="must1"  Height="16px" Width ="284px"></asp:TextBox>  
                    </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">开票类型<asp:DropDownList id="kpxx" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3"><span>开票类型</span><asp:DropDownList id="kpxx" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>无票</asp:ListItem>
                         <asp:ListItem>一票</asp:ListItem>
                         <asp:ListItem>两票</asp:ListItem>
                         <asp:ListItem>原票原转</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">执行时间<asp:TextBox ID="jhsjQ" name="执行时间" valued="must1"  runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
+                    <td class="auto-style3"><span>执行时间</span><asp:TextBox ID="jhsjQ" name="执行时间" valued="must1"  runat="server" Text="" onClick="WdatePicker()" Width="142px"></asp:TextBox>-
                         <asp:TextBox ID="jhsjZ" runat="server" Text="" name="执行时间" valued="must1"  onClick="WdatePicker()" Width="142px"></asp:TextBox> </td>
-                    <td class="auto-style3">货款结算方式<asp:DropDownList id="hkjsfs" runat="server" Height="25px" Width ="284px">
+                    <td class="auto-style3"><span>货款结算方式</span><asp:DropDownList id="hkjsfs" runat="server" Height="25px" Width ="284px">
                         <asp:ListItem>现金</asp:ListItem>
                         <asp:ListItem>电汇</asp:ListItem>
                         <asp:ListItem>承兑汇票</asp:ListItem>
@@ -109,7 +91,7 @@ function FormCheck()
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">交货地点<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jhdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>交货地点</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_jhdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入交货地点"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -118,7 +100,7 @@ function FormCheck()
                         <asp:ListItem>对方付款</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" name="煤矿名称" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>煤矿名称</span><asp:TextBox id="mkmc" name="煤矿名称" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style4" colspan="3">备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="1148px"></asp:TextBox>
@@ -131,19 +113,19 @@ function FormCheck()
         <div style="margin-top:20px">
             <div class="divcss5">
             <p>价格信息<asp:Button ID="Button2"  runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
-            <p>               
-                煤矿名称<asp:TextBox id="mkmc2" runat="server" Height="16px" Width ="100px"></asp:TextBox>
-                煤种名称<asp:TextBox id="mzmc" runat="server" Height="16px" Width ="100px"></asp:TextBox>
-                发热量<asp:TextBox id="frl" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
-                硫份<asp:TextBox id="lf" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                 开票煤价<asp:TextBox id="kpmj" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+            <p class="pstyle">               
+                煤矿名称<asp:TextBox id="mkmc2" valued="must2" name="煤矿名称"  runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                煤种名称<asp:TextBox id="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                发热量<asp:TextBox id="frl" valued="must2" name="发热量" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                硫份<asp:TextBox id="lf" valued="must2" name="硫份" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                 开票煤价<asp:TextBox id="kpmj" valued="must2" name="开票煤价" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
-            <p>
+            <p class="pstyle">
                
-                *合同煤价<asp:TextBox id="htmj" runat="server" Height="16px" cal="must1" name="合同煤价" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                *签订吨数<asp:TextBox id="qdds" runat="server" Height="16px" Width ="100px" cal="must1" name="签订吨数" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
-                #签订金额<asp:TextBox id="qdje" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                <span>合同煤价</span><asp:TextBox id="htmj" valued="must2" runat="server" Height="16px" cal="must1" name="合同煤价" Width ="100px" OnKeyPress="isnum()" OnBlur="FormCheck()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                扣损率<asp:TextBox id="ksl" valued="must2" name="扣损率" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                <span>签订吨数</span><asp:TextBox id="qdds" valued="must2"  runat="server" Height="16px" Width ="100px" cal="must1" name="签订吨数" OnBlur="FormCheck()" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
+                <asp:label runat="server" ForeColor="MediumBlue">签订金额</asp:label> <asp:TextBox id="qdje" valued="must2" name="签订金额" BackColor="LightBlue" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  OnFocus="FormCheck()"   ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" ></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="100px"></asp:TextBox>
             </p>
                 </div>
@@ -224,22 +206,22 @@ function FormCheck()
             <div class="divcss5">
             <p>质量标准<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZlbz" /></p>
             <p>                               
-                煤种<asp:TextBox id="mz" runat="server" Height="16px" Width ="80px"></asp:TextBox>
-                粒度<asp:TextBox id="ld" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
-                灰分<asp:TextBox id="hf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
-                挥发分<asp:TextBox id="hff" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
-                固定碳<asp:TextBox id="gdt" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                粘结指数<asp:TextBox id="njzs" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                煤种<asp:TextBox id="mz" valued="must3" name="煤种" runat="server" Height="16px" Width ="80px"></asp:TextBox>
+                粒度<asp:TextBox id="ld" runat="server" valued="must3" name="粒度" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                灰分<asp:TextBox id="hf" runat="server" valued="must3" name="灰分" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                挥发分<asp:TextBox id="hff" runat="server" valued="must3" name="挥发分" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
+                固定碳<asp:TextBox id="gdt" runat="server" valued="must3" name="固定碳" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                粘结指数<asp:TextBox id="njzs" runat="server" valued="must3" name="粘结指数" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             </p>
             <p>
                 
-                水分<asp:TextBox id="sf" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                铁<asp:TextBox id="tie" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                铝<asp:TextBox id="lv" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                钙<asp:TextBox id="gai" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                磷<asp:TextBox id="lin" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                钛<asp:TextBox id="tai" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                硫<asp:TextBox id="liu" runat="server" Height="16px" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                水分<asp:TextBox id="sf" runat="server" Height="16px" valued="must3" name="水分" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                铁<asp:TextBox id="tie" runat="server" Height="16px" valued="must3" name="铁" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                铝<asp:TextBox id="lv" runat="server" Height="16px" valued="must3" name="铝" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                钙<asp:TextBox id="gai" runat="server" Height="16px" valued="must3" name="钙" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                磷<asp:TextBox id="lin" runat="server" Height="16px" valued="must3" name="磷" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                钛<asp:TextBox id="tai" runat="server" Height="16px" valued="must3" name="钛" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                硫<asp:TextBox id="liu" runat="server" Height="16px" valued="must3" name="硫" Width ="80px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             </p>
                 </div>
             <p>
@@ -329,7 +311,6 @@ function FormCheck()
         </div>
 
         <p class="auto-style5">
-            <asp:Button ID="Button3" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button3_Click"></asp:Button>&nbsp
                 <asp:Button ID="submit" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp    
                 <asp:Button ID="shenhe" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp

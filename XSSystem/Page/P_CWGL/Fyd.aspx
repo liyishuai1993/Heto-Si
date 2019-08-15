@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>费用单</title>
     <script src="../../My97DatePicker/WdatePicker.js"></script>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
         <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
         .auto-style1 {
@@ -45,8 +46,8 @@
     <form id="form1" runat="server">
     <div> <p class="auto-style5">费用单</p>
         <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
-        <p class="auto-style4">录单日期<asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
-            编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></p>
+        <p class="auto-style4"><span>录单日期</span><asp:TextBox id="ldrq" runat="server" Height="16px" Width ="284px" Text="" onClick="WdatePicker()" valued="must1"></asp:TextBox>
+            <span>编号</span><asp:TextBox ID="bh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></p>
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
@@ -57,7 +58,7 @@
   EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">部门<asp:TextBox id="bm" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>部门</span><asp:TextBox id="bm" runat="server" Height="16px" Width ="284px" name="部门" valued="must1" ></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3" >摘要<asp:DropDownList id="dp_zy" runat="server" Height="24px" Width ="284px">
@@ -79,9 +80,9 @@
 
         <div>
             <p><asp:Button  runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click"/>
-                费用项目编号<asp:TextBox runat="server" id="fyxmbh"/>
-                费用项目名称<asp:TextBox runat="server" id="fyxmmc"/>
-                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"/>
+                费用项目编号<asp:TextBox runat="server" id="fyxmbh" valued="must2" name="费用项目编号"/>
+                费用项目名称<asp:TextBox runat="server" id="fyxmmc" valued="must2" name="费用项目名称"/>
+                金额<asp:TextBox runat="server" ID="je" OnKeyPress="isnum()" valued="must2" name="金额"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"/>
                 备注<asp:TextBox runat="server" ID="bz"/>
             </p>
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">

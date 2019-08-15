@@ -7,6 +7,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>配煤单录入</title>
+    <link href="../../style/FormStyle.css" rel="stylesheet" />
     <script src="../../My97DatePicker/WdatePicker.js"></script>
     <script src="../../js/FormStyle.js"></script>
     <style type="text/css">
@@ -39,8 +40,8 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 800px" >
                 <tr>
-                    <td class="auto-style3">配煤编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                    <td class="auto-style3">配煤日期<asp:TextBox ID="pmrq" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
+                    <td class="auto-style3"><span>配煤编号</span><asp:TextBox ID="bh" valued="must1" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                    <td class="auto-style3"><span>配煤日期</span><asp:TextBox ID="pmrq" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="284px"></asp:TextBox> </td>                                    
                 </tr>
                 
                 <tr>

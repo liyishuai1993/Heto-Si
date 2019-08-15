@@ -42,8 +42,8 @@
             <p>基本信息</p>
             <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
-                    <td class="auto-style3">*编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
-                    <td class="auto-style3">合同编号<asp:TextBox id="htbh" runat="server" name="合同编号" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
+                    <td class="auto-style3"><span>编号</span><asp:TextBox ID="bh" runat="server" Height="16px" Width="500px"></asp:TextBox></td>
+                    <td class="auto-style3"><span>合同编号</span><asp:TextBox id="htbh" runat="server" name="合同编号" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
                     <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
@@ -54,7 +54,7 @@
    HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">*物料名称<asp:TextBox id="wlmc" runat="server" name="物料名称" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>物料名称</span><asp:TextBox id="wlmc" runat="server" name="物料名称" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                     <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" AutoPostBack="True" runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入装车站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" 
    HighlightTemplatedItems="true"/></td>

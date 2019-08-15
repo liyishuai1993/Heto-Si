@@ -184,6 +184,10 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
+            if (!DataChecked(2))
+            {
+                return;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {

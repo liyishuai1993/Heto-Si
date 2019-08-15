@@ -32,30 +32,30 @@
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
            <%-- <table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
-                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
+                    <td class="auto-style3">合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
+                    <td class="auto-style3">合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">*签订日期
+                    <td class="auto-style3"><span>签订日期</span>
                         <asp:TextBox ID="qdrq" runat="server" Text="" name="签订日期" valued="must1" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>                 
-                    <td class="auto-style3">*出租方<asp:DropDownList id="czf" runat="server" Height="25px" Width ="284px"></asp:DropDownList>
+                    <td class="auto-style3"><span>出租方</span><asp:DropDownList id="czf" valued="must1" runat="server" Height="25px" Width ="284px"></asp:DropDownList>
                     </td>
                     <td class="auto-style3">
-                        *承租方<asp:DropDownList id="czf2" runat="server" Height="25px" Width ="284px"></asp:DropDownList>  
+                        <span>承租方</span><asp:DropDownList id="czf2" runat="server" valued="must1" Height="25px" Width ="284px"></asp:DropDownList>  
                    </td> 
                     <td class="auto-style3">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style3">出租地段<asp:DropDownList id="czdd" name="出租地段" valued="must1" runat="server" Height="25px" Width ="284px"></asp:DropDownList> 
+                    <td class="auto-style3"><span>出租地段</span><asp:DropDownList id="czdd" name="出租地段" valued="must1" runat="server" Height="25px" Width ="284px"></asp:DropDownList> 
                     </td>
-                    <td class="auto-style3">租赁期限
+                    <td class="auto-style3"><span>租赁期限</span>
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
@@ -69,13 +69,13 @@
             <div class="divcss5">
             <p>租金信息<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddZjxx"/></p>
             <p>               
-                起始日期<asp:TextBox id="qsrq" runat="server" Height="16px"  Text="" onClick="WdatePicker()" Width ="150px"></asp:TextBox>
-                终止日期<asp:TextBox id="zzrq" runat="server" Height="16px" Width ="150px"  Text="" onClick="WdatePicker()"></asp:TextBox>
-                租金<asp:TextBox id="zj" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                起始日期<asp:TextBox id="qsrq" valued="must2" name="起始日期" runat="server" Height="16px"  Text="" onClick="WdatePicker()" Width ="150px"></asp:TextBox>
+                终止日期<asp:TextBox id="zzrq" valued="must2" name="终止日期" runat="server" Height="16px" Width ="150px"  Text="" onClick="WdatePicker()"></asp:TextBox>
+                租金<asp:TextBox id="zj" runat="server" valued="must2" name="租金" Height="16px" Width ="150px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 </p>
             <p>
-                付款条款<asp:TextBox id="fktk" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                执行状态<asp:TextBox id="zxzt" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                付款条款<asp:TextBox id="fktk" runat="server" valued="must2" name="付款条款" Height="16px" Width ="150px"></asp:TextBox>
+                执行状态<asp:TextBox id="zxzt" runat="server" valued="must2" name="执行状态" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 
             </p>

@@ -34,23 +34,23 @@
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px; font-family: 宋体, Arial, Helvetica, sans-serif; line-height: normal; background-color: #33CCFF;" >
             <%--<table border="1" aria-haspopup="False" class="xs_table" style="width: 1200px"  >--%>
                 <tr>
-                    <td class="auto-style3">*合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
-                    <td class="auto-style3">*合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
+                    <td class="auto-style3">合同编号<asp:TextBox ID="htbh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox></td>
+                    <td class="auto-style3">合同类型<asp:DropDownList id="htlx" runat="server" height="25px" Width ="284px">
                         <asp:ListItem>预付款</asp:ListItem>
                         <asp:ListItem>直供赊销</asp:ListItem>
                         <asp:ListItem>超付</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">*签订日期
+                    <td class="auto-style3"><span>签订日期</span>
                         <asp:TextBox ID="qdrq" runat="server" Text="" name="签订日期" valued="must1" onClick="WdatePicker()" Width="284px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>                 
-                    <td class="auto-style3">*委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入委托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        *受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                        受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入受托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="受托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                    </td> 
@@ -65,8 +65,8 @@
                         <asp:ListItem>两票</asp:ListItem>
                         <asp:ListItem>原票原转</asp:ListItem>
                         </asp:DropDownList> </td>
-                    <td class="auto-style3">执行期限<asp:TextBox ID="zxqxQ" name="执行期限" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
-                        -<asp:TextBox ID="zxqxZ" name="执行期限" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>执行期限</span><asp:TextBox ID="zxqxQ" name="执行期限起" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox>
+                        -<asp:TextBox ID="zxqxZ" name="执行期限止" valued="must1" runat="server" Text="" onClick="WdatePicker()" Width="140px"></asp:TextBox> </td>
                     <td class="auto-style3"> </td> 
                 </tr>
        
@@ -78,9 +78,9 @@
             <p>价格信息<asp:Button ID="Button1" runat="server" Text="新增记录"  OnClick="AddJgxx"/> </p>
             <p>
                                
-                物料名称<asp:TextBox id="wlmc" runat="server" Height="16px" Width ="150px"></asp:TextBox>
-                加工费(元/吨)<asp:TextBox id="jgf" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                出煤指标<asp:TextBox id="cmzb" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                物料名称<asp:TextBox id="wlmc" valued="must2" name="物料名称" runat="server" Height="16px" Width ="150px"></asp:TextBox>
+                加工费(元/吨)<asp:TextBox id="jgf" valued="must2" name="加工费" runat="server" Height="16px" Width ="150px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                出煤指标<asp:TextBox id="cmzb" valued="must2" name="出煤指标" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="150px"></asp:TextBox>
                 
             </p>

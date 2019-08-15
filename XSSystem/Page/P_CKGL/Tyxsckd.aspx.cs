@@ -297,9 +297,10 @@ namespace XSSystem.Page.P_Order
         }
         protected void AddJgxx(object sender, EventArgs e)
         {
-            //string shtbh = htbh.Text;
-            //Response.Write("<script>window.showModelessDialog('TyxsckdJzxxx.aspx?transmissionInfo=" + htbh.Text + "+&bh="+bh.Text+"')</script>");
-            // Response.Write("<script>window.location.reload();</script>");
+            if (!DataChecked(2))
+            {
+                return;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {
