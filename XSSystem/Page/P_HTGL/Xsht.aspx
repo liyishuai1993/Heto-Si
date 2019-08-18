@@ -157,10 +157,10 @@ function FormCheck()
             </p>
             <p>
                 
-                合同煤价<asp:TextBox id="htmj" runat="server" valued="must2"  Height="16px" cal="must1" OnBlur="FormCheck()"  name="合同煤价" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.-]/g,'')"></asp:TextBox>
+                <span>合同煤价</span><asp:TextBox id="htmj" runat="server" valued="must2"  Height="16px" cal="must1" OnBlur="FormCheck()"  name="合同煤价" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.-]/g,'')"></asp:TextBox>
                 扣损率<asp:TextBox id="ksl" runat="server" Height="16px" Width ="100px" valued="must2" name="扣损率" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                签订吨数<asp:TextBox id="qdds" runat="server" BackColor="#ff0066" valued="must2" Height="16px" Width ="100px" OnBlur="FormCheck()" cal="must1" name="签订吨数" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                签订金额<asp:TextBox id="qdje" runat="server" BackColor="LightGreen" Height="16px" Width ="100px" valued="must2" name="签订金额" OnKeyPress="isnum()" OnFocus="FormCheck()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.-]/g,'')"></asp:TextBox>
+                <span>签订吨数</span><asp:TextBox id="qdds" runat="server" valued="must2" Height="16px" Width ="100px" OnBlur="FormCheck()" cal="must1" name="签订吨数" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                <asp:label runat="server" ForeColor="Blue">签订金额</asp:label><asp:TextBox id="qdje" runat="server" BackColor="LightBlue" Height="16px" Width ="100px" valued="must2" name="签订金额" OnKeyPress="isnum()" OnFocus="FormCheck()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.-]/g,'')"></asp:TextBox>
                 状态<asp:TextBox id="zt" runat="server" Height="16px" Width ="100px"></asp:TextBox>
             </p>
                 </div>

@@ -41,7 +41,7 @@
             <table border="0" aria-haspopup="False" class="auto-style1">
                 <tr>
                     <td class="auto-style3"><span>编号</span><asp:TextBox ID="bh" runat="server" Height="16px" Width="500px" valued="must1" name="编号"></asp:TextBox></td>
-                    <td class="auto-style3"><span>出库磅单号<span><asp:TextBox id="ckbdh" runat="server" name="出库磅单号" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
+                    <td class="auto-style3"><span>出库磅单号</span><asp:TextBox id="ckbdh" runat="server" name="出库磅单号" Height="16px" Width ="500px" valued="must1"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
                     <td class="auto-style3"><span>装车时间</span><asp:TextBox ID="zcsj" runat="server" name="装车时间" Text="" onClick="WdatePicker()" Width="500px" valued="must1"></asp:TextBox> </td>
