@@ -820,7 +820,7 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
           //  sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sql = @"delete from " + tablename + " where "+key+"='";
+            sql = @"delete from " + tablename + " where "+key+ "='@htbhArr'";
             for (int i = 0; i < ckb.Length; i++)
             {
                 //sql += ckb[i];

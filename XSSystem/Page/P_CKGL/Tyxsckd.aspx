@@ -77,13 +77,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3"><span>提成标准</span><asp:TextBox id="tcbz" cal="must1" name="提成标准" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">#提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
+                    <td class="auto-style3"><span>提成标准</span><asp:TextBox id="tcbz" cal="must1" name="提成标准" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3">#提成金额<asp:TextBox id="tcje" runat="server" valued="must1" name="提成金额" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">业务员<asp:TextBox id="ywy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3">卸货吨位<asp:TextBox id="xhdw" cal="must1" name="卸货吨位" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>卸货吨位</span><asp:TextBox id="xhdw" cal="must1" name="卸货吨位" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
                 </tr>
 
             </table>     
@@ -338,7 +338,6 @@
         <p class="auto-style5">
                 <asp:Button ID="Button1" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>&nbsp
                 <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp          
-                <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua"></asp:Button>
                 </p> 
         </div>
     </form>

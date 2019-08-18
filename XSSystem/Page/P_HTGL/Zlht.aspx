@@ -59,7 +59,7 @@
                         <asp:TextBox ID="zlqxQ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>-
                         <asp:TextBox ID="zlqxZ" runat="server" Text="" name="租赁期限" valued="must1" onClick="WdatePicker()" Width="141px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3">押金 <asp:TextBox id="yj" name="押金" valued="must1" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
+                    <td class="auto-style3"><span>押金</span><asp:TextBox id="yj" name="押金" valued="must1" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox></td> 
                 </tr>
        
             </table>            

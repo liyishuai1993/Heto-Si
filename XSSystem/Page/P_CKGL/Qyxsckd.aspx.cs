@@ -162,7 +162,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", float.Parse(fkzh.Text.Trim()));
+                dml.Add("@fkzh", fkzh.Text.Trim());
             }
             catch
             {
