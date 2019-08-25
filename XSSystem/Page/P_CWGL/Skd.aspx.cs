@@ -42,8 +42,7 @@ namespace XSSystem.Page.P_Order
             qc.all = 1;
             pagepara.Sql = _cwglLogic.QuerySkdOrder(qc);
             pagepara.OrderBy = "bh";
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, ex);
+            DataTable dt = xsPageHelper.BindPager(pagepara);
             bh.Text = string.Format("SK{0}{1}", DateTime.Now.ToString("yyyyMMdd"), dt.Rows.Count);
             RadComboBoxItem radcbItem;
             DataTable dt2 = GlabalString.GetGongSi();
@@ -229,6 +228,11 @@ namespace XSSystem.Page.P_Order
                     break;
                 }
             }
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='SkdGl.aspx'");
         }
     }
 }

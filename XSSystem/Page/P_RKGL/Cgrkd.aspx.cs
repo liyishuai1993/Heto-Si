@@ -236,5 +236,11 @@ namespace XSSystem.Page.P_Order
             
             return;
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='CgrkdGl.aspx'");
+
+        }
     }
 }

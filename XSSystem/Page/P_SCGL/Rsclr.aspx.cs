@@ -414,5 +414,11 @@ namespace XSSystem.Page.P_Order
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='RsclrGl.aspx'");
+
+        }
     }
 }

@@ -259,8 +259,7 @@ namespace XSSystem.Page.P_Order
             arrList[1] = "stf";
             pagepara.Sql = ht.QueryDropList("xs_QyhtTable", arrList);
             pagepara.OrderBy = "wtf";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTQY" + DateTime.Now.ToString("yyyyMMdd") + "-"+dt1.Rows.Count;
 
             RadComboBoxItem radcbItem;
@@ -294,5 +293,9 @@ namespace XSSystem.Page.P_Order
             }
         }
 
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='QyhtGl.aspx'");
+        }
     }
 }

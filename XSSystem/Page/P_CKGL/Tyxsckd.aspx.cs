@@ -360,6 +360,11 @@ namespace XSSystem.Page.P_Order
                 Num(sxds.Text) + Num(tlyf.Text) / 2.0f + Num(dzzxf.Text) / 2.0f + Num(dzmcddf.Text) / 2.0f + Num(dzdlf.Text) * Num(xhds.Text)).ToString();
         }
 
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='TyxsckdGl.aspx'");
+        }
+
         //protected void Btn_Qkr_Click(object sender, EventArgs e)
         //{
         //    DataRow dr = dataTable2.NewRow();

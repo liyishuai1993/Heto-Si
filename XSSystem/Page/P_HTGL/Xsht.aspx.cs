@@ -422,8 +422,7 @@ namespace XSSystem.Page.P_Order
             arrList[2] = "fhdd";
             pagepara.Sql = ht.QueryDropList("xs_XshtTable", arrList);
             pagepara.OrderBy = "gfmc";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTXS" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
 
             RadComboBoxItem radcbItem;
@@ -464,5 +463,9 @@ namespace XSSystem.Page.P_Order
             return;
         }
 
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='XshtGl.aspx'");
+        }
     }
 }

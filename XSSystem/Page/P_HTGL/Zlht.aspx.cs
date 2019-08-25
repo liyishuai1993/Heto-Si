@@ -252,8 +252,7 @@ namespace XSSystem.Page.P_Order
             arrList[2] = "czdd";
             pagepara.Sql = ht.QueryDropList("xs_ZlhtTable", arrList);
             pagepara.OrderBy = "czf";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt = xsPageHelper.BindPager(pagepara);
             if (dt.Rows.Count != 0)
             {
                 czf.DataSource = dt.DefaultView;
@@ -267,6 +266,12 @@ namespace XSSystem.Page.P_Order
                 czdd.DataBind();
             }
             htbh.Text = "HTZL" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='ZlhtGl.aspx'");
+
         }
     }
 }

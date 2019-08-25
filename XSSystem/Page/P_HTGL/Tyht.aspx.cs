@@ -281,8 +281,7 @@ namespace XSSystem.Page.P_Order
             arrList[5] = "zdz";
             pagepara.Sql = ht.QueryDropList("xs_TyhtTable", arrList);
             pagepara.OrderBy = "wtf";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTTY" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
 
             RadComboBoxItem radcbItem;
@@ -339,6 +338,11 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_wlmc.SelectedIndex = 1;
             }
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='TyhtGl.aspx'");
         }
     }
 }

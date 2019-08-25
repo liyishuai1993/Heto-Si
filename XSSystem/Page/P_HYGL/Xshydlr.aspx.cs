@@ -58,5 +58,11 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("新增成功");
             }
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='XshydlrGl.aspx'");
+
+        }
     }
 }

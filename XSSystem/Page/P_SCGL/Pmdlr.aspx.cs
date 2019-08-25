@@ -275,5 +275,11 @@ namespace XSSystem.Page.P_Order
             CPGridView.DataSource = CPdataTable;
             CPGridView.DataBind();
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='PmdlrGl.aspx'");
+
+        }
     }
 }

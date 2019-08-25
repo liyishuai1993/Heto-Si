@@ -270,5 +270,10 @@ namespace XSSystem.Page.P_Order
             tcje.Text = Mul(hkjsdw.Text, tcbz.Text);
             return;
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='QyxsckdGl.aspx'");
+        }
     }
 }

@@ -81,7 +81,7 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("qdds", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("qdje", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
+            Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Int32"));
 
            
 
@@ -105,7 +105,7 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable.Columns.Add("lin", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
-            Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
+            Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Int32"));
         }
 
 
@@ -258,29 +258,100 @@ namespace XSSystem.Page.P_Order
 
         protected void update_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-            dml.Add("@dfhth", dfhth.Text.Trim());
-            dml.Add("@gfmc", DropDownList_gfmc.SelectedItem.Text.Trim());
-            dml.Add("@xfmc", DropDownList_xfmc.SelectedItem.Text.Trim());
-            dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
-            dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
-            dml.Add("@hklhbz", hklhbz.Text.Trim());
-            dml.Add("@kpxx", kpxx.SelectedItem.Text.Trim());
-            dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
-            dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
-            dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-            dml.Add("@jhdd", tk_jhdd.SelectedItem.Text.Trim());
-            dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
-            dml.Add("@mkmc", mkmc.Text.Trim());
-            dml.Add("@bz", bz.Text.Trim());
-            if (_htglLogic.UpdateCght(dml))
+            try
             {
-                AlertMessageAndGoTo("修改成功", "CghtGl.aspx");
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+                dml.Add("@dfhth", dfhth.Text.Trim());
+                dml.Add("@gfmc", DropDownList_gfmc.SelectedItem.Text.Trim());
+                dml.Add("@xfmc", DropDownList_xfmc.SelectedItem.Text.Trim());
+                dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
+                dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
+                dml.Add("@hklhbz", hklhbz.Text.Trim());
+                dml.Add("@kpxx", kpxx.SelectedItem.Text.Trim());
+                dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
+                dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
+                dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
+                dml.Add("@jhdd", tk_jhdd.SelectedItem.Text.Trim());
+                dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
+                dml.Add("@mkmc", mkmc.Text.Trim());
+                dml.Add("@bz", bz.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+
+            //封装子表数据
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in Jgxx_dataTable.Rows)
+            {
+                if (val[11]!=null&&(int)val[11] == 1)
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@mkmc", val[1]);
+                    temp.Add("@mzmc", val[2]);
+                    temp.Add("@frl", val[3]);
+                    temp.Add("@lf", val[4]);
+                    temp.Add("@kpmj", val[5]);
+                    temp.Add("@htmj", val[6]);
+                    temp.Add("@ksl", val[7]);
+                    temp.Add("@qdds", val[8]);
+                    temp.Add("@qdje", val[9]);
+                    temp.Add("@zt", val[10]);
+                    Child1.Add(temp);
+                }
+
+            }
+
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow val in Zlbz_dataTable.Rows)
+            {
+                if (val[14]!=null&&(int)val[14] == 1)
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@mz", val[1]);
+                    temp.Add("@ld", val[2]);
+                    temp.Add("@hf", val[3]);
+                    temp.Add("@hff", val[4]);
+                    temp.Add("@gdt", val[5]);
+                    temp.Add("@njzs", val[6]);
+                    temp.Add("@sf", val[7]);
+                    temp.Add("@tie", val[8]);
+                    temp.Add("@lv", val[9]);
+                    temp.Add("@gai", val[10]);
+                    temp.Add("@lin", val[11]);
+                    temp.Add("@tai", val[12]);
+                    temp.Add("@liu", val[13]);
+                    Child2.Add(temp);
+                }
+
+            }
+            string reply = _htglLogic.UpdateCght(dml, Child1, Child2);
+            if (reply == "")
+            {
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("新增成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+                AlertMessage(reply);
+                return;
             }
 
         }
@@ -341,7 +412,7 @@ namespace XSSystem.Page.P_Order
                 dr[8] = double.Parse(qdds.Text.Trim());
                 dr[9] = double.Parse(qdje.Text.Trim());
                 dr[10] = zt.Text;
-                dr[11] = true;
+                dr[11] = 1;
             }
             catch
             {
@@ -423,7 +494,7 @@ namespace XSSystem.Page.P_Order
                 dr[11] = double.Parse(lin.Text.Trim());
                 dr[12] = double.Parse(tai.Text.Trim());
                 dr[13] = double.Parse(liu.Text.Trim());
-                dr[14] = true;
+                dr[14] = 1;
             }
             catch
             {
@@ -449,8 +520,8 @@ namespace XSSystem.Page.P_Order
             arrList[2] = "jhdd";
             pagepara.Sql = ht.QueryDropList("xs_CghtTable", arrList);
             pagepara.OrderBy = "gfmc";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            //PageChangedEventArgs e = new PageChangedEventArgs(1);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTCG" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
 
             RadComboBoxItem radcbItem;
@@ -490,6 +561,11 @@ namespace XSSystem.Page.P_Order
             }
             qdje.Text = Mul(htmj.Text, qdds.Text);
             return;
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='CghtGl.aspx'");
         }
     }
 }

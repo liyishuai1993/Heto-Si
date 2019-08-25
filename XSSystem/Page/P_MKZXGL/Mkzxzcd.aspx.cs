@@ -235,5 +235,11 @@ namespace XSSystem.Page.P_Order
             xsjsje.Text = Mul(Add(yj.Text, xsmj.Text), zcjz.Text);
             return;
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='MkzxzcdGl.aspx'");
+
+        }
     }
 }

@@ -253,5 +253,11 @@ namespace XSSystem.Page.P_Order
                 Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
             
         }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='TydbckdGl.aspx'");
+
+        }
     }
 }

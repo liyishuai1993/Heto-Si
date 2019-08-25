@@ -42,8 +42,7 @@ namespace XSSystem.Page.P_Order
             qc.all = 1;
             pagepara.Sql = _cwglLogic.QueryFydOrder(qc);
             pagepara.OrderBy = "bh";
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
-            DataTable dt = xsPageHelper.BindPager(pagepara, ex);
+            DataTable dt = xsPageHelper.BindPager(pagepara);
             bh.Text = string.Format("FY{0}{1}", DateTime.Now.ToString("yyyyMMdd"), dt.Rows.Count);
             RadComboBoxItem radcbItem;
             DataTable dt2 = GlabalString.GetGongSi();
@@ -188,6 +187,12 @@ namespace XSSystem.Page.P_Order
             }
             else
                 AlertMessage("新增失败");
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='FydGl.aspx'");
+
         }
     }
 }

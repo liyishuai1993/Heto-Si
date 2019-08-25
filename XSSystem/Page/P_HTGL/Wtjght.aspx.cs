@@ -239,8 +239,7 @@ namespace XSSystem.Page.P_Order
             arrList[1] = "stf";
             pagepara.Sql = ht.QueryDropList("xs_WtjgTable", arrList);
             pagepara.OrderBy = "wtf";
-            PageChangedEventArgs e = new PageChangedEventArgs(1);
-            DataTable dt1 = xsPageHelper.BindPager(pagepara, e);
+            DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTJG" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
 
             RadComboBoxItem radcbItem;
@@ -259,6 +258,11 @@ namespace XSSystem.Page.P_Order
                 tk_stf.SelectedIndex = 1;
                 tk_wtf.SelectedIndex = 1;
             }
+        }
+
+        protected void close_Click(object sender, EventArgs e)
+        {
+            JavaScript("window.location.href='WtjghtGl.aspx'");
         }
     }
 }
