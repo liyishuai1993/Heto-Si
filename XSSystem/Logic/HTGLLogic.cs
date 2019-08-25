@@ -583,33 +583,70 @@ namespace xs_System.Logic
 
         }
 
-        public bool UpdateQyht(DirModel dml)
+        public bool UpdateQyht(DirModel dml, List<DirModel> child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_QyhtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
-            SqlHelper.Execute(sqlpara);
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_QyhtTable_Jgxx (user_no,htbh,wlmc,qyd,mdd,yj,yflhbz,zxzt,bz)" +
+                "values(@user_no,@htbh,@wlmc,@qyd,@mdd,@yj,@yflhbz,@zxzt,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+
+            SqlHelper.Execute(xsSqls);
             return true;
         }
 
-        public bool UpdateTyht(DirModel dml)
+        public bool UpdateTyht(DirModel dml, List<DirModel> child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_TyhtTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,fmmc=@fmmc,wlmc=@wlmc,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ,zcz=@zcz,zdz=@zdz,xlx=@xlx,sl=@sl where htbh=@htbh and user_no=@userid";
-            SqlHelper.Execute(sqlpara);
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_TyhtTable_Jgxx (user_no,htbh,gsmc,dfhth,kplx,zbxsf,dlf,zxf,sfzdd,tlyf,dzzxf,dzmcddf,dzdlf)" +
+                "values(@user_no,@htbh,@gsmc,@dfhth,@kplx,@zbxsf,@dlf,@zxf,@sfzdd,@tlyf,@dzzxf,@dzmcddf,@dzdlf)";
+                xsSqls.Add(sqlpara);
+            }
+            SqlHelper.Execute(xsSqls);
             return true;
         }
 
-        public bool UpdateWtjghtht(DirModel dml)
+        public bool UpdateWtjghtht(DirModel dml, List<DirModel> child1)
         {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_WtjgTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
-            SqlHelper.Execute(sqlpara);
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_WtjghtTable_Jgxx (user_no,htbh,wlmc,jgf,cmzb,bz)" +
+                "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+            SqlHelper.Execute(xsSqls);
             return true;
         }
 

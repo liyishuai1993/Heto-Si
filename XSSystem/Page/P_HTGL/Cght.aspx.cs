@@ -121,7 +121,28 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            Zlbz_dataTable= xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
+            {
+                DataRow dr = Zlbz_dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = val[13];
+                dr[12] = val[14];
+                dr[13] = val[15];
+                dr[14] = 0;
+                Zlbz_dataTable.Rows.Add(dr);
+
+            }
             if (Zlbz_dataTable.Columns.Count == 0)
             {
                 InitTableZlbz();
@@ -142,9 +163,26 @@ namespace XSSystem.Page.P_Order
             qc.tableName = "xs_CghtTable_Jgxx";
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
-
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            Jgxx_dataTable= xsPageHelper.BindPager(pagepara, e);
+            var temp= xsPageHelper.BindPager(pagepara, e);
+            foreach(DataRow val in temp.Rows)
+            {
+                DataRow dr = Jgxx_dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = 0;
+                Jgxx_dataTable.Rows.Add(dr);
+
+            }
             if (Jgxx_dataTable.Columns.Count == 0)
             {
                 InitDataTableJgxx();
@@ -296,7 +334,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in Jgxx_dataTable.Rows)
             {
-                if (val[11]!=null&&(int)val[11] == 1)
+                if ((int)val[11] == 1)
                 {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
@@ -319,7 +357,7 @@ namespace XSSystem.Page.P_Order
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow val in Zlbz_dataTable.Rows)
             {
-                if (val[14]!=null&&(int)val[14] == 1)
+                if ((int)val[14] == 1)
                 {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());

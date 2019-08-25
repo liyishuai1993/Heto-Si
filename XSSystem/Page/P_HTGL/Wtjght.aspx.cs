@@ -74,7 +74,19 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable= xsPageHelper.BindPager(pagepara, e);
+            var temp= xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
+            {
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = false;
+                dataTable.Rows.Add(dr);
+
+            }
             if (dataTable.Columns.Count == 0)
             {
                 InitDataTable();
@@ -133,20 +145,47 @@ namespace XSSystem.Page.P_Order
 
         protected void update_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());// ??????
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-            dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-            dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-            dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
-            dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
-            dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+            try
+            {
+                dml.Add("@htbh", htbh.Text.Trim());// ??????
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
+                dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
+                dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
 
-
-            if (_htglLogic.UpdateWtjghtht(dml))
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@wlmc", val[1]);
+                    temp.Add("@jgf", val[2]);
+                    temp.Add("@cmzb", val[3]);
+                    temp.Add("@bz", val[4]);
+                    Child1.Add(temp);
+                }
+            }
+            if (_htglLogic.UpdateWtjghtht(dml,Child1))
             {
                 AlertMessageAndGoTo("修改成功", "WtjghtGl.aspx");
             }

@@ -88,7 +88,26 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable= xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
+            {
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = val[13];
+                dr[12] = false;
+                dataTable.Rows.Add(dr);
+
+            }
             if (dataTable.Columns.Count == 0)
             {
                 InitDataTable();
@@ -156,6 +175,10 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessageAndGoTo("新增成功", "Tyht.aspx");
             }
+            else
+            {
+                AlertMessage("新增失败，数据有误");
+            }
         }
 
         protected void btnShengHe_Click(object sender, EventArgs e)
@@ -190,23 +213,60 @@ namespace XSSystem.Page.P_Order
 
         protected void update_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());// ??????
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-            dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-            dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-            dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
-            dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
-            dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
-            dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
-            dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
-            dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
-            dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
-            dml.Add("@sl", int.Parse(sl.Text.Trim()));
-            if (_htglLogic.UpdateTyht(dml))
+            try
+            {
+                dml.Add("@htbh", htbh.Text.Trim());// ??????
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
+                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
+                dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
+                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
+                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
+                dml.Add("@sl", int.Parse(sl.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[12])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@gsmc", val[1]);
+                    temp.Add("@dfhth", val[2]);
+                    temp.Add("@kplx", val[3]);
+                    temp.Add("@zbxsf", val[4]);
+                    temp.Add("@dlf", val[5]);
+                    temp.Add("@zxf", val[6]);
+                    temp.Add("@sfzdd", val[7]);
+                    temp.Add("@tlyf", val[8]);
+                    temp.Add("@dzzxf", val[9]);
+                    temp.Add("@dzmcddf", val[10]);
+                    temp.Add("@dzdlf", val[11]);
+                    Child1.Add(temp);
+                }
+
+            }
+            if (_htglLogic.UpdateTyht(dml,Child1))
             {
                 AlertMessageAndGoTo("修改成功", "TyhtGl.aspx");
             }
