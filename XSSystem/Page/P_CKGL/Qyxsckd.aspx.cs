@@ -275,5 +275,100 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='QyxsckdGl.aspx'");
         }
+
+        protected void updateCkd_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@ckbdh", ckbdh.Text.Trim());
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
+                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
+                dml.Add("@ch", ch.Text.Trim());
+                dml.Add("@jsy", jsy.Text.Trim());
+                dml.Add("@lxdh", lxdh.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
+                dml.Add("@ckmz", float.Parse(ckmz.Text.Trim()));
+                dml.Add("@ckpz", float.Parse(ckpz.Text.Trim()));
+                dml.Add("@jbds", float.Parse(jbds.Text.Trim()));
+                dml.Add("@ckjz1", float.Parse(ckjz1.Text.Trim()));
+                dml.Add("@ckjz2", float.Parse(ckjz2.Text.Trim()));
+                dml.Add("@mj", float.Parse(mj.Text.Trim()));
+                dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
+                dml.Add("@yj", float.Parse(yj.Text.Trim()));
+                dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
+                dml.Add("@fkzh", fkzh.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            var mess = _htglLogic.UpdateQyxsckd(dml);
+            if (mess=="")
+            {
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("修改成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+                AlertMessage("修改失败");
+            }
+        }
+
+        protected void updateHd_Click(object sender, EventArgs e)
+        {
+            if(!DataChecked(2))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+
+            dml.Add("@user_no", model.LoginUser);
+            dml.Add("@rkbdh", rkbdh.Text.Trim());
+            dml.Add("@ckbdh", ckbdh.Text.Trim());
+            dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
+            dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
+            dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
+            dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));
+            dml.Add("@ksds", float.Parse(ksds.Text.Trim()));
+            dml.Add("@yyds", float.Parse(yyds.Text.Trim()));
+            dml.Add("@kd", float.Parse(kd.Text.Trim()));
+            dml.Add("@yfhllh", float.Parse(yfhllh.Text.Trim()));
+            dml.Add("@yflhbz", float.Parse(yflhbz.Text.Trim()));
+            dml.Add("@yfkkds", float.Parse(yfkkds.Text.Trim()));
+            dml.Add("@yfkkje", float.Parse(yfkkje.Text.Trim()));
+            dml.Add("@yfjsdw", float.Parse(yfjsdw.Text.Trim()));
+            dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
+            dml.Add("@fykk", float.Parse(fykk.Text.Trim()));
+            dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
+            dml.Add("@hkjsdw", float.Parse(hkjsdw.Text.Trim()));
+            dml.Add("@jshk", float.Parse(jshk.Text.Trim()));
+            dml.Add("@tcbz", tcbz.Text.Trim());
+            dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
+            dml.Add("@ywy", ywy.Text.Trim());
+            dml.Add("@yfjszt", yfyf.Text.Trim());
+            dml.Add("@shzt", shzt.Text.Trim());
+            var mess = _htglLogic.UpdateQykhhdlr(dml);
+            if (mess == "")
+            {
+                AlertMessage("修改成功");
+            }
+            else
+            {
+                AlertMessage("记录有误，修改失败");
+            }
+        }
     }
 }

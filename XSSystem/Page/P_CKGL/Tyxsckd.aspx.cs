@@ -168,10 +168,40 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable= xsPageHelper.BindPager(pagepara, e);
-            if (dataTable.Columns.Count == 0)
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable();
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = val[13];
+                dr[12] = val[15];
+                dr[13] = val[16];
+                dr[14] = val[17];
+                dr[15] = val[18];
+                dr[16] = val[19];
+                dr[17] = val[20];
+                dr[18] = val[21];
+                dr[19] = val[22];
+                dr[20] = val[23];
+                dr[21] = val[24];
+                dr[22] = val[25];
+                dr[23] = val[26];
+                dr[24] = val[27];
+                dr[25] = val[28];
+                dr[26] = val[29];
+                dr[27] = false;
+                dataTable.Rows.Add(dr);
+
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
@@ -365,29 +395,84 @@ namespace XSSystem.Page.P_Order
             JavaScript("window.location.href='TyxsckdGl.aspx'");
         }
 
-        //protected void Btn_Qkr_Click(object sender, EventArgs e)
-        //{
-        //    DataRow dr = dataTable2.NewRow();
-        //    try
-        //    {
-        //        dr[0] = dataTable2.Rows.Count + 1;
-        //        dr[1] = name.Text;
-        //        dr[2] = double.Parse(zqkje.Text);
-        //        dr[3] = double.Parse(yhkje.Text.Trim());
-        //        dr[4] = double.Parse(syqkje.Text.Trim());
-        //        dr[5] = qkxm.Text;
-        //        dr[6] = phone.Text;
-        //        dr[7] = bz.Text;
-        //        dr[8] = true;
-        //    }
-        //    catch
-        //    {
-        //        AlertMessage("数据存在错误，请检查");
-        //        return;
-        //    }
-        //    dataTable2.Rows.Add(dr);
-        //    GridView2.DataSource = dataTable2;
-        //    GridView2.DataBind();
-        //}
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
+                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@mj", float.Parse(mj.Text.Trim()));
+                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
+                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@xlx", xlx.Text.Trim());
+                dml.Add("@tcbz", tcbz.Text.Trim());
+                dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
+                dml.Add("@ywy", ywy.Text.Trim());
+                dml.Add("@xhdw", float.Parse(xhdw.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[27])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@bh", bh.Text);
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@xh", val[1]);
+                    temp.Add("@sxds", val[2]);
+                    temp.Add("@zxrq", val[3]);
+                    temp.Add("@fcrq", val[4]);
+                    temp.Add("@xhds", val[5]);
+                    temp.Add("@dzrq", val[6]);
+                    temp.Add("@jshk", val[7]);
+                    temp.Add("@zbxsf", val[8]);
+                    temp.Add("@fzdlf", val[9]);
+                    temp.Add("@fzzxf", val[10]);
+                    temp.Add("@fzddf", val[11]);
+                    temp.Add("@tlyf", val[12]);
+                    temp.Add("@dzzxf", val[13]);
+                    temp.Add("@dzmcddf", val[14]);
+                    temp.Add("@dzdlf", val[15]);
+                    temp.Add("@tlyfxj", val[16]);
+                    temp.Add("@jshk_qkr", val[17]);
+                    temp.Add("@zbxsf_qkr", val[18]);
+                    temp.Add("@fzdlf_qkr", val[19]);
+                    temp.Add("@fzzxf_qkr", val[20]);
+                    temp.Add("@fzddf_qkr", val[21]);
+                    temp.Add("@tlyf_qkr", val[22]);
+                    temp.Add("@dzzxf_qkr", val[23]);
+                    temp.Add("@dzmcddf_qkr", val[24]);
+                    temp.Add("@dzdlf_qkr", val[25]);
+                    temp.Add("@tlyfxj_qkr", val[26]);
+                    Child1.Add(temp);
+                }
+            }
+            string reply = _htglLogic.UpdateTyxsckd(dml, Child1);
+            if (reply == "")
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("新增失败");
+            }
+        }
     }
 }
