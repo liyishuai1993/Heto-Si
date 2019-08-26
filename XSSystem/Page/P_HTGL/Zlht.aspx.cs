@@ -75,10 +75,20 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "htbh";
 
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable= xsPageHelper.BindPager(pagepara, e);
-            if (dataTable.Columns.Count == 0)
+            var temp= xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable();
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = false;
+                dataTable.Rows.Add(dr);
+
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
@@ -138,21 +148,53 @@ namespace XSSystem.Page.P_Order
 
         protected void update_Click(object sender, EventArgs e)
         {
+            if (!DataChecked(1))
+            {
+                return;
+            }
             DirModel dml = new DirModel();
             LoginModel model = Session["LoginModel"] as LoginModel;
-            dml.Add("@htbh", htbh.Text.Trim());
-            dml.Add("@userid", model.LoginUser);
-            dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
-            dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));
-            dml.Add("@czf", czf.SelectedItem.Text.Trim());
-            dml.Add("@czf2", czf2.SelectedItem.Text.Trim());
-            dml.Add("@czdd", czdd.SelectedItem.Text.Trim());
-            dml.Add("@zlqxQ", Convert.ToDateTime(zlqxQ.Text));
-            dml.Add("@zlqxZ", Convert.ToDateTime(zlqxZ.Text));
-            dml.Add("@yj", float.Parse(yj.Text.Trim()));
+            try
+            {
+                dml.Add("@htbh", htbh.Text.Trim());
+                dml.Add("@userid", model.LoginUser);
+                dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
+                dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));
+                dml.Add("@czf", czf.SelectedItem.Text.Trim());
+                dml.Add("@czf2", czf2.SelectedItem.Text.Trim());
+                dml.Add("@czdd", czdd.SelectedItem.Text.Trim());
+                dml.Add("@zlqxQ", Convert.ToDateTime(zlqxQ.Text));
+                dml.Add("@zlqxZ", Convert.ToDateTime(zlqxZ.Text));
+                dml.Add("@yj", float.Parse(yj.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
 
 
-            if (_htglLogic.UpdateZlht(dml))
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[7])
+                {
+                    temp = new DirModel();
+                    temp.Add("@htbh", htbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@qsrq", val[1]);
+                    temp.Add("@zzrq", val[2]);
+                    temp.Add("@zj", val[3]);
+                    temp.Add("@fktk", val[4]);
+                    temp.Add("@zxzt", val[5]);
+                    temp.Add("@bz", val[6]);
+                    Child1.Add(temp);
+                }
+
+            }
+
+            if (_htglLogic.UpdateZlht(dml,Child1))
             {
                 AlertMessageAndGoTo("修改成功", "ZlhtGl.aspx");
             }

@@ -123,8 +123,8 @@ namespace XSSystem.Page.P_Order
             jsyf.Text = dt.Rows[0][33].ToString();
 
             tk_zfzh.Text = dt.Rows[0][34].ToString();
-            shzt.Text = dt.Rows[0][35].ToString();
-            yfjszt.Text = dt.Rows[0][36].ToString();
+            shzt.SelectedItem.Text = dt.Rows[0][35].ToString();
+            yfjszt.SelectedItem.Text = dt.Rows[0][36].ToString();
 
             Session.Remove("cgrkd");
         }
@@ -241,6 +241,77 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='CgrkdGl.aspx'");
 
+        }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@hth", hth.Text.Trim());
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@mkmc", mkmc.Text.Trim());
+                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
+                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@mj", float.Parse(mj.Text.Trim()));
+                dml.Add("@yshtbh", yshtbh.Text.Trim());
+                dml.Add("@cycd", cycd.Text.Trim());
+                dml.Add("@zcbdh", zcbdh.Text.Trim());
+                dml.Add("@tmdh", tmdh.Text.Trim());
+                dml.Add("@zcrq", Convert.ToDateTime(zcrq.Text.Trim()));
+                dml.Add("@ch", ch.Text.Trim());
+                dml.Add("@zcmz", float.Parse(zcmz.Text.Trim()));
+                dml.Add("@zcpz", float.Parse(zcpz.Text.Trim()));
+                dml.Add("@zcjz", float.Parse(zcjz.Text.Trim()));
+                dml.Add("@jsmk", float.Parse(jsmk.Text.Trim()));
+                dml.Add("@rkrq", Convert.ToDateTime(rkrq.Text.Trim()));
+                dml.Add("@rkbdh", rkbdh.Text.Trim());
+                dml.Add("@rkmc", rkmc.Text.Trim());
+                dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
+                dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
+                dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));
+                dml.Add("@ksds", float.Parse(ksds.Text.Trim()));
+                dml.Add("@yyds", float.Parse(yyds.Text.Trim()));
+                dml.Add("@yslhbz", float.Parse(yslhbz.Text.Trim()));
+                dml.Add("@kkbz", float.Parse(kkbz.Text.Trim()));
+                dml.Add("@kkds", float.Parse(kkds.Text.Trim()));
+                dml.Add("@kkje", float.Parse(kkje.Text.Trim()));
+                dml.Add("@yfjsdw", float.Parse(yfjsdw.Text.Trim()));
+                dml.Add("@yj", float.Parse(yj.Text.Trim()));
+                dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
+                dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
+                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
+                dml.Add("@zfzh", tk_zfzh.SelectedItem.Text.Trim());
+                dml.Add("@shzt", shzt.Text.Trim());
+                dml.Add("@yfjszt", yfjszt.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+
+
+
+            string reply = _htglLogic.UpdateCgrkd(dml);
+            if (reply == "")
+            {
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("修改成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+                AlertMessage(reply);
+                return;
+            }
         }
     }
 }
