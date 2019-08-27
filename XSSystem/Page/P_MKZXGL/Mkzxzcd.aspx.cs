@@ -214,10 +214,27 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryMkzxzcdChildTable(qc);
             pagepara.OrderBy = "djbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable= xsPageHelper.BindPager(pagepara, e);
-            if (dataTable.Columns.Count == 0)
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable();
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = val[13];
+                dr[12] = val[15];
+                dr[13] = val[16];
+                dr[14] = false;
+                dataTable.Rows.Add(dr);
+
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
@@ -240,6 +257,70 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='MkzxzcdGl.aspx'");
 
+        }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@djbh", djbh.Text.Trim());
+                dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
+                dml.Add("@cghth", cghth.Text.Trim());
+                dml.Add("@ghf", tk_ghf.SelectedItem.Text.Trim());
+                dml.Add("@shf", tk_shf.SelectedItem.Text.Trim());
+                dml.Add("@mkmc", mkmc.Text.Trim());
+                dml.Add("@wlmc", wlmc.Text.Trim());
+                dml.Add("@cydw", cydw.Text.Trim());
+                dml.Add("@yj", float.Parse(yj.Text.Trim()));
+                dml.Add("@cgmj", float.Parse(cgmj.Text.Trim()));
+                dml.Add("@xsmj", float.Parse(xsmj.Text.Trim()));
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if (long.Parse(val[14].ToString()) == 9)
+                {
+                    temp = new DirModel();
+                    temp.Add("@djbh", djbh.Text.Trim());
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bdh", val[3]);
+                    temp.Add("@thdh", val[4]);
+                    temp.Add("@ch", val[5]);
+                    temp.Add("@zcmz", val[6]);
+                    temp.Add("@zcpz", val[7]);
+                    temp.Add("@zcjz", val[8]);
+                    temp.Add("@yfyf", val[9]);
+                    temp.Add("@cgjsje", val[10]);
+                    temp.Add("@xsjsje", val[11]);
+                    temp.Add("@bz", val[12]);
+                    temp.Add("@zt", val[13]);
+                    Child1.Add(temp);
+                }
+            }
+            string reply = _htglLogic.UpdateMkzxzcd(dml, Child1);
+            if (reply == "")
+            {
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("新增成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+
+            }
         }
     }
 }
