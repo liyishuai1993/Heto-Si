@@ -55,10 +55,25 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _cwglLogic.QueryChildTable(qc);
             pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            Scxx_dataTable = xsPageHelper.BindPager(pagepara, e);
-            if (Scxx_dataTable.Columns.Count == 0)
+            var temp  = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable();
+                DataRow dr = Scxx_dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = val[7];
+                dr[6] = val[8];
+                dr[7] = val[9];
+                dr[8] = val[10];
+                dr[9] = val[11];
+                dr[10] = val[12];
+                dr[11] = val[13];
+                dr[12] = false;
+                Scxx_dataTable.Rows.Add(dr);
+
             }
             this.GridView_SCXX.DataSource = Scxx_dataTable;
             this.GridView_SCXX.DataBind();
@@ -76,10 +91,18 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _cwglLogic.QueryChildTable(qc);
             pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            Ccxx_dataTable = xsPageHelper.BindPager(pagepara, e);
-            if (Ccxx_dataTable.Columns.Count == 0)
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable2();
+                DataRow dr = Scxx_dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = false;
+                Scxx_dataTable.Rows.Add(dr);
+
             }
             this.GridView_CCXX.DataSource = Ccxx_dataTable;
             this.GridView_CCXX.DataBind();
@@ -133,6 +156,10 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow dr in Scxx_dataTable.Rows)
             {
+                if (!(bool)dr[12])
+                {
+                    continue;
+                }
                 temp = new DirModel();
                 temp.Add("@user_no", model.LoginUser);
                 temp.Add("@bh", bh.Text);
@@ -153,14 +180,17 @@ namespace XSSystem.Page.P_Order
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow dr in Ccxx_dataTable.Rows)
             {
-                temp = new DirModel();
-                temp.Add("@user_no", model.LoginUser);
-                temp.Add("@bh", bh.Text);
-                temp.Add("@mz", dr[0]);
-                temp.Add("@sl", dr[1]);
-                temp.Add("@je", dr[2]);
-                temp.Add("@cl", dr[3]);
-                Child2.Add(temp);
+                if ((bool)dr[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bh", bh.Text);
+                    temp.Add("@mz", dr[0]);
+                    temp.Add("@sl", dr[1]);
+                    temp.Add("@je", dr[2]);
+                    temp.Add("@cl", dr[3]);
+                    Child2.Add(temp);
+                }
             }
             string reply = _cwglLogic.InsertRsclr(dml, Child1, Child2);
             if (reply == "")
@@ -190,6 +220,7 @@ namespace XSSystem.Page.P_Order
             Scxx_dataTable.Columns.Add("gscl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("shl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
+            Scxx_dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
 
         }
@@ -202,6 +233,8 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("cl", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
+            Ccxx_dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
+
         }
 
         //private bool InsertScxx(DataRow dr)
@@ -246,6 +279,7 @@ namespace XSSystem.Page.P_Order
                 dr[9] = double.Parse(gscl.Text.Trim());
                 dr[10] = double.Parse(shl.Text.Trim());
                 dr[11] = Scxx_dataTable.Rows.Count+1;
+                dr[12] = true;
             }
             catch
             {
@@ -319,6 +353,7 @@ namespace XSSystem.Page.P_Order
                 dr[2] = double.Parse(ccxx_sl.Text.Trim());
                 dr[3] = double.Parse(ccxx_cl.Text.Trim());
                 dr[4] = Ccxx_dataTable.Rows.Count + 1;
+                dr[5] = true;
             }
             catch
             {
@@ -419,6 +454,85 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='RsclrGl.aspx'");
 
+        }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text);
+                dml.Add("@ssmc", ssmc.Text.Trim());
+                dml.Add("@rq", Convert.ToDateTime(rq.Text.ToString()));
+                dml.Add("@kjsj", Convert.ToDateTime(kjsj.Text.ToString()));
+                dml.Add("@gjsj", Convert.ToDateTime(gjsj.Text.ToString()));
+                dml.Add("@bc", bc.Text.Trim());
+                dml.Add("@ydzs", float.Parse(ydzs.Text.Trim()));
+                dml.Add("@yddh", float.Parse(yddh.Text.Trim()));
+                dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
+                dml.Add("@gsmc", DropDownList_gsmc.SelectedItem.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow dr in Scxx_dataTable.Rows)
+            {
+                if (!(bool)dr[12])
+                {
+                    continue;
+                }
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text);
+                temp.Add("@mz", dr[0]);
+                temp.Add("@dj", dr[1]);
+                temp.Add("@sl", dr[2]);
+                temp.Add("@je", dr[3]);
+                temp.Add("@klcl", dr[4]);
+                temp.Add("@hhmcl", dr[5]);
+                temp.Add("@mmcl", dr[6]);
+                temp.Add("@zmcl", dr[7]);
+                temp.Add("@nmcl", dr[8]);
+                temp.Add("@gscl", dr[9]);
+                temp.Add("@shl", dr[10]);
+                Child1.Add(temp);
+            }
+
+            List<DirModel> Child2 = new List<DirModel>();
+            foreach (DataRow dr in Ccxx_dataTable.Rows)
+            {
+                if ((bool)dr[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bh", bh.Text);
+                    temp.Add("@mz", dr[0]);
+                    temp.Add("@sl", dr[1]);
+                    temp.Add("@je", dr[2]);
+                    temp.Add("@cl", dr[3]);
+                    Child2.Add(temp);
+                }
+            }
+            string reply = _cwglLogic.UpdateRsclr(dml, Child1, Child2);
+            if (reply == "")
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(reply);
+            }
         }
     }
 }

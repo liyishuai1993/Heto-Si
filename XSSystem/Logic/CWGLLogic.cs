@@ -297,6 +297,27 @@ namespace XSSystem.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
+        internal string UpdateFkd(DirModel dml, List<DirModel> child1)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_FkdTable set ldrq=@ldrq,skdw=@skdw,jsr=@jsr,bm=@bm,htbh=@htbh,zy=@zy,fjsm=@fjsm,jsfs=@jsfs";
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_FkdTable_Fb (user_no,bh,fkzhbh,fkzhmc,je,bz)" +
+                "values(@user_no,@bh,@fkzhbh,@fkzhmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+
+            return SqlHelper.Execute(xsSqls);
+        }
+
         internal bool InsertPmdlr_Ylmz(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -373,6 +394,35 @@ namespace XSSystem.Logic
             return true;
         }
 
+        internal string UpdatePmdlr(DirModel dml, List<DirModel> child1, List<DirModel> child2)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_PmdlrTable set pmrq=@pmrq,scmc=@scmc,gsmc=@gsmc";
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_PmdlrTable_Ylmz (user_no,bh,ylds,cbdj,pmf,je,yl)" +
+                "values(@user_no,@bh,@ylds,@cbdj,@pmf,@je,@yl)";
+                xsSqls.Add(sqlpara);
+            }
+            foreach (var val in child2)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_PmdlrTable_Ccmz (user_no,bh,cp,ccds,je,cbdj2)" +
+                "values(@user_no,@bh,@cp,@ccds,@je,@cbdj2)";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
+        }
+
         internal string InsertSkd(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
@@ -431,6 +481,37 @@ namespace XSSystem.Logic
             }
 
             return true;
+        }
+
+        internal string UpdateRsclr(DirModel dml, List<DirModel> child1, List<DirModel> child2)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_RsclrTable set ssmc=@ssmc,rq=@rq,kjsj=@kjsj,gjsj=@gjsj,bc=@bc,ydzs=@ydzs,yddh=@yddh,ymzs=@ymzs,gsmc=@gsmc)";
+            xsSqls.Add(sqlpara);
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_RsclrTable_Scxx (user_no,bh,mz,dj,sl,je,klcl,hhmcl,mmcl,zmcl,nmcl,gscl,shl)" +
+                "values(@user_no,@bh,@mz,@dj,@sl,@je,@klcl,@hhmcl,@mmcl,@zmcl,@nmcl,@gscl,@shl)";
+                xsSqls.Add(sqlpara);
+            }
+            foreach (var val in child2)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_RsclrTable_Ccxx (user_no,bh,mz,sl,je,cl)" +
+                "values(@user_no,@bh,@mz,@sl,@je,@cl)";
+                xsSqls.Add(sqlpara);
+            }
+
+
+            return SqlHelper.Execute(xsSqls);
         }
     }
 }

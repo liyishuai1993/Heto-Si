@@ -102,10 +102,18 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _cwglLogic.QueryChildTable(qc);
             pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable = xsPageHelper.BindPager(pagepara, e);
-            if (dataTable.Columns.Count == 0)
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
-                InitDataTable();
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dr[5] = false;
+                dataTable.Rows.Add(dr);
+
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
@@ -160,14 +168,17 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                temp = new DirModel();
-                temp.Add("@user_no", model.LoginUser);
-                temp.Add("@bh", bh.Text.Trim());
-                temp.Add("@fkzhbh", val[1]);
-                temp.Add("@fkzhmc", val[2]);
-                temp.Add("@je", val[3]);
-                temp.Add("@bz", val[4]);
-                Child1.Add(temp);
+                if ((bool)val[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bh", bh.Text.Trim());
+                    temp.Add("@fkzhbh", val[1]);
+                    temp.Add("@fkzhmc", val[2]);
+                    temp.Add("@je", val[3]);
+                    temp.Add("@bz", val[4]);
+                    Child1.Add(temp);
+                }
             }
             string ret = _cwglLogic.InsertFkd(dml, Child1);
             if (ret=="")
@@ -188,6 +199,8 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("fkzhmc", System.Type.GetType("System.String"));
             dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
+            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
+
 
         }
 
@@ -205,6 +218,7 @@ namespace XSSystem.Page.P_Order
                 dr[2] = zhm.Text;
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
+                dr[5] = true;
             }
             catch
             {
@@ -234,6 +248,60 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='FkdGl.aspx'");
 
+        }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
+                dml.Add("@skdw", tk_skdw.SelectedItem.Text.Trim());
+                dml.Add("@jsr", tk_jsr.Text.Trim());
+                dml.Add("@bm", bm.Text.Trim());
+                dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
+                dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
+                dml.Add("@fjsm", fjsm.Text.Trim());
+                dml.Add("@jsfs", jsfs.SelectedItem.Text);
+                //dml.Add("@yfye", yfye.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                if ((bool)val[5])
+                {
+                    temp = new DirModel();
+                    temp.Add("@user_no", model.LoginUser);
+                    temp.Add("@bh", bh.Text.Trim());
+                    temp.Add("@fkzhbh", val[1]);
+                    temp.Add("@fkzhmc", val[2]);
+                    temp.Add("@je", val[3]);
+                    temp.Add("@bz", val[4]);
+                    Child1.Add(temp);
+                }
+            }
+            string ret = _cwglLogic.UpdateFkd(dml, Child1);
+            if (ret == "")
+            {
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage("新增失败");
+            }
         }
     }
 }

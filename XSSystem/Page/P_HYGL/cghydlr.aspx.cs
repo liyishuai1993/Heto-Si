@@ -78,5 +78,10 @@ namespace XSSystem.Page.P_Order
             JavaScript("window.location.href='cghydlrGl.aspx'");
 
         }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

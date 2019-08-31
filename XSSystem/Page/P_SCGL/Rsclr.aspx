@@ -298,7 +298,8 @@
 
             <p class="auto-style5">
                 <asp:Button ID="Button4" Text="校验金额" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="Button4_Click"></asp:Button>&nbsp               
-                <asp:Button ID="submit" Text="保存" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp               
+                <asp:Button ID="submit" Text="保存" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp   
+                <asp:Button ID="update" Text="修改" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp               
             <asp:Button ID="Button1" Text="关闭" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>&nbsp
             </p>
         </div>
