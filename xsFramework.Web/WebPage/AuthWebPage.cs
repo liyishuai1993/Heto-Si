@@ -19,6 +19,7 @@ namespace xsFramework.Web.WebPage
     {
         private string _actions = "";
 
+
         #region 页面权限的设定
         protected override void OnLoad(EventArgs e)
         {

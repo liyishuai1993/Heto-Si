@@ -23,6 +23,10 @@
                 <%--需方名称<asp:TextBox id="tbxfmc" runat="server" Width="90px"></asp:TextBox>--%>
                 <%--合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="80px"></asp:TextBox>--%>
                 <%--审核状态<asp:TextBox id="tbzt" runat="server" Width="50px"></asp:TextBox>--%>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="htbh">合同编号</asp:ListItem>
                         <asp:ListItem Value="gfmc">供方名称</asp:ListItem>

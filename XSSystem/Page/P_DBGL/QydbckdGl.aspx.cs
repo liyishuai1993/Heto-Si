@@ -15,6 +15,8 @@ namespace XSSystem.Page.P_DBGL
     public partial class QydbckdGl : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +35,7 @@ namespace XSSystem.Page.P_DBGL
         {
 
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -47,6 +49,8 @@ namespace XSSystem.Page.P_DBGL
                 qc.selectedKey = sxtj.SelectedValue;
                 qc.selectedTimeKey = "zcsj";
                 qc.selectedItem = tjz.Text.Trim();
+                qc.selectedCon = con.SelectedValue;
+
 
                 //if (!"G001".Equals(LoginUser.LoginUserGroup))
                 //{
@@ -179,6 +183,7 @@ namespace XSSystem.Page.P_DBGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
@@ -190,6 +195,7 @@ namespace XSSystem.Page.P_DBGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

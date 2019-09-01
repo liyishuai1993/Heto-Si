@@ -26,6 +26,10 @@
                 目的地<asp:TextBox id="tbmdd" runat="server" Width="100px"></asp:TextBox>
                 运价<asp:TextBox id="tbyj" runat="server" Width="60px"></asp:TextBox>
                 状态<asp:TextBox id="tbzt" runat="server" Width="60px"></asp:TextBox>--%>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="htbh">合同编号</asp:ListItem>
                         <asp:ListItem Value="stf">受托方</asp:ListItem>

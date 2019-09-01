@@ -15,6 +15,7 @@ namespace XSSystem.Page.P_MKZXGL
     public partial class MkzxzcdGl : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +31,7 @@ namespace XSSystem.Page.P_MKZXGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -45,6 +46,7 @@ namespace XSSystem.Page.P_MKZXGL
                 qc.selectedKey = sxtj.SelectedValue;
                 qc.selectedTimeKey = "zcsj";
                 qc.selectedItem = tjz.Text.Trim();
+                qc.selectedCon = con.SelectedValue;
 
 
 
@@ -129,11 +131,13 @@ namespace XSSystem.Page.P_MKZXGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

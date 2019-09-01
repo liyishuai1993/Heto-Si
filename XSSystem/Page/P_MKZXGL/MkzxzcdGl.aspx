@@ -26,6 +26,10 @@
                 物料名称<asp:TextBox id="tbwlmc" runat="server" Width="60px"></asp:TextBox>
                 车号<asp:TextBox id="tbch" runat="server" Width="60px"></asp:TextBox>
                 装车净重<asp:TextBox id="tbzcjz" runat="server" Width="60px"></asp:TextBox>--%>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="cghth">采购合同号</asp:ListItem>
                         <asp:ListItem Value="ghf">供货方</asp:ListItem>

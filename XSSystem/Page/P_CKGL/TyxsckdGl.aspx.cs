@@ -15,6 +15,7 @@ namespace XSSystem.Page.P_CKGL
     public partial class TyxsckdGl : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +33,7 @@ namespace XSSystem.Page.P_CKGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -129,6 +130,7 @@ namespace XSSystem.Page.P_CKGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
@@ -140,6 +142,7 @@ namespace XSSystem.Page.P_CKGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

@@ -59,18 +59,18 @@ namespace XSSystem.Page.P_Order
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = Scxx_dataTable.NewRow();
-                dr[0] = val[2];
-                dr[1] = val[3];
-                dr[2] = val[4];
-                dr[3] = val[5];
-                dr[4] = val[6];
-                dr[5] = val[7];
-                dr[6] = val[8];
-                dr[7] = val[9];
-                dr[8] = val[10];
-                dr[9] = val[11];
-                dr[10] = val[12];
-                dr[11] = val[13];
+                dr[0] = val[3];
+                dr[1] = val[4];
+                dr[2] = val[5];
+                dr[3] = val[6];
+                dr[4] = val[7];
+                dr[5] = val[8];
+                dr[6] = val[9];
+                dr[7] = val[10];
+                dr[8] = val[11];
+                dr[9] = val[12];
+                dr[10] = val[13];
+                dr[11] = val[14];
                 dr[12] = false;
                 Scxx_dataTable.Rows.Add(dr);
 
@@ -95,11 +95,11 @@ namespace XSSystem.Page.P_Order
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = Scxx_dataTable.NewRow();
-                dr[0] = val[2];
-                dr[1] = val[3];
-                dr[2] = val[4];
-                dr[3] = val[5];
-                dr[4] = val[6];
+                dr[0] = val[3];
+                dr[1] = val[4];
+                dr[2] = val[5];
+                dr[3] = val[6];
+                dr[4] = val[7];
                 dr[5] = false;
                 Scxx_dataTable.Rows.Add(dr);
 

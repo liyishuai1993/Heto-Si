@@ -27,7 +27,10 @@
                 箱类型 <asp:TextBox id="tbxlx" runat="server" Width="80px"></asp:TextBox>
                 箱号<asp:TextBox id="tbxh" runat="server" Width="60px"></asp:TextBox>
                 卸货仓库<asp:TextBox id="tbxhck" runat="server" Width="100px"></asp:TextBox>--%>
-                
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="bh">编号</asp:ListItem>
                         <asp:ListItem Value="gsmc">公司名称</asp:ListItem>

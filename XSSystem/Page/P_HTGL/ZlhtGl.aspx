@@ -24,6 +24,10 @@
                 出租地段<asp:TextBox id="tbczdd" runat="server" Width="100px"></asp:TextBox>
                 租金<asp:TextBox id="tbzj" runat="server" Width="60px"></asp:TextBox>
                 审核状态<asp:TextBox id="tbshzt" runat="server" Width="60px"></asp:TextBox>--%>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="htbh">合同编号</asp:ListItem>
                         <asp:ListItem Value="gfmc">供方名称</asp:ListItem>

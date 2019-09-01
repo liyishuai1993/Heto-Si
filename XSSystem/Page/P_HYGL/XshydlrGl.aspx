@@ -24,6 +24,10 @@
                 <asp:Button ID="allQuery" runat="server" Text="查看全部" CssClass="button" OnClick="allQuery_Click" />
                 日期范围<asp:TextBox ID="qdfwQ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
                 -<asp:TextBox ID="qdfwZ" runat="server" Text="" onClick="WdatePicker()" Width="90px"></asp:TextBox>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
 <%--                供方名称<asp:TextBox id="tbgfmc" runat="server" Width="90px"></asp:TextBox>              
                 合同煤价<asp:TextBox id="tbkpmj" runat="server" Width="80px"></asp:TextBox>
                 审核状态<asp:TextBox id="tbzt" runat="server" Width="50px"></asp:TextBox>--%>

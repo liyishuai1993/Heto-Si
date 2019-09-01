@@ -17,6 +17,8 @@ namespace XSSystem.Page.P_SCGL
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -36,7 +38,7 @@ namespace XSSystem.Page.P_SCGL
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }

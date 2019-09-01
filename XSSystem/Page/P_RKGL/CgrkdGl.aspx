@@ -29,6 +29,10 @@
                 入库磅单号<asp:TextBox id="tbrkbdh" runat="server" Width="80px"></asp:TextBox>
                 入库煤场<asp:TextBox id="tbrkmc" runat="server" Width="80px"></asp:TextBox>
                 入库净重<asp:TextBox id="tbrkjz" runat="server" Width="50px"></asp:TextBox>--%>
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="hth">合同号</asp:ListItem>
                         <asp:ListItem Value="gf">供方</asp:ListItem>

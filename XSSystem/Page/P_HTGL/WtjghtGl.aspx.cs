@@ -15,6 +15,8 @@ namespace XSSystem.Page.P_HTGL
     public partial class WtjghtGl : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +34,7 @@ namespace XSSystem.Page.P_HTGL
         protected void xsPage_PageChanged(object sender, PageChangedEventArgs e)
         {
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -45,6 +47,8 @@ namespace XSSystem.Page.P_HTGL
                     qc.qdrqZ = Convert.ToDateTime(qdfwZ.Text.Trim());
                 qc.selectedKey = sxtj.SelectedValue;
                 qc.selectedItem = tjz.Text.Trim();
+                qc.selectedCon = con.SelectedValue;
+
                 GridOrder.DataSource = SelectSQL(qc, e);
                 GridOrder.DataBind();
             }
@@ -134,6 +138,7 @@ namespace XSSystem.Page.P_HTGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
@@ -145,6 +150,7 @@ namespace XSSystem.Page.P_HTGL
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

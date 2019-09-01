@@ -56,7 +56,6 @@ namespace XSSystem.Page.P_Order
         private void InitDataTable()
         {
             dataTable = new DataTable();
-            dataTable.Columns.Add("user_no", System.Type.GetType("System.String"));
             dataTable.Columns.Add("djbh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("bh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("bdh", System.Type.GetType("System.String"));
@@ -81,18 +80,17 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             djbh.Text = dt.Rows[0][1].ToString();
             zcsj.Text = dt.Rows[0][2].ToString();
-            zcsj.Text = dt.Rows[0][3].ToString();
-            cghth.Text = dt.Rows[0][4].ToString();
-            tk_ghf.SelectedItem.Text = dt.Rows[0][5].ToString();
+            cghth.Text = dt.Rows[0][3].ToString();
+            tk_ghf.SelectedItem.Text = dt.Rows[0][4].ToString();
 
-            tk_shf.SelectedItem.Text = dt.Rows[0][6].ToString();
-            mkmc.Text = dt.Rows[0][7].ToString();
-            wlmc.Text = dt.Rows[0][8].ToString();
-            cydw.Text = dt.Rows[0][9].ToString();
-            yj.Text = dt.Rows[0][10].ToString();
+            tk_shf.SelectedItem.Text = dt.Rows[0][5].ToString();
+            mkmc.Text = dt.Rows[0][6].ToString();
+            wlmc.Text = dt.Rows[0][7].ToString();
+            cydw.Text = dt.Rows[0][8].ToString();
+            yj.Text = dt.Rows[0][9].ToString();
 
-            cgmj.Text = dt.Rows[0][11].ToString();
-            xsmj.Text = dt.Rows[0][12].ToString();
+            cgmj.Text = dt.Rows[0][10].ToString();
+            xsmj.Text = dt.Rows[0][11].ToString();
             Session.Remove("mkzxzcd");
         }
 
@@ -128,22 +126,22 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if (long.Parse(val[14].ToString())==9)
+                if (long.Parse(val[13].ToString())==9)
                 {
                     temp = new DirModel();
                     temp.Add("@djbh", djbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@bdh", val[3]);                   
-                    temp.Add("@thdh", val[4]);
-                    temp.Add("@ch", val[5]);
-                    temp.Add("@zcmz", val[6]);
-                    temp.Add("@zcpz", val[7]);
-                    temp.Add("@zcjz", val[8]);
-                    temp.Add("@yfyf", val[9]);
-                    temp.Add("@cgjsje", val[10]);
-                    temp.Add("@xsjsje", val[11]);
-                    temp.Add("@bz", val[12]);
-                    temp.Add("@zt", val[13]);
+                    temp.Add("@bdh", val[2]);                   
+                    temp.Add("@thdh", val[3]);
+                    temp.Add("@ch", val[4]);
+                    temp.Add("@zcmz", val[5]);
+                    temp.Add("@zcpz", val[6]);
+                    temp.Add("@zcjz", val[7]);
+                    temp.Add("@yfyf", val[8]);
+                    temp.Add("@cgjsje", val[9]);
+                    temp.Add("@xsjsje", val[10]);
+                    temp.Add("@bz", val[11]);
+                    temp.Add("@zt", val[12]);
                     Child1.Add(temp);
                 }
             }
@@ -179,18 +177,18 @@ namespace XSSystem.Page.P_Order
             DataRow dr = dataTable.NewRow();
             try
             {
-                dr[3] = bdh.Text;
-                dr[4] = thdh.Text;
-                dr[5] = ch.Text;
-                dr[6] = double.Parse(zcmz.Text);
-                dr[7] = double.Parse(zcpz.Text);
-                dr[8] = double.Parse(zcjz.Text);
-                dr[9] = double.Parse(yfyf.Text);
-                dr[10] = double.Parse(cgjsje.Text);
-                dr[11] = double.Parse(xsjsje.Text);
-                dr[12] = bz.Text;
-                dr[13] = zt.Text;
-                dr[14] = 9;
+                dr[2] = bdh.Text;
+                dr[3] = thdh.Text;
+                dr[4] = ch.Text;
+                dr[5] = double.Parse(zcmz.Text);
+                dr[6] = double.Parse(zcpz.Text);
+                dr[7] = double.Parse(zcjz.Text);
+                dr[8] = double.Parse(yfyf.Text);
+                dr[9] = double.Parse(cgjsje.Text);
+                dr[10] = double.Parse(xsjsje.Text);
+                dr[11] = bz.Text;
+                dr[12] = zt.Text;
+                dr[13] = 9;
             }
             catch(Exception ex)
             {
@@ -218,21 +216,20 @@ namespace XSSystem.Page.P_Order
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = dataTable.NewRow();
-                dr[0] = val[2];
-                dr[1] = val[3];
-                dr[2] = val[4];
-                dr[3] = val[5];
-                dr[4] = val[6];
-                dr[5] = val[7];
-                dr[6] = val[8];
-                dr[7] = val[9];
-                dr[8] = val[10];
-                dr[9] = val[11];
-                dr[10] = val[12];
-                dr[11] = val[13];
-                dr[12] = val[15];
-                dr[13] = val[16];
-                dr[14] = false;
+                dr[0] = val[1];
+                dr[1] = val[2];
+                dr[2] = val[3];
+                dr[3] = val[4];
+                dr[4] = val[5];
+                dr[5] = val[6];
+                dr[6] = val[7];
+                dr[7] = val[8];
+                dr[8] = val[9];
+                dr[9] = val[10];
+                dr[10] = val[11];
+                dr[11] = val[12];
+                dr[12] = val[13];
+                dr[13] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -291,22 +288,22 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if (long.Parse(val[14].ToString()) == 9)
+                if (long.Parse(val[13].ToString()) == 9)
                 {
                     temp = new DirModel();
                     temp.Add("@djbh", djbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@bdh", val[3]);
-                    temp.Add("@thdh", val[4]);
-                    temp.Add("@ch", val[5]);
-                    temp.Add("@zcmz", val[6]);
-                    temp.Add("@zcpz", val[7]);
-                    temp.Add("@zcjz", val[8]);
-                    temp.Add("@yfyf", val[9]);
-                    temp.Add("@cgjsje", val[10]);
-                    temp.Add("@xsjsje", val[11]);
-                    temp.Add("@bz", val[12]);
-                    temp.Add("@zt", val[13]);
+                    temp.Add("@bdh", val[2]);
+                    temp.Add("@thdh", val[3]);
+                    temp.Add("@ch", val[4]);
+                    temp.Add("@zcmz", val[5]);
+                    temp.Add("@zcpz", val[6]);
+                    temp.Add("@zcjz", val[7]);
+                    temp.Add("@yfyf", val[8]);
+                    temp.Add("@cgjsje", val[9]);
+                    temp.Add("@xsjsje", val[10]);
+                    temp.Add("@bz", val[11]);
+                    temp.Add("@zt", val[12]);
                     Child1.Add(temp);
                 }
             }
