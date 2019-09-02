@@ -23,6 +23,7 @@ namespace XSSystem.Page.P_CKGL
             {
                 //xsPage.StartShowPage();
                 //qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                tjz.Text = Session["selectedItem"]?.ToString();
                 //qdfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll(1);
             }
@@ -123,6 +124,7 @@ namespace XSSystem.Page.P_CKGL
             qc.tableName = "xs_TyxsckdTable";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["tyxsckd"] = dt;
             JavaScript("window.location.href='Tyxsckd.aspx'");
         }

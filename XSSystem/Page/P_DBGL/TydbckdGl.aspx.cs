@@ -21,7 +21,8 @@ namespace XSSystem.Page.P_DBGL
         {
             if (!IsPostBack)
             {
-               // xsPage.StartShowPage();
+                tjz.Text = Session["selectedItem"]?.ToString();
+                // xsPage.StartShowPage();
                 //qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 // qdfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll(1);
@@ -123,6 +124,7 @@ namespace XSSystem.Page.P_DBGL
             qc.tableName = "xs_TydbckdTable";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["tydbckd"] = dt;
             JavaScript("window.location.href='Tydbckd.aspx'");
         }

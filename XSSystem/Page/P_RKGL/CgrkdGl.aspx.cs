@@ -21,6 +21,7 @@ namespace XSSystem.Page.P_RKGL
         {
             if (!IsPostBack)
             {
+                tjz.Text = Session["selectedItem"]?.ToString();
                 //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
@@ -127,6 +128,7 @@ namespace XSSystem.Page.P_RKGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["cgrkd"] = dt;
             JavaScript("window.location.href='Cgrkd.aspx'");
         }

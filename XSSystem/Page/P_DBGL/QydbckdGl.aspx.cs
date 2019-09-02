@@ -22,6 +22,7 @@ namespace XSSystem.Page.P_DBGL
         {
             if (!IsPostBack)
             {
+                tjz.Text = Session["selectedItem"]?.ToString();
                 qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
                 //xsPage.StartShowPage();
@@ -151,6 +152,7 @@ namespace XSSystem.Page.P_DBGL
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex,1);
             DataTable dt2 = SelectSQL(qc2, ex, 2);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["qydbckd"] = dt;
             if (dt2.Rows.Count > 0)
             {

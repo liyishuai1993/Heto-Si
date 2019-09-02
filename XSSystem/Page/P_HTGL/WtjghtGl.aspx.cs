@@ -23,6 +23,7 @@ namespace XSSystem.Page.P_HTGL
             if (!IsPostBack)
             {
                 //xsPage.StartShowPage();
+                tjz.Text = Session["selectedItem"]?.ToString();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll(1);
@@ -132,6 +133,7 @@ namespace XSSystem.Page.P_HTGL
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["wtjght"] = dt;
+            Session["selectedItem"] = tjz.Text.Trim();
             JavaScript("window.location.href='Wtjght.aspx'");
         }
 

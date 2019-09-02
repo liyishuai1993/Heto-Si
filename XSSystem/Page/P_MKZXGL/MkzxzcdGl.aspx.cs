@@ -21,10 +21,12 @@ namespace XSSystem.Page.P_MKZXGL
         {
             if (!IsPostBack)
             {
-               // xsPage.StartShowPage();
+                tjz.Text = Session["selectedItem"]?.ToString();
+                // xsPage.StartShowPage();
+                zcrqfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
+                zcrqfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll(1);
-                //  qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
-                //  qdfwZ.Text = DateTime.Now.ToShortDateString();
+
             }
         }
 
@@ -119,6 +121,7 @@ namespace XSSystem.Page.P_MKZXGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["mkzxzcd"] = dt;
             JavaScript("window.location.href='Mkzxzcd.aspx'");
         }

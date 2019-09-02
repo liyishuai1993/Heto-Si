@@ -17,10 +17,13 @@ namespace XSSystem.Page.P_SCGL
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                tjz.Text = Session["selectedItem"]?.ToString();
                 // xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
@@ -37,7 +40,7 @@ namespace XSSystem.Page.P_SCGL
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -51,6 +54,8 @@ namespace XSSystem.Page.P_SCGL
                 qc.selectedKey = sxtj.SelectedValue;
                 qc.selectedItem = tjz.Text.Trim();
                 qc.selectedTimeKey = "pmrq";
+                qc.selectedCon = con.SelectedValue;
+
                 // qc.gfmc = tbgfmc.Text.Trim();
                 //qc.xfmc = tbxfmc.Text.Trim();
                 //qc.mkmc = tbmkmc.Text.Trim();
@@ -106,6 +111,7 @@ namespace XSSystem.Page.P_SCGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["pmdlr"] = dt;
             JavaScript("window.location.href='Pmdlr.aspx'");
         }
@@ -153,12 +159,14 @@ namespace XSSystem.Page.P_SCGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

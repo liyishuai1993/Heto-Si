@@ -17,10 +17,13 @@ namespace XSSystem.Page.P_Order
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
         HTGLLogic _htglLogic = new HTGLLogic();
+        static bool IsAll = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                tjz.Text = Session["selectedItem"]?.ToString();
                 //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
@@ -37,7 +40,7 @@ namespace XSSystem.Page.P_Order
             //    gvUser.Columns[2].Visible = false;
             //}
             QueryClass qc = new QueryClass();
-            if (string.IsNullOrEmpty(tjz.Text.Trim()))
+            if (IsAll)
             {
                 SelectedAll(e.CurrentPage);
             }
@@ -51,6 +54,8 @@ namespace XSSystem.Page.P_Order
                 qc.selectedTimeKey = "ldrq";
                 qc.selectedKey = sxtj.SelectedValue;
                 qc.selectedItem = tjz.Text.Trim();
+                qc.selectedCon = con.SelectedValue;
+
                 GridOrder.DataSource = SelectSQL(qc, e);
                 GridOrder.DataBind();
             }
@@ -79,6 +84,7 @@ namespace XSSystem.Page.P_Order
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
+            Session["selectedItem"] = tjz.Text.Trim();
             Session["fyd"] = dt;
             JavaScript("window.location.href='fyd.aspx'");
         }
@@ -126,11 +132,13 @@ namespace XSSystem.Page.P_Order
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            IsAll = false;
             xsPage.RefreshPage();
         }
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
+            IsAll = true;
             SelectedAll(1);
         }
 

@@ -21,6 +21,8 @@ namespace XSSystem.Page.P_CKGL
         {
             if (!IsPostBack)
             {
+                tjz.Text = Session["selectedItem"]?.ToString();
+
                 qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
                // xsPage.StartShowPage();
@@ -160,6 +162,7 @@ namespace XSSystem.Page.P_CKGL
             }
             else
             {
+                Session["selectedItem"] = tjz.Text.Trim();
                 Session["qykhhdlr"] = dt;
                 JavaScript("window.location.href='Qykhhdlr.aspx'");
             }    
