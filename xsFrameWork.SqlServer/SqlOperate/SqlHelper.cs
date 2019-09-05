@@ -125,7 +125,7 @@ namespace xsFramework.SqlServer
             catch(Exception e)
             {
                 Dao.RollBack();
-                return e.Message;
+                return e.Message.Replace("\r", string.Empty).Replace("\n", string.Empty);
             }
         }
     }

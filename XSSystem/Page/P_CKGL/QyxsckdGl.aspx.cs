@@ -21,7 +21,7 @@ namespace XSSystem.Page.P_CKGL
         {
             if (!IsPostBack)
             {
-                tjz.Text = Session["selectedItem"]?.ToString();
+                tjz.Text = Session["selectedItemQyxsckd"]?.ToString();
 
                 qdfwQ.Text = DateTime.Now.AddMonths(-6).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.AddMonths(6).ToShortDateString();
@@ -162,7 +162,6 @@ namespace XSSystem.Page.P_CKGL
             }
             else
             {
-                Session["selectedItem"] = tjz.Text.Trim();
                 Session["qykhhdlr"] = dt;
                 JavaScript("window.location.href='Qykhhdlr.aspx'");
             }    
@@ -173,6 +172,7 @@ namespace XSSystem.Page.P_CKGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            Session["selectedItemQyxsckd"] = tjz.Text.Trim();
             IsAll = false;
             xsPage.RefreshPage();
         }

@@ -139,10 +139,14 @@ namespace XSSystem.Page.P_Order
                 }
                 
             }
-
-            if (_htglLogic.InsertZlht(dml,Child1))
+            string reply = _htglLogic.InsertZlht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("新增成功", "Zlht.aspx");
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(reply);
             }
         }
 
@@ -193,12 +197,15 @@ namespace XSSystem.Page.P_Order
                 }
 
             }
-
-            if (_htglLogic.UpdateZlht(dml,Child1))
+            string reply = _htglLogic.UpdateZlht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("修改成功", "ZlhtGl.aspx");
+                AlertMessage("修改成功");
             }
-
+            else
+            {
+                AlertMessage(reply);
+            }
         }
 
         protected void btnShengHe_Click(object sender, EventArgs e)

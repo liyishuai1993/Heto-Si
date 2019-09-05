@@ -21,7 +21,7 @@ namespace XSSystem.Page.P_MKZXGL
         {
             if (!IsPostBack)
             {
-                tjz.Text = Session["selectedItem"]?.ToString();
+                tjz.Text = Session["selectedItemMkzx"]?.ToString();
                 // xsPage.StartShowPage();
                 zcrqfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 zcrqfwZ.Text = DateTime.Now.ToShortDateString();
@@ -121,7 +121,7 @@ namespace XSSystem.Page.P_MKZXGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
-            Session["selectedItem"] = tjz.Text.Trim();
+            Session["selectedItemMkzx"] = tjz.Text.Trim();
             Session["mkzxzcd"] = dt;
             JavaScript("window.location.href='Mkzxzcd.aspx'");
         }

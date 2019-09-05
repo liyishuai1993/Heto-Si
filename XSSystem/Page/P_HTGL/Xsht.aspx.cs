@@ -265,10 +265,14 @@ namespace XSSystem.Page.P_Order
                 }
 
             }
-
-            if (_htglLogic.InsertXsht(dml,Child1,Child2))
+            string reply = _htglLogic.InsertXsht(dml, Child1,Child2);
+            if (reply == "")
             {
                 AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(reply);
             }
         }
 

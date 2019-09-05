@@ -153,13 +153,16 @@ namespace XSSystem.Page.P_Order
                 }
             }
 
-            if (_htglLogic.InsertQyht(dml,Child1))
+            var reply = _htglLogic.InsertQyht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("新增成功", "Qyht.aspx");
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("新增成功");
+                //  xsPage.RefreshPage();
             }
             else
             {
-                AlertMessage("数据有误，新增失败");
+                AlertMessage(reply);
             }
         }
 
@@ -209,14 +212,14 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-
-            if (_htglLogic.UpdateQyht(dml,Child1))
+            var reply = _htglLogic.UpdateQyht(dml, Child1);
+            if (reply=="")
             {
                 AlertMessageAndGoTo("修改成功", "QyhtGl.aspx");
             }
             else
             {
-                AlertMessage("数据有误，新增失败");
+                AlertMessage(reply);
             }
 
             

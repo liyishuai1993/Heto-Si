@@ -154,7 +154,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                
+                AlertMessage(reply);
             }
         }
 
@@ -311,12 +311,12 @@ namespace XSSystem.Page.P_Order
             if (reply == "")
             {
                 //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
-                AlertMessage("新增成功");
+                AlertMessage("修改成功");
                 //  xsPage.RefreshPage();
             }
             else
             {
-
+                AlertMessage(reply);
             }
         }
     }

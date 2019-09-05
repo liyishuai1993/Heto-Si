@@ -170,14 +170,14 @@ namespace XSSystem.Page.P_Order
                 }
                 
             }
-
-            if (_htglLogic.InsertTyht(dml, Child1))
+            string reply = _htglLogic.InsertTyht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("新增成功", "Tyht.aspx");
+                AlertMessage("新增成功");
             }
             else
             {
-                AlertMessage("新增失败，数据有误");
+                AlertMessage(reply);
             }
         }
 
@@ -266,9 +266,17 @@ namespace XSSystem.Page.P_Order
                 }
 
             }
-            if (_htglLogic.UpdateTyht(dml,Child1))
+
+            string reply = _htglLogic.UpdateTyht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("修改成功", "TyhtGl.aspx");
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                AlertMessage("修改成功");
+                //  xsPage.RefreshPage();
+            }
+            else
+            {
+                AlertMessage(reply);
             }
         }
 

@@ -213,7 +213,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("新增失败");
+                AlertMessage(ret);
             }
         }
 

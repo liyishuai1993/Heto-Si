@@ -22,7 +22,7 @@ namespace XSSystem.Page.P_HTGL
         {
             if (!IsPostBack)
             {
-                tjz.Text = Session["selectedItem"]?.ToString();
+                tjz.Text = Session["selectedItemZlht"]?.ToString();
                 //xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
@@ -133,13 +133,13 @@ namespace XSSystem.Page.P_HTGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
-            Session["selectedItem"] = tjz.Text.Trim();
             Session["zlht"] = dt;
             JavaScript("window.location.href='Zlht.aspx'");
         }
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            Session["selectedItemZlht"] = tjz.Text.Trim();
             IsAll = false;
             xsPage.RefreshPage();
         }

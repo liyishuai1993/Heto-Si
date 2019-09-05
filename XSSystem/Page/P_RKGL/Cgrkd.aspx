@@ -116,7 +116,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">#结算运费<asp:TextBox id="jsyf" name="结算运费" runat="server" Height="16px" Width ="200px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">支付账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zfzh" AutoPostBack="True" runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" 
+                    <td class="auto-style3">运费支付账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zfzh" AutoPostBack="True" runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">审核状态<asp:DropDownList id="shzt" runat="server" Height="20px" Width ="200px">
                         <asp:ListItem>已审核</asp:ListItem>

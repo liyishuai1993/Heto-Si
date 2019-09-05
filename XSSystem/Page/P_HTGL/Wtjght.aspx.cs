@@ -136,10 +136,14 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-
-            if (_htglLogic.InsertWtjght(dml,Child1))
+            string reply = _htglLogic.InsertWtjght(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("新增成功", "Wtjght.aspx");
+                AlertMessage("新增成功");
+            }
+            else
+            {
+                AlertMessage(reply);
             }
         }
 
@@ -185,9 +189,14 @@ namespace XSSystem.Page.P_Order
                     Child1.Add(temp);
                 }
             }
-            if (_htglLogic.UpdateWtjghtht(dml,Child1))
+            string reply = _htglLogic.UpdateWtjghtht(dml, Child1);
+            if (reply == "")
             {
-                AlertMessageAndGoTo("修改成功", "WtjghtGl.aspx");
+                AlertMessage("修改成功");
+            }
+            else
+            {
+                AlertMessage(reply);
             }
         }
 

@@ -187,7 +187,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("新增失败");
+                AlertMessage(ret);
             }
         }
 
@@ -296,11 +296,11 @@ namespace XSSystem.Page.P_Order
             string ret = _cwglLogic.UpdateFkd(dml, Child1);
             if (ret == "")
             {
-                AlertMessage("新增成功");
+                AlertMessage("修改成功");
             }
             else
             {
-                AlertMessage("新增失败");
+                AlertMessage(ret);
             }
         }
     }

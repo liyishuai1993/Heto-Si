@@ -324,7 +324,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("修改失败");
+                AlertMessage(mess);
             }
         }
 

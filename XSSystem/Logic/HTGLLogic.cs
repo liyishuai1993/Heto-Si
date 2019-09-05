@@ -10,7 +10,7 @@ namespace xs_System.Logic
     public class HTGLLogic
     {
 
-        public bool InsertWtjght(DirModel dml, List<DirModel> child1)
+        public string InsertWtjght(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -29,8 +29,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public string  InsertMkzxzcd(DirModel dml,List<DirModel>child1)
@@ -498,7 +497,7 @@ namespace xs_System.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
-        public bool InsertXsht(DirModel dml,List<DirModel>child1,List<DirModel>child2)
+        public string InsertXsht(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -527,8 +526,7 @@ namespace xs_System.Logic
                 xsSqls.Add(sqlpara);
             }
 
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertXshtJgxx(DirModel dml)
@@ -553,7 +551,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertQyht(DirModel dml,List<DirModel> child1)
+        public string InsertQyht(DirModel dml,List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -573,8 +571,7 @@ namespace xs_System.Logic
                 xsSqls.Add(sqlpara);
             }
 
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertQyhtJgxx(DirModel dml)
@@ -588,7 +585,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertTyht(DirModel dml,List<DirModel> child1)
+        public string InsertTyht(DirModel dml,List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -607,8 +604,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@gsmc,@dfhth,@kplx,@zbxsf,@dlf,@zxf,@sfzdd,@tlyf,@dzzxf,@dzmcddf,@dzdlf)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertTyhtJgxx(DirModel dml)
@@ -635,7 +631,7 @@ namespace xs_System.Logic
             return true;
         }
 
-        public bool InsertZlht(DirModel dml,List<DirModel>child1)
+        public string InsertZlht(DirModel dml,List<DirModel>child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -653,8 +649,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@qsrq,@zzrq,@zj,@fktk,@zxzt,@bz)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public bool InsertZlhtZjxx(DirModel dml)
@@ -739,7 +734,7 @@ namespace xs_System.Logic
 
         }
 
-        public bool UpdateQyht(DirModel dml, List<DirModel> child1)
+        public string UpdateQyht(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -758,11 +753,10 @@ namespace xs_System.Logic
                 xsSqls.Add(sqlpara);
             }
 
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
-        public bool UpdateTyht(DirModel dml, List<DirModel> child1)
+        public string UpdateTyht(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -780,11 +774,10 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@gsmc,@dfhth,@kplx,@zbxsf,@dlf,@zxf,@sfzdd,@tlyf,@dzzxf,@dzmcddf,@dzdlf)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
-        public bool UpdateWtjghtht(DirModel dml, List<DirModel> child1)
+        public string UpdateWtjghtht(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -802,8 +795,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@wlmc,@jgf,@cmzb,@bz)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
         public string UpdateXsht(DirModel dml, List<DirModel> child1, List<DirModel> child2)
@@ -838,7 +830,7 @@ namespace xs_System.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
-        public bool UpdateZlht(DirModel dml, List<DirModel> child1)
+        public string UpdateZlht(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -855,8 +847,7 @@ namespace xs_System.Logic
                 "values(@user_no,@htbh,@qsrq,@zzrq,@zj,@fktk,@zxzt,@bz)";
                 xsSqls.Add(sqlpara);
             }
-            SqlHelper.Execute(xsSqls);
-            return true;
+            return SqlHelper.Execute(xsSqls);
         }
 
 

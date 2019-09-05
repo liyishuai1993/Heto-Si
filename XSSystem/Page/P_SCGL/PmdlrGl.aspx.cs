@@ -23,7 +23,7 @@ namespace XSSystem.Page.P_SCGL
         {
             if (!IsPostBack)
             {
-                tjz.Text = Session["selectedItem"]?.ToString();
+                tjz.Text = Session["selectedItemPmd"]?.ToString();
                 // xsPage.StartShowPage();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
@@ -111,7 +111,6 @@ namespace XSSystem.Page.P_SCGL
             qc.selectedCon = "or";
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
-            Session["selectedItem"] = tjz.Text.Trim();
             Session["pmdlr"] = dt;
             JavaScript("window.location.href='Pmdlr.aspx'");
         }
@@ -159,6 +158,7 @@ namespace XSSystem.Page.P_SCGL
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
+            Session["selectedItemPmd"] = tjz.Text.Trim();
             IsAll = false;
             xsPage.RefreshPage();
         }

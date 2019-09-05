@@ -290,7 +290,6 @@ namespace XSSystem.Page.P_Order
             else
             {
                 AlertMessage(reply);
-                return;
             }
         }
 

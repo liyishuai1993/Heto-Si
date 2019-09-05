@@ -23,7 +23,7 @@ namespace XSSystem.Page.P_HTGL
             {
                 //Session["selectedItem"]= tjz.Text.Trim();
                 // xsPage.StartShowPage();  
-                tjz.Text = Session["selectedItem"]?.ToString();
+                tjz.Text = Session["selectedItemCght"]?.ToString();
                 qdfwQ.Text = DateTime.Now.AddDays(-30.00).ToShortDateString();
                 qdfwZ.Text = DateTime.Now.ToShortDateString();
                 SelectedAll(1);
@@ -156,7 +156,6 @@ namespace XSSystem.Page.P_HTGL
             PageChangedEventArgs ex = new PageChangedEventArgs(1);
             DataTable dt = SelectSQL(qc, ex);
             Session["cght"] = dt;
-            Session["selectedItem"]= tjz.Text.Trim();
             JavaScript("window.location.href='Cght.aspx'");
         }
 
@@ -164,6 +163,7 @@ namespace XSSystem.Page.P_HTGL
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             IsAll = false;
+            Session["selectedItemCght"] = tjz.Text.Trim();
             xsPage.RefreshPage();
         }
 

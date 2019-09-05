@@ -83,7 +83,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">业务员<asp:TextBox id="ywy" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
-                    <td class="auto-style3"><span>卸货吨位</span><asp:TextBox id="xhdw" cal="must1" name="卸货吨位" runat="server" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>卸货吨位</span><asp:TextBox id="xhdw" name="卸货吨位" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                 </tr>
 
             </table>     

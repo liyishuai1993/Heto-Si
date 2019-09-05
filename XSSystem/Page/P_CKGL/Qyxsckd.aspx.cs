@@ -323,7 +323,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("修改失败");
+                AlertMessage(mess);
             }
         }
 
@@ -368,7 +368,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("记录有误，修改失败");
+                AlertMessage(mess);
             }
         }
     }

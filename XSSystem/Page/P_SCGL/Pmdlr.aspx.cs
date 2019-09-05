@@ -365,7 +365,7 @@ namespace XSSystem.Page.P_Order
             string reply = _cwglLogic.UpdatePmdlr(dml, Child1, Child2);
             if (reply == "")
             {
-                AlertMessage("新增成功");
+                AlertMessage("修改成功");
             }
             else
             {

@@ -322,7 +322,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("新增失败");
+                AlertMessage(reply);
             }
         }
         protected void AddJgxx(object sender, EventArgs e)
@@ -471,7 +471,7 @@ namespace XSSystem.Page.P_Order
             }
             else
             {
-                AlertMessage("新增失败");
+                AlertMessage(reply);
             }
         }
     }
