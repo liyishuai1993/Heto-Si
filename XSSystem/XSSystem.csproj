@@ -978,6 +978,7 @@
     <Content Include="Page\P_CKGL\QykhhdlrGl.aspx" />
     <Content Include="Page\P_CWGL\FormExport.aspx" />
     <Content Include="Page\P_CWGL\Khskmx.aspx" />
+    <Content Include="Page\P_CWGL\Khtzmx.aspx" />
     <Content Include="Page\P_CWGL\TxcxzzGl.aspx" />
     <Content Include="Page\P_CWGL\JxfpqsdGl.aspx" />
     <Content Include="Page\P_CWGL\XxfpyjdGl.aspx" />
@@ -1175,6 +1176,13 @@
     </Compile>
     <Compile Include="Page\P_CWGL\Khskmx.aspx.designer.cs">
       <DependentUpon>Khskmx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Khtzmx.aspx.cs">
+      <DependentUpon>Khtzmx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Khtzmx.aspx.designer.cs">
+      <DependentUpon>Khtzmx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_CWGL\TxcxzzGl.aspx.cs">
       <DependentUpon>TxcxzzGl.aspx</DependentUpon>

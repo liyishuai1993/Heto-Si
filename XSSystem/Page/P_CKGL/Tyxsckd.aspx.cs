@@ -114,7 +114,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("dzzxf_qkr", System.Type.GetType("System.String"));
             dataTable.Columns.Add("dzmcddf_qkr", System.Type.GetType("System.String"));
             dataTable.Columns.Add("dzdlf_qkr", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("tlyfxj_qkr", System.Type.GetType("System.String"));
             dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
@@ -198,8 +197,7 @@ namespace XSSystem.Page.P_Order
                 dr[23] = val[26];
                 dr[24] = val[27];
                 dr[25] = val[28];
-                dr[26] = val[29];
-                dr[27] = false;
+                dr[26] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -262,7 +260,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[27])
+                if ((bool)val[26])
                 {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
@@ -293,7 +291,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzzxf_qkr", val[23]);
                     temp.Add("@dzmcddf_qkr", val[24]);
                     temp.Add("@dzdlf_qkr", val[25]);
-                    temp.Add("@tlyfxj_qkr", val[26]);
                     Child1.Add(temp);
                 }
             }
@@ -356,12 +353,11 @@ namespace XSSystem.Page.P_Order
                 dr[19] = fzdlf_qkr.Text.Trim();
                 dr[20] = fzzxf_qkr.Text.Trim();
                 dr[21] = fzddf_qkr.Text.Trim();
-                dr[22] = tlyfxj_qkr.Text.Trim();
+                dr[22] = tlyf_qkr.Text.Trim();
                 dr[23] = dzzxf_qkr.Text.Trim();
                 dr[24] = dzmcddf_qkr.Text.Trim();
                 dr[25] = dzdlf_qkr.Text.Trim();
-                dr[26] = tlyfxj_qkr.Text.Trim();
-                dr[27] = true;
+                dr[26] = true;
             }
             catch
             {
@@ -429,7 +425,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[27])
+                if ((bool)val[26])
                 {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
@@ -460,7 +456,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzzxf_qkr", val[23]);
                     temp.Add("@dzmcddf_qkr", val[24]);
                     temp.Add("@dzdlf_qkr", val[25]);
-                    temp.Add("@tlyfxj_qkr", val[26]);
                     Child1.Add(temp);
                 }
             }

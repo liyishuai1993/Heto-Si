@@ -195,8 +195,8 @@ namespace xs_System.Logic
                 sqlpara = new xsSqlParameter();
                 sqlpara.AddSqlParameter(val);
                 sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj,jshk_qkr,zbxsf_qkr,fzdlf_qkr,fzzxf_qkr,fzddf_qkr,tlyf_qkr,dzzxf_qkr,dzmcddf_qkr,dzdlf_qkr,tlyfxj_qkr)" +
-                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj,@jshk_qkr,@zbxsf_qkr,@fzdlf_qkr,@fzzxf_qkr,@fzddf_qkr,@tlyf_qkr,@dzzxf_qkr,@dzmcddf_qkr,@dzdlf_qkr,@tlyfxj_qkr)";
+                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj,jshk_qkr,zbxsf_qkr,fzdlf_qkr,fzzxf_qkr,fzddf_qkr,tlyf_qkr,dzzxf_qkr,dzmcddf_qkr,dzdlf_qkr)" +
+                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj,@jshk_qkr,@zbxsf_qkr,@fzdlf_qkr,@fzzxf_qkr,@fzddf_qkr,@tlyf_qkr,@dzzxf_qkr,@dzmcddf_qkr,@dzdlf_qkr)";
                 xsSqls.Add(sqlpara);
             }
 
@@ -490,8 +490,8 @@ namespace xs_System.Logic
                 sqlpara = new xsSqlParameter();
                 sqlpara.AddSqlParameter(val);
                 sqlpara.SqlConnectString = GlabalString.DBString;
-                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj,jshk_qkr,zbxsf_qkr,fzdlf_qkr,fzzxf_qkr,fzddf_qkr,tlyf_qkr,dzzxf_qkr,dzmcddf_qkr,dzdlf_qkr,tlyfxj_qkr)" +
-                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj,@jshk_qkr,@zbxsf_qkr,@fzdlf_qkr,@fzzxf_qkr,@fzddf_qkr,@tlyf_qkr,@dzzxf_qkr,@dzmcddf_qkr,@dzdlf_qkr,@tlyfxj_qkr)";
+                sqlpara.SQL = "insert into xs_Tyxsckd_Jzxxx (user_no,htbh,bh,xh,sxds,zxrq,fcrq,xhds,dzrq,jshk,zbxsf,fzdlf,fzzxf,fzddf,tlyf,dzzxf,dzmcddf,dzdlf,tlyfxj,jshk_qkr,zbxsf_qkr,fzdlf_qkr,fzzxf_qkr,fzddf_qkr,tlyf_qkr,dzzxf_qkr,dzmcddf_qkr,dzdlf_qkr)" +
+                "values(@user_no,@htbh,@bh,@xh,@sxds,@zxrq,@fcrq,@xhds,@dzrq,@jshk,@zbxsf,@fzdlf,@fzzxf,@fzddf,@tlyf,@dzzxf,@dzmcddf,@dzdlf,@tlyfxj,@jshk_qkr,@zbxsf_qkr,@fzdlf_qkr,@fzzxf_qkr,@fzddf_qkr,@tlyf_qkr,@dzzxf_qkr,@dzmcddf_qkr,@dzdlf_qkr)";
                 xsSqls.Add(sqlpara);
             }
             return SqlHelper.Execute(xsSqls);

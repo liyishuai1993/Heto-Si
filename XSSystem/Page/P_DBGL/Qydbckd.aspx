@@ -31,6 +31,32 @@
             text-align:center;
         }
         </style>
+    <script type="text/javascript">
+        function FormCkdCheck() {
+            document.getElementById("ckjz").value = document.getElementById("ckmz").value - document.getElementById("ckpz").value;
+            document.getElementById("dbje").value = document.getElementById("ckjz").value * document.getElementById("dcmj").value;
+        }
+
+        function FormHdCheck() {
+            document.getElementById("yfkkbz").value = document.getElementById("dcmj").value;
+            document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
+            if (document.getElementById("IsCal").value == true)
+            {
+                document.getElementById("yslhbz").value = document.getElementById("ckjz").value * document.getElementById("percent").value;
+            }
+            document.getElementById("ksds").value = math.abs(document.getElementById("ckjz").value - document.getElementById("rkjz").value);
+            document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
+            document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yslhbz").value;
+            document.getElementById("yfkkje").value = document.getElementById("yfkkbz").value * document.getElementById("yfkkds").value;
+            var temp = document.getElementById("ckjz").value - document.getElementById("rkjz");
+            document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz"): document.getElementById("ckjz").value;
+
+            document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value;
+            document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value;
+            document.getElementById("drje").value = document.getElementById("ckjz").value * document.getElementById("dcmj").value+document.getElementById("yfyf").value;
+            document.getElementById("drmj").value = document.getElementById("drje").value / document.getElementById("rkjz").value;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -165,9 +165,9 @@
                     <tr>
                         <td class="auto-style6">
                             #铁路运费小计<asp:TextBox id="tlyfxj" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> 
-                <telerik:RadComboBox RenderMode="Lightweight" ID="tlyfxj_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
+                <%--<telerik:RadComboBox RenderMode="Lightweight" ID="tlyfxj_qkr" AutoPostBack="True" runat="server" Width="100px" Height="200px"
   EmptyMessage="欠款人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
-   HighlightTemplatedItems="true"/>
+   HighlightTemplatedItems="true"/>--%>
                         </td>
                     </tr>
                 </table>

@@ -32,6 +32,37 @@
             text-align:center;
         }
         </style>
+
+    <script type="text/javascript">
+        function FormCkdCheck() {
+            document.getElementById("ckjz1").value = document.getElementById("ckmz").value - document.getElementById("ckpz").value;
+            document.getElementById("ckjz2").value = document.getElementById("ckjz1").value - document.getElementById("jbds").value;
+            document.getElementById("hkgsje").value = document.getElementById("ckjz2").value * document.getElementById("mj").value;
+        }
+
+        function FormHdCheck() {
+            document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
+            if (document.getElementById("IsCal").value == true)
+            {
+                document.getElementById("yfhllh").value = document.getElementById("ckjz2").value * document.getElementById("percent").value;
+            }
+            document.getElementById("ksds").value = math.abs(document.getElementById("ckjz2").value - document.getElementById("rkjz").value);
+            document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
+            document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yfhllh").value;
+            document.getElementById("yfkkje").value = document.getElementById("yflhbz").value * document.getElementById("yfkkds").value;
+            var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz");
+            document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz"): document.getElementById("ckjz").value;
+
+            document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value;
+            document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value;
+            document.getElementById("hkjsdw").value = document.getElementById("rkjz").value - document.getElementById("kd").value;
+            document.getElementById("jshk").value = document.getElementById("hkjsdw").value * document.getElementById("mj").value;
+            document.getElementById("tcje").value = document.getElementById("hkjsdw").value * document.getElementById("tcbz").value;
+
+
+
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -90,7 +121,7 @@
                     <td class="auto-style3"><span>已付油卡</span><asp:TextBox id="yfyk" cal="must1"  runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="已付油卡" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3"><span>运价</span><asp:TextBox id="yj" cal="must1"  runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="运价" valued="must1"></asp:TextBox></td>
+                    <td class="auto-style3"><span>运价</span><asp:TextBox id="yj" cal="must1" OnBlur="FormCkdCheck()"  runat="server" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="运价" valued="must1"></asp:TextBox></td>
                     <td class="auto-style3">付卡账户<asp:TextBox id="fkzh" runat="server" Height="16px" Width ="500px" CssClass="auto-style4"></asp:TextBox> </td>
                     
                 </tr>
@@ -141,7 +172,7 @@
 
                 <tr>
                     <td class="auto-style3">#结算货款<asp:TextBox id="jshk" name="结算货款" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox></td> 
-                    <td class="auto-style3"><span>提成标准</span><asp:TextBox id="tcbz" valued="must2" cal="must2" name="提成标准" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
+                    <td class="auto-style3"><span>提成标准</span><asp:TextBox id="tcbz" valued="must2" OnBlur="FormHdCheck()" cal="must2" name="提成标准" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox> </td>
                     <td class="auto-style3">#提成金额<asp:TextBox id="tcje" runat="server" Height="16px" Width ="284px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox></td>
                     
                 </tr>
@@ -158,8 +189,8 @@
 
 
         <p class="auto-style5">
-            <asp:Button ID="Button1" text="计算出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>&nbsp
-            <asp:Button ID="Button2" text="计算回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button2_Click"></asp:Button>&nbsp
+            <%--<asp:Button ID="Button1" text="计算出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>--%>&nbsp
+            <%--<asp:Button ID="Button2" text="计算回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button2_Click"></asp:Button>--%>&nbsp
                 <asp:Button ID="submit" text="保存出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
             <asp:Button ID="updateCkd" text="修改出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="updateCkd_Click"></asp:Button>&nbsp
             <asp:Button ID="submit2" text="保存回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit2_Click"></asp:Button>&nbsp         
