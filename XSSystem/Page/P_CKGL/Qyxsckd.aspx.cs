@@ -264,7 +264,9 @@ namespace XSSystem.Page.P_Order
             yfkkje.Text = Mul(yflhbz.Text, yfkkds.Text);
             yfjsdw.Text = double.Parse(ckjz2.Text) >= double.Parse(rkjz.Text) ? rkjz.Text : ckjz2.Text;
             yfyf.Text = Sub(Mul(yfjsdw.Text, yj.Text), yfkkje.Text);
+
             jsyf.Text = Sub(Sub(yfyf.Text, yfyk.Text), fykk.Text);
+
             hkjsdw.Text = Sub(rkjz.Text, kd.Text);
             jshk.Text = Mul(hkjsdw.Text, mj.Text);
             tcje.Text = Mul(hkjsdw.Text, tcbz.Text);
