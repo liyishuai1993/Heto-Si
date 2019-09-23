@@ -31,13 +31,13 @@ namespace XSSystem.Page.P_Order {
         protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
         
         /// <summary>
-        /// hth 控件。
+        /// tk_hth 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hth;
+        protected global::Telerik.Web.UI.RadComboBox tk_hth;
         
         /// <summary>
         /// mkmc 控件。
@@ -85,13 +85,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox mj;
         
         /// <summary>
-        /// yshtbh 控件。
+        /// tk_yshtbh 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox yshtbh;
+        protected global::Telerik.Web.UI.RadComboBox tk_yshtbh;
         
         /// <summary>
         /// cycd 控件。

@@ -38,11 +38,19 @@
     </span>
         </div>
     <div>
-    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
+    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1200px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
+                <asp:TemplateField  ItemStyle-HorizontalAlign="Center">
+                    <HeaderTemplate>
+                        序号
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
                     <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "hydbh")%>' onclick='SingleCheckJs();' />
@@ -51,24 +59,24 @@
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                 </asp:TemplateField>
                 <asp:BoundField DataField="hydbh"  HeaderText="化验单编号">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                <ItemStyle HorizontalAlign="Left" Width="20%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="hyrq"  HeaderText="化验日期">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="gys"  HeaderText="供应商">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                <ItemStyle HorizontalAlign="Left" Width="20%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="mcmc"  HeaderText="煤场名称">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                <ItemStyle HorizontalAlign="Left" Width="20%" />
                 </asp:BoundField>
                 <asp:TemplateField  HeaderText="详情">
-                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                    <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                <ItemStyle HorizontalAlign="Left" Width="20%" />
                     <ItemTemplate>                                 
                         <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("hydbh") %>' CssClass="buttonCancle"  OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
                         <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>

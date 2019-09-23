@@ -100,7 +100,7 @@ function FormCheck()
                         <asp:ListItem>对方付款</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style3"><span>煤矿名称</span><asp:TextBox id="mkmc" name="煤矿名称" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3" hidden="hidden"><span>煤矿名称</span><asp:TextBox id="mkmc" name="煤矿名称"   runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style4" colspan="3">备注<asp:TextBox id="bz" runat="server" Height="16px" Width ="1148px"></asp:TextBox>
@@ -115,7 +115,7 @@ function FormCheck()
             <p>价格信息<asp:Button ID="Button2"  runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
             <p class="pstyle">               
                 煤矿名称<asp:TextBox id="mkmc2" valued="must2" name="煤矿名称"  runat="server" Height="16px" Width ="100px"></asp:TextBox>
-                煤种名称<asp:TextBox id="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                物料名称<asp:TextBox id="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width ="100px"></asp:TextBox>
                 发热量<asp:TextBox id="frl" valued="must2" name="发热量" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
                 硫份<asp:TextBox id="lf" valued="must2" name="硫份" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                  开票煤价<asp:TextBox id="kpmj" valued="must2" name="开票煤价" runat="server" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>

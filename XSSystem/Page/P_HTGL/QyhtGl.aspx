@@ -48,6 +48,14 @@
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
+                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                    <HeaderTemplate>
+                        序号
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
                     <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "htbh")%>' onclick='SingleCheckJs();' />
@@ -57,18 +65,18 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="htbh"  HeaderText="合同编号">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
+                <ItemStyle HorizontalAlign="Left" Width="20%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="qdrq"  HeaderText="签订日期" DataFormatString="{0:yyyy-MM-dd}">
                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="wtf"  HeaderText="委托方">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="20%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="stf"  HeaderText="受托方">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="20%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="kplx"  HeaderText="开票类型">

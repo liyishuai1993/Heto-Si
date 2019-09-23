@@ -34,6 +34,14 @@
             text-align:left;
         }
         </style>
+    <script type="text/javascript">
+        function FormCheck() {
+            document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
+            document.getElementById("yfyf").value = document.getElementById("zcjz").value * document.getElementById("yj").value;
+            document.getElementById("cgjsje").value = document.getElementById("zcjz").value * document.getElementById("cgmj").value;
+            document.getElementById("xsjsje").value = (document.getElementById("yj").value + document.getElementById("xsmj").value) * document.getElementById("zcjz").value;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">

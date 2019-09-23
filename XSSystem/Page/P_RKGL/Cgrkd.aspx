@@ -67,7 +67,9 @@
                 <p>基本信息</p>
                 <table border="0" aria-haspopup="False" class="auto-style1">
                     <tr>
-                        <td class="auto-style3"><span>合同号</span><asp:TextBox ID="hth" valued="must1" name="合同号" runat="server" Height="16px" Width="200px"></asp:TextBox></td>
+                        <td class="auto-style3"><span>合同号</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_hth" AutoPostBack="True" runat="server" Width="200px" Height="200px"
+                            EmptyMessage="请输入合同号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="合同号" valued="must1"
+                            HighlightTemplatedItems="true" /></td>
                         <td class="auto-style3"><span>煤矿名称</span>
                             <asp:TextBox ID="mkmc" runat="server" valued="must1" name="煤矿名称" Height="16px" Width="200px"></asp:TextBox>
                         </td>
@@ -90,7 +92,9 @@
                         </td>
                         <td class="auto-style3"><span>煤价</span><asp:TextBox ID="mj" runat="server" Height="16px" cal="must1" name="煤价" Width="200px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">运输合同编号<asp:TextBox ID="yshtbh" runat="server" Height="16px" Width="200px"></asp:TextBox>
+                        <td class="auto-style3">运输合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_yshtbh" AutoPostBack="True" runat="server" Width="200px" Height="200px"
+                            EmptyMessage="请输入运输合同编号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="运输合同编号" valued="must1"
+                            HighlightTemplatedItems="true" />
                         </td>
                         <td class="auto-style3">承运车队<asp:TextBox ID="cycd" runat="server" Height="16px" Width="200px"></asp:TextBox>
                         </td>

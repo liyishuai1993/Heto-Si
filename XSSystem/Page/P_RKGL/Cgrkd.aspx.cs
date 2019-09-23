@@ -79,14 +79,14 @@ namespace XSSystem.Page.P_Order
         void InitData(object mk)
         {
             DataTable dt = mk as DataTable;
-            hth.Text = dt.Rows[0][1].ToString();
+            tk_hth.SelectedItem.Text = dt.Rows[0][1].ToString();
             mkmc.Text = dt.Rows[0][2].ToString();
             tk_gf.SelectedItem.Text = dt.Rows[0][3].ToString();
             tk_xf.SelectedItem.Text = dt.Rows[0][4].ToString();
             tk_wlmc.Text = dt.Rows[0][5].ToString();
 
             mj.Text = dt.Rows[0][6].ToString();
-            yshtbh.Text = dt.Rows[0][7].ToString();
+            tk_yshtbh.SelectedItem.Text = dt.Rows[0][7].ToString();
             cycd.Text = dt.Rows[0][8].ToString();
             zcbdh.Text = dt.Rows[0][9].ToString();
             tmdh.Text = dt.Rows[0][10].ToString();
@@ -139,14 +139,14 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
             {
-                dml.Add("@hth", hth.Text.Trim());
+                dml.Add("@hth", tk_hth.SelectedItem.Text.Trim());
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
                 dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
                 dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@yshtbh", yshtbh.Text.Trim());
+                dml.Add("@yshtbh", tk_yshtbh.SelectedItem.Text.Trim());
                 dml.Add("@cycd", cycd.Text.Trim());
                 dml.Add("@zcbdh", zcbdh.Text.Trim());
                 dml.Add("@tmdh", tmdh.Text.Trim());
@@ -253,14 +253,14 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
             {
-                dml.Add("@hth", hth.Text.Trim());
+                dml.Add("@hth", tk_hth.Text.Trim());
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
                 dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
                 dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@yshtbh", yshtbh.Text.Trim());
+                dml.Add("@yshtbh", tk_yshtbh.Text.Trim());
                 dml.Add("@cycd", cycd.Text.Trim());
                 dml.Add("@zcbdh", zcbdh.Text.Trim());
                 dml.Add("@tmdh", tmdh.Text.Trim());

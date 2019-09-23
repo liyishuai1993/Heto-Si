@@ -101,6 +101,17 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_wlmc.SelectedIndex = 1;
             }
+            DataTable dt3 = GlabalString.zhDataTable;
+            if (dt3.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt3.Rows)
+                {
+                    radcbItem2 = new RadComboBoxItem(val[0].ToString());
+                    tk_fkzh.Items.Add(radcbItem2);
+                }
+                tk_fkzh.SelectedIndex = 1;
+            }
         }
 
         void InitData(object mk)
@@ -128,7 +139,7 @@ namespace XSSystem.Page.P_Order
             hkgsje.Text = dt.Rows[0][17].ToString();
             yfyk.Text = dt.Rows[0][18].ToString();
             yj.Text = dt.Rows[0][19].ToString();
-            fkzh.Text = dt.Rows[0][20].ToString();
+            tk_fkzh.Text = dt.Rows[0][20].ToString();
             Session.Remove("qyxsckd");
         }
 
@@ -162,7 +173,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", fkzh.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
             }
             catch
             {
@@ -308,7 +319,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", fkzh.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
             }
             catch

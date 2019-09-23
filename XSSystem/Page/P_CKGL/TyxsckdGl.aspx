@@ -40,11 +40,19 @@
     </span>
         </div>
     <div>
-    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
+    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1200px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
+                <asp:TemplateField  ItemStyle-HorizontalAlign="Center">
+                    <HeaderTemplate>
+                        序号
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
                     <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "bh")%>' onclick='SingleCheckJs();' />
@@ -61,11 +69,11 @@
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="stf"  HeaderText="受托方">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="30%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="zcz"  HeaderText="装车站">
-                <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                <HeaderStyle HorizontalAlign="Left" Width="30%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                 </asp:BoundField>
                 <asp:BoundField DataField="zdz"  HeaderText="终到站">

@@ -120,7 +120,7 @@ function FormCheck()
                         <asp:ListItem>对方付款</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style3"><span>煤矿名称</span><asp:TextBox id="mkmc" name="煤矿名称" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
+                    <td class="auto-style3" hidden="hidden"><span>煤矿名称</span><asp:TextBox id="mkmc" name="煤矿名称" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">控制标准<asp:DropDownList ID="kzbz" runat="server" Height="25px" Width="284px">
@@ -150,7 +150,7 @@ function FormCheck()
                         <asp:ListItem>承兑汇票</asp:ListItem>
                         <asp:ListItem>电汇或承兑</asp:ListItem>
                         </asp:DropDownList>
-                煤种名称<asp:TextBox id="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width ="100px"></asp:TextBox>
+                物料名称<asp:TextBox id="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width ="100px"></asp:TextBox>
                 发热量<asp:TextBox id="frl" runat="server" valued="must2" name="发热量" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
                 硫份<asp:TextBox id="lf" runat="server" valued="must2" name="硫份" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             开票煤价<asp:TextBox id="kpmj" runat="server" valued="must2" name="开票煤价" Height="16px" Width ="100px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>    
