@@ -42,17 +42,16 @@
             document.getElementById("kkbz").value = document.getElementById("mj").value;
             document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
             document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
-            if (document.getElementById("IsCal").value == true)
-            {
+            if (document.getElementById("IsCal").value == true) {
                 document.getElementById("yslhbz").value = document.getElementById("zcjz").value * document.getElementById("percent").value;
             }
             document.getElementById("jsmk").value = document.getElementById("zcjz").value * document.getElementById("mj").value;
             var temp = document.getElementById("zcjz").value - document.getElementById("rkjz");
-            document.getElementById("ksds").value = temp > 0 ? temp: 0;
+            document.getElementById("ksds").value = temp > 0 ? temp : 0;
             document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("zcjz").value;
             document.getElementById("kkds").value = math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
             document.getElementById("kkje").value = document.getElementById("rkjz").value * document.getElementById("zcjz").value;
-            document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value , document.getElementById("kkds").value);
+            document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value, document.getElementById("kkds").value);
             document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value;
             document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value;
         }
@@ -62,14 +61,18 @@
     <form id="form1" runat="server">
         <div>
             <p class="auto-style5">采购入库单(合并页)</p>
+            <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
             <div>
-                <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
                 <p>基本信息</p>
                 <table border="0" aria-haspopup="False" class="auto-style1">
                     <tr>
-                        <td class="auto-style3"><span>合同号</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_hth" AutoPostBack="True" runat="server" Width="200px" Height="200px"
-                            EmptyMessage="请输入合同号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="合同号" valued="must1"
-                            HighlightTemplatedItems="true" /></td>
+                        <td class="auto-style3"><span>合同号</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_hth" AutoPostBack="True" runat="server" Height="200px"
+                            EmptyMessage="请输入收款账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must1"
+                            HighlightTemplatedItems="true" OnSelectedIndexChanged="tk_hth_SelectedIndexChanged" />
+                            <%--<telerik:RadComboBox RenderMode="Lightweight" ID="tk_hth" AutoPostBack="True" runat="server" Width="200px" Height="200px"
+                                EmptyMessage="请输入合同号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="合同号" valued="must1"
+                                HighlightTemplatedItems="true" OnSelectedIndexChanged="tk_hth_SelectedIndexChanged" />--%>
+                        </td>
                         <td class="auto-style3"><span>煤矿名称</span>
                             <asp:TextBox ID="mkmc" runat="server" valued="must1" name="煤矿名称" Height="16px" Width="200px"></asp:TextBox>
                         </td>
@@ -94,7 +97,7 @@
                         </td>
                         <td class="auto-style3">运输合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_yshtbh" AutoPostBack="True" runat="server" Width="200px" Height="200px"
                             EmptyMessage="请输入运输合同编号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="运输合同编号" valued="must1"
-                            HighlightTemplatedItems="true" />
+                            HighlightTemplatedItems="true" OnSelectedIndexChanged="tk_yshtbh_SelectedIndexChanged" />
                         </td>
                         <td class="auto-style3">承运车队<asp:TextBox ID="cycd" runat="server" Height="16px" Width="200px"></asp:TextBox>
                         </td>

@@ -33,7 +33,7 @@ namespace XSSystem.Page.P_Order
             RadComboBoxItem radcbItem;
             RadComboBoxItem radcbItem2;
             DataTable dt = GlabalString.GetGongSi();
-            if (dt.Rows.Count != 0)
+            if (dt.Rows.Count != 0) 
             {
 
                 foreach (DataRow val in dt.Rows)
@@ -72,6 +72,30 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_zfzh.SelectedIndex = 1;
                 tk_fkzh.SelectedIndex = 1;
+            }
+
+            dt2 = GlabalString.GetHeTongHao("xs_CghtTable");
+            if (dt2.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_hth.Items.Add(radcbItem);
+                }
+                tk_hth.SelectedIndex = 1;
+            }
+
+            dt2 = GlabalString.GetHeTongHao("xs_QyhtTable");
+            if (dt2.Rows.Count != 0)
+            {
+
+                foreach (DataRow val in dt2.Rows)
+                {
+                    radcbItem = new RadComboBoxItem(val[0].ToString());
+                    tk_yshtbh.Items.Add(radcbItem);
+                }
+                tk_yshtbh.SelectedIndex = 1;
             }
 
         }
@@ -312,6 +336,17 @@ namespace XSSystem.Page.P_Order
                 AlertMessage(reply);
                 return;
             }
+        }
+
+        protected void tk_yshtbh_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+
+        }
+
+        protected void tk_hth_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            DataTable dt = GlabalString.GetHeTongData("htbh", tk_hth.Text);
+            int a = 1;
         }
     }
 }

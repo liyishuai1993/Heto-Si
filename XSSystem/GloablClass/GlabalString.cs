@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
+using XSSystem.Class;
 
 public class GlabalString
 {
@@ -170,7 +171,21 @@ public class GlabalString
         arrList[0] = "htbh";
         pagepara.Sql = ht.QueryDropList(tableName, arrList);
         pagepara.OrderBy = "htbh";
-        DataTable dt = xsPageHelper.BindPager(pagepara);
-        return dt;
+        return  xsPageHelper.BindPager(pagepara);
+    }
+
+    public static DataTable GetHeTongData(string key,string item)
+    {
+        QueryClass qc = new QueryClass();
+        HTGLLogic ht = new HTGLLogic();
+        PagerParameter pagepara = new PagerParameter();
+        qc.tableName = "xs_CghtTable";
+        qc.selectedKey = key;
+        qc.selectedItem = item;
+        qc.selectedCon = "or";
+        pagepara.DbConn = GlabalString.DBString;
+        pagepara.Sql = ht.QueryHtOrder(qc);
+        pagepara.OrderBy = "htbh";
+        return xsPageHelper.BindPager(pagepara);
     }
 }
