@@ -22,13 +22,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// RadScriptManager2 控件。
+        /// RadScriptManager1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager2;
+        protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
         
         /// <summary>
         /// tk_hth 控件。

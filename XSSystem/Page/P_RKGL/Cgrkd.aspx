@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cgrkd.aspx.cs" Inherits="XSSystem.Page.P_Order.Cgrkd" %>
+
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register TagPrefix="qsf" Namespace="Telerik.QuickStart" %>
 <!DOCTYPE html>
@@ -38,21 +39,21 @@
     </style>
     <script type="text/javascript">
         function FormCheck() {
-            //document.getElementById("kkbz").value = document.getElementById("mj").value;
-            //document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
-            //document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
-            //if (document.getElementById("IsCal").value == true) {
-            //    document.getElementById("yslhbz").value = document.getElementById("zcjz").value * document.getElementById("percent").value;
-            //}
-            //document.getElementById("jsmk").value = document.getElementById("zcjz").value * document.getElementById("mj").value;
-            //var temp = document.getElementById("zcjz").value - document.getElementById("rkjz");
-            //document.getElementById("ksds").value = temp > 0 ? temp : 0;
-            //document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("zcjz").value;
-            //document.getElementById("kkds").value = math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
-            //document.getElementById("kkje").value = document.getElementById("rkjz").value * document.getElementById("zcjz").value;
-            //document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value, document.getElementById("kkds").value);
-            //document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value;
-            //document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value;
+            document.getElementById("kkbz").value = document.getElementById("mj").value;
+            document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
+            document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
+            if (document.getElementById("IsCal").value == true) {
+                document.getElementById("yslhbz").value = document.getElementById("zcjz").value * document.getElementById("percent").value;
+            }
+            document.getElementById("jsmk").value = document.getElementById("zcjz").value * document.getElementById("mj").value;
+            var temp = document.getElementById("zcjz").value - document.getElementById("rkjz");
+            document.getElementById("ksds").value = temp > 0 ? temp : 0;
+            document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("zcjz").value;
+            document.getElementById("kkds").value = math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
+            document.getElementById("kkje").value = document.getElementById("rkjz").value * document.getElementById("zcjz").value;
+            document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value, document.getElementById("kkds").value);
+            document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value;
+            document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value;
         }
     </script>
 </head>
@@ -60,7 +61,7 @@
     <form id="form1" runat="server">
         <div>
             <p class="auto-style5">采购入库单(合并页)</p>
-            <telerik:RadScriptManager runat="server" ID="RadScriptManager2"></telerik:RadScriptManager>
+            <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
             <div>
                 <p>基本信息</p>
                 <table border="0" aria-haspopup="False" class="auto-style1">
