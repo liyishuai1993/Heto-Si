@@ -74,17 +74,21 @@ namespace XSSystem.Page.P_Order
                 tk_fkzh.SelectedIndex = 1;
             }
 
-            dt2 = GlabalString.GetHeTongHao("xs_CghtTable");
-            if (dt2.Rows.Count != 0)
-            {
+            DataTable dt9 = GlabalString.GetHeTongHao("xs_CghtTable");
+            tk_hth.DataSource = dt9;
+            tk_hth.DataTextField = "htbh";
+            tk_hth.DataValueField = "htbh";
+            tk_hth.DataBind();
+            tk_hth.SelectedIndex = -1;
+            //if (dt2.Rows.Count != 0)
+            //{
 
-                foreach (DataRow val in dt2.Rows)
-                {
-                    radcbItem = new RadComboBoxItem(val[0].ToString());
-                    tk_hth.Items.Add(radcbItem);
-                }
-                tk_hth.SelectedIndex = 1;
-            }
+            //    foreach (DataRow val in dt2.Rows)
+            //    {
+            //        radcbItem = new RadComboBoxItem(val[0].ToString());
+            //        tk_hth.Items.Add(radcbItem);
+            //    }
+            //}
 
             dt2 = GlabalString.GetHeTongHao("xs_QyhtTable");
             if (dt2.Rows.Count != 0)
@@ -95,8 +99,9 @@ namespace XSSystem.Page.P_Order
                     radcbItem = new RadComboBoxItem(val[0].ToString());
                     tk_yshtbh.Items.Add(radcbItem);
                 }
-                tk_yshtbh.SelectedIndex = 1;
             }
+
+            
 
         }
 
