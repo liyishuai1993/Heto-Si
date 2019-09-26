@@ -47,11 +47,11 @@ function FormCheck()
                 <tr>
                     <td class="auto-style3"><span>对方合同号</span><asp:TextBox id="dfhth" name="对方合同号" valued="must1"  runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3"><span>供方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>供方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_gfmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3"><span>需方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>需方名称</span><telerik:RadComboBox RenderMode="Lightweight" ID="DropDownList_xfmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -91,7 +91,7 @@ function FormCheck()
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3"><span>交货地点</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_jhdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3"><span>交货地点</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_jhdd"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入交货地点"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -311,7 +311,7 @@ function FormCheck()
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" text="新增" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp    
                 <asp:Button ID="shenhe" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp
                 <asp:Button ID="done" text="执行" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnZhiXing_Click"></asp:Button>&nbsp

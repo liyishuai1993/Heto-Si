@@ -60,10 +60,10 @@
 
                 </tr>
                 <tr>
-                    <td class="auto-style3">*供货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_ghf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">*供货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_ghf"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供货方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供货方" valued="must1" 
    HighlightTemplatedItems="true"/></td>
-                    <td class="auto-style3">*收货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_shf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">*收货方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_shf"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入收货方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收货方" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">煤矿名称<asp:TextBox id="mkmc" runat="server" Height="16px" Width ="269px"></asp:TextBox> </td>
@@ -172,7 +172,7 @@
 
         <p class="auto-style5" style="text-align:center">
             <asp:Button ID="refresh" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="refresh_Click"></asp:Button>&nbsp
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
             <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="close_Click"></asp:Button>&nbsp
 

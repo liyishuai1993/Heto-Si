@@ -45,10 +45,10 @@
                 </tr>
                 
                 <tr>
-                    <td class="auto-style3">生产煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_scmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">生产煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_scmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入生产煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="生产煤场" valued="must1" 
    HighlightTemplatedItems="true"/> </td>
-                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入公司名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                 </tr>     
@@ -172,7 +172,7 @@
         </div>
         
         <p class="auto-style5">
-            <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp 
+            <asp:Button ID="add" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp 
             <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp     
             <asp:Button ID="close" text="关闭" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="close_Click"></asp:Button>&nbsp
         </p> 

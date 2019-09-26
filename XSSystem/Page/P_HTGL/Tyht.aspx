@@ -51,12 +51,12 @@
                 </tr>
                 <tr>
                     
-                    <td class="auto-style3">委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">委托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wtf"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入委托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="委托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                        受托方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_stf"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入受托方"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="受托方" valued="must1" 
    HighlightTemplatedItems="true"/>
                    </td> 
@@ -64,11 +64,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3" style="table-layout: fixed">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3" style="table-layout: fixed">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输物料名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -78,11 +78,11 @@
                    </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入装车站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="装车站" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
-                    <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入终到站"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="终到站" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -105,7 +105,7 @@
             <div class="divcss5">
             <p>价格信息(元/吨)<asp:Button ID="Button1" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
                 
-                公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="140px" Height="200px"
+                公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc"  runat="server" Width="140px" Height="200px"
   EmptyMessage="请输入公司名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="公司名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                 对方合同号<asp:TextBox id="dfhth" valued="must2" name="对方合同号" runat="server" Height="16px" Width ="100px"></asp:TextBox>
@@ -205,7 +205,7 @@
         </div>
 
         <p class="auto-style5">
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp
                 <asp:Button ID="done" text="执行" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnZhiXing_Click"></asp:Button>&nbsp

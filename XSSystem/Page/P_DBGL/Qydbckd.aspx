@@ -71,12 +71,12 @@
                 </tr>
                 <tr>
                     <td class="auto-style3"><span>装车时间</span><asp:TextBox ID="zcsj" runat="server" name="装车时间" Text="" onClick="WdatePicker()" Width="500px" valued="must1"></asp:TextBox> </td>
-                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                    <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc"  runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                    <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入发煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3"><span>车号</span><asp:TextBox id="ch" runat="server" name="车号" Height="16px" Width ="500px" CssClass="auto-style4" valued="must1"></asp:TextBox> </td>
@@ -87,7 +87,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                    <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc"  runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入物料名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     
@@ -109,7 +109,7 @@
                     <td class="auto-style3"><span>已付油卡</span><asp:TextBox id="yfyk" cal="must1" runat="server" name="已付油卡" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh" AutoPostBack="True" runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+                    <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh"  runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                         HighlightTemplatedItems="true" />
                     </td>
                     <td class="auto-style3"></td>
@@ -126,7 +126,7 @@
                     <td class="auto-style3"><span>入库时间</span><asp:TextBox id="rksj" runat="server" name="入库时间"  onClick="WdatePicker()" Width="500px" valued="must2"></asp:TextBox> </td>                                    
                 </tr>
                 <tr>
-                    <td class="auto-style3"><span>收煤煤场</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_smmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                    <td class="auto-style3"><span>收煤煤场</span><telerik:RadComboBox RenderMode="Lightweight" ID="tk_smmc"  runat="server" Width="500px" Height="200px"
   EmptyMessage="请输入收煤煤场"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收煤煤场" valued="must2" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3"><span>入库皮重</span><asp:TextBox id="rkpz" cal="must1" runat="server" name="入库皮重" Height="16px" Width ="500px" OnKeyPress="isnum()"  ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox> </td>
@@ -182,7 +182,7 @@
         <p class="auto-style5">
             <asp:Button ID="Button2" text="计算出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button2_Click"></asp:Button>&nbsp
             <asp:Button ID="Button1" text="计算回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>&nbsp
-                <asp:Button ID="submit" text="保存出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" text="保存出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="updateCkd" text="修改出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="updateCkd_Click"></asp:Button>&nbsp
              <asp:Button ID="Button4" text="保存回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click2"></asp:Button>&nbsp
              <asp:Button ID="updateHd" text="修改回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="updateHd_Click"></asp:Button>&nbsp

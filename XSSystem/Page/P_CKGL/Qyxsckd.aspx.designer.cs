@@ -436,13 +436,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.TextBox shzt;
         
         /// <summary>
-        /// submit 控件。
+        /// add 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit;
+        protected global::System.Web.UI.WebControls.Button add;
         
         /// <summary>
         /// updateCkd 控件。
@@ -454,13 +454,13 @@ namespace XSSystem.Page.P_Order {
         protected global::System.Web.UI.WebControls.Button updateCkd;
         
         /// <summary>
-        /// submit2 控件。
+        /// add2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit2;
+        protected global::System.Web.UI.WebControls.Button add2;
         
         /// <summary>
         /// updateHd 控件。

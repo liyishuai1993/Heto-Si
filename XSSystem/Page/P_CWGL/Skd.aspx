@@ -51,17 +51,17 @@
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width:1200px" >
                 <tr>
-                    <td class="auto-style3">付款单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkdw" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">付款单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkdw"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入付款单位"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="付款单位" valued="must1" 
    HighlightTemplatedItems="true"/></td>
-                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3"><span>部门</span><asp:TextBox id="bm" runat="server" Height="16px" Width ="284px" name="部门" valued="must1" ></asp:TextBox> </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请选择合同编号"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="合同编号" valued="must1" 
    HighlightTemplatedItems="true"/></td>
                     <td class="auto-style3">摘要<asp:DropDownList id="dp_zy" runat="server" Height="24px" Width ="284px">

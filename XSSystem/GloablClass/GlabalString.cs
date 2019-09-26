@@ -174,12 +174,12 @@ public class GlabalString
         return  xsPageHelper.BindPager(pagepara);
     }
 
-    public static DataTable GetHeTongData(string key,string item)
+    public static DataTable GetHeTongData(string key,string item,string tableName)
     {
         QueryClass qc = new QueryClass();
         HTGLLogic ht = new HTGLLogic();
         PagerParameter pagepara = new PagerParameter();
-        qc.tableName = "xs_CghtTable";
+        qc.tableName = tableName;
         qc.selectedKey = key;
         qc.selectedItem = item;
         qc.selectedCon = "or";

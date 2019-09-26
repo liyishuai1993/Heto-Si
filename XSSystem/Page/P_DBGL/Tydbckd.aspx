@@ -57,11 +57,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入供方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入发煤煤场" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -69,13 +69,13 @@
                     <tr>
                         <td class="auto-style3"><span>物料名称</span><asp:TextBox ID="wlmc" runat="server" name="物料名称" Height="16px" Width="500px" CssClass="auto-style4" valued="must1"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入装车站" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入终到站" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -201,7 +201,7 @@
 
             <p class="auto-style5">
                 <asp:Button ID="Button1" Text="计算表单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>&nbsp
-                <asp:Button ID="submit" Text="保存" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" Text="保存" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" Text="修改" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="close" Text="关闭" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="close_Click"></asp:Button>
             </p>

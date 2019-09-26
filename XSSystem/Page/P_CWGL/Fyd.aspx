@@ -51,10 +51,10 @@
         <div>
             <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px" >
                 <tr>
-                    <td class="auto-style3">收费单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_sfdw" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">收费单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_sfdw"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入收费单位"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="收费单位" valued="must1" 
    HighlightTemplatedItems="true"/></td>
-                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入经手人"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>

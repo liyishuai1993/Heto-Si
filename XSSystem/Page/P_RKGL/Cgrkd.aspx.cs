@@ -340,13 +340,21 @@ namespace XSSystem.Page.P_Order
 
         protected void tk_yshtbh_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-
+            DataTable dt = GlabalString.GetHeTongData("htbh", tk_yshtbh.Text,"xs_QyhtTable");
+            if (dt.Rows.Count > 0)
+            {
+                cycd.Text = dt.Rows[0][5].ToString();
+            }
         }
 
         protected void tk_hth_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            DataTable dt = GlabalString.GetHeTongData("htbh", tk_hth.Text);
-            int a = 1;
+            DataTable dt = GlabalString.GetHeTongData("htbh", tk_hth.Text,"xs_CghtTable");
+            if (dt.Rows.Count > 0)
+            {
+                tk_gf.Text = dt.Rows[0][5].ToString();
+                tk_xf.Text = dt.Rows[0][6].ToString();
+            }
         }
     }
 }

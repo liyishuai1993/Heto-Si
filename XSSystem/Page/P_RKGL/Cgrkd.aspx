@@ -76,11 +76,11 @@
                         <td class="auto-style3"><span>煤矿名称</span>
                             <asp:TextBox ID="mkmc" runat="server" valued="must1" name="煤矿名称" Height="16px" Width="200px"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" AutoPostBack="True" runat="server" Width="200px" Height="200px"
+                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf"  runat="server" Width="200px" Height="200px"
                             EmptyMessage="请输入供方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf" AutoPostBack="True" runat="server" Width="200px" Height="200px"
+                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf"  runat="server" Width="200px" Height="200px"
                             EmptyMessage="请输入需方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -88,7 +88,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style3">物料名称
-                 <telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="200px" Height="400px"
+                 <telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc"  runat="server" Width="200px" Height="400px"
                      EmptyMessage="选择" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must2"
                      HighlightTemplatedItems="true">
                  </telerik:RadComboBox>
@@ -164,14 +164,14 @@
                         <td class="auto-style3">#应付运费<asp:TextBox ID="yfyf" name="应付运费" runat="server" Height="16px" Width="200px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox>
                         </td>
                         <td class="auto-style3"><span>已付油卡</span><asp:TextBox ID="yfyk" OnBlur="FormCheck()" runat="server" cal="must1" name="已付油卡" Height="16px" Width="200px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox></td>
-                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh" AutoPostBack="True" runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh"  runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style3">#结算运费<asp:TextBox ID="jsyf" OnFocus="FormCheck()" name="结算运费" runat="server" Height="16px" Width="200px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must1"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">运费支付账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zfzh" AutoPostBack="True" runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+                        <td class="auto-style3">运费支付账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zfzh"  runat="server" Width="200px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
                         <td class="auto-style3">审核状态<asp:DropDownList ID="shzt" runat="server" Height="20px" Width="200px">
@@ -191,7 +191,7 @@
             <p class="auto-style5">
                 <%--<asp:Button ID="Button1" Text="计算表单" runat="server" Width="90px" BorderStyle="Groove" OnClick="Button1_Click" BackColor="Aqua" />--%>&nbsp
                 &nbsp
-                <asp:Button ID="submit" Text="保存" runat="server" Width="90px" BorderStyle="Groove" OnClick="submit_Click" BackColor="Aqua" />&nbsp&nbsp
+                <asp:Button ID="add" Text="保存" runat="server" Width="90px" BorderStyle="Groove" OnClick="submit_Click" BackColor="Aqua" />&nbsp&nbsp
                 <asp:Button ID="update" Text="修改" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp&nbsp
                 <asp:Button ID="close" Text="关闭" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="close_Click"></asp:Button>
             </p>

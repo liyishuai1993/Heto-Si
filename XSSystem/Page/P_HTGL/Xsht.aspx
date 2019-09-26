@@ -65,12 +65,12 @@ function FormCheck()
                 <tr>
                     <td class="auto-style3"><span>对方合同号</span><asp:TextBox id="dfhth" name="对方合同号" valued="must1" runat="server" Height="16px" Width ="284px"></asp:TextBox> 
                     </td>
-                    <td class="auto-style3">供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">供方名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gfmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入供方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
                     <td class="auto-style3">
-                        需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xfmc" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                        需方名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xfmc"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入需方名称"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1" 
    HighlightTemplatedItems="true"/>
                    </td> 
@@ -111,7 +111,7 @@ function FormCheck()
                         </asp:DropDownList> </td> 
                 </tr>
                 <tr>
-                    <td class="auto-style3">发货地点<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fhdd" AutoPostBack="True" runat="server" Width="284px" Height="200px"
+                    <td class="auto-style3">发货地点<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fhdd"  runat="server" Width="284px" Height="200px"
   EmptyMessage="请输入发货地点"   MarkFirstMatch="true"  EnableLoadOnDemand="true" Filter="Contains" name="发货地点" valued="must1" 
    HighlightTemplatedItems="true"/>
                     </td>
@@ -345,7 +345,7 @@ function FormCheck()
 
         <p class="auto-style5">
             <%--<asp:Button ID="Button3" text="计算表单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button3_Click"></asp:Button>--%>&nbsp
-                <asp:Button ID="submit" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" text="保存" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" text="修改" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="update_Click"></asp:Button>&nbsp
                 <asp:Button ID="refresh" text="审核" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnShengHe_Click"></asp:Button>&nbsp
                 <asp:Button ID="done" text="执行" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="btnZhiXing_Click"></asp:Button>&nbsp

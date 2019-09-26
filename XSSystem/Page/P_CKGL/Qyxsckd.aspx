@@ -88,17 +88,17 @@
                     <tr>
                         <td class="auto-style3"><span>装车时间</span><asp:TextBox ID="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="500px" valued="must1" name="装车时间"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入发煤煤场" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入供方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入需方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -112,7 +112,7 @@
                     <tr>
                         <td class="auto-style3">联系电话<asp:TextBox ID="lxdh" runat="server" Height="16px" Width="500px" CssClass="auto-style4"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" AutoPostBack="True" runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc"  runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入物料名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -142,7 +142,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style3"><span>运价</span><asp:TextBox ID="yj" cal="must1" OnBlur="FormCkdCheck()" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="运价" valued="must1"></asp:TextBox></td>
-                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh" AutoPostBack="True" runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh"  runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
 
@@ -224,9 +224,9 @@
             <p class="auto-style5">
                 <%--<asp:Button ID="Button1" text="计算出库单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button1_Click"></asp:Button>--%>&nbsp
             <%--<asp:Button ID="Button2" text="计算回单" runat ="server" width="90px"  BorderStyle="Groove" BackColor="Aqua" OnClick="Button2_Click"></asp:Button>--%>&nbsp
-                <asp:Button ID="submit" Text="保存出库单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
+                <asp:Button ID="add" Text="保存出库单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit_Click"></asp:Button>&nbsp
             <asp:Button ID="updateCkd" Text="修改出库单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="updateCkd_Click"></asp:Button>&nbsp
-            <asp:Button ID="submit2" Text="保存回单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit2_Click"></asp:Button>&nbsp         
+            <asp:Button ID="add2" Text="保存回单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="submit2_Click"></asp:Button>&nbsp         
             <asp:Button ID="updateHd" Text="修改回单" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="updateHd_Click"></asp:Button>&nbsp 
                 <asp:Button ID="close" Text="关闭" runat="server" Width="90px" BorderStyle="Groove" BackColor="Aqua" OnClick="close_Click"></asp:Button>
             </p>
