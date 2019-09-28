@@ -28,19 +28,19 @@ namespace XSSystem.Page.P_Order
             if (!IsPostBack)
             {
                 DropListInit();
-                if (Session["cght"]!=null)
+                if (Session["cght"] != null)
                 {
                     InitData(Session["cght"]);
                 }
-               // 
-               // InitGridView2();
+                // 
+                // InitGridView2();
                 InitDataTableJgxx();
                 InitTableZlbz();
                 InitGridView2();
                 InitGridView();
             }
 
-            
+
         }
 
         public void InitData(object mk)
@@ -81,9 +81,8 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("qdds", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("qdje", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Int32"));
 
-           
+
 
 
         }
@@ -105,11 +104,10 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable.Columns.Add("lin", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
-            Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Int32"));
         }
 
 
-        public void InitGridView() 
+        public void InitGridView()
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
@@ -139,7 +137,6 @@ namespace XSSystem.Page.P_Order
                 dr[11] = val[13];
                 dr[12] = val[14];
                 dr[13] = val[15];
-                dr[14] = 0;
                 Zlbz_dataTable.Rows.Add(dr);
 
             }
@@ -164,8 +161,8 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            var temp= xsPageHelper.BindPager(pagepara, e);
-            foreach(DataRow val in temp.Rows)
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = Jgxx_dataTable.NewRow();
                 dr[0] = val[2];
@@ -179,7 +176,6 @@ namespace XSSystem.Page.P_Order
                 dr[8] = val[10];
                 dr[9] = val[11];
                 dr[10] = val[12];
-                dr[11] = 0;
                 Jgxx_dataTable.Rows.Add(dr);
 
             }
@@ -228,64 +224,60 @@ namespace XSSystem.Page.P_Order
                 AlertMessage("数据存在错误，请检查");
                 return;
             }
-            
+
 
             //封装子表数据
             List<DirModel> Child1 = new List<DirModel>();
             DirModel temp;
             foreach (DataRow val in Jgxx_dataTable.Rows)
             {
-                if ((bool)val[11] == true)
-                {
-                    temp = new DirModel();
-                    temp.Add("@htbh", htbh.Text.Trim());
-                    temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@mkmc", val[1]);
-                    temp.Add("@mzmc", val[2]);
-                    temp.Add("@frl", val[3]);
-                    temp.Add("@lf", val[4]);
-                    temp.Add("@kpmj", val[5]);
-                    temp.Add("@htmj", val[6]);
-                    temp.Add("@ksl", val[7]);
-                    temp.Add("@qdds", val[8]);
-                    temp.Add("@qdje", val[9]);
-                    temp.Add("@zt", val[10]);
-                    Child1.Add(temp);
-                }
-                
+
+                temp = new DirModel();
+                temp.Add("@htbh", htbh.Text.Trim());
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@mkmc", val[1]);
+                temp.Add("@mzmc", val[2]);
+                temp.Add("@frl", val[3]);
+                temp.Add("@lf", val[4]);
+                temp.Add("@kpmj", val[5]);
+                temp.Add("@htmj", val[6]);
+                temp.Add("@ksl", val[7]);
+                temp.Add("@qdds", val[8]);
+                temp.Add("@qdje", val[9]);
+                temp.Add("@zt", val[10]);
+                Child1.Add(temp);
+
             }
 
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow val in Zlbz_dataTable.Rows)
             {
-                if ((bool)val[14] == true)
-                {
-                    temp = new DirModel();
-                    temp.Add("@htbh", htbh.Text.Trim());
-                    temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@mz", val[1]);
-                    temp.Add("@ld", val[2]);
-                    temp.Add("@hf", val[3]);
-                    temp.Add("@hff", val[4]);
-                    temp.Add("@gdt", val[5]);
-                    temp.Add("@njzs", val[6]);
-                    temp.Add("@sf", val[7]);
-                    temp.Add("@tie", val[8]);
-                    temp.Add("@lv", val[9]);
-                    temp.Add("@gai", val[10]);
-                    temp.Add("@lin", val[11]);
-                    temp.Add("@tai", val[12]);
-                    temp.Add("@liu", val[13]);
-                    Child2.Add(temp);
-                }
-                
+
+                temp = new DirModel();
+                temp.Add("@htbh", htbh.Text.Trim());
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@mz", val[1]);
+                temp.Add("@ld", val[2]);
+                temp.Add("@hf", val[3]);
+                temp.Add("@hff", val[4]);
+                temp.Add("@gdt", val[5]);
+                temp.Add("@njzs", val[6]);
+                temp.Add("@sf", val[7]);
+                temp.Add("@tie", val[8]);
+                temp.Add("@lv", val[9]);
+                temp.Add("@gai", val[10]);
+                temp.Add("@lin", val[11]);
+                temp.Add("@tai", val[12]);
+                temp.Add("@liu", val[13]);
+                Child2.Add(temp);
+
             }
             string reply = _htglLogic.InsertCght(dml, Child1, Child2);
-            if (reply=="")
+            if (reply == "")
             {
-             //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
                 AlertMessage("新增成功");
-              //  xsPage.RefreshPage();
+                //  xsPage.RefreshPage();
             }
             else
             {
@@ -333,49 +325,45 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in Jgxx_dataTable.Rows)
             {
-                if ((int)val[11] == 1)
-                {
-                    temp = new DirModel();
-                    temp.Add("@htbh", htbh.Text.Trim());
-                    temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@mkmc", val[1]);
-                    temp.Add("@mzmc", val[2]);
-                    temp.Add("@frl", val[3]);
-                    temp.Add("@lf", val[4]);
-                    temp.Add("@kpmj", val[5]);
-                    temp.Add("@htmj", val[6]);
-                    temp.Add("@ksl", val[7]);
-                    temp.Add("@qdds", val[8]);
-                    temp.Add("@qdje", val[9]);
-                    temp.Add("@zt", val[10]);
-                    Child1.Add(temp);
-                }
+
+                temp = new DirModel();
+                temp.Add("@htbh", htbh.Text.Trim());
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@mkmc", val[1]);
+                temp.Add("@mzmc", val[2]);
+                temp.Add("@frl", val[3]);
+                temp.Add("@lf", val[4]);
+                temp.Add("@kpmj", val[5]);
+                temp.Add("@htmj", val[6]);
+                temp.Add("@ksl", val[7]);
+                temp.Add("@qdds", val[8]);
+                temp.Add("@qdje", val[9]);
+                temp.Add("@zt", val[10]);
+                Child1.Add(temp);
 
             }
 
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow val in Zlbz_dataTable.Rows)
             {
-                if ((int)val[14] == 1)
-                {
-                    temp = new DirModel();
-                    temp.Add("@htbh", htbh.Text.Trim());
-                    temp.Add("@user_no", model.LoginUser);
-                    temp.Add("@mz", val[1]);
-                    temp.Add("@ld", val[2]);
-                    temp.Add("@hf", val[3]);
-                    temp.Add("@hff", val[4]);
-                    temp.Add("@gdt", val[5]);
-                    temp.Add("@njzs", val[6]);
-                    temp.Add("@sf", val[7]);
-                    temp.Add("@tie", val[8]);
-                    temp.Add("@lv", val[9]);
-                    temp.Add("@gai", val[10]);
-                    temp.Add("@lin", val[11]);
-                    temp.Add("@tai", val[12]);
-                    temp.Add("@liu", val[13]);
-                    Child2.Add(temp);
-                }
+
+                temp = new DirModel();
+                temp.Add("@htbh", htbh.Text.Trim());
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@mz", val[1]);
+                temp.Add("@ld", val[2]);
+                temp.Add("@hf", val[3]);
+                temp.Add("@hff", val[4]);
+                temp.Add("@gdt", val[5]);
+                temp.Add("@njzs", val[6]);
+                temp.Add("@sf", val[7]);
+                temp.Add("@tie", val[8]);
+                temp.Add("@lv", val[9]);
+                temp.Add("@gai", val[10]);
+                temp.Add("@lin", val[11]);
+                temp.Add("@tai", val[12]);
+                temp.Add("@liu", val[13]);
+                Child2.Add(temp);
 
             }
             string reply = _htglLogic.UpdateCght(dml, Child1, Child2);
@@ -401,7 +389,7 @@ namespace XSSystem.Page.P_Order
             dml.Add("@htbh", htbh.Text.Trim());
             if (_htglLogic.ShengHeOrder(dml, "xs_CghtTable"))
             {
-               // AlertMessage("审核订单成功");
+                // AlertMessage("审核订单成功");
                 AlertMessageAndGoTo("审核成功", "CghtGl.aspx");
             }
             else
@@ -449,14 +437,13 @@ namespace XSSystem.Page.P_Order
                 dr[8] = double.Parse(qdds.Text.Trim());
                 dr[9] = double.Parse(qdje.Text.Trim());
                 dr[10] = zt.Text;
-                dr[11] = 1;
             }
             catch
             {
                 AlertMessage("数据存在错误，请检查");
                 return;
             }
-            
+
             Jgxx_dataTable.Rows.Add(dr);
             GridView_JGXX.DataSource = Jgxx_dataTable;
             GridView_JGXX.DataBind();
@@ -466,8 +453,8 @@ namespace XSSystem.Page.P_Order
 
         protected void DelJgxx(object sender, EventArgs e)
         {
-            string itemBh= (sender as Button).CommandArgument;
-            for(int i=0;i<Jgxx_dataTable.Rows.Count;i++)
+            string itemBh = (sender as Button).CommandArgument;
+            for (int i = 0; i < Jgxx_dataTable.Rows.Count; i++)
             {
                 if (Jgxx_dataTable.Rows[i][0].ToString().Equals(itemBh))
                 {
@@ -531,16 +518,15 @@ namespace XSSystem.Page.P_Order
                 dr[11] = double.Parse(lin.Text.Trim());
                 dr[12] = double.Parse(tai.Text.Trim());
                 dr[13] = double.Parse(liu.Text.Trim());
-                dr[14] = 1;
             }
             catch
             {
                 AlertMessage("数据存在错误，请检查");
                 return;
             }
-            
+
             Zlbz_dataTable.Rows.Add(dr);
-           
+
             GridView_ZLBZ.DataSource = Zlbz_dataTable;
             GridView_ZLBZ.DataBind();
         }

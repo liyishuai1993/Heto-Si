@@ -75,7 +75,6 @@ namespace XSSystem.Page.P_Order
             Jgxx_dataTable.Columns.Add("qdds", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("qdje", Type.GetType("System.Double"));
             Jgxx_dataTable.Columns.Add("zt", Type.GetType("System.String"));
-            Jgxx_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
 
             
 
@@ -99,7 +98,6 @@ namespace XSSystem.Page.P_Order
             Zlbz_dataTable.Columns.Add("lin", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("tai", Type.GetType("System.Double"));
             Zlbz_dataTable.Columns.Add("liu", Type.GetType("System.String"));
-            Zlbz_dataTable.Columns.Add("isadd", Type.GetType("System.Boolean"));
         }
 
         public void InitGridView()
@@ -132,7 +130,6 @@ namespace XSSystem.Page.P_Order
                 dr[11] = val[13];
                 dr[12] = val[14];
                 dr[13] = val[15];
-                dr[14] = false;
                 Zlbz_dataTable.Rows.Add(dr);
 
             }
@@ -169,7 +166,6 @@ namespace XSSystem.Page.P_Order
                 dr[8] = val[10];
                 dr[9] = val[11];
                 dr[10] = val[12];
-                dr[11] = false;
                 Jgxx_dataTable.Rows.Add(dr);
 
             }
@@ -220,8 +216,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in Jgxx_dataTable.Rows)
             {
-                if ((bool)val[11] == true)
-                {
+               
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -236,15 +231,13 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@qdje", val[9]);
                     temp.Add("@zt", val[10]);
                     Child1.Add(temp);
-                }
 
             }
 
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow val in Zlbz_dataTable.Rows)
             {
-                if ((bool)val[14] == true)
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -262,7 +255,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@tai", val[12]);
                     temp.Add("@liu", val[13]);
                     Child2.Add(temp);
-                }
 
             }
             string reply = _htglLogic.InsertXsht(dml, Child1,Child2);
@@ -319,8 +311,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in Jgxx_dataTable.Rows)
             {
-                if ((bool)val[11] == true)
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -335,15 +326,13 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@qdje", val[9]);
                     temp.Add("@zt", val[10]);
                     Child1.Add(temp);
-                }
 
             }
 
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow val in Zlbz_dataTable.Rows)
             {
-                if ((bool)val[14] == true)
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -361,7 +350,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@tai", val[12]);
                     temp.Add("@liu", val[13]);
                     Child2.Add(temp);
-                }
 
             }
 
@@ -431,7 +419,6 @@ namespace XSSystem.Page.P_Order
                 dr[8] = double.Parse(qdds.Text.Trim());
                 dr[9] = double.Parse(qdje.Text.Trim());
                 dr[10] = zt.Text;
-                dr[11] = true;
             }
             catch
             {
@@ -485,7 +472,6 @@ namespace XSSystem.Page.P_Order
                 dr[11] = double.Parse(lin.Text.Trim());
                 dr[12] = double.Parse(tai.Text.Trim());
                 dr[13] = double.Parse(liu.Text.Trim());
-                dr[14] = true;
             }
             catch
             {

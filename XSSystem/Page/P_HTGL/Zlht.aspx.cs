@@ -43,7 +43,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("fktk", System.Type.GetType("System.String"));
             dataTable.Columns.Add("zxzt", System.Type.GetType("System.String"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -86,7 +85,6 @@ namespace XSSystem.Page.P_Order
                 dr[4] = val[6];
                 dr[5] = val[7];
                 dr[6] = val[8];
-                dr[7] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -124,8 +122,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[7])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -136,7 +133,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@zxzt", val[5]);
                     temp.Add("@bz", val[6]);
                     Child1.Add(temp);
-                }
                 
             }
             string reply = _htglLogic.InsertZlht(dml, Child1);
@@ -182,8 +178,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[7])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -194,7 +189,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@zxzt", val[5]);
                     temp.Add("@bz", val[6]);
                     Child1.Add(temp);
-                }
 
             }
             string reply = _htglLogic.UpdateZlht(dml, Child1);
@@ -256,7 +250,6 @@ namespace XSSystem.Page.P_Order
                 dr[4] = fktk.Text;
                 dr[5] = zxzt.Text;
                 dr[6] = bz.Text;
-                dr[7] = true;
             }
             catch
             {

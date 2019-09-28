@@ -70,7 +70,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("xsjsje", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
             dataTable.Columns.Add("zt", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Int64"));
 
 
         }
@@ -126,8 +125,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if (long.Parse(val[13].ToString())==9)
-                {
+                
                     temp = new DirModel();
                     temp.Add("@djbh", djbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -143,7 +141,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@bz", val[11]);
                     temp.Add("@zt", val[12]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.InsertMkzxzcd(dml, Child1);
             if (reply == "")
@@ -188,7 +185,6 @@ namespace XSSystem.Page.P_Order
                 dr[10] = double.Parse(xsjsje.Text);
                 dr[11] = bz.Text;
                 dr[12] = zt.Text;
-                dr[13] = 9;
             }
             catch(Exception ex)
             {
@@ -229,7 +225,6 @@ namespace XSSystem.Page.P_Order
                 dr[10] = val[11];
                 dr[11] = val[12];
                 dr[12] = val[13];
-                dr[13] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -288,8 +283,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if (long.Parse(val[13].ToString()) == 9)
-                {
+                
                     temp = new DirModel();
                     temp.Add("@djbh", djbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -305,7 +299,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@bz", val[11]);
                     temp.Add("@zt", val[12]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.UpdateMkzxzcd(dml, Child1);
             if (reply == "")

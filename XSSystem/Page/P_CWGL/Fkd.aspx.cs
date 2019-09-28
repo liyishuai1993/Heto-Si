@@ -111,7 +111,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = val[4];
                 dr[3] = val[5];
                 dr[4] = val[6];
-                dr[5] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -168,8 +167,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text.Trim());
@@ -178,7 +176,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", val[3]);
                     temp.Add("@bz", val[4]);
                     Child1.Add(temp);
-                }
             }
             string ret = _cwglLogic.InsertFkd(dml, Child1);
             if (ret=="")
@@ -199,7 +196,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("fkzhmc", System.Type.GetType("System.String"));
             dataTable.Columns.Add("je", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
 
         }
@@ -218,7 +214,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = zhm.Text;
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
-                dr[5] = true;
             }
             catch
             {
@@ -281,8 +276,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text.Trim());
@@ -291,7 +285,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", val[3]);
                     temp.Add("@bz", val[4]);
                     Child1.Add(temp);
-                }
             }
             string ret = _cwglLogic.UpdateFkd(dml, Child1);
             if (ret == "")

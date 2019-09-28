@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
 using xs_System.Logic;
@@ -36,12 +33,11 @@ namespace XSSystem.Page.P_Order
         private void InitDataTable()
         {
             dataTable = new DataTable();
-            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
-            dataTable.Columns.Add("wlmc", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("jgf", System.Type.GetType("System.Double"));
-            dataTable.Columns.Add("cmzb", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
+            dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
+            dataTable.Columns.Add("wlmc", Type.GetType("System.String"));
+            dataTable.Columns.Add("jgf", Type.GetType("System.Double"));
+            dataTable.Columns.Add("cmzb", Type.GetType("System.String"));
+            dataTable.Columns.Add("bz", Type.GetType("System.String"));
 
 
         }
@@ -83,7 +79,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = val[4];
                 dr[3] = val[5];
                 dr[4] = val[6];
-                dr[5] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -124,8 +119,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -134,7 +128,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@cmzb", val[3]);
                     temp.Add("@bz", val[4]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.InsertWtjght(dml, Child1);
             if (reply == "")
@@ -177,8 +170,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -187,7 +179,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@cmzb", val[3]);
                     temp.Add("@bz", val[4]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.UpdateWtjghtht(dml, Child1);
             if (reply == "")
@@ -244,7 +235,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = double.Parse(jgf.Text.Trim());
                 dr[3] = cmzb.Text;
                 dr[4] = bz.Text;
-                dr[5] = true;
             }
             catch
             {

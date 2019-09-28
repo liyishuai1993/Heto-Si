@@ -88,10 +88,18 @@
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" DataField="xh" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="序号" DataField="xh" Visible="false" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
+                        <asp:TemplateField  ItemStyle-HorizontalAlign="Center">
+                    <HeaderTemplate>
+                        序号
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                         <asp:BoundField HeaderText="费用项目编号" DataField="fyxmbh" HeaderStyle-Width="10%" >
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />

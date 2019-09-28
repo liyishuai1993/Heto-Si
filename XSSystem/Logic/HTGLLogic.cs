@@ -254,8 +254,15 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_MkzxzcdTable set zcsj=@zcsj,cghth=@cghth,ghf=@ghf,shf=@shf,mkmc=@mkmc,wlmc=@wlmc,cydw=@cydw,yj=@yj,cgmj=@cgmj,xsmj=@xsmj";
+            sqlpara.SQL = "update xs_MkzxzcdTable set zcsj=@zcsj,cghth=@cghth,ghf=@ghf,shf=@shf,mkmc=@mkmc,wlmc=@wlmc,cydw=@cydw,yj=@yj,cgmj=@cgmj,xsmj=@xsmj where user_no=@user_no and djbh=@djbh";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_MkzxzcdTable_Clxx  where user_no=@user_no and djbh=@djbh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -330,8 +337,15 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_TydbckdTable set htbh=@htbh,gsmc=@gsmc,fmmc=@fmmc,wlmc=@wlmc,zcz=@zcz,zdz=@zdz,xlx=@xlx,xhdw=@xhdw";
+            sqlpara.SQL = "update xs_TydbckdTable set htbh=@htbh,gsmc=@gsmc,fmmc=@fmmc,wlmc=@wlmc,zcz=@zcz,zdz=@zdz,xlx=@xlx,xhdw=@xhdw where user_no=@user_no and bh=@bh";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_Tydbckd_Jzxxx where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -483,8 +497,15 @@ namespace xs_System.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_TyxsckdTable  set htbh=@htbh,wtf=@wtf,stf=@stf,fmmc=@fmmc,wlmc=@wlmc,mj=@mj,zcz=@zcz,zdz=@zdz,xlx=@xlx,tcbz=@tcbz,tcje=@tcje,ywy=@ywy,xhdw=@xhdw";
+            sqlpara.SQL = "update xs_TyxsckdTable  set htbh=@htbh,wtf=@wtf,stf=@stf,fmmc=@fmmc,wlmc=@wlmc,mj=@mj,zcz=@zcz,zdz=@zdz,xlx=@xlx,tcbz=@tcbz,tcje=@tcje,ywy=@ywy,xhdw=@xhdw where user_no=@user_no and bh=@bh and htbh=@htbh ";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_Tyxsckd_Jzxxx  where user_no=@user_no and bh=@bh and htbh=@htbh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -698,12 +719,6 @@ namespace xs_System.Logic
         #region  Update
         public string UpdateCght(DirModel dml, List<DirModel> child1, List<DirModel> child2)
         {
-            //xsSqlParameter sqlpara = new xsSqlParameter();
-            //sqlpara.AddSqlParameter(dml);
-            //sqlpara.SqlConnectString = GlabalString.DBString;
-            //sqlpara.SQL = "update xs_CghtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,gfmc=@gfmc,xfmc=@xfmc,hkjsyj=@hkjsyj,hklhlx=@hklhlx,hklhbz=@hklhbz,kpxx=@kpxx,jhsjQ=@jhsjQ,jhsjZ=@jhsjZ,hkjsfs=@hkjsfs,"+
-            //    "jhdd=@jhdd,yffkfs=@yffkfs,mkmc=@mkmc,bz=@bz where htbh=@htbh and user_no=@userid";
-            //SqlHelper.Execute(sqlpara);
 
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -712,6 +727,25 @@ namespace xs_System.Logic
             sqlpara.SQL = "update xs_CghtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,gfmc=@gfmc,xfmc=@xfmc,hkjsyj=@hkjsyj,hklhlx=@hklhlx,hklhbz=@hklhbz,kpxx=@kpxx,jhsjQ=@jhsjQ,jhsjZ=@jhsjZ,hkjsfs=@hkjsfs," +
                 "jhdd=@jhdd,yffkfs=@yffkfs,mkmc=@mkmc,bz=@bz where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_CghtTable_Jgxx  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_CghtTable_Jgxx  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_CghtTable_Zlbz  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -743,6 +777,12 @@ namespace xs_System.Logic
             sqlpara.SQL = "update xs_QyhtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
 
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_QyhtTable_Jgxx  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -763,6 +803,12 @@ namespace xs_System.Logic
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_TyhtTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,fmmc=@fmmc,wlmc=@wlmc,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ,zcz=@zcz,zdz=@zdz,xlx=@xlx,sl=@sl where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_TyhtTable_Jgxx  where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
 
             foreach (var val in child1)
@@ -786,6 +832,12 @@ namespace xs_System.Logic
             sqlpara.SQL = "update xs_WtjgTable set htlx=@htlx,qdrq=@qdrq,wtf=@wtf,stf=@stf,kplx=@kplx,zxqxQ=@zxqxQ,zxqxZ=@zxqxZ where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
 
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_WtjghtTable_Jgxx  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -806,6 +858,17 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_XshtTable set htlx=@htlx,qdrq=@qdrq,dfhth=@dfhth,gfmc=@gfmc,xfmc=@xfmc,hkjsyj=@hkjsyj,hklhlx=@hklhlx,hklhbz=@hklhbz,kpxx=@kpxx,jhsjQ=@jhsjQ,jhsjZ=@jhsjZ," +
                 "hkjsfs=@hkjsfs,fhdd=@fhdd,yffkfs=@yffkfs,mkmc=@mkmc,kzbz=@kzbz,lxdh=@lxdh,bz=@bz where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_XshtTable_Jgxx  where htbh=@htbh and user_no=@userid";
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_XshtTable_Zlbz  where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
 
             foreach (var val in child1)
@@ -838,6 +901,13 @@ namespace xs_System.Logic
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = "update xs_ZlhtTable set htlx=@htlx,qdrq=@qdrq,czf=@czf,czf2=@czf2,czdd=@czdd,zlqxQ=@zlqxQ,zlqxZ=@zlqxZ,yj=@yj where htbh=@htbh and user_no=@userid";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_ZlhtTable_Zjxx  where htbh=@htbh and user_no=@userid";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();

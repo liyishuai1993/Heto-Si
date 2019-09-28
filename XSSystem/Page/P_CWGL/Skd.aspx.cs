@@ -234,5 +234,57 @@ namespace XSSystem.Page.P_Order
         {
             JavaScript("window.location.href='SkdGl.aspx'");
         }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (!DataChecked(1))
+            {
+                return;
+            }
+            DirModel dml = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            try
+            {
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@bh", bh.Text.Trim());
+                dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
+                dml.Add("@fkdw", tk_fkdw.SelectedItem.Text.Trim());
+                dml.Add("@jsr", tk_jsr.Text.Trim());
+                dml.Add("@bm", bm.Text.Trim());
+                dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
+                dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
+                dml.Add("@fjsm", fjsm.Text.Trim());
+                dml.Add("@jsfs", jsfs.SelectedItem.Text);
+                //  dml.Add("@ysye", ysye.Text.Trim());
+                ///  dml.Add("@yfye", yfye.Text.Trim());
+            }
+            catch
+            {
+                AlertMessage("数据存在错误，请检查");
+                return;
+            }
+            List<DirModel> Child1 = new List<DirModel>();
+            DirModel temp;
+            foreach (DataRow val in dataTable.Rows)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@bh", bh.Text.Trim());
+                temp.Add("@skzhbh", val[1]);
+                temp.Add("@skzhmc", val[2]);
+                temp.Add("@je", val[3]);
+                temp.Add("@bz", val[4]);
+                Child1.Add(temp);
+            }
+            string ret = _cwglLogic.UpdateSkd(dml, Child1);
+            if (ret == "")
+            {
+                AlertMessage("修改成功");
+            }
+            else
+            {
+                AlertMessage(ret);
+            }
+        }
     }
 }

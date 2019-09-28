@@ -57,11 +57,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">公司名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gsmc" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入供方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">*发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入发煤煤场" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -69,13 +69,13 @@
                     <tr>
                         <td class="auto-style3"><span>物料名称</span><asp:TextBox ID="wlmc" runat="server" name="物料名称" Height="16px" Width="500px" CssClass="auto-style4" valued="must1"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">装车站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zcz" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入装车站" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">终到站<telerik:RadComboBox RenderMode="Lightweight" ID="tk_zdz" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入终到站" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -94,8 +94,10 @@
 
             <div style="margin-top: 15px; width: 1200px">
                 <div class="divcss5">
-                    <p>集装箱信息
-                        <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
+                    <p>
+                        集装箱信息
+                        <asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx" />
+                    </p>
                     <p>
                         箱号<asp:TextBox ID="xh" runat="server" name="箱号" Height="16px" Width="100px" valued="must2"></asp:TextBox>
                         上箱吨数<asp:TextBox ID="sxds" cal="must1" runat="server" name="上箱吨数" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
@@ -126,6 +128,14 @@
                     <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" CellPadding="4" ForeColor="#333333" GridLines="None">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
+                            <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                                <HeaderTemplate>
+                                    序号
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%#Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField HeaderText="箱号" DataField="xh" HeaderStyle-Width="5%">
                                 <HeaderStyle HorizontalAlign="Left" Width="5%" />
                                 <ItemStyle HorizontalAlign="Left" Width="5%" />

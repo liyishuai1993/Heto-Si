@@ -71,7 +71,6 @@ namespace XSSystem.Page.P_Order
 
             dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -104,7 +103,6 @@ namespace XSSystem.Page.P_Order
                 dr[9] = val[11];
                 dr[10] = val[12];
                 dr[11] = val[13];
-                dr[12] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -150,8 +148,6 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[12])
-                {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -167,8 +163,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzmcddf", val[10]);
                     temp.Add("@dzdlf", val[11]);
                     Child1.Add(temp);
-                }
-                
             }
             string reply = _htglLogic.InsertTyht(dml, Child1);
             if (reply == "")
@@ -246,8 +240,6 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[12])
-                {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -263,8 +255,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzmcddf", val[10]);
                     temp.Add("@dzdlf", val[11]);
                     Child1.Add(temp);
-                }
-
             }
 
             string reply = _htglLogic.UpdateTyht(dml, Child1);
@@ -301,7 +291,6 @@ namespace XSSystem.Page.P_Order
                 dr[9] = double.Parse(dzzxf.Text.Trim());
                 dr[10] = double.Parse(dzmcddf.Text.Trim());
                 dr[11] = double.Parse(dzdlf.Text.Trim());
-                dr[12] = true;
             }
             catch
             {

@@ -46,7 +46,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("yflhbz", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("zxzt", System.Type.GetType("System.String"));
             dataTable.Columns.Add("bz", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
         }
 
         public void InitData(object mk)
@@ -91,7 +90,6 @@ namespace XSSystem.Page.P_Order
                 dr[5] = val[7];
                 dr[6] = val[8];
                 dr[7] = val[9];
-                dr[8] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -137,8 +135,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[8])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -150,7 +147,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@zxzt", val[6]);
                     temp.Add("@bz", val[7]);
                     Child1.Add(temp);
-                }
             }
 
             var reply = _htglLogic.InsertQyht(dml, Child1);
@@ -197,8 +193,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[8])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -210,7 +205,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@zxzt", val[6]);
                     temp.Add("@bz", val[7]);
                     Child1.Add(temp);
-                }
             }
             var reply = _htglLogic.UpdateQyht(dml, Child1);
             if (reply=="")
@@ -244,7 +238,6 @@ namespace XSSystem.Page.P_Order
                 dr[5] = double.Parse(yflhbz.Text.Trim());
                 dr[6] = zxzt.Text;
                 dr[7] = bz.Text;
-                dr[8] = true;
             }
             catch(Exception ex)
             {

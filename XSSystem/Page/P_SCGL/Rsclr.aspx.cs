@@ -71,7 +71,6 @@ namespace XSSystem.Page.P_Order
                 dr[9] = val[12];
                 dr[10] = val[13];
                 dr[11] = val[14];
-                dr[12] = false;
                 Scxx_dataTable.Rows.Add(dr);
 
             }
@@ -100,7 +99,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = val[5];
                 dr[3] = val[6];
                 dr[4] = val[7];
-                dr[5] = false;
                 Scxx_dataTable.Rows.Add(dr);
 
             }
@@ -156,10 +154,6 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow dr in Scxx_dataTable.Rows)
             {
-                if (!(bool)dr[12])
-                {
-                    continue;
-                }
                 temp = new DirModel();
                 temp.Add("@user_no", model.LoginUser);
                 temp.Add("@bh", bh.Text);
@@ -180,8 +174,7 @@ namespace XSSystem.Page.P_Order
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow dr in Ccxx_dataTable.Rows)
             {
-                if ((bool)dr[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -190,7 +183,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", dr[2]);
                     temp.Add("@cl", dr[3]);
                     Child2.Add(temp);
-                }
             }
             string reply = _cwglLogic.InsertRsclr(dml, Child1, Child2);
             if (reply == "")
@@ -220,7 +212,6 @@ namespace XSSystem.Page.P_Order
             Scxx_dataTable.Columns.Add("gscl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("shl", System.Type.GetType("System.Double"));
             Scxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
-            Scxx_dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
 
         }
@@ -233,7 +224,6 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Columns.Add("sl", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("cl", System.Type.GetType("System.Double"));
             Ccxx_dataTable.Columns.Add("bh", Type.GetType("System.Int32"));
-            Ccxx_dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -279,7 +269,6 @@ namespace XSSystem.Page.P_Order
                 dr[9] = double.Parse(gscl.Text.Trim());
                 dr[10] = double.Parse(shl.Text.Trim());
                 dr[11] = Scxx_dataTable.Rows.Count+1;
-                dr[12] = true;
             }
             catch
             {
@@ -328,10 +317,6 @@ namespace XSSystem.Page.P_Order
                 }
                 DropDownList_gsmc.SelectedIndex = 1;
             }
-            
-
-            
-
         }
 
         protected void ccxx_tjmz_Click(object sender, EventArgs e)
@@ -353,7 +338,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = double.Parse(ccxx_sl.Text.Trim());
                 dr[3] = double.Parse(ccxx_cl.Text.Trim());
                 dr[4] = Ccxx_dataTable.Rows.Count + 1;
-                dr[5] = true;
             }
             catch
             {
@@ -368,9 +352,6 @@ namespace XSSystem.Page.P_Order
             Ccxx_dataTable.Rows.Add(ldr);
             GridView_CCXX.DataSource = Ccxx_dataTable;
             GridView_CCXX.DataBind();
-            
-
-
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -488,10 +469,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow dr in Scxx_dataTable.Rows)
             {
-                if (!(bool)dr[12])
-                {
-                    continue;
-                }
+               
                 temp = new DirModel();
                 temp.Add("@user_no", model.LoginUser);
                 temp.Add("@bh", bh.Text);
@@ -512,8 +490,7 @@ namespace XSSystem.Page.P_Order
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow dr in Ccxx_dataTable.Rows)
             {
-                if ((bool)dr[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -522,7 +499,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", dr[2]);
                     temp.Add("@cl", dr[3]);
                     Child2.Add(temp);
-                }
             }
             string reply = _cwglLogic.UpdateRsclr(dml, Child1, Child2);
             if (reply == "")

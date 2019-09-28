@@ -74,7 +74,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = val[4];
                 dr[3] = val[5];
                 dr[4] = val[6];
-                dr[5] = false;
                 YLdataTable.Rows.Add(dr);
 
             }
@@ -102,7 +101,6 @@ namespace XSSystem.Page.P_Order
                 dr[1] = val[3];
                 dr[2] = val[4];
                 dr[3] = val[5];
-                dr[4] = false;
                 CPdataTable.Rows.Add(dr);
 
             }
@@ -119,7 +117,6 @@ namespace XSSystem.Page.P_Order
             YLdataTable.Columns.Add("cbdj", System.Type.GetType("System.Double"));
             YLdataTable.Columns.Add("pmf", System.Type.GetType("System.Double"));
             YLdataTable.Columns.Add("je", System.Type.GetType("System.Double"));
-            YLdataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
 
         }
@@ -131,7 +128,6 @@ namespace XSSystem.Page.P_Order
             CPdataTable.Columns.Add("ccds", System.Type.GetType("System.Double"));
             CPdataTable.Columns.Add("je", System.Type.GetType("System.Double"));
             CPdataTable.Columns.Add("cbdj2", System.Type.GetType("System.Double"));
-            CPdataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -159,8 +155,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow dr in YLdataTable.Rows)
             {
-                if ((bool)dr[5])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -170,14 +165,12 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@pmf", dr[3]);
                     temp.Add("@je", dr[4]);
                     Child1.Add(temp);
-                }
                     
             }
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow dr in CPdataTable.Rows)
             {
-                if ((bool)dr[4])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -186,7 +179,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", dr[2]);
                     temp.Add("@cbdj2", dr[3]);
                     Child2.Add(temp);
-                }
             }
             string reply = _cwglLogic.InsertPmdlr(dml, Child1, Child2);
             if (reply=="")
@@ -256,7 +248,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = double.Parse(cbdj.Text.Trim());
                 dr[3] = double.Parse(pmf.Text.Trim());
                 dr[4] = double.Parse(je.Text.Trim());
-                dr[5] = true;
             }
             catch
             {
@@ -290,7 +281,6 @@ namespace XSSystem.Page.P_Order
                 dr[1] = double.Parse(ccds.Text.Trim());
                 dr[2] = double.Parse(je2.Text.Trim());
                 dr[3] = double.Parse(cbdj2.Text.Trim());
-                dr[4] = true;
             }
             catch
             {
@@ -333,8 +323,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow dr in YLdataTable.Rows)
             {
-                if ((bool)dr[5])
-                {
+
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -344,14 +333,12 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@pmf", dr[3]);
                     temp.Add("@je", dr[4]);
                     Child1.Add(temp);
-                }
 
             }
             List<DirModel> Child2 = new List<DirModel>();
             foreach (DataRow dr in CPdataTable.Rows)
             {
-                if ((bool)dr[4])
-                {
+
                     temp = new DirModel();
                     temp.Add("@user_no", model.LoginUser);
                     temp.Add("@bh", bh.Text);
@@ -360,7 +347,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@je", dr[2]);
                     temp.Add("@cbdj2", dr[3]);
                     Child2.Add(temp);
-                }
             }
             string reply = _cwglLogic.UpdatePmdlr(dml, Child1, Child2);
             if (reply == "")

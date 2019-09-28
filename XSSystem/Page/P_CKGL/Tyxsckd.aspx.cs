@@ -18,7 +18,6 @@ namespace XSSystem.Page.P_Order
     {
         HTGLLogic _htglLogic = new HTGLLogic();
         static DataTable dataTable;
-        static DataTable dataTable2;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -114,22 +113,7 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("dzzxf_qkr", System.Type.GetType("System.String"));
             dataTable.Columns.Add("dzmcddf_qkr", System.Type.GetType("System.String"));
             dataTable.Columns.Add("dzdlf_qkr", System.Type.GetType("System.String"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
-        }
-
-        private void InitDataTable2()
-        {
-            dataTable2 = new DataTable();
-            dataTable2.Columns.Add("bh", System.Type.GetType("System.Int32"));
-            dataTable2.Columns.Add("name", System.Type.GetType("System.String"));
-            dataTable2.Columns.Add("zqkje", System.Type.GetType("System.Double"));
-            dataTable2.Columns.Add("yhkje", System.Type.GetType("System.Double"));
-            dataTable2.Columns.Add("syqkje", System.Type.GetType("System.Double"));
-            dataTable2.Columns.Add("qkxm", System.Type.GetType("System.String"));
-            dataTable2.Columns.Add("phone", System.Type.GetType("System.String"));
-            dataTable2.Columns.Add("bz", System.Type.GetType("System.String"));
-            dataTable2.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
         }
 
         void InitData(object mk)
@@ -197,33 +181,12 @@ namespace XSSystem.Page.P_Order
                 dr[23] = val[26];
                 dr[24] = val[27];
                 dr[25] = val[28];
-                dr[26] = false;
                 dataTable.Rows.Add(dr);
 
             }
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
-
-        //public void InitGridView2()
-        //{
-        //    PagerParameter pagepara = new PagerParameter();
-        //    pagepara.DbConn = GlabalString.DBString;
-        //    QueryClass qc = new QueryClass();
-        //    LoginModel model = Session["LoginModel"] as LoginModel;
-        //    qc.user_no = model.LoginUser;
-        //    qc.tableName = "xs_QkrxxTable";
-        //    pagepara.Sql = _htglLogic.QueryQkrxxTable(qc);
-        //    pagepara.OrderBy = "bh";
-        //    PageChangedEventArgs e = new PageChangedEventArgs(0);
-        //    dataTable2 = xsPageHelper.BindPager(pagepara, e);
-        //    if (dataTable2.Columns.Count == 0)
-        //    {
-        //        InitDataTable2();
-        //    }
-        //    this.GridView2.DataSource = dataTable2;
-        //    this.GridView2.DataBind();
-        //}
 
         protected void submit_Click(object sender, EventArgs e)
         {
@@ -260,8 +223,6 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[26])
-                {
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@bh", bh.Text);
@@ -292,7 +253,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzmcddf_qkr", val[24]);
                     temp.Add("@dzdlf_qkr", val[25]);
                     Child1.Add(temp);
-                }
             }
 
             //List<DirModel> Child2 = new List<DirModel>();
@@ -357,7 +317,6 @@ namespace XSSystem.Page.P_Order
                 dr[23] = dzzxf_qkr.Text.Trim();
                 dr[24] = dzmcddf_qkr.Text.Trim();
                 dr[25] = dzdlf_qkr.Text.Trim();
-                dr[26] = true;
             }
             catch
             {
@@ -401,6 +360,7 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
             {
+                dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
                 dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
@@ -425,8 +385,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[26])
-                {
+                
                     temp = new DirModel();
                     temp.Add("@htbh", htbh.Text.Trim());
                     temp.Add("@bh", bh.Text);
@@ -457,7 +416,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzmcddf_qkr", val[24]);
                     temp.Add("@dzdlf_qkr", val[25]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.UpdateTyxsckd(dml, Child1);
             if (reply == "")

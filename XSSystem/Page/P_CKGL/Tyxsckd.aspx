@@ -176,10 +176,18 @@
                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" DataField="bh" HeaderStyle-Width="5%" >
+                        <asp:BoundField HeaderText="序号" Visible="false" DataField="bh" HeaderStyle-Width="5%" >
 <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                         </asp:BoundField>
+                        <asp:TemplateField  ItemStyle-HorizontalAlign="Center">
+                    <HeaderTemplate>
+                        序号
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                         <asp:BoundField HeaderText="箱号" DataField="xh" HeaderStyle-Width="5%" >
 <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />

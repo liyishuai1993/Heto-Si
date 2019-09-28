@@ -91,7 +91,6 @@ namespace XSSystem.Page.P_Order
                 dr[2] = val[4];
                 dr[3] = val[5];
                 dr[4] = val[6];
-                dr[5] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -241,7 +240,7 @@ namespace XSSystem.Page.P_Order
                 temp.Add("@bz", val[4]);
                 Child1.Add(temp);
             }
-            string ret = _cwglLogic.InsertFyd(dml, Child1);
+            string ret = _cwglLogic.UpdateFyd(dml, Child1);
             if (ret == "")
             {
                 AlertMessage("新增成功");

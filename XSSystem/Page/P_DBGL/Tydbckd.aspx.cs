@@ -99,7 +99,6 @@ namespace XSSystem.Page.P_Order
             dataTable.Columns.Add("dzmcddf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("dzdlf", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("drmj", System.Type.GetType("System.Double"));
-            dataTable.Columns.Add("isadd", System.Type.GetType("System.Boolean"));
 
         }
 
@@ -149,8 +148,6 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach(DataRow val in dataTable.Rows)
             {
-                if ((bool)val[18])
-                {
                     temp = new DirModel();
                     temp.Add("@bh", bh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -172,7 +169,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzdlf", val[16]);
                     temp.Add("@drmj", val[17]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.InsertTydbckd(dml, Child1);
             if (reply=="")
@@ -220,7 +216,6 @@ namespace XSSystem.Page.P_Order
                 dr[15] = val[18];
                 dr[16] = val[19];
                 dr[17] = val[20];
-                dr[18] = false;
                 dataTable.Rows.Add(dr);
 
             }
@@ -251,7 +246,6 @@ namespace XSSystem.Page.P_Order
                 dr[15] = double.Parse(dzmcddf.Text.Trim());
                 dr[16] = double.Parse(dzdlf.Text.Trim());
                 dr[17] = double.Parse(drmj.Text.Trim());
-                dr[18] = true;
             }
             catch
             {
@@ -311,8 +305,7 @@ namespace XSSystem.Page.P_Order
             DirModel temp;
             foreach (DataRow val in dataTable.Rows)
             {
-                if ((bool)val[18])
-                {
+               
                     temp = new DirModel();
                     temp.Add("@bh", bh.Text.Trim());
                     temp.Add("@user_no", model.LoginUser);
@@ -334,7 +327,6 @@ namespace XSSystem.Page.P_Order
                     temp.Add("@dzdlf", val[16]);
                     temp.Add("@drmj", val[17]);
                     Child1.Add(temp);
-                }
             }
             string reply = _htglLogic.UpdateTydbckd(dml, Child1);
             if (reply == "")

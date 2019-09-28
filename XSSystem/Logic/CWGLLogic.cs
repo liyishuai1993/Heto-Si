@@ -42,6 +42,7 @@ namespace XSSystem.Logic
             sqlpara.SQL = "insert into xs_FydTable (user_no,bh,ldrq,sfdw,jsr,bm,zy,fjsm,jsfs)" +
                 "values(@user_no,@bh,@ldrq,@sfdw,@jsr,@bm,@zy,@fjsm,@jsfs)";
             xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -247,6 +248,34 @@ namespace XSSystem.Logic
             return sql;
         }
 
+        internal string UpdateFyd(DirModel dml, List<DirModel> child1)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_FydTable set ldrq=@ldrq,sfdw=@sfdw,jsr=@jsr,bm=@bm,zy=@zy,fjsm=@fjsm,jsfs=@jsfs where user_no=@user_no and bh=@bh ";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_FydTable_Fb  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_FydTable_Fb (user_no,bh,fyxmbh,fyxmmc,je,bz)" +
+                "values(@user_no,@bh,@fyxmbh,@fyxmmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+
+            return SqlHelper.Execute(xsSqls);
+        }
+
         internal string QueryPmdlrScxxOrder(string bh)
         {
             string sql = @"select(yl + N'  ' + CONVERT(varchar(50), ylds)) as mzsl from xs_PmdlrTable_Ylmz where bh='" + bh + "'";
@@ -297,14 +326,48 @@ namespace XSSystem.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
+        internal string UpdateSkd(DirModel dml, List<DirModel> child1)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_SkdTable set ldrq=@ldrq,fkdw=@fkdw,jsr=@jsr,bm=@bm,htbh=@htbh,zy=@zy,fjsm=@fjsm,jsfs=@jsfs";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_SkdTable_Fb  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
+            foreach (var val in child1)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_SkdTable_Fb (user_no,bh,skzhbh,skzhmc,je,bz)" +
+                "values(@user_no,@bh,@skzhbh,@skzhmc,@je,@bz)";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
+        }
+
         internal string UpdateFkd(DirModel dml, List<DirModel> child1)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_FkdTable set ldrq=@ldrq,skdw=@skdw,jsr=@jsr,bm=@bm,htbh=@htbh,zy=@zy,fjsm=@fjsm,jsfs=@jsfs";
+            sqlpara.SQL = "update xs_FkdTable set ldrq=@ldrq,skdw=@skdw,jsr=@jsr,bm=@bm,htbh=@htbh,zy=@zy,fjsm=@fjsm,jsfs=@jsfs where user_no=@user_no and bh=@bh ";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_FkdTable_Fb where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -400,8 +463,21 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_PmdlrTable set pmrq=@pmrq,scmc=@scmc,gsmc=@gsmc";
+            sqlpara.SQL = "update xs_PmdlrTable set pmrq=@pmrq,scmc=@scmc,gsmc=@gsmc where user_no=@user_no and bh=@bh";
             xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_PmdlrTable_Ylmz  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_PmdlrTable_Ccmz  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();
@@ -489,8 +565,22 @@ namespace XSSystem.Logic
             xsSqlParameter sqlpara = new xsSqlParameter();
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
-            sqlpara.SQL = "update xs_RsclrTable set ssmc=@ssmc,rq=@rq,kjsj=@kjsj,gjsj=@gjsj,bc=@bc,ydzs=@ydzs,yddh=@yddh,ymzs=@ymzs,gsmc=@gsmc)";
+            sqlpara.SQL = "update xs_RsclrTable set ssmc=@ssmc,rq=@rq,kjsj=@kjsj,gjsj=@gjsj,bc=@bc,ydzs=@ydzs,yddh=@yddh,ymzs=@ymzs,gsmc=@gsmc where user_no=@user_no and bh=@bh)";
             xsSqls.Add(sqlpara);
+
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_RsclrTable_Scxx  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
+            sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "delete xs_RsclrTable_Ccxx  where user_no=@user_no and bh=@bh";
+            xsSqls.Add(sqlpara);
+
             foreach (var val in child1)
             {
                 sqlpara = new xsSqlParameter();

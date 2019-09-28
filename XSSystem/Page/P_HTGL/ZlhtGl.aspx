@@ -30,8 +30,8 @@
                         </asp:DropDownList>
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
                         <asp:ListItem Value="htbh">合同编号</asp:ListItem>
-                        <asp:ListItem Value="gfmc">供方名称</asp:ListItem>
-                        <asp:ListItem Value="htmj">合同煤价</asp:ListItem>
+                        <asp:ListItem Value="czf">出租方</asp:ListItem>
+                        <asp:ListItem Value="zxzt">执行状态</asp:ListItem>
                         <asp:ListItem Value="shzt">审核状态</asp:ListItem>
                         </asp:DropDownList>
                 <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
