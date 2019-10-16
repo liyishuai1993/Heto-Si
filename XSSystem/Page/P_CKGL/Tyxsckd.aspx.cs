@@ -55,7 +55,7 @@ namespace XSSystem.Page.P_Order
                 tk_wtf.SelectedIndex = 1;
             }
 
-            dt = GlabalString.GetMeiCang();
+            dt = GlabalString.GetCangKu();
             if (dt.Rows.Count != 0)
             {
 
@@ -80,6 +80,54 @@ namespace XSSystem.Page.P_Order
                 }
                 tk_fmmc.SelectedIndex = 1;
             }
+
+            
+
+            jshk_qkr.DataSource = GlabalString.GetGongSi(1);
+            jshk_qkr.DataTextField = "wldw";
+            jshk_qkr.DataValueField = "wldw";
+            jshk_qkr.DataBind();
+
+            dt = GlabalString.GetGongSi(2);
+            zbxsf_qkr.DataSource = dt;
+            zbxsf_qkr.DataTextField = "wldw";
+            zbxsf_qkr.DataValueField = "wldw";
+            zbxsf_qkr.DataBind();
+
+            fzdlf_qkr.DataSource = dt;
+            fzdlf_qkr.DataTextField = "wldw";
+            fzdlf_qkr.DataValueField = "wldw";
+            fzdlf_qkr.DataBind();
+
+            fzzxf_qkr.DataSource = dt;
+            fzzxf_qkr.DataTextField = "wldw";
+            fzzxf_qkr.DataValueField = "wldw";
+            fzzxf_qkr.DataBind();
+
+            fzddf_qkr.DataSource = dt;
+            fzddf_qkr.DataTextField = "wldw";
+            fzddf_qkr.DataValueField = "wldw";
+            fzddf_qkr.DataBind();
+
+            tlyf_qkr.DataSource = dt;
+            tlyf_qkr.DataTextField = "wldw";
+            tlyf_qkr.DataValueField = "wldw";
+            tlyf_qkr.DataBind();
+
+            dzzxf_qkr.DataSource = dt;
+            dzzxf_qkr.DataTextField = "wldw";
+            dzzxf_qkr.DataValueField = "wldw";
+            dzzxf_qkr.DataBind();
+
+            dzmcddf_qkr.DataSource = dt;
+            dzmcddf_qkr.DataTextField = "wldw";
+            dzmcddf_qkr.DataValueField = "wldw";
+            dzmcddf_qkr.DataBind();
+
+            dzdlf_qkr.DataSource = dt;
+            dzdlf_qkr.DataTextField = "wldw";
+            dzdlf_qkr.DataValueField = "wldw";
+            dzdlf_qkr.DataBind();
         }
 
         private void InitDataTable()

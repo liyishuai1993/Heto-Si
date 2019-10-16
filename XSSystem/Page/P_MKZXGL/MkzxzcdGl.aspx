@@ -30,7 +30,7 @@
                         <asp:ListItem Value="and">关联</asp:ListItem>
                         <asp:ListItem Value="or">不关联</asp:ListItem>
                         </asp:DropDownList>
-                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="90px">
                         <asp:ListItem Value="cghth">采购合同号</asp:ListItem>
                         <asp:ListItem Value="ghf">供货方</asp:ListItem>
                         <asp:ListItem Value="shf">收货方</asp:ListItem>

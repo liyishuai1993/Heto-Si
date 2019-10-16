@@ -374,7 +374,7 @@ namespace XSSystem.Page.P_Order
                 tk_zdz.SelectedIndex = 1;
             }
 
-            dt = GlabalString.GetMeiCang();
+            dt = GlabalString.GetCangKu();
             if (dt.Rows.Count != 0)
             {
                 foreach (DataRow val in dt.Rows)

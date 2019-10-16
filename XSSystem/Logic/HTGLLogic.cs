@@ -935,6 +935,25 @@ namespace xs_System.Logic
             return sql;
         }
 
+        public string QueryGongSiDropList(string tableName, string[] arrList,int type)
+        {
+            string sql = @"select ";
+            for (int i = 0; i < arrList.Length - 1; i++)
+            {
+                sql += arrList[i] + " , ";
+            }
+            sql += arrList[arrList.Length - 1] + " from " + tableName;
+            if (type == 1)
+            {
+                sql = string.Format("{0} where type='客户(需方)'", sql);
+            }
+            else if (type == 2)
+            {
+                sql = string.Format("{0} where type='供应商(供方)'", sql);
+            }
+            return sql;
+        }
+
         /// <summary>
         /// 查询订单
         /// </summary>

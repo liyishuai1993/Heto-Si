@@ -203,7 +203,7 @@
 
                     <tr>
                         <td class="auto-style3">#结算货款<asp:TextBox ID="jshk" name="结算货款" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox></td>
-                        <td class="auto-style3"><span>提成标准</span><asp:TextBox ID="tcbz" OnBlur="FormHdCheck()" valued="must2" OnBlur="FormHdCheck()" cal="must2" name="提成标准" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                        <td class="auto-style3"><span>提成标准</span><asp:TextBox ID="tcbz" valued="must2" OnBlur="FormHdCheck()" cal="must2" name="提成标准" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         </td>
                         <td class="auto-style3">#提成金额<asp:TextBox ID="tcje" OnFocus="FormHdCheck()" runat="server" Height="16px" Width="284px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox></td>
 

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
 using xsFramework.Web.WebPage;
 using xs_System.Logic;
@@ -60,7 +56,7 @@ namespace XSSystem.Page.P_Order
                 tk_fmmc.SelectedIndex = 1;
             }
 
-            dt = GlabalString.GetMeiCang();
+            dt = GlabalString.GetCangKu();
             if (dt.Rows.Count != 0)
             {
                 foreach (DataRow val in dt.Rows)
@@ -225,6 +221,10 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
+            if (DataChecked(2))
+            {
+                return;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {

@@ -83,26 +83,26 @@ public class GlabalString
         zhDataTable = xsPageHelper.BindPager(pagepara);
     }
 
-    /// <summary>
-    /// 获取煤场
-    /// </summary>
-    /// <returns></returns>
-    public static DataTable GetMeiCang()
-    {
-        PagerParameter pagepara = new PagerParameter();
-        pagepara.DbConn = GlabalString.DBString;
-        //pagepara.XsPager=
-        HTGLLogic ht = new HTGLLogic();
-        string[] arrList = new string[1];
-        arrList[0] = "cp";
-        pagepara.Sql = ht.QueryDropList("xs_ChanPingTable", arrList);
-        pagepara.OrderBy = "cp";
-        DataTable dt = xsPageHelper.BindPager(pagepara);
-        return dt;
-    }
+    ///// <summary>
+    ///// 获取煤场
+    ///// </summary>
+    ///// <returns></returns>
+    //public static DataTable GetMeiCang()
+    //{
+    //    PagerParameter pagepara = new PagerParameter();
+    //    pagepara.DbConn = GlabalString.DBString;
+    //    //pagepara.XsPager=
+    //    HTGLLogic ht = new HTGLLogic();
+    //    string[] arrList = new string[1];
+    //    arrList[0] = "cp";
+    //    pagepara.Sql = ht.QueryDropList("xs_ChanPingTable", arrList);
+    //    pagepara.OrderBy = "cp";
+    //    DataTable dt = xsPageHelper.BindPager(pagepara);
+    //    return dt;
+    //}
 
     /// <summary>
-    /// 获取仓库
+    /// 获取仓库\煤场
     /// </summary>
     /// <returns></returns>
     public static DataTable GetCangKu()
@@ -120,10 +120,11 @@ public class GlabalString
     }
 
     /// <summary>
-    /// 获取公司
+    /// 获取公司 1-客户 2-供货商 0-全部
     /// </summary>
+    /// <param name="type"></param>
     /// <returns></returns>
-    public static DataTable GetGongSi()
+    public static DataTable GetGongSi(int type=0)
     {
         PagerParameter pagepara = new PagerParameter();
         pagepara.DbConn = GlabalString.DBString;
@@ -132,7 +133,7 @@ public class GlabalString
         string[] arrList = new string[2];
         arrList[0] = "wldw";
         arrList[1] = "type";
-        pagepara.Sql = ht.QueryDropList("xs_WangLaiDanWei", arrList);
+        pagepara.Sql = ht.QueryGongSiDropList("xs_WangLaiDanWei", arrList, type);
         pagepara.OrderBy = "wldw";
         DataTable dt = xsPageHelper.BindPager(pagepara);
         return dt;

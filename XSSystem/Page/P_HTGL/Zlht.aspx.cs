@@ -283,6 +283,20 @@ namespace XSSystem.Page.P_Order
 
         protected void DropListInit()
         {
+
+
+            czf.DataSource = GlabalString.GetGongSi(1);
+            czf.DataTextField = "wldw";
+            czf.DataBind();
+
+            czf2.DataSource = GlabalString.GetGongSi(2);
+            czf2.DataTextField = "wldw";
+            czf2.DataBind();
+
+            czdd.DataSource = GlabalString.GetCangKu();
+            czdd.DataTextField = "yl";
+            czdd.DataBind();
+
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
             pagepara.DbConn = GlabalString.DBString;
@@ -295,18 +309,6 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = ht.QueryDropList("xs_ZlhtTable", arrList);
             pagepara.OrderBy = "czf";
             DataTable dt = xsPageHelper.BindPager(pagepara);
-            if (dt.Rows.Count != 0)
-            {
-                czf.DataSource = dt.DefaultView;
-                czf.DataTextField = dt.Columns[0].ToString();
-                czf.DataBind();
-                czf2.DataSource = dt.DefaultView;
-                czf2.DataTextField = dt.Columns[1].ToString();
-                czf2.DataBind();
-                czdd.DataSource = dt.DefaultView;
-                czdd.DataTextField = dt.Columns[0].ToString();
-                czdd.DataBind();
-            }
             htbh.Text = "HTZL" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
         }
 

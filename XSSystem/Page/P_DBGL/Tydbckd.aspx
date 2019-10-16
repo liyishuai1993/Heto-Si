@@ -101,8 +101,8 @@
                     <p>
                         箱号<asp:TextBox ID="xh" runat="server" name="箱号" Height="16px" Width="100px" valued="must2"></asp:TextBox>
                         上箱吨数<asp:TextBox ID="sxds" cal="must1" runat="server" name="上箱吨数" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                        装箱日期<asp:TextBox ID="zxrq" Text="" name="装箱日期" onClick="WdatePicker()" runat="server" Height="16px" Width="100px" valued="must2"></asp:TextBox>
-                        发车日期<asp:TextBox ID="fcrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
+                        装箱日期<asp:TextBox ID="zxrq"  name="装箱日期" onClick="WdatePicker()" runat="server" Height="16px" Width="100px" valued="must2"></asp:TextBox>
+                        发车日期<asp:TextBox ID="fcrq"  onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
                         调出煤价<asp:TextBox ID="dcmj" cal="must1" name="调出煤价" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         卸货吨数<asp:TextBox ID="xhds" cal="must1" name="卸货吨数" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         到站日期<asp:TextBox ID="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
