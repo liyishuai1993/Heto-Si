@@ -332,30 +332,30 @@ namespace XSSystem.Page.P_Order
         }
         protected void AddJgxx(object sender, EventArgs e)
         {
-            if (!DataChecked(2))
-            {
-                return;
-            }
+            //if (!DataChecked(2))
+            //{
+            //    return;
+            //}
             DataRow dr = dataTable.NewRow();
             try
             {
                 dr[0] = dataTable.Rows.Count + 1;
                 dr[1] = xh.Text;
-                dr[2] = double.Parse(sxds.Text);
+                dr[2] = EmptyToZero(sxds.Text);
                 dr[3] = zxrq.Text;
                 dr[4] = fcrq.Text;
-                dr[5] = double.Parse(xhds.Text.Trim());
+                dr[5] = EmptyToZero(xhds.Text.Trim());
                 dr[6] = dzrq.Text;
-                dr[7] = double.Parse(jshk.Text.Trim());
-                dr[8] = double.Parse(zbxsf.Text.Trim());
-                dr[9] = double.Parse(fzdlf.Text.Trim());
-                dr[10] = double.Parse(fzzxf.Text.Trim());
-                dr[11] = double.Parse(fzddf.Text.Trim());
-                dr[12] = double.Parse(tlyf.Text.Trim());
-                dr[13] = double.Parse(dzzxf.Text.Trim());
-                dr[14] = double.Parse(dzmcddf.Text.Trim());
-                dr[15] = double.Parse(dzdlf.Text.Trim());
-                dr[16] = double.Parse(tlyfxj.Text.Trim());
+                dr[7] = EmptyToZero(jshk.Text.Trim());
+                dr[8] = EmptyToZero(zbxsf.Text.Trim());
+                dr[9] = EmptyToZero(fzdlf.Text.Trim());
+                dr[10] = EmptyToZero(fzzxf.Text.Trim());
+                dr[11] = EmptyToZero(fzddf.Text.Trim());
+                dr[12] = EmptyToZero(tlyf.Text.Trim());
+                dr[13] = EmptyToZero(dzzxf.Text.Trim());
+                dr[14] = EmptyToZero(dzmcddf.Text.Trim());
+                dr[15] = EmptyToZero(dzdlf.Text.Trim());
+                dr[16] = EmptyToZero(tlyfxj.Text.Trim());
                 dr[17] = jshk_qkr.Text.Trim();
                 dr[18] = zbxsf_qkr.Text.Trim();
                 dr[19] = fzdlf_qkr.Text.Trim();
@@ -374,6 +374,11 @@ namespace XSSystem.Page.P_Order
             dataTable.Rows.Add(dr);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
+        }
+
+        private double EmptyToZero(string value)
+        {
+            return string.IsNullOrEmpty(value) ? 0 : double.Parse(value);
         }
 
         protected void Button1_Click(object sender, EventArgs e)

@@ -121,7 +121,11 @@
                 <div class="divcss5">
                     <p>价格信息<asp:Button ID="Button2" runat="server" Text="新增记录" OnClick="AddJgxx" /></p>
                     <p class="pstyle">
-                        煤矿名称<asp:TextBox ID="mkmc2" valued="must2" name="煤矿名称" runat="server" Height="16px" Width="100px"></asp:TextBox>
+                        结算方式<asp:DropDownList ID="mkmcgv" runat="server" Height="25px" Width="100px">
+                            <asp:ListItem>电汇</asp:ListItem>
+                            <asp:ListItem>承兑汇票</asp:ListItem>
+                            <asp:ListItem>电汇或承兑</asp:ListItem>
+                        </asp:DropDownList>
                         物料名称<asp:TextBox ID="mzmc" valued="must2" name="煤种名称" runat="server" Height="16px" Width="100px"></asp:TextBox>
                         发热量<asp:TextBox ID="frl" valued="must2" name="发热量" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'-')"></asp:TextBox>
                         硫份<asp:TextBox ID="lf" valued="must2" name="硫份" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
