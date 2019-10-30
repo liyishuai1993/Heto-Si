@@ -89,7 +89,7 @@
             </table>     
         </div>
         
-        <div style="margin-top:15px;width:1250px">
+        <div style="margin-top:15px;width:1300px">
             <div class="divcss5">
             <p>集装箱信息<asp:Button ID="Button2" runat="server" Text="新增记录"  OnClick="AddJgxx"/></p>
             <p>
@@ -173,10 +173,11 @@
                 </table>
                 </div>
                 <p>
-                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" 
+                    OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" DataKeyNames="id">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="序号" Visible="false" DataField="bh" HeaderStyle-Width="5%" >
+                        <asp:BoundField HeaderText="id" Visible="false" DataField="id" HeaderStyle-Width="5%" SortExpression="id" >
 <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                         </asp:BoundField>
@@ -252,7 +253,7 @@
 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        
+                            <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

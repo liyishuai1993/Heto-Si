@@ -46,7 +46,6 @@
     <form id="form1" runat="server">
         <div>
             <p class="auto-style5">铁运调拨出库单</p>
-
             <div>
                 <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
                 <p>基本信息</p>

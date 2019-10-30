@@ -133,7 +133,7 @@ namespace XSSystem.Page.P_Order
         private void InitDataTable()
         {
             dataTable = new DataTable();
-            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("id", System.Type.GetType("System.Int32"));
             dataTable.Columns.Add("xh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("sxds", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("zxrq", System.Type.GetType("System.String"));
@@ -189,6 +189,7 @@ namespace XSSystem.Page.P_Order
 
         public void InitGridView()
         {
+            dataTable.Clear();
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
             QueryClass qc = new QueryClass();
@@ -203,7 +204,7 @@ namespace XSSystem.Page.P_Order
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = dataTable.NewRow();
-                dr[0] = val[2];
+                dr[0] = val[3];
                 dr[1] = val[4];
                 dr[2] = val[5];
                 dr[3] = val[6];
@@ -339,7 +340,7 @@ namespace XSSystem.Page.P_Order
             DataRow dr = dataTable.NewRow();
             try
             {
-                dr[0] = dataTable.Rows.Count + 1;
+                //dr[0] = dataTable.Rows.Count + 1;
                 dr[1] = xh.Text;
                 dr[2] = EmptyToZero(sxds.Text);
                 dr[3] = zxrq.Text;
@@ -479,6 +480,51 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage(reply);
             }
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            InitGridView();
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            DirModel temp=new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            temp.Add("@htbh", htbh.Text.Trim());
+            temp.Add("@bh", bh.Text);
+            temp.Add("@user_no", model.LoginUser);
+            temp.Add("@id",GridView1.DataKeys[e.RowIndex].Value.ToString());
+            temp.Add("@xh", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim());
+            temp.Add("@sxds", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim());
+            temp.Add("@zxrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fcrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString().Trim());
+            temp.Add("@xhds", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[6].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[7].Controls[0])).Text.ToString().Trim());
+            temp.Add("@jshk", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[8].Controls[0])).Text.ToString().Trim());
+            temp.Add("@zbxsf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[9].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzdlf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[10].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzzxf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[11].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzddf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[12].Controls[0])).Text.ToString().Trim());
+            temp.Add("@tlyf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[13].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzzxf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[14].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzmcddf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[15].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzdlf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[16].Controls[0])).Text.ToString().Trim());
+            temp.Add("@tlyfxj", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[17].Controls[0])).Text.ToString().Trim());
+            bool reply = _htglLogic.UpdateTyxscdkJzxxx(temp);
+            GridView1.EditIndex = -1;
+            InitGridView();
+            if (reply == false)
+            {
+                AlertMessage("更新失败");
+            }
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            InitGridView();
         }
     }
 }

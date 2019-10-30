@@ -518,6 +518,17 @@ namespace xs_System.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
+        public bool UpdateTyxscdkJzxxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_Tyxsckd_Jzxxx set xh=@xh,sxds=@sxds,zxrq=@zxrq,fcrq=@fcrq,xhds=@xhds,dzrq=@dzrq,jshk=@jshk,zbxsf=@zbxsf,fzdlf=@fzdlf,fzzxf=@fzzxf,fzddf=@fzddf," +
+                "tlyf=@tlyf,dzzxf=@dzzxf,dzmcddf=@dzmcddf,dzdlf=@dzdlf,tlyfxj=@tlyfxj" +
+            " where user_no=@user_no and htbh=@htbh and bh=@bh and id=@id";
+            return SqlHelper.Execute(sqlpara);
+        }
+
         public string InsertXsht(DirModel dml,List<DirModel>child1,List<DirModel>child2)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
