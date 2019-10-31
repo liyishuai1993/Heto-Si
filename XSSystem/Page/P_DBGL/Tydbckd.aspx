@@ -100,8 +100,8 @@
                     <p>
                         箱号<asp:TextBox ID="xh" runat="server" name="箱号" Height="16px" Width="100px" valued="must2"></asp:TextBox>
                         上箱吨数<asp:TextBox ID="sxds" cal="must1" runat="server" name="上箱吨数" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" valued="must2"></asp:TextBox>
-                        装箱日期<asp:TextBox ID="zxrq"  name="装箱日期" onClick="WdatePicker()" runat="server" Height="16px" Width="100px" valued="must2"></asp:TextBox>
-                        发车日期<asp:TextBox ID="fcrq"  onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
+                        装箱日期<asp:TextBox ID="zxrq" name="装箱日期" onClick="WdatePicker()" runat="server" Height="16px" Width="100px" valued="must2"></asp:TextBox>
+                        发车日期<asp:TextBox ID="fcrq" onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
                         调出煤价<asp:TextBox ID="dcmj" cal="must1" name="调出煤价" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         卸货吨数<asp:TextBox ID="xhds" cal="must1" name="卸货吨数" runat="server" Height="16px" Width="100px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                         到站日期<asp:TextBox ID="dzrq" Text="" onClick="WdatePicker()" runat="server" Height="16px" Width="100px"></asp:TextBox>
@@ -124,9 +124,14 @@
                 </div>
                 <p>
 
-                    <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" CellPadding="4" ForeColor="#333333" GridLines="None">
+                    <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" CellPadding="4" ForeColor="#333333" GridLines="None"
+                        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" DataKeyNames="id">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
+                            <asp:BoundField HeaderText="id" Visible="false" DataField="id" HeaderStyle-Width="5%" SortExpression="id">
+                                <HeaderStyle HorizontalAlign="Left" Width="5%" />
+                                <ItemStyle HorizontalAlign="Left" Width="5%" />
+                            </asp:BoundField>
                             <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                 <HeaderTemplate>
                                     序号
@@ -187,7 +192,7 @@
                             <asp:BoundField HeaderText="调入煤价" DataField="drmj" HeaderStyle-Width="5%">
                                 <HeaderStyle Width="5%"></HeaderStyle>
                             </asp:BoundField>
-
+                            <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
