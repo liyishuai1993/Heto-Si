@@ -257,17 +257,7 @@ namespace XSSystem.Page.P_Order
             GridView1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (!CalDataChecked(1))
-            {
-                return;
-            }
-            //drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
-            //    Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
-            //    Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
-            GridView1.Rows[0].Cells[18].Text = "123";
-        }
+        
 
         protected void close_Click(object sender, EventArgs e)
         {
@@ -337,6 +327,24 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage(string.Format("修改失败：{0}", reply));
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                row.Cells[18].Text = ((Num(row.Cells[3].Text) * Num(row.Cells[6].Text) + Num(row.Cells[10].Text) / 2f + Num(row.Cells[11].Text) / 2f +
+                Num(row.Cells[12].Text) * Num(row.Cells[3].Text) + Num(row.Cells[13].Text) * Num(row.Cells[3].Text) + Num(row.Cells[14].Text) / 2f +
+                Num(row.Cells[15].Text) / 2f + Num(row.Cells[16].Text) / 2f + Num(row.Cells[17].Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
+            }
+            //drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
+            //    Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
+            //    Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
+            GridView1.Rows[0].Cells[18].Text = "123";
         }
 
         protected void GridView1_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)

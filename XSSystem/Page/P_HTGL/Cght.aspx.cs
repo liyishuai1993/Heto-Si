@@ -118,8 +118,7 @@ namespace XSSystem.Page.P_Order
             qc.tableName = "xs_CghtTable_Zlbz";
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
-            PageChangedEventArgs e = new PageChangedEventArgs(0);
-            var temp = xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara);
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = Zlbz_dataTable.NewRow();
@@ -160,8 +159,7 @@ namespace XSSystem.Page.P_Order
             qc.tableName = "xs_CghtTable_Jgxx";
             pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
             pagepara.OrderBy = "htbh";
-            PageChangedEventArgs e = new PageChangedEventArgs(0);
-            var temp = xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara);
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = Jgxx_dataTable.NewRow();
