@@ -5,7 +5,7 @@
 
     .xs_table tr {
         border-style: none;
-        height: 50px;
+        height: 28px;
     }
 
         .xs_table tr th {
@@ -14,6 +14,7 @@
 
         .xs_table tr td {
             border-style: none;
+            font-size:12px;
         }
 
 .xs_table_th {

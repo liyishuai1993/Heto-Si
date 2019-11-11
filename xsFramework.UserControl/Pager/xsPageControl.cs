@@ -45,7 +45,7 @@ namespace xsFramework.UserControl.Pager
         string _totalText = "共{0}笔";
         bool _totalVisable = false;//由于存在尾页号，总页数不是必须，故这里我设置默认为不打开
         bool _preNextVisable = true;
-        int _pageSize = 10;
+        int _pageSize = 20;
         string _css = "xsPage";
         string _selectCss = "xsSelect";
         bool _cssEnable = true;
