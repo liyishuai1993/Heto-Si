@@ -213,5 +213,42 @@ namespace XSSystem.Page.P_DBGL
 
             GridOrder.DataBind();
         }
+
+        double ckjzSum = 0;
+        double dbjeSum = 0;
+        protected void GridOrder_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            
+            //for(int i = -1; i < GridOrder.Rows.Count; i++)
+            //{
+            //    if (e.Row.RowType == DataControlRowType.DataRow)
+            //    {
+            //        e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor,this.style.backgroundColor='#00A9FF'");
+            //        e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
+            //    }
+            //}
+
+            try
+            {
+                if (e.Row.RowIndex >= 0)
+                {
+                    ckjzSum += Convert.ToDouble(e.Row.Cells[7].Text);
+                    dbjeSum += Convert.ToDouble(e.Row.Cells[9].Text);
+                }
+                else if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[1].Text = "汇总";
+                    e.Row.Cells[6].Text = "出库净重合计：";
+                    e.Row.Cells[7].Text = ckjzSum.ToString();
+                    e.Row.Cells[8].Text = "调拨金额合计：";
+                    e.Row.Cells[9].Text = dbjeSum.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
+            }
+        }
     }
 }
