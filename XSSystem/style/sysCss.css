@@ -10,6 +10,7 @@
 
         .xs_table tr th {
             border-style: none;
+            font-size:14px;
         }
 
         .xs_table tr td {
