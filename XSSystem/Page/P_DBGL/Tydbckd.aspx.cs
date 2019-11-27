@@ -7,6 +7,7 @@ using xsFramework.Web.Login;
 using xsFramework.UserControl.Pager;
 using XSSystem.Class;
 using Telerik.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace XSSystem.Page.P_Order
 {
@@ -75,7 +76,7 @@ namespace XSSystem.Page.P_Order
         private void InitDataTable()
         {
             dataTable = new DataTable();
-            dataTable.Columns.Add("bh", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add("id", System.Type.GetType("System.Int32"));
             dataTable.Columns.Add("xh", System.Type.GetType("System.String"));
             dataTable.Columns.Add("sxds", System.Type.GetType("System.Double"));
             dataTable.Columns.Add("zxrq", System.Type.GetType("System.String"));
@@ -180,6 +181,7 @@ namespace XSSystem.Page.P_Order
 
         public void InitGridView()
         {
+            dataTable.Clear();
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
             QueryClass qc = new QueryClass();
@@ -189,8 +191,7 @@ namespace XSSystem.Page.P_Order
             qc.tableName = "xs_Tydbckd_Jzxxx";
             pagepara.Sql = _htglLogic.QueryThdbckdChildTable(qc);
             pagepara.OrderBy = "bh";
-            PageChangedEventArgs e = new PageChangedEventArgs(0);
-            var temp = xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara);
             foreach (DataRow val in temp.Rows)
             {
                 DataRow dr = dataTable.NewRow();
@@ -206,12 +207,12 @@ namespace XSSystem.Page.P_Order
                 dr[9] = val[11];
                 dr[10] = val[12];
                 dr[11] = val[13];
-                dr[12] = val[15];
-                dr[13] = val[16];
-                dr[14] = val[17];
-                dr[15] = val[18];
-                dr[16] = val[19];
-                dr[17] = val[20];
+                dr[12] = val[14];
+                dr[13] = val[15];
+                dr[14] = val[16];
+                dr[15] = val[17];
+                dr[16] = val[18];
+                dr[17] = val[19];
                 dataTable.Rows.Add(dr);
 
             }
@@ -221,14 +222,13 @@ namespace XSSystem.Page.P_Order
 
         protected void AddJgxx(object sender, EventArgs e)
         {
-            if (DataChecked(2))
+            if (!DataChecked(2))
             {
                 return;
             }
             DataRow dr = dataTable.NewRow();
             try
             {
-                dr[0] = dataTable.Rows.Count + 1;
                 dr[1] = xh.Text;
                 dr[2] = double.Parse(sxds.Text);
                 dr[3] = zxrq.Text;
@@ -257,17 +257,7 @@ namespace XSSystem.Page.P_Order
             GridView1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (!CalDataChecked(1))
-            {
-                return;
-            }
-            drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
-                Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
-                Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
-            
-        }
+        
 
         protected void close_Click(object sender, EventArgs e)
         {
@@ -337,6 +327,70 @@ namespace XSSystem.Page.P_Order
             {
                 AlertMessage(string.Format("修改失败：{0}", reply));
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (!CalDataChecked(1))
+            {
+                return;
+            }
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                row.Cells[18].Text = ((Num(row.Cells[3].Text) * Num(row.Cells[6].Text) + Num(row.Cells[10].Text) / 2f + Num(row.Cells[11].Text) / 2f +
+                Num(row.Cells[12].Text) * Num(row.Cells[3].Text) + Num(row.Cells[13].Text) * Num(row.Cells[3].Text) + Num(row.Cells[14].Text) / 2f +
+                Num(row.Cells[15].Text) / 2f + Num(row.Cells[16].Text) / 2f + Num(row.Cells[17].Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
+            }
+            //drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
+            //    Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
+            //    Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
+            GridView1.Rows[0].Cells[18].Text = "123";
+        }
+
+        protected void GridView1_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            //((TextBox)(GridView1.Rows[e.NewEditIndex].Cells[18].Controls[0])).Text = "123";
+            InitGridView();
+        }
+
+        protected void GridView1_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
+        {
+            DirModel temp = new DirModel();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            temp.Add("@bh", bh.Text.Trim());
+            temp.Add("@user_no", model.LoginUser);
+            temp.Add("@id", GridView1.DataKeys[e.RowIndex].Value.ToString());
+            temp.Add("@xh", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim());
+            temp.Add("@sxds", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim());
+            temp.Add("@zxrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fcrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dcmj", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[6].Controls[0])).Text.ToString().Trim());
+            temp.Add("@xhds", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[7].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzrq", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[8].Controls[0])).Text.ToString().Trim());
+            temp.Add("@xhck", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[9].Controls[0])).Text.ToString().Trim());
+            temp.Add("@zbxsf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[10].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzdlf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[11].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzzxf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[12].Controls[0])).Text.ToString().Trim());
+            temp.Add("@fzddf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[13].Controls[0])).Text.ToString().Trim());
+            temp.Add("@tlyf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[14].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzzxf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[15].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzmcddf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[16].Controls[0])).Text.ToString().Trim());
+            temp.Add("@dzdlf", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[17].Controls[0])).Text.ToString().Trim());
+            temp.Add("@drmj", ((TextBox)(GridView1.Rows[e.RowIndex].Cells[18].Controls[0])).Text.ToString().Trim());
+            bool reply = _htglLogic.UpdateTydbcdkJzxxx(temp);
+            GridView1.EditIndex = -1;
+            InitGridView();
+            if (reply == false)
+            {
+                AlertMessage("更新失败");
+            }
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            InitGridView();
         }
     }
 }

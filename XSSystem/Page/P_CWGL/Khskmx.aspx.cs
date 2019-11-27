@@ -67,27 +67,6 @@ namespace XSSystem.Page.P_CWGL
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-
-            //QueryClass qc = new QueryClass();
-            //qc.tableName = "xs_QyxsckdTable";
-            //PageChangedEventArgs pe = new PageChangedEventArgs(1);
-            ////DataTable dt = new DataTable();
-            ////foreach (DataRow dataRow in Jgxx_dataTable.Rows)
-            ////{
-            ////    dt.Rows.Add(dataRow);
-            ////}
-            //SkdDT.Rows.Clear();
-            //GetSkd();
-            //GetFkd();
-            //DataRow emRow = SkdDT.NewRow();
-            //emRow[0] = " ";
-            //SkdDT.Rows.Add(emRow);
-            //foreach (DataRow val in FkdDT.Rows)
-            //{
-            //    SkdDT.ImportRow(val);
-            //}
-
- 
             SkdDT.Columns[0].ColumnName = "单位名称";
             SkdDT.Columns[1].ColumnName = "日期";
             SkdDT.Columns[2].ColumnName = "摘要";

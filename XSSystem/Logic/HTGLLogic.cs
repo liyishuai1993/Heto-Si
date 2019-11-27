@@ -359,6 +359,17 @@ namespace xs_System.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
+        public bool UpdateTydbcdkJzxxx(DirModel dml)
+        {
+            xsSqlParameter sqlpara = new xsSqlParameter();
+            sqlpara.AddSqlParameter(dml);
+            sqlpara.SqlConnectString = GlabalString.DBString;
+            sqlpara.SQL = "update xs_Tydbckd_Jzxxx set xh=@xh,sxds=@sxds,zxrq=@zxrq,fcrq=@fcrq,dcmj=@dcmj,xhds=@xhds," +
+                "dzrq=@dzrq,xhck=@xhck,zbxsf=@zbxsf,fzdlf=@fzdlf,fzzxf=@fzzxf,fzddf=@fzddf,tlyf=@tlyf,dzzxf=@dzzxf,dzmcddf=@dzmcddf,dzdlf=@dzdlf,drmj=@drmj" +
+            " where user_no=@user_no and  bh=@bh and id=@id";
+            return SqlHelper.Execute(sqlpara);
+        }
+
         internal string UpdateQydbhd(DirModel dml)
         {
             List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
