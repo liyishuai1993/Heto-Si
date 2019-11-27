@@ -41,9 +41,8 @@
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
     </span>
         </div>
-    <div>
-    <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1400px">
-        <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False"
+    <div style="overflow-y: scroll; height: 200px;width:1400px">
+        <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False" AllowSorting="true"
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
@@ -110,7 +109,7 @@
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"  CssClass="Freezing"/>
             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
@@ -122,7 +121,6 @@
         </asp:GridView>
         <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
         </cc1:xsPageControl>
-        </asp:Panel>
     
     </div>
     </form>

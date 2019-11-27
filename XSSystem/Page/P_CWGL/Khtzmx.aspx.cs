@@ -16,9 +16,13 @@ namespace XSSystem.Page.P_CWGL
     public partial class Khtzmx : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
+        static DataTable KhtzDT;
+
         static DataTable QyxsckdDT;
         static DataTable MkzxDT;
         static DataTable TyxsckdDT;
+        static DataTable SkdDT;
+        static DataTable FkdDT;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -53,17 +57,19 @@ namespace XSSystem.Page.P_CWGL
 
         private void InitDataTableJgxx()
         {
-            QyxsckdDT = new DataTable();
-            QyxsckdDT.Columns.Add("dwmc", Type.GetType("System.String"));
-            QyxsckdDT.Columns.Add("rq", Type.GetType("System.String"));
-            QyxsckdDT.Columns.Add("ch", Type.GetType("System.String"));
-            QyxsckdDT.Columns.Add("ckdw", Type.GetType("System.Double"));
-            QyxsckdDT.Columns.Add("dhdw", Type.GetType("System.Double"));
-            QyxsckdDT.Columns.Add("kd", Type.GetType("System.Double"));
-            QyxsckdDT.Columns.Add("xsjsdw", Type.GetType("System.Double"));
-            QyxsckdDT.Columns.Add("mj", Type.GetType("System.Double"));
-            QyxsckdDT.Columns.Add("xsjsje", Type.GetType("System.Double"));
-            GridView1.DataSource = QyxsckdDT;
+            KhtzDT = new DataTable();
+            KhtzDT.Columns.Add("dwmc", Type.GetType("System.String"));
+            KhtzDT.Columns.Add("rq", Type.GetType("System.String"));
+            KhtzDT.Columns.Add("ch", Type.GetType("System.String"));
+            KhtzDT.Columns.Add("ckdw", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("dhdw", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("kd", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("xsjsdw", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("mj", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("xsjsje", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("skje", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("skfs", Type.GetType("System.Double"));
+            GridView1.DataSource = KhtzDT;
             GridView1.DataBind();
         }
 
@@ -77,51 +83,38 @@ namespace XSSystem.Page.P_CWGL
             {
                 QyxsckdDT.ImportRow(val);
             }
+            foreach (DataRow val in FkdDT.Rows)
+            {
+                SkdDT.ImportRow(val);
+            }
+            QyxsckdDT.Merge(SkdDT);
+            
 
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
 
-            //QueryClass qc = new QueryClass();
-            //qc.tableName = "xs_QyxsckdTable";
-            //PageChangedEventArgs pe = new PageChangedEventArgs(1);
-            ////DataTable dt = new DataTable();
-            ////foreach (DataRow dataRow in Jgxx_dataTable.Rows)
-            ////{
-            ////    dt.Rows.Add(dataRow);
-            ////}
-            //QyxsckdDT.Rows.Clear();
-            //GetMkzxzcd();
-            //GetTyxsckd();
-            //DataRow emRow = QyxsckdDT.NewRow();
-            //emRow[0] = " ";
-            //QyxsckdDT.Rows.Add(emRow);
-            //foreach (DataRow val in MkzxDT.Rows)
-            //{
-            //    QyxsckdDT.ImportRow(val);
-            //}
-            //QyxsckdDT.ImportRow(emRow);
-            //foreach (DataRow val in TyxsckdDT.Rows)
-            //{
-            //    QyxsckdDT.ImportRow(val);
-            //}
-            QyxsckdDT.Columns[0].ColumnName = "单位名称";
-            QyxsckdDT.Columns[1].ColumnName = "日期";
-            QyxsckdDT.Columns[2].ColumnName = "车号";
-            QyxsckdDT.Columns[3].ColumnName = "出库吨位";
-            QyxsckdDT.Columns[4].ColumnName = "到货吨位";
-            QyxsckdDT.Columns[5].ColumnName = "扣吨";
-            QyxsckdDT.Columns[6].ColumnName = "销售结算吨位";
-            QyxsckdDT.Columns[7].ColumnName = "煤价";
-            QyxsckdDT.Columns[8].ColumnName = "销售结算金额";
+            KhtzDT.Columns[0].ColumnName = "单位名称";
+            KhtzDT.Columns[1].ColumnName = "日期";
+            KhtzDT.Columns[2].ColumnName = "车号";
+            KhtzDT.Columns[3].ColumnName = "出库吨位";
+            KhtzDT.Columns[4].ColumnName = "到货吨位";
+            KhtzDT.Columns[5].ColumnName = "扣吨";
+            KhtzDT.Columns[6].ColumnName = "销售结算吨位";
+            KhtzDT.Columns[7].ColumnName = "煤价";
+            KhtzDT.Columns[8].ColumnName = "销售结算金额";
+            KhtzDT.Columns[2].ColumnName = "摘要";
+            KhtzDT.Columns[3].ColumnName = "收款金额";
+            KhtzDT.Columns[4].ColumnName = "收款方式";
+            KhtzDT.Columns[5].ColumnName = "收款账户";
 
             //ExportExcelByDataTable(dt,"test");
-            if (QyxsckdDT.Columns.Contains("PID"))
+            if (KhtzDT.Columns.Contains("PID"))
             {
-                QyxsckdDT.Columns.Remove("PID");
+                KhtzDT.Columns.Remove("PID");
             }
-            CreateExcel(QyxsckdDT, "application/ms-excel", "test");
+            CreateExcel(KhtzDT, "application/ms-excel", "test");
 
 
 
@@ -232,6 +225,24 @@ namespace XSSystem.Page.P_CWGL
             TyxsckdDT = xsPageHelper.BindPager(pagepara);
         }
 
+        private void GetSkd(QueryClass qc)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.Sql = _htglLogic.QuerySkdOrder(qc);
+            pagepara.OrderBy = "dwmc";
+            SkdDT = xsPageHelper.BindPager(pagepara);
+        }
+
+        private void GetFkd(QueryClass qc)
+        {
+            PagerParameter pagepara = new PagerParameter();
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.Sql = _htglLogic.QueryFkdOrder(qc);
+            pagepara.OrderBy = "dwmc";
+            FkdDT = xsPageHelper.BindPager(pagepara);
+        }
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
@@ -239,6 +250,8 @@ namespace XSSystem.Page.P_CWGL
             GetQyxsckd(qc);
             GetMkzxzcd(qc);
             GetTyxsckd(qc);
+            GetSkd(qc);
+            GetFkd(qc);
             GetAllData();
             GridView1.DataSource = QyxsckdDT;
 

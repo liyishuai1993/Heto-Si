@@ -74,7 +74,13 @@
                         <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="销售结算金额(借方)" DataField="xsjsje" HeaderStyle-Width="10%" >
+<HeaderStyle Width="10%"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="收款金额(贷方)" DataField="skje" HeaderStyle-Width="10%" >
+<HeaderStyle Width="10%"></HeaderStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="结算方式" DataField="skfs" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                     </Columns>
