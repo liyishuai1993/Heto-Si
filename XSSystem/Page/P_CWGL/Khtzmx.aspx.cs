@@ -68,9 +68,17 @@ namespace XSSystem.Page.P_CWGL
             KhtzDT.Columns.Add("mj", Type.GetType("System.Double"));
             KhtzDT.Columns.Add("xsjsje", Type.GetType("System.Double"));
             KhtzDT.Columns.Add("skje", Type.GetType("System.Double"));
-            KhtzDT.Columns.Add("skfs", Type.GetType("System.Double"));
+            KhtzDT.Columns.Add("skfs", Type.GetType("System.String"));
             GridView1.DataSource = KhtzDT;
             GridView1.DataBind();
+
+            SkdDT = new DataTable();
+            SkdDT.Columns.Add("dwmc", Type.GetType("System.String"));
+            SkdDT.Columns.Add("rq", Type.GetType("System.String"));
+            SkdDT.Columns.Add("zy", Type.GetType("System.String"));
+            SkdDT.Columns.Add("skje", Type.GetType("System.Double"));
+            SkdDT.Columns.Add("skfs", Type.GetType("System.String"));
+            SkdDT.Columns.Add("skzh", Type.GetType("System.String"));
         }
 
         private void GetAllData()
@@ -87,34 +95,77 @@ namespace XSSystem.Page.P_CWGL
             {
                 SkdDT.ImportRow(val);
             }
-            QyxsckdDT.Merge(SkdDT);
-            
+            if (QyxsckdDT.Rows.Count == 0)
+            {
+                return;
+            }
+            DataColumn skje = new DataColumn("skje", Type.GetType("System.Double"));
+            DataColumn ye = new DataColumn("ye", Type.GetType("System.Double"));
+            DataColumn skfs = new DataColumn("skfs", Type.GetType("System.String"));
+            skje.DefaultValue = 0f;
+            QyxsckdDT.Columns.Add(skje);
+            QyxsckdDT.Columns.Add(skfs);
+            QyxsckdDT.Columns.Add(ye);
+            foreach (DataRow val in SkdDT.Rows)
+            {
+                var rows = QyxsckdDT.Select($"dwmc='{val.ItemArray[0].ToString()}' and rq='{val.ItemArray[1].ToString()}'");
+                if (rows.Count() > 0)
+                {
+                    var last = rows.Last();
+                    last[10] = val[3];
+                    last[11] = val[4];
+                }
+                else
+                {
+                    DataRow row = QyxsckdDT.NewRow();
+                    row[0] = val[0];
+                    row[1] = val[1];
+                    row[8] = 0;
+                    row[10] = val[3];
+                    row[11] = val[4];
+                    QyxsckdDT.Rows.Add(row);
+                }
+            }
+            DataView dv = QyxsckdDT.DefaultView;
+            dv.Sort = "rq ASC";
+            QyxsckdDT = dv.ToTable();
+            //decimal a = (decimal)QyxsckdDT.Rows[0][8];
+            //double b = (double)QyxsckdDT.Rows[0][10];
+
+            //QyxsckdDT.Merge(SkdDT,false,MissingSchemaAction.Add);
+            QyxsckdDT.Rows[0][12] = (double)(decimal)QyxsckdDT.Rows[0][8] -(double) QyxsckdDT.Rows[0][10];
+            for (int i = 1; i < QyxsckdDT.Rows.Count; i++)
+            {
+                double a = (double)QyxsckdDT.Rows[i - 1][12];
+                double b = (double)(decimal)QyxsckdDT.Rows[i][8];
+                double c = (double)QyxsckdDT.Rows[i][10];
+                QyxsckdDT.Rows[i][12] = a + b -c ;
+            }
+
 
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
 
-            KhtzDT.Columns[0].ColumnName = "单位名称";
-            KhtzDT.Columns[1].ColumnName = "日期";
-            KhtzDT.Columns[2].ColumnName = "车号";
-            KhtzDT.Columns[3].ColumnName = "出库吨位";
-            KhtzDT.Columns[4].ColumnName = "到货吨位";
-            KhtzDT.Columns[5].ColumnName = "扣吨";
-            KhtzDT.Columns[6].ColumnName = "销售结算吨位";
-            KhtzDT.Columns[7].ColumnName = "煤价";
-            KhtzDT.Columns[8].ColumnName = "销售结算金额";
-            KhtzDT.Columns[2].ColumnName = "摘要";
-            KhtzDT.Columns[3].ColumnName = "收款金额";
-            KhtzDT.Columns[4].ColumnName = "收款方式";
-            KhtzDT.Columns[5].ColumnName = "收款账户";
-
+            QyxsckdDT.Columns[0].ColumnName = "单位名称";
+            QyxsckdDT.Columns[1].ColumnName = "日期";
+            QyxsckdDT.Columns[2].ColumnName = "车号";
+            QyxsckdDT.Columns[3].ColumnName = "出库吨位";
+            QyxsckdDT.Columns[4].ColumnName = "到货吨位";
+            QyxsckdDT.Columns[5].ColumnName = "扣吨";
+            QyxsckdDT.Columns[6].ColumnName = "销售结算吨位";
+            QyxsckdDT.Columns[7].ColumnName = "煤价";
+            QyxsckdDT.Columns[8].ColumnName = "销售结算金额";
+            QyxsckdDT.Columns[10].ColumnName = "收款金额";
+            QyxsckdDT.Columns[11].ColumnName = "结算方式";
+            QyxsckdDT.Columns[12].ColumnName = "余额";
             //ExportExcelByDataTable(dt,"test");
-            if (KhtzDT.Columns.Contains("PID"))
+            if (QyxsckdDT.Columns.Contains("PID"))
             {
-                KhtzDT.Columns.Remove("PID");
+                QyxsckdDT.Columns.Remove("PID");
             }
-            CreateExcel(KhtzDT, "application/ms-excel", "test");
+            CreateExcel(QyxsckdDT, "application/ms-excel", "test");
 
 
 
@@ -185,6 +236,16 @@ namespace XSSystem.Page.P_CWGL
             //PageChangedEventArgs ex = new PageChangedEventArgs(1);
             //QueryClass qc = new QueryClass();
             //QyxsckdDT= SelectSQL(qc, ex);
+            if(cxsjQ.Text.Trim()==""|| cxsjZ.Text.Trim() == "")
+            {
+                AlertMessage("请输入查询时间段！");
+                return;
+            }
+            if (kh.Text.Trim() == "")
+            {
+                AlertMessage("请输入查询客户！");
+                return;
+            }
             QueryClass qc = new QueryClass();
             qc.qdrqQ = Convert.ToDateTime(cxsjQ.Text.Trim());
             qc.qdrqZ = Convert.ToDateTime(cxsjZ.Text.Trim());
@@ -192,9 +253,10 @@ namespace XSSystem.Page.P_CWGL
             GetQyxsckd(qc);
             GetMkzxzcd(qc);
             GetTyxsckd(qc);
+            GetSkd(qc);
+            GetFkd(qc);
             GetAllData();
             GridView1.DataSource = QyxsckdDT;
-
             GridView1.DataBind();
         }
 
@@ -257,5 +319,6 @@ namespace XSSystem.Page.P_CWGL
 
             GridView1.DataBind();
         }
+
     }
 }

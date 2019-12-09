@@ -102,7 +102,18 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = _cwglLogic.QueryChildTable(qc);
             pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
-            dataTable = xsPageHelper.BindPager(pagepara, e);
+            var temp = xsPageHelper.BindPager(pagepara, e);
+            foreach (DataRow val in temp.Rows)
+            {
+                DataRow dr = dataTable.NewRow();
+                dr[0] = val[2];
+                dr[1] = val[3];
+                dr[2] = val[4];
+                dr[3] = val[5];
+                dr[4] = val[6];
+                dataTable.Rows.Add(dr);
+
+            }
             if (dataTable.Columns.Count == 0)
             {
                 InitDataTable();
@@ -154,9 +165,9 @@ namespace XSSystem.Page.P_Order
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
             }
-            catch
+            catch(Exception ex)
             {
-                AlertMessage("数据存在错误，请检查");
+                AlertMessage($"数据存在错误，请检查,{ex.Message}");
                 return;
             }
             dataTable.Rows.Add(dr);

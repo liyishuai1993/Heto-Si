@@ -192,6 +192,16 @@ namespace XSSystem.Page.P_CWGL
             //PageChangedEventArgs ex = new PageChangedEventArgs(1);
             //QueryClass qc = new QueryClass();
             //QyxsckdDT= SelectSQL(qc, ex);
+            if (cxsjQ.Text.Trim() == "" || cxsjZ.Text.Trim() == "")
+            {
+                AlertMessage("请输入查询时间段！");
+                return;
+            }
+            if (kh.Text.Trim() == "")
+            {
+                AlertMessage("请输入查询客户！");
+                return;
+            }
             QueryClass qc = new QueryClass();
             qc.qdrqQ = Convert.ToDateTime(cxsjQ.Text.Trim());
             qc.qdrqZ = Convert.ToDateTime(cxsjZ.Text.Trim());

@@ -1101,8 +1101,8 @@ namespace xs_System.Logic
 
         public string QueryQyxsckdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
-                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh) tb where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll); 
+            string sql = string.Format(@"select * from (select xf dwmc,zcsj rq,ch,ckjz1 ckdw,isnull(rkjz,0) dhdw,kd,isnull(hkjsdw,0) xsjsdw,mj, isnull(jshk,0) xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh) tb where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll); 
             return sql;
         }
 
@@ -1116,8 +1116,8 @@ namespace xs_System.Logic
 
         public string QueryTyxsckdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select stf dwmc,zxrq rq,xh ch,sxds ckdw,xhds dhdw,null kd,xhds xsjsdw,mj,jshk xsjsje  
-        from xs_Tyxsckd_Jzxxx a right join xs_TyxsckdTable b on a.bh=b.bh) tb where 1={3} or (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}')", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select stf dwmc,zxrq rq,xh ch,sxds ckdw,xhds dhdw,0 kd,xhds xsjsdw,mj,isnull(jshk,0) xsjsje  
+        from xs_Tyxsckd_Jzxxx a right join xs_TyxsckdTable b on a.bh=b.bh) tb where 1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}')", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
             return sql;
         }
 
@@ -1146,22 +1146,22 @@ namespace xs_System.Logic
 
         public string QueryMkzxzcdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select shf dwmc,zcsj rq,ch,zcjz ckdw,null dhdw,null kd,zcjz xsjsdw,xsmj mj,xsjsje  
-                            from xs_MkzxzcdTable a right join xs_MkzxzcdTable_Clxx b on a.djbh=b.djbh) tb  where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select shf dwmc,zcsj rq,ch,zcjz ckdw,0 dhdw,0 kd,zcjz xsjsdw,xsmj mj,ISNULL(xsjsje,0) xsjsje  
+                            from xs_MkzxzcdTable a right join xs_MkzxzcdTable_Clxx b on a.djbh=b.djbh) tb  where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
             return sql;
         }
 
         public string QuerySkdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select fkdw dwmc,ldrq rq,zy,je skje,jsfs skfs,skzhbh skzh  
-                            from xs_SkdTable a right join xs_SkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select fkdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,skzhbh skzh  
+                            from xs_SkdTable a right join xs_SkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
             return sql;
         }
 
         public string QueryFkdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select skdw dwmc,ldrq rq,zy,je skje,jsfs skfs,fkzhbh skzh  
-                            from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where 1={3} or (tb.dwmc='{0}' and rq>='{1}' and rq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select skdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,fkzhbh skzh  
+                            from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where 1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
             return sql;
         }
         

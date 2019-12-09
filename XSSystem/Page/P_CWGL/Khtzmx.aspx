@@ -53,7 +53,7 @@
                         <asp:BoundField HeaderText="单位名称" DataField="dwmc" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="日期" DataField="rq" HeaderStyle-Width="10%" >
+                        <asp:BoundField HeaderText="日期" DataField="rq" HeaderStyle-Width="10%" DataFormatString="{0:yyyy-MM-dd}">
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
                         <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%" >
@@ -83,6 +83,10 @@
                         <asp:BoundField HeaderText="结算方式" DataField="skfs" HeaderStyle-Width="10%" >
 <HeaderStyle Width="10%"></HeaderStyle>
                         </asp:BoundField>
+                        <asp:BoundField HeaderText="余额" DataField="ye" HeaderStyle-Width="10%" >
+<HeaderStyle Width="10%"></HeaderStyle>
+                        </asp:BoundField>
+                        
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
