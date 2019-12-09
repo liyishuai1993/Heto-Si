@@ -1,14 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormExport.aspx.cs" Inherits="XSSystem.Page.P_CWGL.FormExport" %>
+
 <%@ Register Assembly="xsFramework.UserControl" Namespace="xsFramework.UserControl.Pager"
     TagPrefix="cc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../../style/FormStyle.css" rel="stylesheet" />
-    <script  src="../../My97DatePicker/WdatePicker.js" type="text/javascript" ></script>
+    <script src="../../My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script src="../../My97DatePicker/calendar.js" type="text/javascript"></script>
     <script src="../../My97DatePicker/config.js" type="text/javascript"></script>
     <script src="../../js/FormStyle.js"></script>
@@ -16,66 +17,86 @@
     <style type="text/css">
         .auto-style3 {
             height: auto;
-            width:400px;
-            text-align:right;
-            }
-        .Wdate {}
+            width: 400px;
+            text-align: right;
+        }
+
+        .Wdate {
+        }
+
         .auto-style4 {
-            height:20px;
-            width:1200px;
-            text-align:left;
+            height: 20px;
+            width: 1200px;
+            text-align: left;
         }
+
         .auto-style5 {
-            height:auto;
-            width:auto;
-            text-align:center;
+            height: auto;
+            width: auto;
+            text-align: center;
         }
-        </style>
+    </style>
     <link href="../../My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="divcss5" style="margin-bottom:15px;width:1500px">
-            <span>
-                导出时间<asp:TextBox ID="cxsjQ" runat="server"  Text="" valued="must" name="起始日期" onClick="WdatePicker()" Width="204px"/>-
-                <asp:TextBox ID="cxsjZ" runat="server"  Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="204px"/>
-                客户<asp:TextBox id="kh" runat="server" Width="140px"></asp:TextBox>
+        <div class="divcss5" style="margin-bottom: 15px; width: 1200px">
+            <span>导出时间<asp:TextBox ID="cxsjQ" runat="server" Text="" valued="must" name="起始日期" onClick="WdatePicker()" Width="204px" />-
+                <asp:TextBox ID="cxsjZ" runat="server" Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="204px" />
+                客户<asp:TextBox ID="kh" runat="server" Width="140px"></asp:TextBox>
                 <asp:Button Text="生成报表" name="queryBtn" OnClick="Button1_Click" CssClass="button" type="bu" runat="server" ID="Button1" />
                 <asp:Button Text="导出报表" CommandName="exportBtn" OnClick="Unnamed_Click" CssClass="button" runat="server" ID="btn1" />
-            <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />    
+                <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />
             </span>
-            </div>
+        </div>
         <div>
-            <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">
-                 <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1200px">
+                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField HeaderText="单位名称" DataField="dwmc" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                            <HeaderTemplate>
+                                序号
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="单位名称" DataField="dwmc" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="20%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="20%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="日期" DataField="rq" HeaderStyle-Width="10%" DataFormatString="{0:yyyy-MM-dd}">
-<HeaderStyle Width="10%"></HeaderStyle>
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                         <asp:BoundField HeaderText="出库吨位" DataField="ckdw" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="出库吨位" DataField="ckdw" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="到货吨位" DataField="dhdw" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="到货吨位" DataField="dhdw" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="扣吨扣杂" DataField="kd" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="扣吨扣杂" DataField="kd" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="销售结算吨位" DataField="xsjsdw" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="销售结算吨位" DataField="xsjsdw" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%" >
-<HeaderStyle Width="10%"></HeaderStyle>
+                        <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%">
+                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
@@ -89,9 +110,9 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-                </asp:Panel>
-                <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
-        </cc1:xsPageControl>
+            </asp:Panel>
+            <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
+            </cc1:xsPageControl>
         </div>
     </form>
 
