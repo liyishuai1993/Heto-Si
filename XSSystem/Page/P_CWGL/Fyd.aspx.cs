@@ -109,6 +109,9 @@ namespace XSSystem.Page.P_Order
             dp_zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
             jsfs.Text= dt.Rows[0][9].ToString();
+            hjje.Text= dt.Rows[0][10].ToString();
+            fkzh.Text= dt.Rows[0][11].ToString();
+            sfje.Text= dt.Rows[0][12].ToString();
             Session.Remove("fyd");
         }
 
@@ -144,6 +147,7 @@ namespace XSSystem.Page.P_Order
                 return;
             }
             dataTable.Rows.Add(dr);
+            hjje.Text = dataTable.Compute("sum(je)", "TRUE").ToString();
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
 
@@ -168,6 +172,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);
+                dml.Add("@hjje", hjje.Text.Trim());
+                dml.Add("@fkzh", fkzh.Text.Trim());
+                dml.Add("@sfje", sfje.Text.Trim());
             }
             catch
             {
@@ -221,6 +228,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);
+                dml.Add("@hjje", hjje.Text.Trim());
+                dml.Add("@fkzh", fkzh.Text.Trim());
+                dml.Add("@sfje", sfje.Text.Trim());
             }
             catch
             {

@@ -15,7 +15,7 @@
         .auto-style1 {
             text-align: center;
             border-style: none;
-            width: 1600px;
+            width: 900px;
             font-family: 宋体, Arial, Helvetica, sans-serif;
             line-height: normal;
             background-color: #33CCFF;
@@ -23,7 +23,7 @@
 
         .auto-style3 {
             height: 20px;
-            width: 400px;
+            width: 300px;
             text-align: right;
         }
 
@@ -48,7 +48,7 @@
 
         .auto-style7 {
             height: auto;
-            width: auto;
+            width: 900px;
             text-align: right;
         }
     </style>
@@ -59,39 +59,39 @@
             <p class="auto-style5">收款单</p>
             <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>
             <p class="auto-style4">
-                录单日期<asp:TextBox ID="ldrq" runat="server" Height="16px" Width="284px" Text="" onClick="WdatePicker()"></asp:TextBox>
-                编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="284px" Enabled="false"></asp:TextBox>
+                录单日期<asp:TextBox ID="ldrq" runat="server" Height="16px" Width="184px" Text="" onClick="WdatePicker()"></asp:TextBox>
+                编号<asp:TextBox ID="bh" runat="server" Height="16px" Width="184px" Enabled="false"></asp:TextBox>
             </p>
             <div>
-                <table border="0" aria-haspopup="False" class="auto-style1" style="width: 1200px">
+                <table border="0" aria-haspopup="False" class="auto-style1">
                     <tr>
-                        <td class="auto-style3">付款单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkdw" runat="server" Width="284px" Height="200px"
+                        <td class="auto-style3">付款单位<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkdw" runat="server" Width="184px" Height="200px"
                             EmptyMessage="请输入付款单位" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="付款单位" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" runat="server" Width="284px" Height="200px"
+                        <td class="auto-style3">经手人<telerik:RadComboBox RenderMode="Lightweight" ID="tk_jsr" runat="server" Width="184px" Height="200px"
                             EmptyMessage="请输入经手人" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="经手人" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3"><span>部门</span><asp:TextBox ID="bm" runat="server" Height="16px" Width="284px" name="部门" valued="must1"></asp:TextBox>
+                        <td class="auto-style3"><span>部门</span><asp:TextBox ID="bm" runat="server" Height="16px" Width="184px" name="部门" valued="must1"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" runat="server" Width="284px" Height="200px"
+                        <td class="auto-style3">合同编号<telerik:RadComboBox RenderMode="Lightweight" ID="tk_htbh" runat="server" Width="184px" Height="200px"
                             EmptyMessage="请选择合同编号" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="合同编号" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">摘要<asp:DropDownList ID="dp_zy" runat="server" Height="24px" Width="284px">
+                        <td class="auto-style3">摘要<asp:DropDownList ID="dp_zy" runat="server" Height="24px" Width="184px">
                             <asp:ListItem>借款</asp:ListItem>
                             <asp:ListItem>货款收入</asp:ListItem>
                             <asp:ListItem>往来</asp:ListItem>
                         </asp:DropDownList>
                         </td>
-                        <td class="auto-style3">附加说明<asp:TextBox ID="fjsm" runat="server" Height="16px" Width="284px"></asp:TextBox>
+                        <td class="auto-style3">附加说明<asp:TextBox ID="fjsm" runat="server" Height="16px" Width="184px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">结算方式<asp:DropDownList ID="jsfs" runat="server" Height="25px" Width="284px">
+                        <td class="auto-style3">结算方式<asp:DropDownList ID="jsfs" runat="server" Height="25px" Width="184px">
                             <asp:ListItem>现金</asp:ListItem>
                             <asp:ListItem>电汇</asp:ListItem>
                             <asp:ListItem>承兑汇票</asp:ListItem>
@@ -103,7 +103,7 @@
                 </table>
             </div>
 
-            <div>
+            <div style="width:900px">
                 <p>
                     <asp:Button runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click" />
                     收款账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server" Height="200px"
@@ -129,21 +129,21 @@
                                 <%#Container.DataItemIndex+1 %>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField HeaderText="收款账户编号" DataField="skzhbh" HeaderStyle-Width="10%">
-                            <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        <asp:BoundField HeaderText="收款账户编号" DataField="skzhbh" HeaderStyle-Width="20%">
+                            <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                            <ItemStyle HorizontalAlign="Left" Width="20%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="收款账户名称" DataField="skzhmc" HeaderStyle-Width="10%">
-                            <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        <asp:BoundField HeaderText="收款账户名称" DataField="skzhmc" HeaderStyle-Width="20%">
+                            <HeaderStyle HorizontalAlign="Left" Width="20%" />
+                            <ItemStyle HorizontalAlign="Left" Width="20%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="金额" DataField="je" HeaderStyle-Width="10%">
                             <HeaderStyle HorizontalAlign="Left" Width="10%" />
                             <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="备注" DataField="bz" HeaderStyle-Width="20%">
-                            <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        <asp:BoundField HeaderText="备注" DataField="bz" HeaderStyle-Width="45%">
+                            <HeaderStyle HorizontalAlign="Left" Width="45%" />
+                            <ItemStyle HorizontalAlign="Left" Width="45%" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
@@ -160,8 +160,8 @@
             </div>
 
             <p class="auto-style7">
-                优惠金额<asp:TextBox ID="yhje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                合计金额<asp:TextBox ID="hjje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                优惠金额<asp:TextBox ID="yhje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" AutoPostBack="true" OnTextChanged="yhje_TextChanged" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                合计金额<asp:TextBox ID="hjje" ReadOnly="true" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             </p>
 
 

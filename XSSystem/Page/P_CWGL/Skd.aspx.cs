@@ -23,6 +23,7 @@ namespace XSSystem.Page.P_Order
             if (!IsPostBack)
             {
                 InitBh();
+                yhje.Text = "0";
                 if (Session["skd"] != null)
                 {
                     InitData(Session["skd"]);
@@ -134,8 +135,8 @@ namespace XSSystem.Page.P_Order
             dp_zy.Text = dt.Rows[0][7].ToString();
             fjsm.Text = dt.Rows[0][8].ToString();
             jsfs.Text = dt.Rows[0][9].ToString();
-            // ysye.Text = dt.Rows[0][9].ToString();
-            // yfye.Text = dt.Rows[0][10].ToString();
+            yhje.Text = dt.Rows[0][10].ToString();
+            hjje.Text = dt.Rows[0][11].ToString();
             Session.Remove("skd");
         }
 
@@ -171,6 +172,8 @@ namespace XSSystem.Page.P_Order
                 return;
             }
             dataTable.Rows.Add(dr);
+            var sum = dataTable.Compute("sum(je)", "TRUE");
+            hjje.Text = Sub(sum.ToString(), yhje.Text);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
 
@@ -196,8 +199,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);
-                //  dml.Add("@ysye", ysye.Text.Trim());
-                ///  dml.Add("@yfye", yfye.Text.Trim());
+                dml.Add("@yhje", yhje.Text.Trim());
+                dml.Add("@hjje", hjje.Text.Trim());
             }
             catch
             {
@@ -266,8 +269,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);
-                //  dml.Add("@ysye", ysye.Text.Trim());
-                ///  dml.Add("@yfye", yfye.Text.Trim());
+                dml.Add("@yhje", yhje.Text.Trim());
+                dml.Add("@hjje", hjje.Text.Trim());
             }
             catch
             {
@@ -295,6 +298,18 @@ namespace XSSystem.Page.P_Order
             else
             {
                 AlertMessage(ret);
+            }
+        }
+
+        protected void yhje_TextChanged(object sender, EventArgs e)
+        {
+            if (dataTable.Rows.Count > 0)
+            {
+                var sum = dataTable.Compute("sum(je)", "TRUE");
+                if (yhje.Text == "")
+                    hjje.Text = sum.ToString();
+                else
+                    hjje.Text = Sub(sum.ToString(), yhje.Text);
             }
         }
     }

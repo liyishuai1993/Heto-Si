@@ -1158,14 +1158,26 @@ namespace xs_System.Logic
             return sql;
         }
 
+        public string QuerySkdOrder2(QueryClass qc)
+        {
+            string sql = string.Format(@"select fkdw dwmc,ldrq rq,zy,isnull(hjje,0) skje,jsfs skfs
+                            from xs_SkdTable  where (fkdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+            return sql;
+        }
+
         public string QueryFkdOrder(QueryClass qc)
         {
             string sql = string.Format(@"select * from (select skdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,fkzhbh skzh  
                             from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where 1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
             return sql;
         }
-        
 
+        public string QueryFkdOrder2(QueryClass qc)
+        {
+            string sql = string.Format(@"select skdw dwmc,ldrq rq,zy,isnull(hjje,0) skje,jsfs skfs
+                            from xs_FkdTable  where 1={3} or (skdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+            return sql;
+        }
 
         public bool DeleteData(DirModel dml, string tablename,string key)
         {

@@ -141,8 +141,34 @@ namespace XSSystem.Page.P_CWGL
                 double c = (double)QyxsckdDT.Rows[i][10];
                 QyxsckdDT.Rows[i][12] = a + b -c ;
             }
+        }
 
+        double ckjzSum = 0;
+        double dhdwSum = 0;
+        double yeSum = 0;
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowIndex >= 0)
+                {
+                    ckjzSum += Convert.ToDouble(e.Row.Cells[3].Text);
+                    dhdwSum+= Convert.ToDouble(e.Row.Cells[4].Text);
+                    yeSum += Convert.ToDouble(e.Row.Cells[12].Text);
+                }
+                else if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[1].Text = "汇总合计";
+                    e.Row.Cells[3].Text = ckjzSum.ToString();
+                    e.Row.Cells[4].Text = dhdwSum.ToString();
+                    e.Row.Cells[12].Text = yeSum.ToString();
 
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
+            }
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
@@ -291,7 +317,7 @@ namespace XSSystem.Page.P_CWGL
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QuerySkdOrder(qc);
+            pagepara.Sql = _htglLogic.QuerySkdOrder2(qc);
             pagepara.OrderBy = "dwmc";
             SkdDT = xsPageHelper.BindPager(pagepara);
         }
@@ -300,7 +326,7 @@ namespace XSSystem.Page.P_CWGL
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QueryFkdOrder(qc);
+            pagepara.Sql = _htglLogic.QueryFkdOrder2(qc);
             pagepara.OrderBy = "dwmc";
             FkdDT = xsPageHelper.BindPager(pagepara);
         }
@@ -320,5 +346,6 @@ namespace XSSystem.Page.P_CWGL
             GridView1.DataBind();
         }
 
+        
     }
 }

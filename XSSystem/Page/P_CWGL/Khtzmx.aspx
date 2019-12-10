@@ -40,7 +40,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="divcss5" style="margin-bottom: 15px; width: 1200px">
+        <div class="divcss5" style="margin-bottom: 15px; Width:1200px">
             <span>导出时间<asp:TextBox ID="cxsjQ" runat="server" Text="" valued="must" name="起始日期" onClick="WdatePicker()" Width="204px" />-
                 <asp:TextBox ID="cxsjZ" runat="server" Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="204px" />
                 客户<asp:TextBox ID="kh" runat="server" Width="140px"></asp:TextBox>
@@ -51,7 +51,8 @@
         </div>
         <div>
             <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1200px">
-                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" ShowFooter="true"
+                    OnRowDataBound="GridView1_RowDataBound" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">
