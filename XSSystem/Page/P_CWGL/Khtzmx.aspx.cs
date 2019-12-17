@@ -146,21 +146,27 @@ namespace XSSystem.Page.P_CWGL
         double ckjzSum = 0;
         double dhdwSum = 0;
         double yeSum = 0;
+        double xsjsdwSum = 0;
+        double xsjsjeSum = 0;
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
             {
                 if (e.Row.RowIndex >= 0)
                 {
-                    ckjzSum += Convert.ToDouble(e.Row.Cells[3].Text);
-                    dhdwSum+= Convert.ToDouble(e.Row.Cells[4].Text);
-                    yeSum += Convert.ToDouble(e.Row.Cells[12].Text);
+                    ckjzSum += Convert.ToDouble(e.Row.Cells[4].Text);
+                    dhdwSum+= Convert.ToDouble(e.Row.Cells[5].Text);
+                    xsjsdwSum += Convert.ToDouble(e.Row.Cells[7].Text);
+                    xsjsjeSum += Convert.ToDouble(e.Row.Cells[9].Text);
+                    yeSum = Convert.ToDouble(e.Row.Cells[12].Text);
                 }
                 else if (e.Row.RowType == DataControlRowType.Footer)
                 {
                     e.Row.Cells[1].Text = "汇总合计";
-                    e.Row.Cells[3].Text = ckjzSum.ToString();
-                    e.Row.Cells[4].Text = dhdwSum.ToString();
+                    e.Row.Cells[4].Text = ckjzSum.ToString();
+                    e.Row.Cells[5].Text = dhdwSum.ToString();
+                    e.Row.Cells[7].Text = xsjsdwSum.ToString();
+                    e.Row.Cells[9].Text = xsjsjeSum.ToString();
                     e.Row.Cells[12].Text = yeSum.ToString();
 
                 }

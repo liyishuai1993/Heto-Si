@@ -41,7 +41,7 @@
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
     </span>
         </div>
-    <div style="overflow-y: scroll; height: 200px;width:1400px">
+    <div style="overflow-y: scroll; height: 900px;width:1400px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False" AllowSorting="true"
             ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

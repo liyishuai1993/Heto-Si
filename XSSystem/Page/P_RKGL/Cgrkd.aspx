@@ -40,20 +40,20 @@
     <script type="text/javascript">
         function FormCheck() {
             document.getElementById("kkbz").value = document.getElementById("mj").value;
-            document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
-            document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
+            document.getElementById("rkjz").value = (document.getElementById("rkmz").value - document.getElementById("rkpz").value).toFixed(3);
+            document.getElementById("zcjz").value = (document.getElementById("zcmz").value - document.getElementById("zcpz").value).toFixed(3);
             if (document.getElementById("IsCal").value == true) {
-                document.getElementById("yslhbz").value = document.getElementById("zcjz").value * document.getElementById("percent").value;
+                document.getElementById("yslhbz").value = (document.getElementById("zcjz").value * document.getElementById("percent").value).toFixed(3);
             }
-            document.getElementById("jsmk").value = document.getElementById("zcjz").value * document.getElementById("mj").value;
+            document.getElementById("jsmk").value = (document.getElementById("zcjz").value * document.getElementById("mj").value).toFixed(2);
             var temp = document.getElementById("zcjz").value - document.getElementById("rkjz");
             document.getElementById("ksds").value = temp > 0 ? temp : 0;
             document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("zcjz").value;
             document.getElementById("kkds").value = math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
-            document.getElementById("kkje").value = document.getElementById("rkjz").value * document.getElementById("zcjz").value;
+            document.getElementById("kkje").value = (document.getElementById("rkjz").value * document.getElementById("zcjz").value).toFixed(2);
             document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value, document.getElementById("kkds").value);
-            document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value;
-            document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value;
+            document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value).toFixed(2);
+            document.getElementById("jsyf").value = (document.getElementById("yfyf").value - document.getElementById("yfyk").value).toFixed(2);
         }
     </script>
 </head>

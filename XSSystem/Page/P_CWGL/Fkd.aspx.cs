@@ -18,6 +18,7 @@ namespace XSSystem.Page.P_Order
     {
         CWGLLogic _cwglLogic = new CWGLLogic();
         static DataTable dataTable;
+        static int gvIndex;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -115,6 +116,7 @@ namespace XSSystem.Page.P_Order
                 dataTable.Rows.Add(dr);
 
             }
+            gvIndex = dataTable.Rows.Count;
             this.GridView1.DataSource = dataTable;
             this.GridView1.DataBind();
         }
@@ -211,7 +213,7 @@ namespace XSSystem.Page.P_Order
             DataRow dr = dataTable.NewRow();
             try
             {
-                dr[0] = dataTable.Rows.Count;
+                dr[0] = gvIndex;
                 dr[1] = tk_skzhbh.Text;
                 dr[2] = zhm.Text;
                 dr[3] = double.Parse(je.Text.Trim());
@@ -223,11 +225,33 @@ namespace XSSystem.Page.P_Order
                 return;
             }
             dataTable.Rows.Add(dr);
+            gvIndex++;
             var sum = dataTable.Compute("sum(je)", "TRUE");
             hjje.Text = Sub(sum.ToString(), yhje.Text);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
 
+        }
+
+        protected void DelJgxx(object sender, EventArgs e)
+        {
+            string itemBh = (sender as Button).CommandArgument;
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                if (dataTable.Rows[i][0].ToString().Equals(itemBh))
+                {
+                    dataTable.Rows.Remove(dataTable.Rows[i]);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            var sum = dataTable.Compute("sum(je)", "TRUE");
+            hjje.Text = Sub(sum.ToString(), yhje.Text);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void tk_skzhbh_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)

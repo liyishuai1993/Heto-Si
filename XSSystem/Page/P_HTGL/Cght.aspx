@@ -19,7 +19,7 @@
         function FormCheck() {
             var a = document.getElementById("htmj").value;
             var b = document.getElementById("qdds").value;
-            document.getElementById("qdje").value = a * b;
+            document.getElementById("qdje").value = (a * b).toFixed(2);
 
         }
     </script>

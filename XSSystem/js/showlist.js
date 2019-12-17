@@ -37,11 +37,11 @@ function setUrl(url) {
     return false;
 }
 
-$(document).ready(function () {
-    $("#ipage").load(function () {
+$(document).ready(function() {
+    $("#ipage").load(function() {
         doReSize();
     });
-    window.onresize = function () {
+    window.onresize = function() {
         doReSize();
     }
 });

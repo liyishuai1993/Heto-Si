@@ -44,31 +44,28 @@
 
     <script type="text/javascript">
         function FormCkdCheck() {
-            document.getElementById("ckjz1").value = document.getElementById("ckmz").value - document.getElementById("ckpz").value;
-            document.getElementById("ckjz2").value = document.getElementById("ckjz1").value - document.getElementById("jbds").value;
-            document.getElementById("hkgsje").value = document.getElementById("ckjz2").value * document.getElementById("mj").value;
+            document.getElementById("ckjz1").value = (document.getElementById("ckmz").value - document.getElementById("ckpz").value).toFixed(3);
+            document.getElementById("ckjz2").value = (document.getElementById("ckjz1").value - document.getElementById("jbds").value).toFixed(3);
+            document.getElementById("hkgsje").value = (document.getElementById("ckjz2").value * document.getElementById("mj").value).toFixed(2);
         }
 
         function FormHdCheck() {
-            document.getElementById("rkjz").value = document.getElementById("rkmz").value - document.getElementById("rkpz").value;
-            if (document.getElementById("IsCal").value == true) {
-                document.getElementById("yfhllh").value = document.getElementById("ckjz2").value * document.getElementById("percent").value;
-            }
-            document.getElementById("ksds").value = math.abs(document.getElementById("ckjz2").value - document.getElementById("rkjz").value);
-            document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
-            document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yfhllh").value;
-            document.getElementById("yfkkje").value = document.getElementById("yflhbz").value * document.getElementById("yfkkds").value;
-            var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz");
-            document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz") : document.getElementById("ckjz").value;
+                document.getElementById("rkjz").value = (document.getElementById("rkmz").value - document.getElementById("rkpz").value).toFixed(3);
+                if (document.getElementById("IsCal").value == true) {
+                    document.getElementById("yfhllh").value = (document.getElementById("ckjz2").value * document.getElementById("percent").value).toFixed(3);
+                }
+                document.getElementById("ksds").value = Math.abs(document.getElementById("ckjz2").value - document.getElementById("rkjz").value).toFixed(3);
+                document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
+                document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yfhllh").value;
+                document.getElementById("yfkkje").value = (document.getElementById("yflhbz").value * document.getElementById("yfkkds").value).toFixed(2);
+                var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz").value;
+                document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz").value: document.getElementById("ckjz").value;
 
-            document.getElementById("yfyf").value = document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value;
-            document.getElementById("jsyf").value = document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value;
-            document.getElementById("hkjsdw").value = document.getElementById("rkjz").value - document.getElementById("kd").value;
-            document.getElementById("jshk").value = document.getElementById("hkjsdw").value * document.getElementById("mj").value;
-            document.getElementById("tcje").value = document.getElementById("hkjsdw").value * document.getElementById("tcbz").value;
-
-
-
+                document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value).toFixed(2);
+                document.getElementById("jsyf").value = (document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value).toFixed(2);
+                document.getElementById("hkjsdw").value = document.getElementById("rkjz").value - document.getElementById("kd").value;
+                document.getElementById("jshk").value = (document.getElementById("hkjsdw").value * document.getElementById("mj").value).toFixed(2);
+                document.getElementById("tcje").value = (document.getElementById("hkjsdw").value * document.getElementById("tcbz").value).toFixed(2);
         }
     </script>
 </head>

@@ -103,18 +103,19 @@
                 </table>
             </div>
 
-            <div style="width:900px">
-                <p>
-                    <asp:Button runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click" />
-                    收款账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server" Height="200px"
+            <div style="width:1200px;margin-top:20px;" >
+                <div style="margin-bottom:20px">
+                    <asp:Button runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click" width="60px"/>
+                    收款账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_skzhbh" AutoPostBack="True" runat="server" Height="200px" 
                         EmptyMessage="请输入收款账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="收款账户" valued="must2"
-                        HighlightTemplatedItems="true" OnSelectedIndexChanged="tk_skzhbh_SelectedIndexChanged" />
-                    收款账户名称<asp:TextBox runat="server" ID="zhm" valued="must2" name="收款账户名称" />
-                    开户行<asp:TextBox runat="server" ID="khh" valued="must2" name="开户行" />
-                    金额<asp:TextBox runat="server" ID="je" valued="must2" name="金额" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" />
-                    备注<asp:TextBox runat="server" ID="bz" />
-                </p>
-                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        HighlightTemplatedItems="true" OnSelectedIndexChanged="tk_skzhbh_SelectedIndexChanged" Width="150px" />
+                    收款账户名称<asp:TextBox runat="server" ID="zhm" valued="must2" name="收款账户名称" Width="150px"/>
+                    开户行<asp:TextBox runat="server" ID="khh" valued="must2" name="开户行" Width="150px"></asp:TextBox>
+                    金额<asp:TextBox runat="server" ID="je" valued="must2" name="金额" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"  Width="100px" />
+                    <p>
+                    备注<asp:TextBox runat="server" ID="bz"  Width="600px"/></p>
+                </div>
+                <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" Width="900px" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" EmptyDataText="无记录" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField HeaderText="序号" Visible="false" DataField="xh" HeaderStyle-Width="10%">
@@ -145,6 +146,14 @@
                             <HeaderStyle HorizontalAlign="Left" Width="45%" />
                             <ItemStyle HorizontalAlign="Left" Width="45%" />
                         </asp:BoundField>
+                        <asp:TemplateField HeaderText="操作">
+                            <ItemTemplate>
+                                <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("xh") %>' CssClass="buttonCancle" OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                                <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Left" Width="10%" />
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        </asp:TemplateField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
