@@ -55,7 +55,7 @@
     </div>
     <div id="footer">
         
-        CopyRight 2014 , All Rights Reserved&reg; Recommended Resolution 1366×768
+        CopyRight 2019 , All Rights Reserved&reg; Recommended Resolution 1366×768
     </div>
     </form>
 </body>

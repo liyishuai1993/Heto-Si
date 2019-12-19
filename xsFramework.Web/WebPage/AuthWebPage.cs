@@ -183,12 +183,12 @@ namespace xsFramework.Web.WebPage
 
         public string Add(string a,string b)
         {
-            return (double.Parse(a) + double.Parse(b)).ToString();
+            return (double.Parse(a) + double.Parse(b)).ToString("f3");
         }
 
         public string Sub(string a, string b)
         {
-            return (double.Parse(a) - double.Parse(b)).ToString();
+            return (double.Parse(a) - double.Parse(b)).ToString("f3");
         }
 
         public string AbsSub(string a, string b)
@@ -199,7 +199,7 @@ namespace xsFramework.Web.WebPage
 
         public string Mul(string a, string b)
         {
-            return (double.Parse(a) * double.Parse(b)).ToString();
+            return (double.Parse(a) * double.Parse(b)).ToString("f3");
         }
 
         public string Div(string a,string b)

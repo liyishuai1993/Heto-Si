@@ -9,18 +9,18 @@
     <div>
         本后台系统主要功能有
         <ul>
-            <li>管理公司说明</li>
-            <li>管理联系方式</li>
-            <li>管理新闻</li>
-            <li>管理招聘信息</li>
-            <li>管理用户，为每个用户设定功能权限</li>
+            <li>合同管理</li>
+            <li>进出库管理</li>
+            <li>生产管理</li>
+            <li>财务管理</li>
+            <li>报表生成</li>
         </ul>
     </div>
     <div>
         系统开发说明
         <ul>
-            <li>开发技术：asp.net+sql server</li>
-            <li>版本信息：V0.1</li>
+            <li>开发者联系方式：18268107161</li>
+            <li>版本信息：V1.1</li>
         </ul>
     </div>
 </asp:Content>

@@ -79,7 +79,11 @@ namespace XSSystem.Page.P_CWGL
             {
                 SkdDT.Columns.Remove("PID");
             }
-            CreateExcel(SkdDT, "application/ms-excel", "test");
+            DataRow row = SkdDT.NewRow();
+            row[0] = "合计";
+            row[3] = SkdDT.Compute("sum(收款金额)", "TRUE");
+            SkdDT.Rows.Add(row);
+            CreateExcel(SkdDT, "application/ms-excel", $"{kh.Text}收款明细{cxsjQ.Text}-{cxsjZ.Text}");
 
 
 
@@ -206,6 +210,28 @@ namespace XSSystem.Page.P_CWGL
             GridView1.DataSource = SkdDT;
 
             GridView1.DataBind();
+        }
+
+        double skje;
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowIndex >= 0)
+                {
+                    skje += Convert.ToDouble(e.Row.Cells[4].Text);
+                }
+                else if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[1].Text = "汇总合计";
+                    e.Row.Cells[4].Text = skje.ToString("f3");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
+            }
         }
     }
 }

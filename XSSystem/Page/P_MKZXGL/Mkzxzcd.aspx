@@ -45,10 +45,10 @@
     </style>
     <script type="text/javascript">
         function FormCheck() {
-            document.getElementById("zcjz").value = document.getElementById("zcmz").value - document.getElementById("zcpz").value;
-            document.getElementById("yfyf").value = document.getElementById("zcjz").value * document.getElementById("yj").value;
-            document.getElementById("cgjsje").value = document.getElementById("zcjz").value * document.getElementById("cgmj").value;
-            document.getElementById("xsjsje").value = (document.getElementById("yj").value + document.getElementById("xsmj").value) * document.getElementById("zcjz").value;
+            document.getElementById("zcjz").value = (document.getElementById("zcmz").value - document.getElementById("zcpz").value).toFixed(3);
+            document.getElementById("yfyf").value = (document.getElementById("zcjz").value * document.getElementById("yj").value).toFixed(2);
+            document.getElementById("cgjsje").value = (document.getElementById("zcjz").value * document.getElementById("cgmj").value).toFixed(2);
+            document.getElementById("xsjsje").value = ((document.getElementById("yj").value + document.getElementById("xsmj").value) * document.getElementById("zcjz").value).toFixed(2);
         }
     </script>
 </head>
@@ -177,6 +177,13 @@
                                 <HeaderStyle HorizontalAlign="Left" Width="10%" />
                                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                             </asp:BoundField>
+                            <asp:TemplateField HeaderStyle-Width="5%" HeaderText="删除">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument=' <%#Container.DataItemIndex%>' CssClass="buttonCancle" OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                                    <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                                </ItemTemplate>
+                                <HeaderStyle Width="5%" />
+                            </asp:TemplateField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

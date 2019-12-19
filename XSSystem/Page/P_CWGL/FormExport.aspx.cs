@@ -121,7 +121,14 @@ namespace XSSystem.Page.P_CWGL
             {
                 QyxsckdDT.Columns.Remove("PID");
             }
-            CreateExcel(QyxsckdDT, "application/ms-excel", "test");
+            DataRow row = QyxsckdDT.NewRow();
+            row[0] = "合计";
+            row[3] = QyxsckdDT.Compute("sum(出库吨位)", "TRUE");
+            row[4] = QyxsckdDT.Compute("sum(到货吨位)", "TRUE");
+            row[6] = QyxsckdDT.Compute("sum(销售结算吨位)", "TRUE");
+            row[8] = QyxsckdDT.Compute("sum(销售结算金额)", "TRUE");
+            QyxsckdDT.Rows.Add(row);
+            CreateExcel(QyxsckdDT, "application/ms-excel", $"{kh.Text}销售明细{cxsjQ.Text}-{cxsjZ.Text}");
 
 
 
@@ -253,6 +260,33 @@ namespace XSSystem.Page.P_CWGL
             GridView1.DataSource = QyxsckdDT;
 
             GridView1.DataBind();
+        }
+
+        double ckdwSum, dhdwSum, xsjsdwSum, xsjsjeSum;
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowIndex >= 0)
+                {
+                    ckdwSum += Convert.ToDouble(e.Row.Cells[4].Text);
+                    dhdwSum += Convert.ToDouble(e.Row.Cells[5].Text);
+                    xsjsdwSum += Convert.ToDouble(e.Row.Cells[7].Text);
+                    xsjsjeSum += Convert.ToDouble(e.Row.Cells[9].Text);
+                }
+                else if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[1].Text = "汇总合计";
+                    e.Row.Cells[4].Text = ckdwSum.ToString();
+                    e.Row.Cells[5].Text = dhdwSum.ToString();
+                    e.Row.Cells[7].Text = xsjsdwSum.ToString();
+                    e.Row.Cells[9].Text = xsjsjeSum.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
+            }
         }
     }
 }

@@ -264,6 +264,13 @@
                                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                             </asp:BoundField>
                             <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
+                            <asp:TemplateField HeaderStyle-Width="5%" HeaderText="删除">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument=' <%#Container.DataItemIndex%>' CssClass="buttonCancle" OnClick="DelJgxx" OnClientClick="return confirm('是否删除？')" Text="删除" />
+                                    <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
+                                </ItemTemplate>
+                                <HeaderStyle Width="5%" />
+                            </asp:TemplateField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

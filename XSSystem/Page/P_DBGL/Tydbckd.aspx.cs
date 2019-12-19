@@ -392,5 +392,26 @@ namespace XSSystem.Page.P_Order
             GridView1.EditIndex = -1;
             InitGridView();
         }
+
+        protected void DelJgxx(object sender, EventArgs e)
+        {
+            int index = int.Parse((sender as Button).CommandArgument);
+            dataTable.Rows.Remove(dataTable.Rows[index]);
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    if (dataTable.Rows[i][0].ToString().Equals(id))
+            //    {
+            //        dataTable.Rows.Remove(dataTable.Rows[i]);
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        continue;
+            //    }
+            //}
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
+        }
     }
 }

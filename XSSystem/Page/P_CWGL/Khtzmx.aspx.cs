@@ -120,6 +120,10 @@ namespace XSSystem.Page.P_CWGL
                     DataRow row = QyxsckdDT.NewRow();
                     row[0] = val[0];
                     row[1] = val[1];
+                    row[3] = 0;
+                    row[4] = 0;
+                    row[6] = 0;
+                    row[7] = 0;
                     row[8] = 0;
                     row[10] = val[3];
                     row[11] = val[4];
@@ -197,7 +201,16 @@ namespace XSSystem.Page.P_CWGL
             {
                 QyxsckdDT.Columns.Remove("PID");
             }
-            CreateExcel(QyxsckdDT, "application/ms-excel", "test");
+            DataRow row = QyxsckdDT.NewRow();
+            row[0] = "合计";
+            row[3] = QyxsckdDT.Compute("sum(出库吨位)", "TRUE");
+            row[4] = QyxsckdDT.Compute("sum(到货吨位)", "TRUE");
+            row[6] = QyxsckdDT.Compute("sum(销售结算吨位)", "TRUE");
+            row[8] = QyxsckdDT.Compute("sum(销售结算金额)", "TRUE");
+            row[9] = QyxsckdDT.Compute("sum(收款金额)", "TRUE");
+            row[11] = QyxsckdDT.Rows[QyxsckdDT.Rows.Count - 1][11];
+            QyxsckdDT.Rows.Add(row);
+            CreateExcel(QyxsckdDT, "application/ms-excel", $"{kh.Text}台账明细{cxsjQ.Text}-{cxsjZ.Text}");
 
 
 

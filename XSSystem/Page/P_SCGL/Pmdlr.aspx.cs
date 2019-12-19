@@ -358,5 +358,47 @@ namespace XSSystem.Page.P_Order
                 AlertMessage(reply);
             }
         }
+
+        protected void DelJgxx(object sender, EventArgs e)
+        {
+            int index = int.Parse((sender as Button).CommandArgument);
+            YLdataTable.Rows.Remove(YLdataTable.Rows[index]);
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    if (dataTable.Rows[i][0].ToString().Equals(id))
+            //    {
+            //        dataTable.Rows.Remove(dataTable.Rows[i]);
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        continue;
+            //    }
+            //}
+            GridView_YLMZ.DataSource = YLdataTable;
+            GridView_YLMZ.DataBind();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            int index = int.Parse((sender as Button).CommandArgument);
+            CPdataTable.Rows.Remove(CPdataTable.Rows[index]);
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    if (dataTable.Rows[i][0].ToString().Equals(id))
+            //    {
+            //        dataTable.Rows.Remove(dataTable.Rows[i]);
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        continue;
+            //    }
+            //}
+            CPGridView.DataSource = CPdataTable;
+            CPGridView.DataBind();
+        }
     }
 }
