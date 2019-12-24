@@ -1074,6 +1074,7 @@
     <Content Include="Page\P_System\Group_Add.aspx" />
     <Content Include="Page\P_System\Group_Function.aspx" />
     <Content Include="Page\P_System\Group_Update.aspx" />
+    <Content Include="Page\P_System\InfomationGl.aspx" />
     <Content Include="Page\P_System\InfomationInput.aspx" />
     <Content Include="Page\P_System\User.aspx" />
     <Content Include="Page\P_System\User_Add.aspx" />
@@ -1855,6 +1856,13 @@
     </Compile>
     <Compile Include="Page\P_System\Group_Update.aspx.designer.cs">
       <DependentUpon>Group_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_System\InfomationGl.aspx.cs">
+      <DependentUpon>InfomationGl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_System\InfomationGl.aspx.designer.cs">
+      <DependentUpon>InfomationGl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_System\InfomationInput.aspx.cs">
       <DependentUpon>InfomationInput.aspx</DependentUpon>
