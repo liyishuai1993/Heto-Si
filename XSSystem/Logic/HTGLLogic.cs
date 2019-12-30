@@ -75,6 +75,11 @@ namespace xs_System.Logic
             return SqlHelper.Execute(xsSqls);
         }
 
+        /// <summary>
+        /// 插入煤场
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns></returns>
         public bool InsertYuanLiao(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -111,7 +116,11 @@ namespace xs_System.Logic
             return true;
         }
         
-
+        /// <summary>
+        /// 往来单位
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns></returns>
         public bool InsertWangLaiDanWei(DirModel dml)
         {
 
@@ -131,6 +140,11 @@ namespace xs_System.Logic
             return true;
         }
         
+        /// <summary>
+        /// 人员
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns></returns>
         public bool InsertYuanGong(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -141,6 +155,11 @@ namespace xs_System.Logic
             return SqlHelper.Execute(sqlpara);
         }
 
+        /// <summary>
+        /// 账户
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns></returns>
         public bool InsertZhangHu(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -719,6 +738,11 @@ namespace xs_System.Logic
             return true;
         }
 
+        /// <summary>
+        /// 物料
+        /// </summary>
+        /// <param name="dml"></param>
+        /// <returns></returns>
         public bool InsertMeZhong(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
@@ -991,11 +1015,31 @@ namespace xs_System.Logic
 
         public string QueryHtOrder(QueryClass qc)
         {
-            //string sql = @"select * from xs_CghtTable where htbh='"+qc.htbh+"' or ( qdrq>='"+ qc.qdrqQ+
-            //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
-            //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
-
             string sql = string.Format(@"select * from {0} where ({1}='{2}' {6} (qdrq>='{3}' and qdrq<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.selectedCon);
+            return sql;
+        }
+
+        public string QueryInfomation(QueryClass qc)
+        {
+            string sql = "";
+            switch (qc.tableName)
+            {
+                case "xs_MeiZhongTable":
+                    sql = string.Format(@"select id , mzmc as nr from {0}", qc.tableName);
+                    break;
+                case "xs_WangLaiDanWei":
+                    sql = string.Format(@"select id , wldw as nr from {0}", qc.tableName);
+                    break;
+                case "xs_YuanLiaoTable":
+                    sql = string.Format(@"select id,yl as nr from {0}", qc.tableName);
+                    break;
+                case "xs_ZhangHu":
+                    sql = string.Format(@"select id,zh+zhm+kkh as nr as nr from {0}", qc.tableName);
+                    break;
+                case "xs_YuanGong":
+                    sql = string.Format(@"select id,yg as nr from {0}", qc.tableName);
+                    break;
+            }
             return sql;
         }
 

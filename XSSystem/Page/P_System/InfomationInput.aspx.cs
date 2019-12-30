@@ -18,6 +18,11 @@ namespace XSSystem.Page.P_System
 
         }
 
+        /// <summary>
+        /// 物料名称
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void submit1_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
@@ -34,7 +39,11 @@ namespace XSSystem.Page.P_System
             }
         }
 
-
+        /// <summary>
+        /// 煤场
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void submit2_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
@@ -67,6 +76,11 @@ namespace XSSystem.Page.P_System
         //    }
         //}
 
+            /// <summary>
+            /// 往来单位
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
         protected void submit4_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
@@ -84,6 +98,11 @@ namespace XSSystem.Page.P_System
             }
         }
 
+        /// <summary>
+        /// 账户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
@@ -103,6 +122,11 @@ namespace XSSystem.Page.P_System
             }
         }
 
+        /// <summary>
+        /// 人员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void submit5_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();

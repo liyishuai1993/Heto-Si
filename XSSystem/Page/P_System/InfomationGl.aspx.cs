@@ -15,7 +15,6 @@ namespace XSSystem.Page.P_System
     public partial class InfomationGl : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-        static bool IsAll = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,7 +63,9 @@ namespace XSSystem.Page.P_System
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;
-            pagepara.Sql = _htglLogic.QueryHtOrder(qc);
+            pagepara.Sql = _htglLogic.QueryInfomation(qc);
+            pagepara.OrderBy = "nr";
+            
             return xsPageHelper.BindPager(pagepara, e);
         }
 
@@ -103,65 +104,45 @@ namespace XSSystem.Page.P_System
             //}
         }
 
-        private void AlertMessage(string v)
-        {
-            throw new NotImplementedException();
-        }
-
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            string str = "";
             DirModel dml = new DirModel();
-            dml.Add("@htbh", (sender as Button).CommandArgument);
-            if (_htglLogic.DeleteUser(dml, "xs_CghtTable"))
+            string[] ckb = null;
+
+            str = Request.Form.Get("checkboxname");
+            if (str == null)
             {
-                AlertMessage("订单删除成功");
+                AlertMessage("当前未选中对象");
+                return;
+            }
+            ckb = str.Split(new char[] { ',' });
+
+
+
+            dml.Add("@htbhArr", ckb);
+            if (_htglLogic.DeleteData(dml, sxtj.SelectedItem.Value, "id"))
+            {
+                AlertMessage("删除成功");
             }
             else
             {
-                AlertMessage("订单删除失败");
+                AlertMessage("删除失败");
             }
             xsPage.RefreshPage();
         }
 
-        protected void btnShengHe_Click(object sender, EventArgs e)
-        {
-            DirModel dml = new DirModel();
-            dml.Add("@htbh", (sender as Button).CommandArgument);
-            if (_htglLogic.ShengHeOrder(dml, "xs_CghtTable"))
-            {
-                AlertMessage("审核订单成功");
-            }
-            else
-            {
-                AlertMessage("审核订单失败");
-            }
-            xsPage.RefreshPage();
-        }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            JavaScript("window.location.href='Cght.aspx'");
+            JavaScript("window.location.href='InfomationInput.aspx'");
             // Response.Redirect("'Cght.aspx");
         }
         // CghtClass cghtClass;
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            QueryClass qc = new QueryClass();
-            qc.tableName = "xs_CghtTable";
-            qc.selectedItem = (sender as Button).CommandArgument;
-            qc.selectedKey = "htbh";
-            qc.selectedCon = "or";
-            PageChangedEventArgs ex = new PageChangedEventArgs(1);
-            DataTable dt = SelectSQL(qc, ex);
-            Session["cght"] = dt;
-            JavaScript("window.location.href='Cght.aspx'");
-        }
 
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
-            IsAll = false;
-            Session["selectedItemCght"] = tjz.Text.Trim();
             xsPage.RefreshPage();
         }
 
@@ -173,7 +154,6 @@ namespace XSSystem.Page.P_System
 
         protected void allQuery_Click(object sender, EventArgs e)
         {
-            IsAll = true;
             SelectedAll(1);
         }
 
@@ -181,8 +161,7 @@ namespace XSSystem.Page.P_System
         {
             PageChangedEventArgs ex = new PageChangedEventArgs(page);
             QueryClass qc = new QueryClass();
-            qc.tableName = "xs_CghtTable";
-            qc.selectedKey = "htbh";
+            qc.tableName = sxtj.SelectedItem.Value;
             qc.IsAll = 1;
             GridOrder.DataSource = SelectSQL(qc, ex);
             GridOrder.DataBind();

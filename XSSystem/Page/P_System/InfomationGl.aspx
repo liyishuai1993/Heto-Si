@@ -30,20 +30,20 @@
                         <asp:ListItem Value="or">不关联</asp:ListItem>
                         </asp:DropDownList>--%> 
                 筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
-                        <asp:ListItem Value="wlmc">物料名称</asp:ListItem>
-                        <asp:ListItem Value="wldw">往来单位</asp:ListItem>
-                        <asp:ListItem Value="mc">煤场</asp:ListItem>
-                        <asp:ListItem Value="zh">账户</asp:ListItem>
-                        <asp:ListItem Value="ry">人员</asp:ListItem>
+                        <asp:ListItem Value="xs_MeiZhongTable">物料名称</asp:ListItem>
+                        <asp:ListItem Value="xs_WangLaiDanWei">往来单位</asp:ListItem>
+                        <asp:ListItem Value="xs_YuanLiaoTable">煤场</asp:ListItem>
+                        <asp:ListItem Value="xs_ZhangHu">账户</asp:ListItem>
+                        <asp:ListItem Value="xs_YuanGong">人员</asp:ListItem>
                         </asp:DropDownList>
-                <asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>
+                <%--<asp:TextBox id="tjz" runat="server" Width="284px"></asp:TextBox>--%>
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
-                <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
+                <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDelete_Click" />
     </span>
         </div>
-    <div style="overflow-y: scroll; height: 900px;width:1400px">
+    <div style="overflow-y: scroll; height: 900px;width:1200px">
         <asp:GridView ID="GridOrder" runat="server" CssClass="xs_table" AutoGenerateColumns="False" AllowSorting="true"
-            ShowHeaderWhenEmpty="True" EmptyDataText="查无订单" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
+            ShowHeaderWhenEmpty="True" EmptyDataText="查无信息" Width="85%" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:TemplateField  ItemStyle-HorizontalAlign="Center">
@@ -56,24 +56,15 @@
                 </asp:TemplateField>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
-                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "htbh")%>' onclick='SingleCheckJs();' />
+                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "id")%>' onclick='SingleCheckJs();' />
                 </ItemTemplate>
                     <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />
                 </asp:TemplateField>
                 <asp:BoundField DataField="nr"  HeaderText="内容">
-                <HeaderStyle HorizontalAlign="Left" Width="80%" />
-                <ItemStyle HorizontalAlign="Left" Width="80%" />
+                <HeaderStyle HorizontalAlign="Left" Width="95%" />
+                <ItemStyle HorizontalAlign="Left" Width="95%" />
                 </asp:BoundField>
-                <asp:TemplateField  HeaderText="操作">
-                    <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                    <ItemTemplate>                                 
-                        <asp:Button ID="btnUpdate" runat="server" actionid="04" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnUpdate_Click" OnClientClick="return confirm('是否进行修改？')" Text="查看详情" />
-                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
-                    </ItemTemplate>
-                    <HeaderStyle Width="5%" />
-                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
