@@ -118,7 +118,7 @@ namespace XSSystem.Page.P_Order
             ydzs.Text = dt.Rows[0][7].ToString();
             yddh.Text = dt.Rows[0][8].ToString();
             ymzs.Text = dt.Rows[0][9].ToString();
-            DropDownList_gsmc.SelectedItem.Text = dt.Rows[0][10].ToString();
+            DropDownList_gsmc.Text = dt.Rows[0][10].ToString();
             Session.Remove("rsclr");
         }
 

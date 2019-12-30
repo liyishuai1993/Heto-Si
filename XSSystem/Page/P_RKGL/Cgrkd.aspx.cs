@@ -105,12 +105,12 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             tk_hth.SelectedItem.Text = dt.Rows[0][1].ToString();
             mkmc.Text = dt.Rows[0][2].ToString();
-            tk_gf.SelectedItem.Text = dt.Rows[0][3].ToString();
-            tk_xf.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_gf.Text = dt.Rows[0][3].ToString();
+            tk_xf.Text = dt.Rows[0][4].ToString();
             tk_wlmc.Text = dt.Rows[0][5].ToString();
 
             mj.Text = dt.Rows[0][6].ToString();
-            tk_yshtbh.SelectedItem.Text = dt.Rows[0][7].ToString();
+            tk_yshtbh.Text = dt.Rows[0][7].ToString();
             cycd.Text = dt.Rows[0][8].ToString();
             zcbdh.Text = dt.Rows[0][9].ToString();
             tmdh.Text = dt.Rows[0][10].ToString();

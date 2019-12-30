@@ -52,9 +52,9 @@ namespace XSSystem.Page.P_Order
             htbh.Text = dt.Rows[0][1].ToString();
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
-            czf.SelectedItem.Text = dt.Rows[0][4].ToString();
-            czf2.SelectedItem.Text = dt.Rows[0][5].ToString();
-            czdd.SelectedItem.Text = dt.Rows[0][6].ToString();
+            czf.Text = dt.Rows[0][4].ToString();
+            czf2.Text = dt.Rows[0][5].ToString();
+            czdd.Text = dt.Rows[0][6].ToString();
             zlqxQ.Text = dt.Rows[0][7].ToString();
             zlqxZ.Text = dt.Rows[0][8].ToString();
             yj.Text = dt.Rows[0][9].ToString();

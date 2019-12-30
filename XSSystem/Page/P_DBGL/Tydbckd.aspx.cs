@@ -104,12 +104,12 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             bh.Text = dt.Rows[0][1].ToString();
             htbh.Text = dt.Rows[0][2].ToString();
-            tk_gsmc.SelectedItem.Text = dt.Rows[0][3].ToString();
-            tk_fmmc.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_gsmc.Text = dt.Rows[0][3].ToString();
+            tk_fmmc.Text = dt.Rows[0][4].ToString();
 
             wlmc.Text = dt.Rows[0][5].ToString();
-            tk_zcz.SelectedItem.Text = dt.Rows[0][6].ToString();
-            tk_zdz.SelectedItem.Text = dt.Rows[0][7].ToString();
+            tk_zcz.Text = dt.Rows[0][6].ToString();
+            tk_zdz.Text = dt.Rows[0][7].ToString();
             xlx.Text = dt.Rows[0][8].ToString();
             xhdw.Text = dt.Rows[0][9].ToString();
             Session.Remove("tydbckd");

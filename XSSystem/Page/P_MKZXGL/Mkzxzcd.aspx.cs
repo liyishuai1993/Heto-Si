@@ -80,9 +80,9 @@ namespace XSSystem.Page.P_Order
             djbh.Text = dt.Rows[0][1].ToString();
             zcsj.Text = dt.Rows[0][2].ToString();
             cghth.Text = dt.Rows[0][3].ToString();
-            tk_ghf.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_ghf.Text = dt.Rows[0][4].ToString();
 
-            tk_shf.SelectedItem.Text = dt.Rows[0][5].ToString();
+            tk_shf.Text = dt.Rows[0][5].ToString();
             mkmc.Text = dt.Rows[0][6].ToString();
             wlmc.Text = dt.Rows[0][7].ToString();
             cydw.Text = dt.Rows[0][8].ToString();

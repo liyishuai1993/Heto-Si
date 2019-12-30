@@ -122,8 +122,8 @@ namespace XSSystem.Page.P_Order
             bh.Text = dt.Rows[0][1].ToString();
             ckbdh.Text = dt.Rows[0][2].ToString();
             zcsj.Text = dt.Rows[0][3].ToString();
-            tk_gsmc.SelectedItem.Text = dt.Rows[0][4].ToString();
-            tk_fmmc.SelectedItem.Text = dt.Rows[0][5].ToString();
+            tk_gsmc.Text = dt.Rows[0][4].ToString();
+            tk_fmmc.Text = dt.Rows[0][5].ToString();
 
             ch.Text = dt.Rows[0][6].ToString();
             jsy.Text = dt.Rows[0][7].ToString();

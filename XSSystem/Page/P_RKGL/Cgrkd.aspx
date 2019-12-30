@@ -49,7 +49,7 @@
             var temp = document.getElementById("zcjz").value - document.getElementById("rkjz");
             document.getElementById("ksds").value = temp > 0 ? temp : 0;
             document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("zcjz").value;
-            document.getElementById("kkds").value = math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
+            document.getElementById("kkds").value = Math.abs(document.getElementById("ksds").value - document.getElementById("yslhbz").value);
             document.getElementById("kkje").value = (document.getElementById("rkjz").value * document.getElementById("zcjz").value).toFixed(2);
             document.getElementById("yfjsdw").value = Math.max(document.getElementById("kkbz").value, document.getElementById("kkds").value);
             document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("kkje").value).toFixed(2);

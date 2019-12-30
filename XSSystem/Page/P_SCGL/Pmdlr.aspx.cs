@@ -48,8 +48,8 @@ namespace XSSystem.Page.P_Order
             DataTable dt = mk as DataTable;
             bh.Text = dt.Rows[0][1].ToString();
             pmrq.Text = dt.Rows[0][2].ToString();
-            tk_scmc.SelectedItem.Text = dt.Rows[0][3].ToString();
-            tk_gsmc.SelectedItem.Text = dt.Rows[0][4].ToString();
+            tk_scmc.Text = dt.Rows[0][3].ToString();
+            tk_gsmc.Text = dt.Rows[0][4].ToString();
             Session.Remove("pmdlr");
         }
 

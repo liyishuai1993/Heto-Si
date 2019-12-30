@@ -1034,7 +1034,7 @@ namespace xs_System.Logic
                     sql = string.Format(@"select id,yl as nr from {0}", qc.tableName);
                     break;
                 case "xs_ZhangHu":
-                    sql = string.Format(@"select id,zh+zhm+kkh as nr as nr from {0}", qc.tableName);
+                    sql = string.Format(@"select id,zh+zhm+khh as nr from {0}", qc.tableName);
                     break;
                 case "xs_YuanGong":
                     sql = string.Format(@"select id,yg as nr from {0}", qc.tableName);

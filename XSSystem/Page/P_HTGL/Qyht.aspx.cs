@@ -55,8 +55,8 @@ namespace XSSystem.Page.P_Order
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
             dfhth.Text = dt.Rows[0][4].ToString();
-            tk_wtf.SelectedItem.Text = dt.Rows[0][5].ToString();
-            tk_stf.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_wtf.Text = dt.Rows[0][5].ToString();
+            tk_stf.Text = dt.Rows[0][6].ToString();
             kplx.SelectedItem.Text = dt.Rows[0][7].ToString();
             zxqxQ.Text = dt.Rows[0][8].ToString();
             zxqxZ.Text = dt.Rows[0][9].ToString();

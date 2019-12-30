@@ -50,8 +50,8 @@ namespace XSSystem.Page.P_Order
             htlx.SelectedItem.Text = dt.Rows[0][2].ToString();
             qdrq.Text = dt.Rows[0][3].ToString();
             dfhth.Text = dt.Rows[0][4].ToString();
-            DropDownList_gfmc.SelectedItem.Text = dt.Rows[0][5].ToString();
-            DropDownList_xfmc.SelectedItem.Text = dt.Rows[0][6].ToString();
+            DropDownList_gfmc.Text = dt.Rows[0][5].ToString();
+            DropDownList_xfmc.Text = dt.Rows[0][6].ToString();
             hkjsyj.SelectedItem.Text = dt.Rows[0][7].ToString();
             hklhlx.SelectedItem.Text = dt.Rows[0][8].ToString();
             hklhbz.Text = dt.Rows[0][9].ToString();
@@ -59,7 +59,7 @@ namespace XSSystem.Page.P_Order
             jhsjQ.Text = dt.Rows[0][11].ToString();
             jhsjZ.Text = dt.Rows[0][12].ToString();
             hkjsfs.SelectedItem.Text = dt.Rows[0][13].ToString();
-            tk_jhdd.SelectedItem.Text = dt.Rows[0][14].ToString();
+            tk_jhdd.Text = dt.Rows[0][14].ToString();
             yffkfs.SelectedItem.Text = dt.Rows[0][15].ToString();
             mkmc.Text = dt.Rows[0][16].ToString();
             bz.Text = dt.Rows[0][17].ToString();

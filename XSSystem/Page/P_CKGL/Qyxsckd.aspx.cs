@@ -120,10 +120,10 @@ namespace XSSystem.Page.P_Order
             ckbdh.Text = dt.Rows[0][1].ToString();
             htbh.Text = dt.Rows[0][2].ToString();
             zcsj.Text = dt.Rows[0][3].ToString();
-            tk_fmmc.SelectedItem.Text = dt.Rows[0][4].ToString();
-            tk_gf.SelectedItem.Text = dt.Rows[0][5].ToString();
+            tk_fmmc.Text = dt.Rows[0][4].ToString();
+            tk_gf.Text = dt.Rows[0][5].ToString();
 
-            tk_xf.SelectedItem.Text = dt.Rows[0][6].ToString();
+            tk_xf.Text = dt.Rows[0][6].ToString();
             ch.Text = dt.Rows[0][7].ToString();
             jsy.Text = dt.Rows[0][8].ToString();
             lxdh.Text = dt.Rows[0][9].ToString();
