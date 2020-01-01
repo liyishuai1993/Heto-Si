@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function check() {
-            if ($.trim($("#ContentMain_txtUserid").val()).length == 0) {
+            if (document.getElementById("txtUserid").value.length == 0) {
                 $("#ContentMain_txtUserid").addClass("inputTextError");
                 $("#spanNameError").text("群组名称不能为空");
                 return false;
             }
-            if ($.trim($("#ContentMain_txtPassword").val()).length == 0) {
+            if (document.getElementById("txtPassword").value.length == 0) {
                 $("#ContentMain_txtPassword").addClass("inputTextError");
                 $("#spanPassword").text("密码不能为空");
                 return false;

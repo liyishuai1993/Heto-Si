@@ -163,14 +163,14 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
             try
             {
-                dml.Add("@hth", tk_hth.SelectedItem.Text.Trim());
+                dml.Add("@hth", tk_hth.Text.Trim());
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@mkmc", mkmc.Text.Trim());
-                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
-                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@gf", tk_gf.Text.Trim());
+                dml.Add("@xf", tk_xf.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@yshtbh", tk_yshtbh.SelectedItem.Text.Trim());
+                dml.Add("@yshtbh", tk_yshtbh.Text.Trim());
                 dml.Add("@cycd", cycd.Text.Trim());
                 dml.Add("@zcbdh", zcbdh.Text.Trim());
                 dml.Add("@tmdh", tmdh.Text.Trim());
@@ -196,9 +196,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
                 dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
-                dml.Add("@zfzh", tk_zfzh.SelectedItem.Text.Trim());
+                dml.Add("@zfzh", tk_zfzh.Text.Trim());
                 dml.Add("@shzt", shzt.Text.Trim());
                 dml.Add("@yfjszt", yfjszt.Text.Trim());
             }
@@ -280,9 +280,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hth", tk_hth.Text.Trim());
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@mkmc", mkmc.Text.Trim());
-                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
-                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@gf", tk_gf.Text.Trim());
+                dml.Add("@xf", tk_xf.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
                 dml.Add("@yshtbh", tk_yshtbh.Text.Trim());
                 dml.Add("@cycd", cycd.Text.Trim());
@@ -310,9 +310,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyf", float.Parse(yfyf.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
                 dml.Add("@jsyf", float.Parse(jsyf.Text.Trim()));
-                dml.Add("@zfzh", tk_zfzh.SelectedItem.Text.Trim());
+                dml.Add("@zfzh", tk_zfzh.Text.Trim());
                 dml.Add("@shzt", shzt.Text.Trim());
                 dml.Add("@yfjszt", yfjszt.Text.Trim());
             }

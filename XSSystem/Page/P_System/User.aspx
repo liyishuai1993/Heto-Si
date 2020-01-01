@@ -27,7 +27,7 @@
             </asp:DropDownList>
             <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click"
                 actionid="01" />
-            <input type="button" id="btnAdd" class="button" value="新增群组" actionid="02" onclick="seturl('/Page/P_System/User_add.aspx')"
+            <input type="button" id="btnAdd" class="button" value="新增用户" actionid="02" onclick="seturl('/Page/P_System/User_add.aspx')"
                 style="float: right" />
             <br />
             <br />

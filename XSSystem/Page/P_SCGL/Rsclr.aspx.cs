@@ -142,7 +142,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ydzs", float.Parse(ydzs.Text.Trim()));
                 dml.Add("@yddh", float.Parse(yddh.Text.Trim()));
                 dml.Add("@ymzs", float.Parse(ymzs.Text.Trim()));
-                dml.Add("@gsmc", DropDownList_gsmc.SelectedItem.Text.Trim());
+                dml.Add("@gsmc", DropDownList_gsmc.Text.Trim());
             }
             catch
             {
@@ -257,7 +257,7 @@ namespace XSSystem.Page.P_Order
             DataRow dr = Scxx_dataTable.NewRow();
             try
             {
-                dr[0] = DropDownListMZ.SelectedItem.Text;
+                dr[0] = DropDownListMZ.Text;
                 dr[1] = double.Parse(sxcc_dj.Text.Trim());
                 dr[2] = double.Parse(scxx_je.Text.Trim());
                 dr[3] = double.Parse(scxx_sl.Text.Trim());
@@ -333,7 +333,7 @@ namespace XSSystem.Page.P_Order
             DataRow dr = Ccxx_dataTable.NewRow();
             try
             {
-                dr[0] = DropDownListMZ2.SelectedItem.Text;
+                dr[0] = DropDownListMZ2.Text;
                 dr[1] = double.Parse(ccxx_je.Text.Trim());
                 dr[2] = double.Parse(ccxx_sl.Text.Trim());
                 dr[3] = double.Parse(ccxx_cl.Text.Trim());

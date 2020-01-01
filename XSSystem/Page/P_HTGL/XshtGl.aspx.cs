@@ -9,6 +9,7 @@ using xsFramework.UserControl.Pager;
 using xsFramework.Web.WebPage;
 using XSSystem.Class;
 using System.Data;
+using xsFramework.Web.Login;
 
 namespace XSSystem.Page.P_HTGL
 {
@@ -58,7 +59,8 @@ namespace XSSystem.Page.P_HTGL
         DataTable SelectSQL(QueryClass qc, PageChangedEventArgs e)
         {
             PagerParameter pagepara = new PagerParameter();
-
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
 
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;

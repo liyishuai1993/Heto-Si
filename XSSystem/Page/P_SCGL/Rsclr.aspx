@@ -49,6 +49,26 @@
             margin-top: 15px;
         }
     </style>
+    <script type="text/javascript">
+        function FormCheck() {
+            var a = document.getElementById("klcl").value;
+            var b = document.getElementById("hhmcl").value;
+            var c = document.getElementById("mmcl").value;
+            var d = document.getElementById("zmcl").value;
+            var e = document.getElementById("nmcl").value;
+            var f = document.getElementById("gscl").value;
+            document.getElementById("shl").value = (100 - a - b - c - d - e - f).toFixed(2);
+
+        }
+
+        function calJE() {
+            var a = document.getElementById("scxx_sl").value;
+            var b = document.getElementById("sxcc_dj").value;
+           
+            document.getElementById("scxx_je").value = (a * b).toFixed(2);
+
+        }
+    </script>
 </head>
 <body style="height: auto; width: auto">
     <form id="form1" runat="server" defaultbutton="Button1">
@@ -119,62 +139,10 @@
                     沫煤产率%<asp:TextBox ID="mmcl" runat="server" name="沫煤产率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
                     中煤产率%<asp:TextBox ID="zmcl" runat="server" name="中煤产率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
                     煤泥产率%<asp:TextBox ID="nmcl" runat="server" name="煤泥产率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
-                    矸石产率%<asp:TextBox ID="gscl" runat="server" name="矸石产率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
-                    损耗率%<asp:TextBox ID="shl" runat="server" name="损耗率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
-                    <asp:Button ID="Button3" runat="server" Text="计算" OnClick="Button3_Click" />&nbsp&nbsp
+                    矸石产率%<asp:TextBox ID="gscl" OnBlur="FormCheck()" runat="server" name="矸石产率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
+                    #损耗率%<asp:TextBox ID="shl" BackColor="LightBlue" runat="server" OnFocus="FormCheck()" name="损耗率" valued="must2" Height="16px" Width="45px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
                 </p>
 
-                <%--                        <asp:GridView ID="GridView1" runat="server" CssClass="xs_table" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None"  >
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:BoundField HeaderText="颗粒产率%" DataField="klcl"  >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="混合煤产率%" DataField="hhmcl"  >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="沫煤产率%" DataField="mmcl"  >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="中煤产率%" DataField="zmcl" >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="煤泥产率%" DataField="nmcl" >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="矸石产率%" DataField="gscl"  >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="损耗率%" DataField="shl"  >
-<HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                        </asp:BoundField>
-                       <%-- <asp:TemplateField  HeaderText="操作">
-                    <ItemTemplate>
-                        <asp:Button ID="btnDelete" runat="server" actionid="04" CommandArgument='<%#Eval("mz") %>' CssClass="buttonCancle"   OnClientClick="return confirm('是否删除？')" Text="删除" />
-                        <%--<asp:Button ID="btnShenghe" runat="server" actionid="03" CommandArgument='<%#Eval("htbh") %>' CssClass="buttonCancle" OnClick="btnShengHe_Click" OnClientClick="return confirm('是否确定合同通过审核？')" Text="审核" />--%>
-                <%--                    </ItemTemplate>
-                   <HeaderStyle HorizontalAlign="Left" Width="10%" />
-                <ItemStyle HorizontalAlign="Left" Width="10%" />
-                </asp:TemplateField>--%>
-                <%--                    </Columns>
-                    <EditRowStyle BackColor="#999999" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                </asp:GridView>--%>
             </div>
 
             <div class="auto-style6">
@@ -187,9 +155,8 @@
                     HighlightTemplatedItems="true">
                 </telerik:RadComboBox>
                     数量(t):<asp:TextBox ID="scxx_sl" valued="must2" cal="must1" name="数量" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
-                单价:<asp:TextBox ID="sxcc_dj" valued="must2" cal="must1" name="单价" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
-                金额<asp:TextBox ID="scxx_je" runat="server" name="金额" valued="must2" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" Text="计算" OnClick="Button2_Click" />&nbsp&nbsp
+                单价:<asp:TextBox ID="sxcc_dj" valued="must2" OnBlur="calJE()" cal="must1" name="单价" runat="server" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>&nbsp
+                #金额<asp:TextBox ID="scxx_je" BackColor="LightBlue"  OnFocus="calJE()" runat="server" name="金额" valued="must2" Height="16px" Width="80px" CssClass="auto-style4" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'.')"></asp:TextBox>
                 </p>
 
                 <asp:GridView ID="GridView_SCXX" runat="server" CssClass="xs_table" ShowHeaderWhenEmpty="true" EmptyDataText="无记录" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">

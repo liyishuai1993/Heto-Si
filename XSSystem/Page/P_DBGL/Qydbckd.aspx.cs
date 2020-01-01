@@ -157,8 +157,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@gsmc", tk_gsmc.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@gsmc", tk_gsmc.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
@@ -170,7 +170,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@dbje", float.Parse(dbje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
             }
             catch
             {
@@ -197,7 +197,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
-                dml.Add("@smmc", tk_smmc.SelectedItem.Text.Trim());
+                dml.Add("@smmc", tk_smmc.Text.Trim());
                 dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
                 dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
                 dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));
@@ -304,8 +304,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@gsmc", tk_gsmc.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@gsmc", tk_gsmc.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
@@ -317,7 +317,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@dbje", float.Parse(dbje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
             }
             catch
@@ -352,7 +352,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@rksj", Convert.ToDateTime(rksj.Text.Trim()));
-                dml.Add("@smmc", tk_smmc.SelectedItem.Text.Trim());
+                dml.Add("@smmc", tk_smmc.Text.Trim());
                 dml.Add("@rkmz", float.Parse(rkmz.Text.Trim()));
                 dml.Add("@rkpz", float.Parse(rkpz.Text.Trim()));
                 dml.Add("@rkjz", float.Parse(rkjz.Text.Trim()));

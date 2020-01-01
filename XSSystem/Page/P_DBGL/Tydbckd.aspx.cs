@@ -344,7 +344,7 @@ namespace XSSystem.Page.P_Order
             //drmj.Text = ((Num(sxds.Text) * Num(dcmj.Text) + Num(zbxsf.Text) / 2f + Num(fzdlf.Text) / 2f +
             //    Num(fzzxf.Text) * Num(sxds.Text) + Num(fzddf.Text) * Num(sxds.Text) + Num(tlyf.Text) / 2f +
             //    Num(dzzxf.Text) / 2f + Num(dzmcddf.Text) / 2f + Num(dzdlf.Text) * Num(xhdw.Text)) / Num(xhdw.Text)).ToString();
-            GridView1.Rows[0].Cells[18].Text = "123";
+            //GridView1.Rows[0].Cells[18].Text = "123";
         }
 
         protected void GridView1_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)

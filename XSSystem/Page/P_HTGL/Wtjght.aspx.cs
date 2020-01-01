@@ -104,8 +104,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
                 dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
@@ -154,8 +154,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
                 dml.Add("@kplx", kplx.SelectedItem.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));

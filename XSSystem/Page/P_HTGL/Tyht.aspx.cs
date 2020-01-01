@@ -128,14 +128,14 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
-                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
-                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@zcz", tk_zcz.Text.Trim());
+                dml.Add("@zdz", tk_zdz.Text.Trim());
                 dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
                 dml.Add("@sl", int.Parse(sl.Text.Trim()));
             }
@@ -219,14 +219,14 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@userid", model.LoginUser);
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
-                dml.Add("@wlmc", tk_wlmc.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
+                dml.Add("@wlmc", tk_wlmc.Text.Trim());
                 dml.Add("@zxqxQ", Convert.ToDateTime(zxqxQ.Text));
                 dml.Add("@zxqxZ", Convert.ToDateTime(zxqxZ.Text));
-                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
-                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@zcz", tk_zcz.Text.Trim());
+                dml.Add("@zdz", tk_zdz.Text.Trim());
                 dml.Add("@xlx", xlx.SelectedItem.Text.Trim());
                 dml.Add("@sl", int.Parse(sl.Text.Trim()));
             }

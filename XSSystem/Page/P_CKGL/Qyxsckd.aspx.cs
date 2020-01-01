@@ -157,9 +157,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
-                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
-                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
+                dml.Add("@gf", tk_gf.Text.Trim());
+                dml.Add("@xf", tk_xf.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
@@ -173,7 +173,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
             }
             catch
             {
@@ -303,9 +303,9 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@ckbdh", ckbdh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
-                dml.Add("@gf", tk_gf.SelectedItem.Text.Trim());
-                dml.Add("@xf", tk_xf.SelectedItem.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
+                dml.Add("@gf", tk_gf.Text.Trim());
+                dml.Add("@xf", tk_xf.Text.Trim());
                 dml.Add("@ch", ch.Text.Trim());
                 dml.Add("@jsy", jsy.Text.Trim());
                 dml.Add("@lxdh", lxdh.Text.Trim());
@@ -319,7 +319,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@hkgsje", float.Parse(hkgsje.Text.Trim()));
                 dml.Add("@yj", float.Parse(yj.Text.Trim()));
                 dml.Add("@yfyk", float.Parse(yfyk.Text.Trim()));
-                dml.Add("@fkzh", tk_fkzh.SelectedItem.Text.Trim());
+                dml.Add("@fkzh", tk_fkzh.Text.Trim());
                 dml.Add("@rkbdh", rkbdh.Text.Trim());
             }
             catch

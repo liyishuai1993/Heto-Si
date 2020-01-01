@@ -1015,7 +1015,7 @@ namespace xs_System.Logic
 
         public string QueryHtOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from {0} where ({1}='{2}' {6} (qdrq>='{3}' and qdrq<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.selectedCon);
+            string sql = string.Format(@"select * from {0} where user_no='{7}' and (({1}='{2}' {6} (qdrq>='{3}' and qdrq<='{4}')) or 1={5})", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.selectedCon,qc.user_no);
             return sql;
         }
 
@@ -1049,7 +1049,7 @@ namespace xs_System.Logic
             //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
             //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
 
-            string sql = string.Format(@"select * from {0} where  ({1}='{2}' {7} ({6}>='{3}' and  {6}<='{4}')) or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.selectedTimeKey,qc.selectedCon);
+            string sql = string.Format(@"select * from {0} where user_no='{8}' and  (({1}='{2}' {7} ({6}>='{3}' and  {6}<='{4}')) or 1={5})", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.selectedTimeKey,qc.selectedCon,qc.user_no);
             return sql;
         }
 
@@ -1059,7 +1059,7 @@ namespace xs_System.Logic
             //    "' and qdrq<='"+ qc.qdrqZ+"' ) or gfmc='"+qc.gfmc+
             //     "' or htbh in(select htbh from xs_CghtTable_Jgxx where  kpmj>="+qc.kpmj+" or zt='"+ qc.zt+"')";
 
-            string sql = string.Format(@"select * from {0} where ({1}='{2}') or 1={5}", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll, qc.selectedTimeKey, qc.selectedCon);
+            string sql = string.Format(@"select * from {0} where user_no='{8}' and (({1}='{2}') or 1={5})", qc.tableName, qc.selectedKey, qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll, qc.selectedTimeKey, qc.selectedCon,qc.user_no);
             return sql;
         }
 
@@ -1145,23 +1145,15 @@ namespace xs_System.Logic
 
         public string QueryQyxsckdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select xf dwmc,zcsj rq,ch,ckjz1 ckdw,isnull(rkjz,0) dhdw,kd,isnull(hkjsdw,0) xsjsdw,mj, isnull(jshk,0) xsjsje  
-                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh) tb where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll); 
-            return sql;
-        }
-
-        public string QueryQykhhdlrOrder(QueryClass qc)
-        {
-            string sql = @"select xf dwmc,zcsj rq,ch,ckjz1 ckdw,rkjz dhdw,kd,hkjsdw xsjsdw,mj, jshk xsjsje  
-                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh
-                        ";
+            string sql = string.Format(@"select * from (select a.user_no, xf dwmc,zcsj rq,ch,ckjz1 ckdw,isnull(rkjz,0) dhdw,kd,isnull(hkjsdw,0) xsjsdw,mj, isnull(jshk,0) xsjsje  
+                        from xs_QyxsckdTable a left join xs_QykhhdlrTable b on a.rkbdh=b.rkbdh and a.user_no=b.user_no) tb where user_no='{4}' and ((tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3})", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.user_no); 
             return sql;
         }
 
         public string QueryTyxsckdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select stf dwmc,zxrq rq,xh ch,sxds ckdw,xhds dhdw,0 kd,xhds xsjsdw,mj,isnull(jshk,0) xsjsje  
-        from xs_Tyxsckd_Jzxxx a right join xs_TyxsckdTable b on a.bh=b.bh) tb where 1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}')", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select a.user_no, stf dwmc,zxrq rq,xh ch,sxds ckdw,xhds dhdw,0 kd,xhds xsjsdw,mj,isnull(jshk,0) xsjsje  
+        from xs_Tyxsckd_Jzxxx a right join xs_TyxsckdTable b on a.bh=b.bh and a.user_no=b.user_no) tb where user_no='{4}' and  (1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}'))", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll,qc.user_no);
             return sql;
         }
 
@@ -1190,36 +1182,36 @@ namespace xs_System.Logic
 
         public string QueryMkzxzcdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select shf dwmc,zcsj rq,ch,zcjz ckdw,0 dhdw,0 kd,zcjz xsjsdw,xsmj mj,ISNULL(xsjsje,0) xsjsje  
-                            from xs_MkzxzcdTable a right join xs_MkzxzcdTable_Clxx b on a.djbh=b.djbh) tb  where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select a.user_no, shf dwmc,zcsj rq,ch,zcjz ckdw,0 dhdw,0 kd,zcjz xsjsdw,xsmj mj,ISNULL(xsjsje,0) xsjsje  
+                            from xs_MkzxzcdTable a right join xs_MkzxzcdTable_Clxx b on a.djbh=b.djbh and a.user_no=b.user_no) tb  where user_no='{4}' and  ((tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3})", qc.selectedItem,qc.qdrqQ,qc.qdrqZ,qc.IsAll,qc.user_no);
             return sql;
         }
 
         public string QuerySkdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select fkdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,skzhbh skzh  
-                            from xs_SkdTable a right join xs_SkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select a.user_no, fkdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,skzhbh skzh  
+                            from xs_SkdTable a right join xs_SkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where user_no='{4}' and  ((tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}') or 1={3})", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.user_no);
             return sql;
         }
 
         public string QuerySkdOrder2(QueryClass qc)
         {
             string sql = string.Format(@"select fkdw dwmc,ldrq rq,zy,isnull(hjje,0) skje,jsfs skfs
-                            from xs_SkdTable  where (fkdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}') or 1={3}", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+                            from xs_SkdTable  where user_no='{4}' and ((fkdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}') or 1={3})", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.user_no);
             return sql;
         }
 
         public string QueryFkdOrder(QueryClass qc)
         {
-            string sql = string.Format(@"select * from (select skdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,fkzhbh skzh  
-                            from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where 1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll);
+            string sql = string.Format(@"select * from (select a.user_no, skdw dwmc,ldrq rq,zy,isnull(je,0) skje,jsfs skfs,fkzhbh skzh  
+                            from xs_FkdTable a right join xs_FkdTable_Fb b on a.bh=b.bh and a.user_no=b.user_no) tb where user_no='{4}' and  (1={3} or (tb.dwmc like '%{0}%' and rq>='{1}' and rq<='{2}'))", qc.selectedItem, qc.qdrqQ, qc.qdrqZ,qc.IsAll,qc.user_no);
             return sql;
         }
 
         public string QueryFkdOrder2(QueryClass qc)
         {
             string sql = string.Format(@"select skdw dwmc,ldrq rq,zy,isnull(hjje,0) skje,jsfs skfs
-                            from xs_FkdTable  where 1={3} or (skdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}')", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll);
+                            from xs_FkdTable  where user_no='{4}' and (1={3} or (skdw like '%{0}%' and ldrq>='{1}' and ldrq<='{2}'))", qc.selectedItem, qc.qdrqQ, qc.qdrqZ, qc.IsAll,qc.user_no);
             return sql;
         }
 

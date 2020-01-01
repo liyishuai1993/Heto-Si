@@ -163,7 +163,7 @@ namespace XSSystem.Page.P_Order
             try
             {
                 dr[0] = gvIndex;
-                dr[1] = tk_skzhbh.SelectedItem.Text;
+                dr[1] = tk_skzhbh.Text;
                 dr[2] = zhm.Text;
                 dr[3] = double.Parse(je.Text.Trim());
                 dr[4] = bz.Text;
@@ -216,10 +216,10 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
-                dml.Add("@fkdw", tk_fkdw.SelectedItem.Text.Trim());
+                dml.Add("@fkdw", tk_fkdw.Text.Trim());
                 dml.Add("@jsr", tk_jsr.Text.Trim());
                 dml.Add("@bm", bm.Text.Trim());
-                dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
+                dml.Add("@htbh", tk_htbh.Text.Trim());
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);
@@ -286,10 +286,10 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@ldrq", Convert.ToDateTime(ldrq.Text.ToString()));
-                dml.Add("@fkdw", tk_fkdw.SelectedItem.Text.Trim());
+                dml.Add("@fkdw", tk_fkdw.Text.Trim());
                 dml.Add("@jsr", tk_jsr.Text.Trim());
                 dml.Add("@bm", bm.Text.Trim());
-                dml.Add("@htbh", tk_htbh.SelectedItem.Text.Trim());
+                dml.Add("@htbh", tk_htbh.Text.Trim());
                 dml.Add("@zy", dp_zy.SelectedItem.Text.Trim());
                 dml.Add("@fjsm", fjsm.Text.Trim());
                 dml.Add("@jsfs", jsfs.SelectedItem.Text);

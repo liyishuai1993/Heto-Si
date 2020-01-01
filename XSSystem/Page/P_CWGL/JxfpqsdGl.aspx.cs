@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using xsFramework.UserControl.Pager;
+using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
 using XSSystem.Class;
 using XSSystem.Logic;
@@ -45,7 +46,8 @@ namespace XSSystem.Page.P_Order
         DataTable SelectSQL(QueryClass2 qc, PageChangedEventArgs e)
         {
             PagerParameter pagepara = new PagerParameter();
-
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
 
             pagepara.DbConn = GlabalString.DBString;
             pagepara.XsPager = xsPage;

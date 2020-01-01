@@ -107,8 +107,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@djbh", djbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
                 dml.Add("@cghth", cghth.Text.Trim());
-                dml.Add("@ghf", tk_ghf.SelectedItem.Text.Trim());
-                dml.Add("@shf", tk_shf.SelectedItem.Text.Trim());
+                dml.Add("@ghf", tk_ghf.Text.Trim());
+                dml.Add("@shf", tk_shf.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@cydw", cydw.Text.Trim());
@@ -265,8 +265,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@djbh", djbh.Text.Trim());
                 dml.Add("@zcsj", Convert.ToDateTime(zcsj.Text.Trim()));
                 dml.Add("@cghth", cghth.Text.Trim());
-                dml.Add("@ghf", tk_ghf.SelectedItem.Text.Trim());
-                dml.Add("@shf", tk_shf.SelectedItem.Text.Trim());
+                dml.Add("@ghf", tk_ghf.Text.Trim());
+                dml.Add("@shf", tk_shf.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@cydw", cydw.Text.Trim());

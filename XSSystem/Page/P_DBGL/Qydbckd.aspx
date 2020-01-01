@@ -44,7 +44,7 @@
             {
                 document.getElementById("yslhbz").value = (document.getElementById("ckjz").value * document.getElementById("percent").value).toFixed(3);
             }
-            document.getElementById("ksds").value = math.abs(document.getElementById("ckjz").value - document.getElementById("rkjz").value);
+            document.getElementById("ksds").value = Math.abs(document.getElementById("ckjz").value - document.getElementById("rkjz").value);
             document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
             document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yslhbz").value;
             document.getElementById("yfkkje").value = (document.getElementById("yfkkbz").value * document.getElementById("yfkkds").value).toFixed(2);

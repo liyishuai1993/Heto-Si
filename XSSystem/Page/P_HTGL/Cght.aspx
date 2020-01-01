@@ -21,6 +21,8 @@
             var b = document.getElementById("qdds").value;
             document.getElementById("qdje").value = (a * b).toFixed(2);
 
+
+            
         }
     </script>
 </head>

@@ -190,8 +190,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                dml.Add("@gfmc", tk_gfmc.SelectedItem.Text.Trim());
-                dml.Add("@xfmc", tk_xfmc.SelectedItem.Text.Trim());
+                dml.Add("@gfmc", tk_gfmc.Text.Trim());
+                dml.Add("@xfmc", tk_xfmc.Text.Trim());
                 dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
                 dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
                 dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -199,7 +199,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
                 dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
                 dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-                dml.Add("@fhdd", tk_fhdd.SelectedItem.Text.Trim());
+                dml.Add("@fhdd", tk_fhdd.Text.Trim());
                 dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());
@@ -283,8 +283,8 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@htlx", htlx.SelectedItem.Text.Trim());
                 dml.Add("@qdrq", Convert.ToDateTime(qdrq.Text.Trim()));//????
                 dml.Add("@dfhth", dfhth.Text.Trim());
-                dml.Add("@gfmc", tk_gfmc.SelectedItem.Text.Trim());
-                dml.Add("@xfmc", tk_xfmc.SelectedItem.Text.Trim());
+                dml.Add("@gfmc", tk_gfmc.Text.Trim());
+                dml.Add("@xfmc", tk_xfmc.Text.Trim());
                 dml.Add("@hkjsyj", hkjsyj.SelectedItem.Text.Trim());
                 dml.Add("@hklhlx", hklhlx.SelectedItem.Text.Trim());
                 dml.Add("@hklhbz", hklhbz.Text.Trim());
@@ -292,7 +292,7 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@jhsjQ", Convert.ToDateTime(jhsjQ.Text));
                 dml.Add("@jhsjZ", Convert.ToDateTime(jhsjZ.Text));
                 dml.Add("@hkjsfs", hkjsfs.SelectedItem.Text.Trim());
-                dml.Add("@fhdd", tk_fhdd.SelectedItem.Text.Trim());
+                dml.Add("@fhdd", tk_fhdd.Text.Trim());
                 dml.Add("@yffkfs", yffkfs.SelectedItem.Text.Trim());
                 dml.Add("@mkmc", mkmc.Text.Trim());
                 dml.Add("@kzbz", kzbz.SelectedItem.Text.Trim());

@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using xs_System.Logic;
 using xsFramework.UserControl.Pager;
+using xsFramework.Web.Login;
 using xsFramework.Web.WebPage;
 using XSSystem.Class;
 
@@ -210,6 +211,8 @@ namespace XSSystem.Page.P_CWGL
                 return;
             }
             QueryClass qc = new QueryClass();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
             qc.qdrqQ = Convert.ToDateTime(cxsjQ.Text.Trim());
             qc.qdrqZ = Convert.ToDateTime(cxsjZ.Text.Trim());
             qc.selectedItem = kh.Text.Trim();
@@ -252,6 +255,8 @@ namespace XSSystem.Page.P_CWGL
         protected void Button2_Click(object sender, EventArgs e)
         {
             QueryClass qc = new QueryClass();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
             qc.IsAll = 1;
             GetQyxsckd(qc);
             GetMkzxzcd(qc);

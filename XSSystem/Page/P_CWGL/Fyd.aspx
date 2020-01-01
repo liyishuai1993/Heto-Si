@@ -170,7 +170,7 @@
 
 
             <p class="auto-style7">
-                <asp:Button ID="print" Text="打印" runat="server" Width="90px" BackColor="#cccccc"></asp:Button>&nbsp
+                <%--<asp:Button ID="print" Text="打印" runat="server" Width="90px" BackColor="#cccccc"></asp:Button>&nbsp--%>
                 <asp:Button ID="save" Text="保存" runat="server" Width="90px" BackColor="#cccccc" OnClick="save_Click"></asp:Button>&nbsp
                 <asp:Button ID="update" Text="修改" runat="server" Width="90px" BackColor="#cccccc" OnClick="update_Click"></asp:Button>&nbsp
             <asp:Button ID="close" Text="关闭" runat="server" Width="90px" BackColor="#cccccc" OnClick="close_Click"></asp:Button>&nbsp

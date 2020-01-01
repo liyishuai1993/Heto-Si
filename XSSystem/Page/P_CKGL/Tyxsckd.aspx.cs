@@ -250,13 +250,13 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
-                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@zcz", tk_zcz.Text.Trim());
+                dml.Add("@zdz", tk_zdz.Text.Trim());
                 dml.Add("@xlx", xlx.Text.Trim());
                 dml.Add("@tcbz", tcbz.Text.Trim());
                 dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
@@ -333,10 +333,10 @@ namespace XSSystem.Page.P_Order
         }
         protected void AddJgxx(object sender, EventArgs e)
         {
-            //if (!DataChecked(2))
-            //{
-            //    return;
-            //}
+            if (!DataChecked(2))
+            {
+                return;
+            }
             DataRow dr = dataTable.NewRow();
             try
             {
@@ -417,13 +417,13 @@ namespace XSSystem.Page.P_Order
                 dml.Add("@user_no", model.LoginUser);
                 dml.Add("@bh", bh.Text.Trim());
                 dml.Add("@htbh", htbh.Text.Trim());
-                dml.Add("@wtf", tk_wtf.SelectedItem.Text.Trim());
-                dml.Add("@stf", tk_stf.SelectedItem.Text.Trim());
-                dml.Add("@fmmc", tk_fmmc.SelectedItem.Text.Trim());
+                dml.Add("@wtf", tk_wtf.Text.Trim());
+                dml.Add("@stf", tk_stf.Text.Trim());
+                dml.Add("@fmmc", tk_fmmc.Text.Trim());
                 dml.Add("@wlmc", wlmc.Text.Trim());
                 dml.Add("@mj", float.Parse(mj.Text.Trim()));
-                dml.Add("@zcz", tk_zcz.SelectedItem.Text.Trim());
-                dml.Add("@zdz", tk_zdz.SelectedItem.Text.Trim());
+                dml.Add("@zcz", tk_zcz.Text.Trim());
+                dml.Add("@zdz", tk_zdz.Text.Trim());
                 dml.Add("@xlx", xlx.Text.Trim());
                 dml.Add("@tcbz", tcbz.Text.Trim());
                 dml.Add("@tcje", float.Parse(tcje.Text.Trim()));

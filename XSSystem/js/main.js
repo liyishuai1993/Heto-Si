@@ -55,5 +55,5 @@ function doSize() {
 }
 //设置页面的跳转
 function seturl(url) {
-    window.parent.frames.seturl(url);
+    window.parent.frames.setUrl(url);
 }
