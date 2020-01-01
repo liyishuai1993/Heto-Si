@@ -55,7 +55,7 @@
     </div>
     <div id="footer">
         
-        CopyRight 2019 , All Rights Reserved&reg; Recommended Resolution 1366×768
+        ©2019-2020 si-heto.com版权所有&reg; 备案号:<a href='http://www.beian.miit.gov.cn'>浙ICP备17032428号-1</a>
     </div>
     </form>
 </body>

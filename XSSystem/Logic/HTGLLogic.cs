@@ -1257,8 +1257,7 @@ namespace xs_System.Logic
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = @"delete from ["+tablename +"]where [htbh]=@htbh";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara);
         }
 
         public bool DeleteChildTable(DirModel dml, string tablename)
@@ -1267,8 +1266,7 @@ namespace xs_System.Logic
             sqlpara.AddSqlParameter(dml);
             sqlpara.SqlConnectString = GlabalString.DBString;
             sqlpara.SQL = @"delete from [" + tablename + "]where [htbh]=@htbh and bh=@bh";
-            SqlHelper.Execute(sqlpara);
-            return true;
+            return SqlHelper.Execute(sqlpara);
         }
 
         public bool ShengHeOrder(DirModel dml, string tablename)
@@ -1277,8 +1275,8 @@ namespace xs_System.Logic
             sql.AddSqlParameter(dml);
             sql.SqlConnectString = GlabalString.DBString;
             sql.SQL = "update " + tablename + " set shzt='已审核' where htbh=@htbh";
-            SqlHelper.Execute(sql);
-            return true;
+            return SqlHelper.Execute(sql);
+             
         }
 
         public bool ZhiXingOrder(DirModel dml, string tablename)
@@ -1287,8 +1285,7 @@ namespace xs_System.Logic
             sql.AddSqlParameter(dml);
             sql.SqlConnectString = GlabalString.DBString;
             sql.SQL = "update " + tablename + " set zxzt='已执行' where htbh=@htbh";
-            SqlHelper.Execute(sql);
-            return true;
+            return SqlHelper.Execute(sql);
         }
 
     }
