@@ -88,11 +88,13 @@
             </table>
             </form>
         </div>
-       <p style="text-align: center;"> ©2019-2020 si-heto.com版权所有&reg; 备案号:<a href='http://www.beian.miit.gov.cn'>浙ICP备17032428号-1</a></p>
         
     </div>
-    
+    <div>
         
+       <p style="text-align: center;width:1080px"> ©2019-2020 si-heto.com版权所有&reg; 备案号:<a href='http://www.beian.miit.gov.cn'>浙ICP备17032428号-1</a></p>
+        
+            </div>
 </body>
     
 </html>

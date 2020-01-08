@@ -71,9 +71,9 @@
                             <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
                             <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="车号" DataField="ch" HeaderStyle-Width="10%">
-                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
-                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        <asp:BoundField HeaderText="车号" DataField="ch">
+                            <HeaderStyle Width="8%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="8%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="出库吨位" DataField="ckdw" HeaderStyle-Width="10%">
                             <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
@@ -91,9 +91,9 @@
                             <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
                             <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj" HeaderStyle-Width="10%">
-                            <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>
-                            <ItemStyle HorizontalAlign="Left" Width="10%" />
+                        <asp:BoundField HeaderText="煤价(元/吨)" DataField="mj">
+                            <HeaderStyle Width="8%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="8%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="销售结算金额" DataField="xsjsje" HeaderStyle-Width="10%">
                             <HeaderStyle Width="10%" HorizontalAlign="Left"></HeaderStyle>

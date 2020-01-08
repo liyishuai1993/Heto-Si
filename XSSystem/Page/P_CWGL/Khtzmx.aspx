@@ -104,12 +104,12 @@
                             <ItemStyle HorizontalAlign="Left" Width="8%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="结算方式" DataField="skfs">
-                            <HeaderStyle Width="8%" HorizontalAlign="Left"></HeaderStyle>
-                            <ItemStyle HorizontalAlign="Left" Width="8%" />
+                            <HeaderStyle Width="7%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="7%" />
                         </asp:BoundField>
                         <asp:BoundField HeaderText="余额" DataField="ye">
-                            <HeaderStyle Width="8%" HorizontalAlign="Left"></HeaderStyle>
-                            <ItemStyle HorizontalAlign="Left" Width="8%" />
+                            <HeaderStyle Width="7%" HorizontalAlign="Left"></HeaderStyle>
+                            <ItemStyle HorizontalAlign="Left" Width="7%" />
                         </asp:BoundField>
 
                     </Columns>

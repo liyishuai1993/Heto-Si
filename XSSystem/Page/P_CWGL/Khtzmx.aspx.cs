@@ -100,6 +100,10 @@ namespace XSSystem.Page.P_CWGL
             {
                 return;
             }
+            if (QyxsckdDT.Columns.Contains("user_no"))
+            {
+                QyxsckdDT.Columns.Remove("user_no");
+            }
             DataColumn skje = new DataColumn("skje", Type.GetType("System.Double"));
             DataColumn ye = new DataColumn("ye", Type.GetType("System.Double"));
             DataColumn skfs = new DataColumn("skfs", Type.GetType("System.String"));

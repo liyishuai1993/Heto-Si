@@ -97,7 +97,7 @@
                 </table>
             </div>
 
-            <div>
+            <div style="width: 900px; margin-top: 20px;">
                 <p>
                     <asp:Button runat="server" Text="新增" ID="InsertBtn" OnClick="InsertBtn_Click" />
                     费用项目编号<asp:TextBox runat="server" ID="fyxmbh" valued="must2" name="费用项目编号" />
