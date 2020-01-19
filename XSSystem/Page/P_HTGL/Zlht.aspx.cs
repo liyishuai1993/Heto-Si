@@ -138,6 +138,7 @@ namespace XSSystem.Page.P_Order
             string reply = _htglLogic.InsertZlht(dml, Child1);
             if (reply == "")
             {
+                GetBh();
                 AlertMessage("新增成功");
             }
             else
@@ -281,22 +282,8 @@ namespace XSSystem.Page.P_Order
         }
 
 
-        protected void DropListInit()
+        private void GetBh()
         {
-
-
-            czf.DataSource = GlabalString.GetGongSi(1);
-            czf.DataTextField = "wldw";
-            czf.DataBind();
-
-            czf2.DataSource = GlabalString.GetGongSi(2);
-            czf2.DataTextField = "wldw";
-            czf2.DataBind();
-
-            czdd.DataSource = GlabalString.GetCangKu();
-            czdd.DataTextField = "yl";
-            czdd.DataBind();
-
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
             pagepara.DbConn = GlabalString.DBString;
@@ -310,6 +297,25 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "czf";
             DataTable dt = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTZL" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt.Rows.Count;
+        }
+
+        protected void DropListInit()
+        {
+
+            GetBh();
+            czf.DataSource = GlabalString.GetGongSi(1);
+            czf.DataTextField = "wldw";
+            czf.DataBind();
+
+            czf2.DataSource = GlabalString.GetGongSi(2);
+            czf2.DataTextField = "wldw";
+            czf2.DataBind();
+
+            czdd.DataSource = GlabalString.GetCangKu();
+            czdd.DataTextField = "yl";
+            czdd.DataBind();
+
+            
         }
 
         protected void close_Click(object sender, EventArgs e)

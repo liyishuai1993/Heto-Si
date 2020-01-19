@@ -153,6 +153,7 @@ namespace XSSystem.Page.P_Order
             if (reply == "")
             {
                 //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                GetBh();
                 AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
@@ -299,9 +300,7 @@ namespace XSSystem.Page.P_Order
             }
         }
 
-
-
-        protected void DropListInit()
+        private void GetBh()
         {
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
@@ -314,8 +313,13 @@ namespace XSSystem.Page.P_Order
             pagepara.Sql = ht.QueryDropList("xs_QyhtTable", arrList);
             pagepara.OrderBy = "wtf";
             DataTable dt1 = xsPageHelper.BindPager(pagepara);
-            htbh.Text = "HTQY" + DateTime.Now.ToString("yyyyMMdd") + "-"+dt1.Rows.Count;
+            htbh.Text = "HTQY" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
+        }
 
+        protected void DropListInit()
+        {
+
+            GetBh();
             RadComboBoxItem radcbItem;
             RadComboBoxItem radcbItem2;
             DataTable dt = GlabalString.GetGongSi();

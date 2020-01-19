@@ -162,9 +162,9 @@
 
                 <asp:CheckBox ID="CheckBox1" runat="server" Text="付款状态" TextAlign="Left" />
 
-                合计金额<asp:TextBox ID="hjje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ReadOnly="true" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                合计金额<asp:TextBox ID="hjje" Text="0" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ReadOnly="true" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 付款账户<asp:TextBox ID="fkzh" runat="server" Height="16px" Width="80px"></asp:TextBox>
-                实付金额<asp:TextBox ID="sfje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                实付金额<asp:TextBox ID="sfje" Text="0" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
 
             </p>
 

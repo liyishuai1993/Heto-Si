@@ -167,6 +167,7 @@ namespace XSSystem.Page.P_Order
             string reply = _htglLogic.InsertTyht(dml, Child1);
             if (reply == "")
             {
+                GetBh();
                 AlertMessage("新增成功");
             }
             else
@@ -321,8 +322,7 @@ namespace XSSystem.Page.P_Order
             GridView1.DataBind();
         }
 
-
-        protected void DropListInit()
+        private void GetBh()
         {
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
@@ -340,7 +340,12 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "wtf";
             DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTTY" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
+        }
 
+        protected void DropListInit()
+        {
+
+            GetBh();
             RadComboBoxItem radcbItem;
             RadComboBoxItem radcbItem2;
             RadComboBoxItem radcbItem3;

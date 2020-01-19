@@ -24,7 +24,6 @@ namespace XSSystem.Page.P_Order
             if (!IsPostBack)
             {
                 InitBh();
-                yhje.Text = "0";
                 if (Session["skd"] != null)
                 {
                     InitData(Session["skd"]);
@@ -35,8 +34,7 @@ namespace XSSystem.Page.P_Order
             
         }
 
-
-        private void InitBh()
+        private void GetBH()
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
@@ -46,6 +44,11 @@ namespace XSSystem.Page.P_Order
             pagepara.OrderBy = "bh";
             DataTable dt = xsPageHelper.BindPager(pagepara);
             bh.Text = string.Format("SK{0}{1}", DateTime.Now.ToString("yyyyMMdd"), dt.Rows.Count);
+        }
+
+        private void InitBh()
+        {
+            GetBH();
             RadComboBoxItem radcbItem;
             DataTable dt2 = GlabalString.GetGongSi();
             if (dt2.Rows.Count != 0)
@@ -198,7 +201,14 @@ namespace XSSystem.Page.P_Order
                 }
             }
             var sum = dataTable.Compute("sum(je)", "TRUE");
-            hjje.Text = Sub(sum.ToString(), yhje.Text);
+            if (sum.ToString() != "")
+            {
+                hjje.Text = Sub(sum.ToString(), yhje.Text);
+            }
+            else
+            {
+                hjje.Text = "0";
+            }
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
         }
@@ -247,6 +257,7 @@ namespace XSSystem.Page.P_Order
             string ret = _cwglLogic.InsertSkd(dml, Child1);
             if (ret=="")
             {
+                GetBH();
                 AlertMessage("新增成功");
             }
             else

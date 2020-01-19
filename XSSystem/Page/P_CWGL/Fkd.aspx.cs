@@ -36,7 +36,7 @@ namespace XSSystem.Page.P_Order
             
         }
 
-        private void InitBh()
+        private void GetBh()
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
@@ -44,8 +44,13 @@ namespace XSSystem.Page.P_Order
             qc.all = 1;
             pagepara.Sql = _cwglLogic.QueryFkdOrder(qc);
             pagepara.OrderBy = "bh";
-            DataTable dt= xsPageHelper.BindPager(pagepara);
+            DataTable dt = xsPageHelper.BindPager(pagepara);
             bh.Text = string.Format("FK{0}{1}", DateTime.Now.ToString("yyyyMMdd"), dt.Rows.Count);
+        }
+
+        private void InitBh()
+        {
+            GetBh();
             RadComboBoxItem radcbItem;
             DataTable dt2 = GlabalString.GetGongSi();
             if (dt2.Rows.Count != 0)
@@ -184,6 +189,7 @@ namespace XSSystem.Page.P_Order
             string ret = _cwglLogic.InsertFkd(dml, Child1);
             if (ret=="")
             {
+                GetBh();
                 AlertMessage("新增成功");
             }
             else
@@ -249,7 +255,14 @@ namespace XSSystem.Page.P_Order
                 }
             }
             var sum = dataTable.Compute("sum(je)", "TRUE");
-            hjje.Text = Sub(sum.ToString(), yhje.Text);
+            if (sum.ToString() != "")
+            {
+                hjje.Text = Sub(sum.ToString(), yhje.Text);
+            }
+            else
+            {
+                hjje.Text = "0";
+            }
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
         }

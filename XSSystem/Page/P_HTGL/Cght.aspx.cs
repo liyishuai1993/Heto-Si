@@ -274,6 +274,7 @@ namespace XSSystem.Page.P_Order
             if (reply == "")
             {
                 //     AlertMessageAndGoTo("新增成功", "Cght.aspx");
+                GetBh();
                 AlertMessage("新增成功");
                 //  xsPage.RefreshPage();
             }
@@ -529,7 +530,7 @@ namespace XSSystem.Page.P_Order
             GridView_ZLBZ.DataBind();
         }
 
-        protected void DropListInit()
+        private void GetBh()
         {
             PagerParameter pagepara = new PagerParameter();
             QueryClass qc = new QueryClass();
@@ -544,6 +545,11 @@ namespace XSSystem.Page.P_Order
             //PageChangedEventArgs e = new PageChangedEventArgs(1);
             DataTable dt1 = xsPageHelper.BindPager(pagepara);
             htbh.Text = "HTCG" + DateTime.Now.ToString("yyyyMMdd") + "-" + dt1.Rows.Count;
+        }
+
+        protected void DropListInit()
+        {
+            GetBh();
 
             RadComboBoxItem radcbItem;
             RadComboBoxItem radcbItem2;

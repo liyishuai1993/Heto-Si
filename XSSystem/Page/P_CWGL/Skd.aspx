@@ -169,8 +169,8 @@
             </div>
 
             <p class="auto-style7">
-                优惠金额<asp:TextBox ID="yhje" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" AutoPostBack="true" OnTextChanged="yhje_TextChanged" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
-                合计金额<asp:TextBox ID="hjje" ReadOnly="true" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                优惠金额<asp:TextBox ID="yhje" Text="0" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" AutoPostBack="true" OnTextChanged="yhje_TextChanged" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                合计金额<asp:TextBox ID="hjje" Text="0" ReadOnly="true" runat="server" Height="16px" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
             </p>
 
 
