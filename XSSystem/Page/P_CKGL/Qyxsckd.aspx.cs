@@ -56,8 +56,8 @@ namespace XSSystem.Page.P_Order
             tcje.Text = dt.Rows[0][20].ToString();
 
             ywy.Text = dt.Rows[0][21].ToString();
-            yfjszt.Text = dt.Rows[0][22].ToString();
-            shzt.Text = dt.Rows[0][23].ToString();
+            yfjszt_droplist.Text = dt.Rows[0][22].ToString();
+            shzt_droplist.Text = dt.Rows[0][23].ToString();
             Session.Remove("qykhhdlr");
         }
 
@@ -224,8 +224,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@tcbz", tcbz.Text.Trim());
             dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
             dml.Add("@ywy", ywy.Text.Trim());
-            dml.Add("@yfjszt", yfyf.Text.Trim());
-            dml.Add("@shzt", shzt.Text.Trim());
+            dml.Add("@yfjszt", yfjszt_droplist.Text.Trim());
+            dml.Add("@shzt", shzt_droplist.Text);
             if (_htglLogic.InsertQykhhdlr(dml))
             {
                 AlertMessage("新增成功");
@@ -372,8 +372,8 @@ namespace XSSystem.Page.P_Order
             dml.Add("@tcbz", tcbz.Text.Trim());
             dml.Add("@tcje", float.Parse(tcje.Text.Trim()));
             dml.Add("@ywy", ywy.Text.Trim());
-            dml.Add("@yfjszt", yfyf.Text.Trim());
-            dml.Add("@shzt", shzt.Text.Trim());
+            dml.Add("@yfjszt", yfjszt_droplist.Text);
+            dml.Add("@shzt", shzt_droplist.Text);
             var mess = _htglLogic.UpdateQykhhdlr(dml);
             if (mess == "")
             {

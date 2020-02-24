@@ -373,7 +373,5 @@ namespace XSSystem.Page.P_CWGL
 
             GridView1.DataBind();
         }
-
-        
     }
 }

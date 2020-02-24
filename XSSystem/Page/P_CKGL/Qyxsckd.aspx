@@ -59,7 +59,7 @@
                 document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yfhllh").value;
                 document.getElementById("yfkkje").value = (document.getElementById("yflhbz").value * document.getElementById("yfkkds").value).toFixed(2);
                 var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz").value;
-                document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz").value: document.getElementById("ckjz").value;
+                document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz").value: document.getElementById("ckjz2").value;
 
                 document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value).toFixed(2);
                 document.getElementById("jsyf").value = (document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value).toFixed(2);
@@ -133,7 +133,8 @@
                         <td class="auto-style3"><span>煤价</span><asp:TextBox ID="mj" cal="must1" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="煤价" valued="must1"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">#货款估算金额<asp:TextBox ID="hkgsje" OnFocus="FormCkdCheck()" runat="server" Height="16px" Width="482px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox>
+                        <td class="auto-style3">#货款估算金额<asp:TextBox ID="hkgsje" OnFocus="FormCkdCheck()" runat="server" Height="16px" Width="440px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox>
+                        <asp:CheckBox runat="server" ToolTip="以出库单数据填充客户回单" ID="CheckBox1" Height="20px" Width="20px" />
                         </td>
                         <td class="auto-style3"><span>已付油卡</span><asp:TextBox ID="yfyk" OnBlur="FormCkdCheck()" cal="must1" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="已付油卡" valued="must1"></asp:TextBox></td>
                     </tr>
@@ -208,9 +209,15 @@
 
                     <tr>
                         <td class="auto-style3">业务员<asp:TextBox ID="ywy" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
-                        <td class="auto-style3">运费结算状态<asp:TextBox ID="yfjszt" runat="server" Height="16px" Width="284px" CssClass="auto-style4"></asp:TextBox>
+                        <td class="auto-style3">运费结算状态<asp:DropDownList ID="yfjszt_droplist" runat="server" Height="25px" Width="284px" CssClass="auto-style4">
+                            <asp:ListItem>已结算</asp:ListItem>
+                            <asp:ListItem>未结算</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
-                        <td class="auto-style3">审核状态<asp:TextBox ID="shzt" runat="server" Height="16px" Width="284px"></asp:TextBox></td>
+                        <td class="auto-style3">审核状态<asp:DropDownList ID="shzt_droplist" runat="server" Height="25px" Width="284px">
+                             <asp:ListItem>已审核</asp:ListItem>
+                            <asp:ListItem>未审核</asp:ListItem>
+                                                    </asp:DropDownList></td>
 
                     </tr>
 

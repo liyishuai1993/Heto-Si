@@ -47,6 +47,7 @@
                 <asp:Button Text="生成报表" name="queryBtn" OnClick="Button1_Click" CssClass="button" type="bu" runat="server" ID="Button1" />
                 <asp:Button Text="导出报表" CommandName="exportBtn" OnClick="Unnamed_Click" CssClass="button" runat="server" ID="btn1" />
                 <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />
+                
             </span>
         </div>
         <div>
@@ -125,6 +126,7 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </asp:Panel>
+            
             <cc1:xsPageControl ID="xsPage" runat="server" OnPageChanged="xsPage_PageChanged">
             </cc1:xsPageControl>
         </div>

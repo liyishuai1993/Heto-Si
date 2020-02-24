@@ -252,5 +252,42 @@ namespace XSSystem.Page.P_DBGL
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
             }
         }
+
+        protected void Tj_Btn_Click(object sender, EventArgs e)
+        {
+            List<DirModel> list = new List<DirModel>();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            DirModel temp;
+            string str = "";
+            string[] ckb = null;
+
+
+            str = Request.Form.Get("checkboxname");
+            if (str == null)
+            {
+                AlertMessage("当前未选中订单");
+                return;
+            }
+            ckb = str.Split(new char[] { ',' });
+
+            foreach (var val in ckb)
+            {
+                temp = new DirModel();
+                temp.Add("@user_no", model.LoginUser);
+                temp.Add("@key", val);
+                temp.Add("@zxj", tj.Text.Trim());
+                list.Add(temp);
+            }
+            var reply = _htglLogic.UpdatePrice("xs_QydbckdTable", "bh", "dcmj", list);
+            if (reply == "")
+            {
+                xsPage.RefreshPage();
+                AlertMessage("改价成功！");
+            }
+            else
+            {
+                AlertMessage(reply);
+            }
+        }
     }
 }

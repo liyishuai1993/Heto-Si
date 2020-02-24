@@ -763,6 +763,21 @@ namespace xs_System.Logic
 
 
         #region  Update
+
+        public string UpdatePrice(string tableName,string key ,string columnName,List<DirModel> list)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            foreach (var val in list)
+            {
+                xsSqlParameter sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = $"update {tableName} set {columnName}=@zxj where user_no=@user_no and {key}=@key";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
+        }
+
         public string UpdateCght(DirModel dml, List<DirModel> child1, List<DirModel> child2)
         {
 

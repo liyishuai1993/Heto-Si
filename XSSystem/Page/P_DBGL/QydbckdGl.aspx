@@ -40,6 +40,8 @@
                 <asp:Button ID="btnQuery" runat="server" Text="查询" CssClass="button" OnClick="btnQuery_Click" />
                 <asp:Button ID="BtnAdd" runat="server" Text="新增" CssClass="button" OnClick="btnAdd_Click" />
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
+                <asp:TextBox id="tj" runat="server" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
+                <asp:Button ID="Tj_Btn" runat="server" Text="调价" CssClass="button" OnClick="Tj_Btn_Click" OnClientClick="return confirm('是否确定对选中项进行改价？')"/>
     </span>
         </div>
     <div>
