@@ -384,5 +384,23 @@ namespace XSSystem.Page.P_Order
                 AlertMessage(mess);
             }
         }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox_hd.Checked)
+            {
+                rkbdh.Text = ckbdh.Text;
+                rksj.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                rkmz.Text = ckmz.Text;
+                rkpz.Text = ckpz.Text;
+                kd.Text = "0";
+                yfhllh.Text = "0";
+                yflhbz.Text = "0";
+                fykk.Text = "0";
+                tcbz.Text = "0";
+                jshk.Text = hkgsje.Text;
+                tcje.Focus();
+            }
+        }
     }
 }

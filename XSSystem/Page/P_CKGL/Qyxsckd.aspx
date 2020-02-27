@@ -134,7 +134,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style3">#货款估算金额<asp:TextBox ID="hkgsje" OnFocus="FormCkdCheck()" runat="server" Height="16px" Width="440px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox>
-                        <asp:CheckBox runat="server" ToolTip="以出库单数据填充客户回单" ID="CheckBox1" Height="20px" Width="20px" />
+                        <asp:CheckBox runat="server" ToolTip="以出库单数据填充客户回单" AutoPostBack="true" ID="CheckBox_hd" Height="20px" Width="20px" OnCheckedChanged="CheckBox1_CheckedChanged"/>
                         </td>
                         <td class="auto-style3"><span>已付油卡</span><asp:TextBox ID="yfyk" OnBlur="FormCkdCheck()" cal="must1" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="已付油卡" valued="must1"></asp:TextBox></td>
                     </tr>

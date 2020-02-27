@@ -57,7 +57,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField  HeaderText="&lt;input type='checkbox' id='chk' name='chk' onclick='checkJs(this.checked);'  /&gt;全选" FooterText="全选">
                 <ItemTemplate>
-                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# DataBinder.Eval(Container.DataItem, "ckbdh")%>' onclick='SingleCheckJs();' />
+                    <input type="checkbox" id="checkboxname" name="checkboxname" value='<%# Eval("ckbdh")%>' onclick='SingleCheckJs();' />
                 </ItemTemplate>
                     <HeaderStyle HorizontalAlign="Left" Width="5%" />
                 <ItemStyle HorizontalAlign="Left" Width="5%" />

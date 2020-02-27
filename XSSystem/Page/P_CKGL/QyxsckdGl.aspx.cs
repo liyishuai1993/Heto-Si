@@ -53,7 +53,6 @@ namespace XSSystem.Page.P_CKGL
                 qc.selectedItem = tjz.Text.Trim();
                 qc.selectedCon = con.SelectedValue;
 
-
                 GridOrder.DataSource = SelectSQL(qc, e, 1);
                 GridOrder.DataBind();
             }
@@ -199,13 +198,14 @@ namespace XSSystem.Page.P_CKGL
             qc.selectedTimeKey = "zcsj";
             qc.selectedKey = "ckbdh";
             qc.IsAll = 1;
-            GridOrder.DataSource = SelectSQL(qc, ex,1);
+            GridOrder.DataSource = SelectSQL(qc, ex, 1);
 
             GridOrder.DataBind();
         }
 
         protected void Tj_Btn_Click(object sender, EventArgs e)
         {
+            
             List<DirModel> list = new List<DirModel>();
             LoginModel model = Session["LoginModel"] as LoginModel;
             DirModel temp;
