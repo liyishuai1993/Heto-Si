@@ -7,6 +7,9 @@ using xs_System.Logic;
 using System.Web.UI.WebControls;
 using xsFramework.Web.WebPage;
 using xsFramework.Web.Login;
+using System.IO;
+using System.Data;
+using System.Data.OleDb;
 
 namespace XSSystem.Page.P_System
 {
@@ -138,6 +141,57 @@ namespace XSSystem.Page.P_System
             else
             {
                 AlertMessage("已存在，添加失败！");
+            }
+        }
+
+        protected void UploadBtn_Click(object sender,EventArgs e)
+        {
+            if (ExcelFileUpload.HasFile == false)
+            {
+                AlertMessage("请选择Excel文件");
+                return;
+            }
+            string isXls = Path.GetExtension(ExcelFileUpload.FileName).ToString().ToLower();
+            if(isXls!=".xlsx" && isXls != ".xls")
+            {
+                AlertMessage("只能上传Excel文件");
+                return;
+            }
+            string filename = ExcelFileUpload.FileName;
+            string savePath = Server.MapPath(filename);//Server.MapPath 服务器上的指定虚拟路径相对应的物理文件路径
+            ExcelFileUpload.SaveAs(savePath);//将文件保存到指定路径
+            DataTable dt = GetExcelDatat(savePath);
+            File.Delete(savePath);
+            AlertMessage("上传文件读取数据成功！");
+        }
+
+        private static DataTable GetExcelDatat(string fileUrl)
+        {
+            string cmdText = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileUrl + "; Extended Properties=\"Excel 12.0;HDR=Yes\"";
+            DataTable dt = null;
+            OleDbConnection conn = new OleDbConnection(cmdText);
+            try
+            {
+                if (conn.State == ConnectionState.Broken || conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DataTable data = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                string strSql = "select * from [Sheet1$]";
+                OleDbDataAdapter da = new OleDbDataAdapter(strSql, conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dt = ds.Tables[0];
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
             }
         }
     }

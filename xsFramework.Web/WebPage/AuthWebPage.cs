@@ -123,6 +123,8 @@ namespace xsFramework.Web.WebPage
         }
         #endregion
 
+        #region 数据检查计算
+
         public bool DataChecked(int type)
         {
             foreach (Control c in this.Controls)
@@ -223,6 +225,10 @@ namespace xsFramework.Web.WebPage
                 dt.Rows[i][colnum] = i + 1;
             }
         }
+
+        #endregion
+
+        
 
     }
 }

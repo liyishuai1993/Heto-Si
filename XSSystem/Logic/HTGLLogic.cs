@@ -1084,9 +1084,9 @@ namespace xs_System.Logic
             return sql;
         }
 
-        public string QueryQkrxxTable(QueryClass qc)
+        public string QueryTyxsckdChildTable(QueryClass qc)
         {
-            string sql = @"select * from  " + qc.tableName + " where user_no='" + qc.user_no  + "'";
+            string sql = $"select * from {qc.tableName} where user_no='{qc.user_no}' and bh='{qc.bh}' and htbh='{qc.htbh}'";
             return sql;
         }
 

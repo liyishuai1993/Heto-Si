@@ -29,6 +29,10 @@
             
             <p>新增人员<asp:TextBox runat="server" ID="YG" ToolTip="所有员工、司机、个人客户在此录入" ></asp:TextBox>
                 <asp:Button runat="server" text="新增" ID="submit5" OnClick="submit5_Click"/></p>
+            <div>
+             <asp:FileUpload ID="ExcelFileUpload" runat="server" />
+             <asp:Button ID="UploadBtn" runat="server" Text="确定上传" OnClick="UploadBtn_Click" />
+            </div>
         </div>
     </form>
 </body>

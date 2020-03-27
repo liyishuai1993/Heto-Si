@@ -196,9 +196,10 @@ namespace XSSystem.Page.P_Order
             LoginModel model = Session["LoginModel"] as LoginModel;
             qc.user_no = model.LoginUser;
             qc.htbh = htbh.Text;
+            qc.bh = bh.Text;
             qc.tableName = "xs_Tyxsckd_Jzxxx";
-            pagepara.Sql = _htglLogic.QueryCghtChildTable(qc);
-            pagepara.OrderBy = "htbh";
+            pagepara.Sql = _htglLogic.QueryTyxsckdChildTable(qc);
+            pagepara.OrderBy = "bh";
             PageChangedEventArgs e = new PageChangedEventArgs(0);
             var temp = xsPageHelper.BindPager(pagepara, e);
             foreach (DataRow val in temp.Rows)
