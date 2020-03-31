@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using xs_System.Logic;
-using System.Web.UI.WebControls;
 using xsFramework.Web.WebPage;
 using xsFramework.Web.Login;
 using System.IO;
 using System.Data;
-using System.Data.OleDb;
+using NPOI.HSSF.UserModel;
+using NPOI.HPSF;
+using NPOI.POIFS.FileSystem;
+
+using DataTable = System.Data.DataTable;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace XSSystem.Page.P_System
 {
@@ -79,11 +81,11 @@ namespace XSSystem.Page.P_System
         //    }
         //}
 
-            /// <summary>
-            /// 往来单位
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
+        /// <summary>
+        /// 往来单位
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void submit4_Click(object sender, EventArgs e)
         {
             DirModel dml = new DirModel();
@@ -144,7 +146,7 @@ namespace XSSystem.Page.P_System
             }
         }
 
-        protected void UploadBtn_Click(object sender,EventArgs e)
+        protected void UploadBtn_Click(object sender, EventArgs e)
         {
             if (ExcelFileUpload.HasFile == false)
             {
@@ -152,7 +154,7 @@ namespace XSSystem.Page.P_System
                 return;
             }
             string isXls = Path.GetExtension(ExcelFileUpload.FileName).ToString().ToLower();
-            if(isXls!=".xlsx" && isXls != ".xls")
+            if (isXls != ".xlsx" && isXls != ".xls")
             {
                 AlertMessage("只能上传Excel文件");
                 return;
@@ -160,39 +162,98 @@ namespace XSSystem.Page.P_System
             string filename = ExcelFileUpload.FileName;
             string savePath = Server.MapPath(filename);//Server.MapPath 服务器上的指定虚拟路径相对应的物理文件路径
             ExcelFileUpload.SaveAs(savePath);//将文件保存到指定路径
-            DataTable dt = GetExcelDatat(savePath);
+            DataTable dt = ExcelToTable(savePath);
             File.Delete(savePath);
             AlertMessage("上传文件读取数据成功！");
         }
 
-        private static DataTable GetExcelDatat(string fileUrl)
+        /// <summary>
+        /// Excel导入成Datable
+        /// </summary>
+        /// <param name="file">导入路径(包含文件名与扩展名)</param>
+        /// <returns></returns>
+        public static DataTable ExcelToTable(string file)
         {
-            string cmdText = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileUrl + "; Extended Properties=\"Excel 12.0;HDR=Yes\"";
-            DataTable dt = null;
-            OleDbConnection conn = new OleDbConnection(cmdText);
-            try
+            DataTable dt = new DataTable();
+            IWorkbook workbook;
+            string fileExt = Path.GetExtension(file).ToLower();
+            using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
-                if (conn.State == ConnectionState.Broken || conn.State == ConnectionState.Closed)
+                //XSSFWorkbook 适用XLSX格式，HSSFWorkbook 适用XLS格式
+                if (fileExt == ".xlsx")
                 {
-                    conn.Open();
+                    workbook = new XSSFWorkbook(fs);
                 }
-                DataTable data = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-                string strSql = "select * from [Sheet1$]";
-                OleDbDataAdapter da = new OleDbDataAdapter(strSql, conn);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dt = ds.Tables[0];
-                return dt;
+                else if (fileExt == ".xls")
+                {
+                    workbook = new HSSFWorkbook(fs);
+                }
+                else { workbook = null; }
+                if (workbook == null) { return null; }
+                ISheet sheet = workbook.GetSheetAt(0);
+
+                //表头  
+                IRow header = sheet.GetRow(sheet.FirstRowNum);
+                List<int> columns = new List<int>();
+                for (int i = 0; i < header.LastCellNum; i++)
+                {
+                    object obj = GetValueType(header.GetCell(i));
+                    if (obj == null || obj.ToString() == string.Empty)
+                    {
+                        dt.Columns.Add(new DataColumn("Columns" + i.ToString()));
+                    }
+                    else
+                        dt.Columns.Add(new DataColumn(obj.ToString()));
+                    columns.Add(i);
+                }
+                //数据  
+                for (int i = sheet.FirstRowNum + 1; i <= sheet.LastRowNum; i++)
+                {
+                    DataRow dr = dt.NewRow();
+                    bool hasValue = false;
+                    foreach (int j in columns)
+                    {
+                        dr[j] = GetValueType(sheet.GetRow(i).GetCell(j));
+                        if (dr[j] != null && dr[j].ToString() != string.Empty)
+                        {
+                            hasValue = true;
+                        }
+                    }
+                    if (hasValue)
+                    {
+                        dt.Rows.Add(dr);
+                    }
+                }
             }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
+            return dt;
         }
+
+        /// <summary>
+         /// 获取单元格类型
+         /// </summary>
+         /// <param name="cell"></param>
+         /// <returns></returns>
+         private static object GetValueType(ICell cell)
+         {
+             if (cell == null)
+                 return null;
+             switch (cell.CellType)
+             {
+                 case CellType.Blank: //BLANK:  
+                     return null;
+                case CellType.Boolean: //BOOLEAN:  
+                    return cell.BooleanCellValue;
+                 case CellType.Numeric: //NUMERIC:  
+                     return cell.NumericCellValue;
+                 case CellType.String: //STRING:  
+                     return cell.StringCellValue;
+                 case CellType.Error: //ERROR:  
+                     return cell.ErrorCellValue;
+                 case CellType.Formula: //FORMULA:  
+                 default:
+                     return "=" + cell.CellFormula;
+ 
+             }
+         }
     }
 }
