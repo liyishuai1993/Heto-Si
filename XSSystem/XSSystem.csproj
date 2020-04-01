@@ -1917,6 +1917,7 @@
     <Content Include="Page\P_Public\Main.Master" />
     <Content Include="My97DatePicker\skin\Thumbs.db" />
     <Content Include="My97DatePicker\skin\whyGreen\Thumbs.db" />
+    <Content Include="Doc\汽运销售出库单导入模板.xlsx" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <None Include="Web.Debug.config">
