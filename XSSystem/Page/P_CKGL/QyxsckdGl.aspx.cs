@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -240,5 +241,68 @@ namespace XSSystem.Page.P_CKGL
                 AlertMessage(reply);
             }
         }
+
+
+        #region 批量
+
+        protected void UploadBtn_Click(object sender, EventArgs e)
+        {
+            if (ExcelFileUpload.HasFile == false)
+            {
+                AlertMessage("请选择Excel文件");
+                return;
+            }
+            string isXls = Path.GetExtension(ExcelFileUpload.FileName).ToString().ToLower();
+            if (isXls != ".xlsx" && isXls != ".xls")
+            {
+                AlertMessage("只能上传Excel文件");
+                return;
+            }
+            string filename = ExcelFileUpload.FileName;
+            string savePath = Server.MapPath(filename);//Server.MapPath 服务器上的指定虚拟路径相对应的物理文件路径
+            ExcelFileUpload.SaveAs(savePath);//将文件保存到指定路径
+            DataTable dt = ImportTool.ExcelToTable(savePath,0);
+            List<DirModel> dirs = ReadExcel(dt);
+            //if()
+            File.Delete(savePath);
+            AlertMessage("上传文件读取数据成功！");
+        }
+
+        private List<DirModel> ReadExcel(DataTable dt)
+        {
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            List<DirModel> dirs = new List<DirModel>();
+            DirModel dml;
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                dml = new DirModel();
+                dml.Add("@user_no", model.LoginUser);
+                dml.Add("@ckbdh", dt.Rows[i][0].ToString());
+                dml.Add("@htbh", dt.Rows[i][1].ToString());
+                dml.Add("@zcsj", Convert.ToDateTime(dt.Rows[i][2].ToString()));
+                dml.Add("@fmmc", dt.Rows[i][3].ToString());
+                dml.Add("@gf", dt.Rows[i][4].ToString());
+                dml.Add("@xf", dt.Rows[i][5].ToString());
+                dml.Add("@ch", dt.Rows[i][6].ToString());
+                dml.Add("@wlmc", dt.Rows[i][7].ToString());
+                dml.Add("@ckpz", float.Parse(dt.Rows[i][8].ToString()));
+                dml.Add("@ckmz", float.Parse(dt.Rows[i][9].ToString()));
+                dml.Add("@jbds", float.Parse(dt.Rows[i][10].ToString()));
+                dml.Add("@ckjz1", float.Parse(dt.Rows[i][11].ToString()));
+                dml.Add("@ckjz2", float.Parse(dt.Rows[i][12].ToString()));
+                dml.Add("@mj", float.Parse(dt.Rows[i][13].ToString()));
+                dml.Add("@hkgsje", float.Parse(dt.Rows[i][14].ToString()));
+                dml.Add("@yfyk", float.Parse(dt.Rows[i][15].ToString()));
+                dml.Add("@yj", float.Parse(dt.Rows[i][16].ToString()));
+                dml.Add("@fkzh", dt.Rows[i][17].ToString());
+                dml.Add("@jsy", dt.Rows[i][18].ToString());
+                dml.Add("@lxdh", dt.Rows[i][19].ToString());
+                dirs.Add(dml);
+            }
+            return dirs;
+        }
+
+        
+        #endregion
     }
 }

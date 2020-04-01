@@ -1136,6 +1136,7 @@
     <Compile Include="Logic\CWGLLogic.cs" />
     <Compile Include="Logic\groupLogic.cs" />
     <Compile Include="Logic\HireLogic.cs" />
+    <Compile Include="Logic\ImportTool.cs" />
     <Compile Include="Logic\LeaveLogic.cs" />
     <Compile Include="Logic\LoginLogic.cs" />
     <Compile Include="Logic\MenuLogic.cs" />
