@@ -39,9 +39,17 @@
                 <asp:Button ID="BtnDel" runat="server" Text="删除" CssClass="button" OnClick="btnDel_Click" />
                 <asp:TextBox id="tj" runat="server" Width="80px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')"></asp:TextBox>
                 <asp:Button ID="Tj_Btn" runat="server" Text="调价" CssClass="button" OnClick="Tj_Btn_Click" OnClientClick="return confirm('是否确定对选中项进行改价？')"/>
-                <asp:FileUpload ID="ExcelFileUpload" runat="server" />
-                <asp:Button ID="UploadBtn" runat="server" Text="确定上传" OnClick="UploadBtn_Click" />
-    </span>
+                
+
+            <p>
+                <asp:FileUpload ID="ExcelFileUpload" runat="server"/>
+                <asp:Button ID="UploadBtn" runat="server" Text="上传出库单" OnClick="UploadBtn_Click" />
+                </p>
+            <p>
+                <asp:FileUpload ID="HDFileUpload" runat="server" />
+                <asp:Button ID="HdBtn" runat="server" Text="上传回单" OnClick="HdBtn_Click" />
+            </p>
+                    </span>
         </div>
     <div>
     <asp:Panel ID="Panel1" runat="server" Height="900px" ScrollBars="Auto" Width="1500px">

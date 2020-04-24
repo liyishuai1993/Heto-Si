@@ -82,6 +82,10 @@ namespace XSSystem
         {
             if (cell == null)
                 return null;
+            if (cell.CellType == CellType.Numeric && DateUtil.IsCellDateFormatted(cell)) 
+            {
+                return cell.DateCellValue.ToString();
+            }
             switch (cell.CellType)
             {
                 case CellType.Blank: //BLANK:  
@@ -94,7 +98,9 @@ namespace XSSystem
                     return cell.StringCellValue;
                 case CellType.Error: //ERROR:  
                     return cell.ErrorCellValue;
-                case CellType.Formula: //FORMULA:  
+                case CellType.Formula: //FORMULA: 
+                     cell.SetCellType(CellType.String);
+                    return cell.StringCellValue;
                 default:
                     return "=" + cell.CellFormula;
 

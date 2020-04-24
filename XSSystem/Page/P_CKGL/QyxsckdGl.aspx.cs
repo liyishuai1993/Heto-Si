@@ -245,6 +245,11 @@ namespace XSSystem.Page.P_CKGL
 
         #region 批量
 
+        /// <summary>
+        /// 出库单上传
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void UploadBtn_Click(object sender, EventArgs e)
         {
             if (ExcelFileUpload.HasFile == false)
@@ -263,11 +268,25 @@ namespace XSSystem.Page.P_CKGL
             ExcelFileUpload.SaveAs(savePath);//将文件保存到指定路径
             DataTable dt = ImportTool.ExcelToTable(savePath,0);
             List<DirModel> dirs = ReadExcel(dt);
-            //if()
+            var ret = _htglLogic.BatchInsertQyxsckd(dirs);
             File.Delete(savePath);
-            AlertMessage("上传文件读取数据成功！");
+            if (ret == "")
+            {
+                AlertMessage("上传文件读取数据成功！");
+                SelectedAll(1);
+            }
+            else
+            {
+                AlertMessage(ret);
+            }
+            
         }
 
+        /// <summary>
+        /// 解析出库单
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         private List<DirModel> ReadExcel(DataTable dt)
         {
             LoginModel model = Session["LoginModel"] as LoginModel;
@@ -302,7 +321,169 @@ namespace XSSystem.Page.P_CKGL
             return dirs;
         }
 
-        
+        /// <summary>
+        /// 回单上传
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HdBtn_Click(object sender, EventArgs e)
+        {
+            if (HDFileUpload.HasFile == false)
+            {
+                AlertMessage("请选择Excel文件");
+                return;
+            }
+            string isXls = Path.GetExtension(HDFileUpload.FileName).ToString().ToLower();
+            if (isXls != ".xlsx" && isXls != ".xls")
+            {
+                AlertMessage("只能上传Excel文件");
+                return;
+            }
+            string filename = HDFileUpload.FileName;
+            string savePath = Server.MapPath(filename);//Server.MapPath 服务器上的指定虚拟路径相对应的物理文件路径
+            HDFileUpload.SaveAs(savePath);//将文件保存到指定路径
+            DataTable dt = ImportTool.ExcelToTable(savePath, 0);
+            List<DirModel> dirs = ReadHDExcel(dt);
+            var ret = _htglLogic.BatchInsertQyhdlr(dirs);
+            File.Delete(savePath);
+            if (ret == "")
+            {
+                AlertMessage("上传文件读取数据成功！");
+                SelectedAll(1);
+            }
+            else
+            {
+                AlertMessage(ret);
+            }
+        }
+
+        /// <summary>
+        /// 解析出库单
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        private List<DirModel> ReadHDExcel(DataTable dt)
+        {
+            DataTable ckdDt = GetAllData();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            List<DirModel> dirs = new List<DirModel>();
+            DirModel dml=new DirModel();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //不引用
+                if (dt.Rows[i][0].ToString() == "")
+                {
+                    dml = new DirModel();
+                    dml.Add("@user_no", model.LoginUser);
+                    dml.Add("@rkbdh", dt.Rows[i][1].ToString());
+                    dml.Add("@ckbdh", dt.Rows[i][2].ToString());
+                    dml.Add("@rksj", Convert.ToDateTime(dt.Rows[i][3].ToString()));
+                    dml.Add("@rkpz",float.Parse(dt.Rows[i][4].ToString()));
+                    dml.Add("@rkmz",float.Parse(dt.Rows[i][5].ToString()));
+                    dml.Add("@kd", float.Parse(dt.Rows[i][6].ToString()));
+                    dml.Add("@yfhllh",float.Parse(dt.Rows[i][7].ToString()));
+                    dml.Add("@yflhbz",float.Parse(dt.Rows[i][8].ToString()));
+                    dml.Add("@fykk", float.Parse(dt.Rows[i][9].ToString()));
+                    dml.Add("@tcbz", dt.Rows[i][10].ToString());
+                    dml.Add("@rkjz", float.Parse(dt.Rows[i][11].ToString()));
+                    dml.Add("@ksds", float.Parse(dt.Rows[i][12].ToString()));
+                    dml.Add("@yyds", float.Parse(dt.Rows[i][13].ToString()));
+                    dml.Add("@yfkkds", float.Parse(dt.Rows[i][14].ToString()));
+                    dml.Add("@yfkkje", float.Parse(dt.Rows[i][15].ToString()));
+                    dml.Add("@yfjsdw", float.Parse(dt.Rows[i][16].ToString()));
+                    dml.Add("@yfyf", float.Parse(dt.Rows[i][17].ToString()));
+                    dml.Add("@jsyf",float.Parse(dt.Rows[i][18].ToString()));
+                    dml.Add("@hkjsdw",float.Parse(dt.Rows[i][19].ToString()));
+                    dml.Add("@jshk",float.Parse(dt.Rows[i][20].ToString()));
+                    dml.Add("@tcje",float.Parse(dt.Rows[i][21].ToString()));
+                    dml.Add("@yfjszt", dt.Rows[i][22].ToString());
+                    dml.Add("@shzt", dt.Rows[i][23].ToString());
+                    dml.Add("@ywy", dt.Rows[i][24].ToString());
+                }
+                else
+                {
+                    var rows = ckdDt.Select($"ckbdh='{dt.Rows[i][2].ToString()}'");
+                    if (rows.Count() > 0)
+                    {
+                        var row = rows.FirstOrDefault();
+                        var hd = CalRow(row, dt.Rows[i]);
+                        dml = new DirModel();
+                        dml.Add("@user_no", model.LoginUser);
+                        dml.Add("@rkbdh", dt.Rows[i][1].ToString());
+                        dml.Add("@ckbdh",row[1].ToString());
+                        dml.Add("@rksj", Convert.ToDateTime(dt.Rows[i][3].ToString()));
+                        dml.Add("@rkpz", float.Parse(row[12].ToString()));
+                        dml.Add("@rkmz", float.Parse(row[11].ToString()));
+                        dml.Add("@kd", 0);
+                        dml.Add("@yfhllh", 0);
+                        dml.Add("@yflhbz", 0);
+                        dml.Add("@fykk", 0);
+                        dml.Add("@tcbz", 0);
+                        dml.Add("@rkjz", float.Parse(hd[11].ToString()));
+                        dml.Add("@ksds", float.Parse(hd[12].ToString()));
+                        dml.Add("@yyds", float.Parse(hd[13].ToString()));
+                        dml.Add("@yfkkds", float.Parse(hd[14].ToString()));
+                        dml.Add("@yfkkje", 0);
+                        dml.Add("@yfjsdw", float.Parse(hd[16].ToString()));
+                        dml.Add("@yfyf", float.Parse(hd[17].ToString()));
+                        dml.Add("@jsyf", float.Parse(hd[18].ToString()));
+                        dml.Add("@hkjsdw",float.Parse(hd[19].ToString()));
+                        dml.Add("@jshk",float.Parse(row[17].ToString()));
+                        dml.Add("@tcje", 0);
+                        dml.Add("@yfjszt", dt.Rows[i][22].ToString());
+                        dml.Add("@shzt", dt.Rows[i][23].ToString());
+                        dml.Add("@ywy", dt.Rows[i][24].ToString());
+                    }
+                }
+                
+                dirs.Add(dml);
+            }
+            return dirs;
+        }
+
+        private DataRow CalRow(DataRow ckd,DataRow hd)
+        {
+            var rkjz = Sub(ckd[11].ToString(), ckd[12].ToString());
+            var ksds = Sub(ckd[15].ToString(), rkjz);
+            var yyds= Sub(rkjz,ckd[15].ToString());
+            var yfkkds = ksds;
+            var yfjsdw = rkjz;
+            var yfyf = Mul(yfjsdw, ckd[19].ToString());
+            var jsyf = Sub(yfyf, ckd[18].ToString());
+            var hkjsdw = rkjz;
+            hd[11] = rkjz;
+            hd[12] = ksds;
+            hd[13] = yyds;
+            hd[14] = yfkkds;
+            hd[16] = yfjsdw;
+            hd[17] = yfyf;
+            hd[18] = jsyf;
+            hd[19] = hkjsdw;
+            return hd;
+        }
+
+        private DataTable GetAllData()
+        {
+            QueryClass qc = new QueryClass();
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.tableName = "xs_QyxsckdTable";
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedKey = "ckbdh";
+            qc.IsAll = 1;
+            PagerParameter pagepara = new PagerParameter();
+            qc.user_no = model.LoginUser;
+
+            pagepara.DbConn = GlabalString.DBString;
+            pagepara.XsPager = xsPage;
+            pagepara.Sql = _htglLogic.QueryHt2Order(qc);
+            pagepara.OrderBy = "ckbdh";
+
+
+            return xsPageHelper.BindPager(pagepara);
+        }
+
         #endregion
+
+
     }
 }

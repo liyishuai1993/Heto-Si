@@ -257,6 +257,44 @@ namespace xs_System.Logic
             return SqlHelper.Execute(sqlpara);
         }
 
+        public string BatchInsertQyxsckd(List<DirModel> dmls)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara;
+            foreach (var val in dmls)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_QyxsckdTable (user_no,ckbdh,htbh,zcsj,fmmc,gf,xf,ch,jsy,lxdh,wlmc,ckmz,ckpz,jbds,ckjz1,ckjz2,mj,hkgsje,yfyk,yj,fkzh)" +
+                "values(@user_no,@ckbdh,@htbh,@zcsj,@fmmc,@gf,@xf,@ch,@jsy,@lxdh,@wlmc,@ckmz,@ckpz,@jbds,@ckjz1,@ckjz2,@mj,@hkgsje,@yfyk,@yj,@fkzh)";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
+        }
+
+        public string BatchInsertQyhdlr(List<DirModel> dmls)
+        {
+            List<xsSqlParameter> xsSqls = new List<xsSqlParameter>();
+            xsSqlParameter sqlpara;
+            foreach (var val in dmls)
+            {
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "insert into xs_QykhhdlrTable (user_no,rkbdh,rksj,rkmz,rkpz,rkjz,ksds,yyds,kd,yfhllh,yflhbz,yfkkds,yfkkje,yfjsdw,yfyf,fykk,jsyf,hkjsdw,jshk,tcbz,tcje,ywy,yfjszt,shzt)" +
+                "values(@user_no,@rkbdh,@rksj,@rkmz,@rkpz,@rkjz,@ksds,@yyds,@kd,@yfhllh,@yflhbz,@yfkkds,@yfkkje,@yfjsdw,@yfyf,@fykk,@jsyf,@hkjsdw,@jshk,@tcbz,@tcje,@ywy,@yfjszt,@shzt)";
+                xsSqls.Add(sqlpara);
+
+                sqlpara = new xsSqlParameter();
+                sqlpara.AddSqlParameter(val);
+                sqlpara.SqlConnectString = GlabalString.DBString;
+                sqlpara.SQL = "update xs_QyxsckdTable set rkbdh =@rkbdh where ckbdh=@ckbdh";
+                xsSqls.Add(sqlpara);
+            }
+            return SqlHelper.Execute(xsSqls);
+        }
+
         public bool InsertCgrkd(DirModel dml)
         {
             xsSqlParameter sqlpara = new xsSqlParameter();
