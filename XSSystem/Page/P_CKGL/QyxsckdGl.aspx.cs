@@ -370,9 +370,16 @@ namespace XSSystem.Page.P_CKGL
             DirModel dml=new DirModel();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                var rows = ckdDt.Select($"ckbdh='{dt.Rows[i][2].ToString()}'");
+                if (rows.Count() == 0)
+                {
+                    continue;
+                }
                 //不引用
                 if (dt.Rows[i][0].ToString() == "")
                 {
+                    var row = rows.FirstOrDefault();
+                    var hd = CalRowNormal(row, dt.Rows[i]);
                     dml = new DirModel();
                     dml.Add("@user_no", model.LoginUser);
                     dml.Add("@rkbdh", dt.Rows[i][1].ToString());
@@ -385,55 +392,53 @@ namespace XSSystem.Page.P_CKGL
                     dml.Add("@yflhbz",float.Parse(dt.Rows[i][8].ToString()));
                     dml.Add("@fykk", float.Parse(dt.Rows[i][9].ToString()));
                     dml.Add("@tcbz", dt.Rows[i][10].ToString());
-                    dml.Add("@rkjz", float.Parse(dt.Rows[i][11].ToString()));
-                    dml.Add("@ksds", float.Parse(dt.Rows[i][12].ToString()));
-                    dml.Add("@yyds", float.Parse(dt.Rows[i][13].ToString()));
-                    dml.Add("@yfkkds", float.Parse(dt.Rows[i][14].ToString()));
-                    dml.Add("@yfkkje", float.Parse(dt.Rows[i][15].ToString()));
-                    dml.Add("@yfjsdw", float.Parse(dt.Rows[i][16].ToString()));
-                    dml.Add("@yfyf", float.Parse(dt.Rows[i][17].ToString()));
-                    dml.Add("@jsyf",float.Parse(dt.Rows[i][18].ToString()));
-                    dml.Add("@hkjsdw",float.Parse(dt.Rows[i][19].ToString()));
-                    dml.Add("@jshk",float.Parse(dt.Rows[i][20].ToString()));
-                    dml.Add("@tcje",float.Parse(dt.Rows[i][21].ToString()));
+                    dml.Add("@rkjz", float.Parse(hd[11].ToString()));
+                    dml.Add("@ksds", float.Parse(hd[12].ToString()));
+                    dml.Add("@yyds", float.Parse(hd[13].ToString()));
+                    dml.Add("@yfkkds", float.Parse(hd[14].ToString()));
+                    dml.Add("@yfkkje", float.Parse(hd[15].ToString()));
+                    dml.Add("@yfjsdw", float.Parse(hd[16].ToString()));
+                    dml.Add("@yfyf", float.Parse(hd[17].ToString()));
+                    dml.Add("@jsyf",float.Parse(hd[18].ToString()));
+                    dml.Add("@hkjsdw",float.Parse(hd[19].ToString()));
+                    dml.Add("@jshk",float.Parse(hd[20].ToString()));
+                    dml.Add("@tcje",float.Parse(hd[21].ToString()));
                     dml.Add("@yfjszt", dt.Rows[i][22].ToString());
                     dml.Add("@shzt", dt.Rows[i][23].ToString());
                     dml.Add("@ywy", dt.Rows[i][24].ToString());
                 }
                 else
                 {
-                    var rows = ckdDt.Select($"ckbdh='{dt.Rows[i][2].ToString()}'");
-                    if (rows.Count() > 0)
-                    {
-                        var row = rows.FirstOrDefault();
-                        var hd = CalRow(row, dt.Rows[i]);
-                        dml = new DirModel();
-                        dml.Add("@user_no", model.LoginUser);
-                        dml.Add("@rkbdh", dt.Rows[i][1].ToString());
-                        dml.Add("@ckbdh",row[1].ToString());
-                        dml.Add("@rksj", Convert.ToDateTime(dt.Rows[i][3].ToString()));
-                        dml.Add("@rkpz", float.Parse(row[12].ToString()));
-                        dml.Add("@rkmz", float.Parse(row[11].ToString()));
-                        dml.Add("@kd", 0);
-                        dml.Add("@yfhllh", 0);
-                        dml.Add("@yflhbz", 0);
-                        dml.Add("@fykk", 0);
-                        dml.Add("@tcbz", 0);
-                        dml.Add("@rkjz", float.Parse(hd[11].ToString()));
-                        dml.Add("@ksds", float.Parse(hd[12].ToString()));
-                        dml.Add("@yyds", float.Parse(hd[13].ToString()));
-                        dml.Add("@yfkkds", float.Parse(hd[14].ToString()));
-                        dml.Add("@yfkkje", 0);
-                        dml.Add("@yfjsdw", float.Parse(hd[16].ToString()));
-                        dml.Add("@yfyf", float.Parse(hd[17].ToString()));
-                        dml.Add("@jsyf", float.Parse(hd[18].ToString()));
-                        dml.Add("@hkjsdw",float.Parse(hd[19].ToString()));
-                        dml.Add("@jshk",float.Parse(row[17].ToString()));
-                        dml.Add("@tcje", 0);
-                        dml.Add("@yfjszt", dt.Rows[i][22].ToString());
-                        dml.Add("@shzt", dt.Rows[i][23].ToString());
-                        dml.Add("@ywy", dt.Rows[i][24].ToString());
-                    }
+                    //var rows = ckdDt.Select($"ckbdh='{dt.Rows[i][2].ToString()}'");
+
+                    var row = rows.FirstOrDefault();
+                    var hd = CalRow(row, dt.Rows[i]);
+                    dml = new DirModel();
+                    dml.Add("@user_no", model.LoginUser);
+                    dml.Add("@rkbdh", dt.Rows[i][1].ToString());
+                    dml.Add("@ckbdh", row[1].ToString());
+                    dml.Add("@rksj", Convert.ToDateTime(dt.Rows[i][3].ToString()));
+                    dml.Add("@rkpz", float.Parse(row[12].ToString()));
+                    dml.Add("@rkmz", float.Parse(row[11].ToString()));
+                    dml.Add("@kd", 0);
+                    dml.Add("@yfhllh", 0);
+                    dml.Add("@yflhbz", 0);
+                    dml.Add("@fykk", 0);
+                    dml.Add("@tcbz", 0);
+                    dml.Add("@rkjz", float.Parse(hd[11].ToString()));
+                    dml.Add("@ksds", float.Parse(hd[12].ToString()));
+                    dml.Add("@yyds", float.Parse(hd[13].ToString()));
+                    dml.Add("@yfkkds", float.Parse(hd[14].ToString()));
+                    dml.Add("@yfkkje", 0);
+                    dml.Add("@yfjsdw", float.Parse(hd[16].ToString()));
+                    dml.Add("@yfyf", float.Parse(hd[17].ToString()));
+                    dml.Add("@jsyf", float.Parse(hd[18].ToString()));
+                    dml.Add("@hkjsdw", float.Parse(hd[19].ToString()));
+                    dml.Add("@jshk", float.Parse(row[17].ToString()));
+                    dml.Add("@tcje", 0);
+                    dml.Add("@yfjszt", dt.Rows[i][22].ToString());
+                    dml.Add("@shzt", dt.Rows[i][23].ToString());
+                    dml.Add("@ywy", dt.Rows[i][24].ToString());
                 }
                 
                 dirs.Add(dml);
@@ -459,6 +464,45 @@ namespace XSSystem.Page.P_CKGL
             hd[17] = yfyf;
             hd[18] = jsyf;
             hd[19] = hkjsdw;
+            return hd;
+        }
+
+        private DataRow CalRowNormal(DataRow ckd,DataRow hd)
+        {
+            var rkjz = Sub(hd[5].ToString(), hd[4].ToString());
+            var ksds= AbsSub(ckd[15].ToString(), rkjz);
+            var yyds = Sub(rkjz, ckd[15].ToString());
+            string yfkkds, yfkkje;
+            if (double.Parse(yyds) >= 0)
+            {
+                yfkkds = "0";
+                yfkkje = "0";
+            }
+            else
+            {
+                yfkkds = Sub(ksds, hd[7].ToString());
+                yfkkje = Mul(hd[8].ToString(), yfkkds);
+            }
+
+            double temp = double.Parse(ckd[15].ToString()) - double.Parse(rkjz);
+            var yfjsdw = temp > 0 ? rkjz : ckd[15].ToString();
+            var yfyf = Sub(Mul(yfjsdw, ckd[19].ToString()), yfkkje);
+            var jsyf = Sub(Sub(yfyf, ckd[18].ToString()), hd[9].ToString());
+            var hkjsdw = Sub(rkjz, hd[6].ToString());
+            var jshk = Mul(hkjsdw, ckd[16].ToString());
+            var tcje = Mul(hkjsdw, hd[10].ToString());
+
+            hd[11] = rkjz;
+            hd[12] = ksds;
+            hd[13] = yyds;
+            hd[14] = yfkkds;
+            hd[15] = yfkkje;
+            hd[16] = yfjsdw;
+            hd[17] = yfyf;
+            hd[18] = jsyf;
+            hd[19] = hkjsdw;
+            hd[20] = jshk;
+            hd[21] = tcje;
             return hd;
         }
 

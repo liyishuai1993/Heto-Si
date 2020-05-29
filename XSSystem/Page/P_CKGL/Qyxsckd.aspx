@@ -50,22 +50,29 @@
         }
 
         function FormHdCheck() {
-                document.getElementById("rkjz").value = (document.getElementById("rkmz").value - document.getElementById("rkpz").value).toFixed(3);
-                if (document.getElementById("IsCal").value == true) {
-                    document.getElementById("yfhllh").value = (document.getElementById("ckjz2").value * document.getElementById("percent").value).toFixed(3);
-                }
-                document.getElementById("ksds").value = Math.abs(document.getElementById("ckjz2").value - document.getElementById("rkjz").value).toFixed(3);
-                document.getElementById("yyds").value = document.getElementById("rkjz").value - document.getElementById("ckjz2").value;
+            document.getElementById("rkjz").value = (document.getElementById("rkmz").value - document.getElementById("rkpz").value).toFixed(3);
+            if (document.getElementById("IsCal").value == true) {
+                document.getElementById("yfhllh").value = (document.getElementById("ckjz2").value * document.getElementById("percent").value).toFixed(3);
+            }
+            document.getElementById("ksds").value = Math.abs(document.getElementById("ckjz2").value - document.getElementById("rkjz").value).toFixed(3);
+            var yyds = (document.getElementById("rkjz").value - document.getElementById("ckjz2").value).toFixed(3);
+            document.getElementById("yyds").value = yyds;
+            if (yyds >= 0) {
+                document.getElementById("yfkkds").value = 0;
+                document.getElementById("yfkkje").value = 0;
+            } else {
                 document.getElementById("yfkkds").value = document.getElementById("ksds").value - document.getElementById("yfhllh").value;
                 document.getElementById("yfkkje").value = (document.getElementById("yflhbz").value * document.getElementById("yfkkds").value).toFixed(2);
-                var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz").value;
-                document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz").value: document.getElementById("ckjz2").value;
+            }
 
-                document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value).toFixed(2);
-                document.getElementById("jsyf").value = (document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value).toFixed(2);
-                document.getElementById("hkjsdw").value = document.getElementById("rkjz").value - document.getElementById("kd").value;
-                document.getElementById("jshk").value = (document.getElementById("hkjsdw").value * document.getElementById("mj").value).toFixed(2);
-                document.getElementById("tcje").value = (document.getElementById("hkjsdw").value * document.getElementById("tcbz").value).toFixed(2);
+            var temp = document.getElementById("ckjz2").value - document.getElementById("rkjz").value;
+            document.getElementById("yfjsdw").value = temp > 0 ? document.getElementById("rkjz").value : document.getElementById("ckjz2").value;
+
+            document.getElementById("yfyf").value = (document.getElementById("yfjsdw").value * document.getElementById("yj").value - document.getElementById("yfkkje").value).toFixed(2);
+            document.getElementById("jsyf").value = (document.getElementById("yfyf").value - document.getElementById("yfyk").value - document.getElementById("fykk").value).toFixed(2);
+            document.getElementById("hkjsdw").value = document.getElementById("rkjz").value - document.getElementById("kd").value;
+            document.getElementById("jshk").value = (document.getElementById("hkjsdw").value * document.getElementById("mj").value).toFixed(2);
+            document.getElementById("tcje").value = (document.getElementById("hkjsdw").value * document.getElementById("tcbz").value).toFixed(2);
         }
     </script>
 </head>
@@ -85,17 +92,17 @@
                     <tr>
                         <td class="auto-style3"><span>装车时间</span><asp:TextBox ID="zcsj" runat="server" Text="" onClick="WdatePicker()" Width="500px" valued="must1" name="装车时间"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">发煤煤场<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fmmc" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入发煤煤场" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="发煤煤场" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">供方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_gf" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入供方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="供方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
-                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">需方<telerik:RadComboBox RenderMode="Lightweight" ID="tk_xf" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入需方名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="需方名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -109,7 +116,7 @@
                     <tr>
                         <td class="auto-style3">联系电话<asp:TextBox ID="lxdh" runat="server" Height="16px" Width="500px" CssClass="auto-style4"></asp:TextBox>
                         </td>
-                        <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc"  runat="server" Width="500px" Height="200px"
+                        <td class="auto-style3">物料名称<telerik:RadComboBox RenderMode="Lightweight" ID="tk_wlmc" runat="server" Width="500px" Height="200px"
                             EmptyMessage="请输入物料名称" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains" name="物料名称" valued="must1"
                             HighlightTemplatedItems="true" />
                         </td>
@@ -134,13 +141,13 @@
                     </tr>
                     <tr>
                         <td class="auto-style3">#货款估算金额<asp:TextBox ID="hkgsje" OnFocus="FormCkdCheck()" runat="server" Height="16px" Width="440px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="货款估算金额" valued="must1"></asp:TextBox>
-                        <asp:CheckBox runat="server" ToolTip="以出库单数据填充客户回单" AutoPostBack="true" ID="CheckBox_hd" Height="20px" Width="20px" OnCheckedChanged="CheckBox1_CheckedChanged"/>
+                            <asp:CheckBox runat="server" ToolTip="以出库单数据填充客户回单" AutoPostBack="true" ID="CheckBox_hd" Height="20px" Width="20px" OnCheckedChanged="CheckBox1_CheckedChanged" />
                         </td>
                         <td class="auto-style3"><span>已付油卡</span><asp:TextBox ID="yfyk" OnBlur="FormCkdCheck()" cal="must1" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="已付油卡" valued="must1"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td class="auto-style3"><span>运价</span><asp:TextBox ID="yj" cal="must1" OnBlur="FormCkdCheck()" runat="server" Height="16px" Width="500px" OnKeyPress="isnum()" ToolTip="纯数字" OnKeyUp="value=value.replace(/[^\d.]/g,'')" name="运价" valued="must1"></asp:TextBox></td>
-                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh"  runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
+                        <td class="auto-style3">付卡账户<telerik:RadComboBox RenderMode="Lightweight" ID="tk_fkzh" runat="server" Width="500px" Height="200px" EmptyMessage="请输入支付账户" MarkFirstMatch="true" EnableLoadOnDemand="true" Filter="Contains"
                             HighlightTemplatedItems="true" />
                         </td>
 
@@ -212,12 +219,12 @@
                         <td class="auto-style3">运费结算状态<asp:DropDownList ID="yfjszt_droplist" runat="server" Height="25px" Width="284px" CssClass="auto-style4">
                             <asp:ListItem>已结算</asp:ListItem>
                             <asp:ListItem>未结算</asp:ListItem>
-                            </asp:DropDownList>
+                        </asp:DropDownList>
                         </td>
                         <td class="auto-style3">审核状态<asp:DropDownList ID="shzt_droplist" runat="server" Height="25px" Width="284px">
-                             <asp:ListItem>已审核</asp:ListItem>
+                            <asp:ListItem>已审核</asp:ListItem>
                             <asp:ListItem>未审核</asp:ListItem>
-                                                    </asp:DropDownList></td>
+                        </asp:DropDownList></td>
 
                     </tr>
 

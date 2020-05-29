@@ -1002,6 +1002,7 @@
     <Content Include="Page\P_CWGL\Txcxzz.aspx" />
     <Content Include="Page\P_CWGL\Xxfpyjd.aspx" />
     <Content Include="Page\P_CWGL\Yfjsd.aspx" />
+    <Content Include="Page\P_CWGL\Yfmx.aspx" />
     <Content Include="Page\P_DBGL\QydbckdGl.aspx" />
     <Content Include="Page\P_DBGL\QydbhdGl.aspx" />
     <Content Include="Page\P_DBGL\TydbckdGl.aspx" />
@@ -1256,6 +1257,13 @@
     </Compile>
     <Compile Include="Page\P_CWGL\Yfjsd.aspx.designer.cs">
       <DependentUpon>Yfjsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Yfmx.aspx.cs">
+      <DependentUpon>Yfmx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\P_CWGL\Yfmx.aspx.designer.cs">
+      <DependentUpon>Yfmx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page\P_DBGL\QydbckdGl.aspx.cs">
       <DependentUpon>QydbckdGl.aspx</DependentUpon>

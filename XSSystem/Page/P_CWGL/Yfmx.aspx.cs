@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using xs_System.Logic;
@@ -10,16 +14,16 @@ using XSSystem.Class;
 
 namespace XSSystem.Page.P_CWGL
 {
-    public partial class Khskmx : AuthWebPage
+    public partial class Yfmx : AuthWebPage
     {
         HTGLLogic _htglLogic = new HTGLLogic();
-        static DataTable SkdDT;
-        static DataTable FkdDT;
+        static DataTable CkdDT;
+        static DataTable RkdDT;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                InitDataTableJgxx();
+                //InitDataTableJgxx();
 
             }
         }
@@ -49,14 +53,14 @@ namespace XSSystem.Page.P_CWGL
 
         private void InitDataTableJgxx()
         {
-            SkdDT = new DataTable();
-            SkdDT.Columns.Add("dwmc", Type.GetType("System.String"));
-            SkdDT.Columns.Add("rq", Type.GetType("System.String"));
-            SkdDT.Columns.Add("zy", Type.GetType("System.String"));
-            SkdDT.Columns.Add("skje", Type.GetType("System.Double"));
-            SkdDT.Columns.Add("skfs", Type.GetType("System.Double"));
-            SkdDT.Columns.Add("skzh", Type.GetType("System.String"));
-            GridView1.DataSource = SkdDT;
+            CkdDT = new DataTable();
+            CkdDT.Columns.Add("dwmc", Type.GetType("System.String"));
+            CkdDT.Columns.Add("rq", Type.GetType("System.String"));
+            CkdDT.Columns.Add("zy", Type.GetType("System.String"));
+            CkdDT.Columns.Add("skje", Type.GetType("System.Double"));
+            CkdDT.Columns.Add("skfs", Type.GetType("System.Double"));
+            CkdDT.Columns.Add("skzh", Type.GetType("System.String"));
+            GridView1.DataSource = CkdDT;
             GridView1.DataBind();
         }
 
@@ -64,23 +68,23 @@ namespace XSSystem.Page.P_CWGL
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            SkdDT.Columns[0].ColumnName = "单位名称";
-            SkdDT.Columns[1].ColumnName = "日期";
-            SkdDT.Columns[2].ColumnName = "摘要";
-            SkdDT.Columns[3].ColumnName = "收款金额";
-            SkdDT.Columns[4].ColumnName = "收款方式";
-            SkdDT.Columns[5].ColumnName = "收款账户";
+            CkdDT.Columns[0].ColumnName = "单位名称";
+            CkdDT.Columns[1].ColumnName = "日期";
+            CkdDT.Columns[2].ColumnName = "摘要";
+            CkdDT.Columns[3].ColumnName = "收款金额";
+            CkdDT.Columns[4].ColumnName = "收款方式";
+            CkdDT.Columns[5].ColumnName = "收款账户";
 
             //ExportExcelByDataTable(dt,"test");
-            if (SkdDT.Columns.Contains("PID"))
+            if (CkdDT.Columns.Contains("PID"))
             {
-                SkdDT.Columns.Remove("PID");
+                CkdDT.Columns.Remove("PID");
             }
-            DataRow row = SkdDT.NewRow();
+            DataRow row = CkdDT.NewRow();
             row[0] = "合计";
-            row[3] = SkdDT.Compute("sum(收款金额)", "TRUE");
-            SkdDT.Rows.Add(row);
-            CreateExcel(SkdDT, "application/ms-excel", $"{kh.Text}收款明细{cxsjQ.Text}-{cxsjZ.Text}");
+            row[3] = CkdDT.Compute("sum(收款金额)", "TRUE");
+            CkdDT.Rows.Add(row);
+            CreateExcel(CkdDT, "application/ms-excel", $"{kh.Text}收款明细{cxsjQ.Text}-{cxsjZ.Text}");
 
 
 
@@ -164,39 +168,28 @@ namespace XSSystem.Page.P_CWGL
             qc.qdrqQ = Convert.ToDateTime(cxsjQ.Text.Trim());
             qc.qdrqZ = Convert.ToDateTime(cxsjZ.Text.Trim());
             qc.selectedItem = kh.Text.Trim();
-            GetSkd(qc);
-            GetFkd(qc);
-            GetAllData();
-            GridView1.DataSource = SkdDT;
+            GetCkd(qc);
+            GridView1.DataSource = CkdDT;
 
             GridView1.DataBind();
         }
 
         private void GetAllData()
         {
-            foreach (DataRow val in FkdDT.Rows)
+            foreach (DataRow val in RkdDT.Rows)
             {
-                SkdDT.ImportRow(val);
+                CkdDT.ImportRow(val);
             }
 
         }
 
-        private void GetSkd(QueryClass qc)
+        private void GetCkd(QueryClass qc)
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QuerySkdOrder(qc);
-            pagepara.OrderBy = "dwmc";
-            SkdDT = xsPageHelper.BindPager(pagepara);
-        }
-
-        private void GetFkd(QueryClass qc)
-        {
-            PagerParameter pagepara = new PagerParameter();
-            pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QueryFkdOrder(qc);
-            pagepara.OrderBy = "dwmc";
-            FkdDT = xsPageHelper.BindPager(pagepara);
+            pagepara.Sql = _htglLogic.QueryCkdmxOrder(qc);
+            pagepara.OrderBy = "ch";
+            CkdDT = xsPageHelper.BindPager(pagepara);
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -205,34 +198,14 @@ namespace XSSystem.Page.P_CWGL
             LoginModel model = Session["LoginModel"] as LoginModel;
             qc.user_no = model.LoginUser;
             qc.IsAll = 1;
-            GetSkd(qc);
-            GetFkd(qc);
-            GetAllData();
-            GridView1.DataSource = SkdDT;
+            GetCkd(qc);
+            //GetRkd(qc);
+            //GetAllData();
+            GridView1.DataSource = CkdDT;
 
             GridView1.DataBind();
         }
 
-        double skje;
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            try
-            {
-                if (e.Row.RowIndex >= 0)
-                {
-                    skje += Convert.ToDouble(e.Row.Cells[4].Text);
-                }
-                else if (e.Row.RowType == DataControlRowType.Footer)
-                {
-                    e.Row.Cells[1].Text = "汇总合计";
-                    e.Row.Cells[4].Text = skje.ToString("f3");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "script", "<script>alert('" + ex.Message + "')</script>", false);
-            }
-        }
+        
     }
 }
