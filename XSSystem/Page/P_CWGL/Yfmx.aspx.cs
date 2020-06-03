@@ -187,7 +187,14 @@ namespace XSSystem.Page.P_CWGL
         {
             PagerParameter pagepara = new PagerParameter();
             pagepara.DbConn = GlabalString.DBString;
-            pagepara.Sql = _htglLogic.QueryCkdmxOrder(qc);
+            if (droplist_table.SelectedItem.Value == "1")
+            {
+                pagepara.Sql = _htglLogic.QueryCkdmxOrder(qc);
+            }
+            else
+            {
+                pagepara.Sql = _htglLogic.QueryRkdmxOrder(qc);
+            }
             pagepara.OrderBy = "ch";
             CkdDT = xsPageHelper.BindPager(pagepara);
         }
@@ -198,14 +205,35 @@ namespace XSSystem.Page.P_CWGL
             LoginModel model = Session["LoginModel"] as LoginModel;
             qc.user_no = model.LoginUser;
             qc.IsAll = 1;
+
             GetCkd(qc);
             //GetRkd(qc);
             //GetAllData();
-            GridView1.DataSource = CkdDT;
-
-            GridView1.DataBind();
+            if (droplist_table.SelectedItem.Value == "1")
+            {
+                GridView1.DataSource = CkdDT;
+                GridView1.DataBind();
+            }
+            else
+            {
+                GridView2.DataSource = CkdDT;
+                GridView2.DataBind();
+            }
+            
         }
 
-        
+        protected void droplist_table_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (droplist_table.SelectedItem.Value == "1")
+            {
+                GridView1.Visible = true;
+                GridView2.Visible = false;
+            }
+            else
+            {
+                GridView1.Visible = false;
+                GridView2.Visible = true;
+            }
+        }
     }
 }

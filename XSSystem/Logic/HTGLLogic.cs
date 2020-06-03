@@ -1274,6 +1274,12 @@ namespace xs_System.Logic
             return sql;
         }
 
+        public string QueryRkdmxOrder(QueryClass qc)
+        {
+            string sql = $@"select ch,zcrq,gf,wlmc,zcjz,rkrq,rkmc,rkjz,yj,yfjsdw,(yfjsdw*yj) yf,ksds,yslhbz,kkbz,kkje,yfyk,yfyf from xs_CgrkdTable where user_no='{qc.user_no}'";
+            return sql;
+        }
+
         public bool DeleteData(DirModel dml, string tablename,string key)
         {
             string[] ckb = dml.GetValue<string[]>("@htbhArr");
