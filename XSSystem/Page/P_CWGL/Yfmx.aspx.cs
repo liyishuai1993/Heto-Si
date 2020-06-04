@@ -68,23 +68,57 @@ namespace XSSystem.Page.P_CWGL
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            CkdDT.Columns[0].ColumnName = "单位名称";
-            CkdDT.Columns[1].ColumnName = "日期";
-            CkdDT.Columns[2].ColumnName = "摘要";
-            CkdDT.Columns[3].ColumnName = "收款金额";
-            CkdDT.Columns[4].ColumnName = "收款方式";
-            CkdDT.Columns[5].ColumnName = "收款账户";
-
-            //ExportExcelByDataTable(dt,"test");
             if (CkdDT.Columns.Contains("PID"))
             {
                 CkdDT.Columns.Remove("PID");
             }
-            DataRow row = CkdDT.NewRow();
-            row[0] = "合计";
-            row[3] = CkdDT.Compute("sum(收款金额)", "TRUE");
-            CkdDT.Rows.Add(row);
-            CreateExcel(CkdDT, "application/ms-excel", $"{kh.Text}收款明细{cxsjQ.Text}-{cxsjZ.Text}");
+            if (droplist_table.SelectedItem.Value == "1")
+            {
+                CkdDT.Columns[0].ColumnName = "车号";
+                CkdDT.Columns[1].ColumnName = "装车时间";
+                CkdDT.Columns[2].ColumnName = "发煤煤场";
+                CkdDT.Columns[3].ColumnName = "物料名称";
+                CkdDT.Columns[4].ColumnName = "出库净重";
+                CkdDT.Columns[5].ColumnName = "入库时间";
+                CkdDT.Columns[6].ColumnName = "收货单位";
+                CkdDT.Columns[7].ColumnName = "入库净重";
+                CkdDT.Columns[8].ColumnName = "运价";
+                CkdDT.Columns[9].ColumnName = "运费结算吨位";
+                CkdDT.Columns[10].ColumnName = "运费";
+                CkdDT.Columns[11].ColumnName = "磅差";
+                CkdDT.Columns[12].ColumnName = "路损";
+                CkdDT.Columns[13].ColumnName = "运费扣款标准";
+                CkdDT.Columns[14].ColumnName = "运费扣款金额";
+                CkdDT.Columns[15].ColumnName = "已付油卡";
+                CkdDT.Columns[16].ColumnName = "应付运费";
+                CkdDT.Columns[17].ColumnName = "费用扣款";
+                CkdDT.Columns[18].ColumnName = "结算运费";
+                CkdDT.Columns[19].ColumnName = "运费结算状态";
+            }
+            else
+            {
+                CkdDT.Columns[0].ColumnName = "车号";
+                CkdDT.Columns[1].ColumnName = "装车日期";
+                CkdDT.Columns[2].ColumnName = "供方";
+                CkdDT.Columns[3].ColumnName = "物料名称";
+                CkdDT.Columns[4].ColumnName = "装车净重";
+                CkdDT.Columns[5].ColumnName = "入库时间";
+                CkdDT.Columns[6].ColumnName = "入库煤场";
+                CkdDT.Columns[7].ColumnName = "入库净重";
+                CkdDT.Columns[8].ColumnName = "运价";
+                CkdDT.Columns[9].ColumnName = "运费结算吨位";
+                CkdDT.Columns[10].ColumnName = "运费";
+                CkdDT.Columns[11].ColumnName = "磅差";
+                CkdDT.Columns[12].ColumnName = "路损";
+                CkdDT.Columns[13].ColumnName = "扣款标准";
+                CkdDT.Columns[14].ColumnName = "扣亏金额";
+                CkdDT.Columns[15].ColumnName = "已付油卡";
+                CkdDT.Columns[16].ColumnName = "应付运费";
+            }
+            
+            //ExportExcelByDataTable(dt,"test");
+
+            CreateExcel(CkdDT, "application/ms-excel", $"{kh.Text}出库单费用明细{cxsjQ.Text}-{cxsjZ.Text}");
 
 
 
