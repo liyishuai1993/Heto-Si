@@ -191,17 +191,16 @@ namespace XSSystem.Page.P_CWGL
                 AlertMessage("请输入查询时间段！");
                 return;
             }
-            if (kh.Text.Trim() == "")
-            {
-                AlertMessage("请输入查询客户！");
-                return;
-            }
             QueryClass qc = new QueryClass();
-            LoginModel model = Session["LoginModel"] as LoginModel;
-            qc.user_no = model.LoginUser;
             qc.qdrqQ = Convert.ToDateTime(cxsjQ.Text.Trim());
             qc.qdrqZ = Convert.ToDateTime(cxsjZ.Text.Trim());
-            qc.selectedItem = kh.Text.Trim();
+            qc.selectedTimeKey = "zcsj";
+            qc.selectedKey = sxtj.SelectedValue;
+            qc.selectedItem = tjz.Text.Trim();
+            qc.selectedCon = con.SelectedValue;
+            qc.IsAll = 0;
+            LoginModel model = Session["LoginModel"] as LoginModel;
+            qc.user_no = model.LoginUser;
             GetCkd(qc);
             GridView1.DataSource = CkdDT;
 

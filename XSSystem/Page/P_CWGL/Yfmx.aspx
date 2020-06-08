@@ -39,15 +39,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="divcss5" style="margin-bottom: 15px; width: 1200px">
+        <div class="divcss5" style="margin-bottom: 15px; width: 1288px">
             <span>
                 <asp:DropDownList runat="server" ID="droplist_table" AutoPostBack="true" OnSelectedIndexChanged="droplist_table_SelectedIndexChanged">
                     <asp:ListItem Value="1">汽运销售出库单</asp:ListItem>
                     <asp:ListItem Value="2">采购入库单</asp:ListItem>
                 </asp:DropDownList>
-                导出时间<asp:TextBox ID="cxsjQ" runat="server" Text="" valued="must" name="起始日期" onClick="WdatePicker()" Width="204px" />-
-                <asp:TextBox ID="cxsjZ" runat="server" Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="204px" />
-                客户<asp:TextBox ID="kh" runat="server" Width="140px"></asp:TextBox>
+                装车时间<asp:TextBox ID="cxsjQ" runat="server" Text="" valued="must" name="起始日期" onClick="WdatePicker()" Width="128px" />-
+                <asp:TextBox ID="cxsjZ" runat="server" Text="" valued="must" name="终止日期" onClick="WdatePicker()" Width="128px" />
+                <asp:DropDownList id="con" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="and">关联</asp:ListItem>
+                        <asp:ListItem Value="or">不关联</asp:ListItem>
+                        </asp:DropDownList>
+                筛选条件<asp:DropDownList id="sxtj" runat="server" height="25px" Width ="80px">
+                        <asp:ListItem Value="ch">车号</asp:ListItem>
+                        <asp:ListItem Value="gf">供方</asp:ListItem>
+                        <asp:ListItem Value="xf">需方</asp:ListItem>
+                        </asp:DropDownList>
+                <asp:TextBox id="tjz" runat="server" Width="158px"></asp:TextBox>
                 <asp:Button Text="生成报表" name="queryBtn" OnClick="Button1_Click" CssClass="button" type="bu" runat="server" ID="Button1" />
                 <asp:Button Text="导出报表" CommandName="exportBtn" OnClick="Unnamed_Click" CssClass="button" runat="server" ID="btn1" />
                 <asp:Button Text="生成全部" name="allBtn" OnClick="Button2_Click" CssClass="button" type="bu" runat="server" ID="Button2" />

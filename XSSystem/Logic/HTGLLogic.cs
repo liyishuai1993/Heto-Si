@@ -1270,13 +1270,15 @@ namespace xs_System.Logic
 
         public string QueryCkdmxOrder(QueryClass qc)
         {
-            string sql = $@"select ch,zcsj,fmmc,wlmc,ckjz2,rksj,xf,rkjz,yj,yfjsdw,(yj*yfjsdw) yf,ksds,yfhllh,yflhbz,yfkkje,yfyk,yfyf,fykk,jsyf,yfjszt from xs_QyxsckdTable a,xs_QykhhdlrTable b where a.rkbdh=b.rkbdh and a.user_no='{qc.user_no}'";
+            string sql = $@"select ch,zcsj,fmmc,wlmc,ckjz2,rksj,xf,rkjz,yj,yfjsdw,(yj*yfjsdw) yf,ksds,yfhllh,yflhbz,yfkkje,yfyk,yfyf,fykk,jsyf,yfjszt from xs_QyxsckdTable a,xs_QykhhdlrTable b 
+                        where a.rkbdh=b.rkbdh and a.user_no='{qc.user_no}' and (((a.{qc.selectedTimeKey}>='{qc.qdrqQ}' and a.{qc.selectedTimeKey}<='{qc.qdrqZ}') {qc.selectedCon} a.{qc.selectedKey}='{qc.selectedItem}') or 1={qc.IsAll})";
             return sql;
         }
 
         public string QueryRkdmxOrder(QueryClass qc)
         {
-            string sql = $@"select ch,zcrq,gf,wlmc,zcjz,rkrq,rkmc,rkjz,yj,yfjsdw,(yfjsdw*yj) yf,ksds,yslhbz,kkbz,kkje,yfyk,yfyf from xs_CgrkdTable where user_no='{qc.user_no}'";
+            string sql = $@"select ch,zcrq,gf,wlmc,zcjz,rkrq,rkmc,rkjz,yj,yfjsdw,(yfjsdw*yj) yf,ksds,yslhbz,kkbz,kkje,yfyk,yfyf from xs_CgrkdTable 
+                          where user_no='{qc.user_no}' and ((({qc.selectedTimeKey}>='{qc.qdrqQ}' and {qc.selectedTimeKey}<='{qc.qdrqZ}') {qc.selectedCon} {qc.selectedKey}='{qc.selectedItem}') or 1={qc.IsAll})";
             return sql;
         }
 
